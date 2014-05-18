@@ -11,6 +11,7 @@
 		8324F4CA1928016100383AA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8324F4C81928016100383AA2 /* main.m */; };
 		8324F4CD192801B300383AA2 /* UIView+KGNAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8324F4CC192801B300383AA2 /* UIView+KGNAutoLayout.m */; };
 		8324F4CF1929094A00383AA2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8324F4CE1929094A00383AA2 /* Images.xcassets */; };
+		8324F4D11929205E00383AA2 /* tale-of-two-cities-book-cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8324F4D01929205E00383AA2 /* tale-of-two-cities-book-cover.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +31,7 @@
 		8324F4CB192801B300383AA2 /* UIView+KGNAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+KGNAutoLayout.h"; path = "../UIView+KGNAutoLayout/UIView+KGNAutoLayout.h"; sourceTree = "<group>"; };
 		8324F4CC192801B300383AA2 /* UIView+KGNAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+KGNAutoLayout.m"; path = "../UIView+KGNAutoLayout/UIView+KGNAutoLayout.m"; sourceTree = "<group>"; };
 		8324F4CE1929094A00383AA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8324F4D01929205E00383AA2 /* tale-of-two-cities-book-cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tale-of-two-cities-book-cover.jpg"; sourceTree = "<group>"; };
 		83F5032D192800F700A77952 /* UIView+KGNAutoLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIView+KGNAutoLayout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F50348192800F800A77952 /* UIView+KGNAutoLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UIView+KGNAutoLayoutTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				8324F4C61928016100383AA2 /* KGNAppDelegate.h */,
 				8324F4C71928016100383AA2 /* KGNAppDelegate.m */,
 				8324F4CE1929094A00383AA2 /* Images.xcassets */,
+				8324F4D01929205E00383AA2 /* tale-of-two-cities-book-cover.jpg */,
 				8324F4C51928015100383AA2 /* UIView+KGNAutoLayout */,
 				83F5032E192800F700A77952 /* Products */,
 			);
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8324F4CF1929094A00383AA2 /* Images.xcassets in Resources */,
+				8324F4D11929205E00383AA2 /* tale-of-two-cities-book-cover.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

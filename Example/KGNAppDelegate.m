@@ -15,40 +15,82 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     UIViewController *viewController = [UIViewController new];
+    viewController.view.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = viewController;
-    
-    UIView *rootView = [UIView new];
-    rootView.backgroundColor = [UIColor whiteColor];
-    [viewController.view addSubview:rootView];
-    [rootView kgn_pinToSuperview];
 
-    UIView *innerView = [UIView new];
-    innerView.backgroundColor = [UIColor redColor];
-    [viewController.view addSubview:innerView];
-    [innerView kgn_pinToSuperviewEdges:KGNAutoLayoutEdgeAll withinViewController:viewController andOffset:10];
+    // Navigation bar
 
-    UIView *centerView = [UIView new];
-    centerView.backgroundColor = [UIColor blueColor];
-    [innerView addSubview:centerView];
-    [centerView kgn_centerInSuperview];
-    [centerView kgn_constrainToWidth:100];
-    [centerView kgn_constrainToHeight:80];
+    UIView *navigationBarView = [UIView new];
+    navigationBarView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
+    [viewController.view addSubview:navigationBarView];
+    [navigationBarView kgn_sizeToHeight:64];
+    [navigationBarView kgn_pinToSuperviewSides];
+    [navigationBarView kgn_pinToSuperviewTop];
 
-    UIView *aboveView = [UIView new];
-    aboveView.backgroundColor = [UIColor yellowColor];
-    [innerView addSubview:aboveView];
-    [aboveView kgn_positionAboveItem:centerView withOffset:10];
-    [aboveView kgn_centerHorizontallyInSuperview];
-    [aboveView kgn_constrainToWidth:60];
-    [aboveView kgn_constrainToHeight:20];
+    UIView *navigationBarContentView = [UIView new];
+    [navigationBarView addSubview:navigationBarContentView];
+    [navigationBarContentView kgn_pinToTopLayoutGuide:viewController.topLayoutGuide];
+    [navigationBarContentView kgn_pinToSuperviewSides];
+    [navigationBarContentView kgn_pinToSuperviewBottom];
 
-    UIView *belowView = [UIView new];
-    belowView.backgroundColor = [UIColor purpleColor];
-    [viewController.view addSubview:belowView];
-    [belowView kgn_positionBelowItem:centerView withOffset:10];
-    [belowView kgn_centerHorizontallyInSuperview];
-    [belowView kgn_constrainToWidth:60];
-    [belowView kgn_constrainToHeight:20];
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [leftButton setTitle:NSLocalizedString(@"Menu", @"Menu button title") forState:UIControlStateNormal];
+    [navigationBarContentView addSubview:leftButton];
+    [leftButton kgn_pinToSuperviewLeftWithOffset:10];
+    [leftButton kgn_centerVerticallyInSuperview];
+
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [rightButton setTitle:NSLocalizedString(@"Settings", @"Settings button title") forState:UIControlStateNormal];
+    [navigationBarContentView addSubview:rightButton];
+    [rightButton kgn_pinToSuperviewRightWithOffset:10];
+    [rightButton kgn_centerVerticallyInSuperview];
+
+    UILabel *titleLabel = [UILabel new];
+    titleLabel.text = NSLocalizedString(@"Auto Layout", @"Auto layout title");
+    [navigationBarContentView addSubview:titleLabel];
+    [titleLabel kgn_centerInSuperview];
+
+    UIView *lineView = [UIView new];
+    lineView.backgroundColor = [UIColor lightGrayColor];
+    [navigationBarView addSubview:lineView];
+    [lineView kgn_sizeToHeight:0.5];
+    [lineView kgn_pinToSuperviewSides];
+    [lineView kgn_pinToSuperviewBottom];
+
+    // Content
+
+    UIScrollView *scrollView = [UIScrollView new];
+    scrollView.clipsToBounds = NO;
+    [viewController.view insertSubview:scrollView belowSubview:navigationBarView];
+    [scrollView kgn_pinToSuperviewSides];
+    [scrollView kgn_pinToSuperviewBottom];
+    [scrollView kgn_positionBelowItem:navigationBarView];
+
+    UILabel *contentTitleLabel = [UILabel new];
+    contentTitleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    contentTitleLabel.text = @"A Tale of Two Cities";
+    [scrollView addSubview:contentTitleLabel];
+    [contentTitleLabel kgn_centerHorizontallyInSuperview];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tale-of-two-cities-book-cover.jpg"]];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [scrollView addSubview:imageView];
+    [imageView kgn_positionBelowItem:contentTitleLabel withOffset:20];
+    [imageView kgn_centerHorizontallyInSuperview];
+    [imageView kgn_sizeToWidth:200];
+    [imageView kgn_sizeToHeight:200];
+
+    UILabel *intoLabel = [UILabel new];
+    intoLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    intoLabel.numberOfLines = 0;
+    intoLabel.text = @"IT WAS the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way- in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.";
+    [scrollView addSubview:intoLabel];
+    [intoLabel kgn_positionBelowItem:imageView withOffset:20];
+    [intoLabel kgn_sizeToWidthOfItem:scrollView withOffset:20];
+    [intoLabel kgn_centerHorizontallyInSuperview];
+
+    [scrollView kgn_pinToTopOfItem:contentTitleLabel withOffset:20];
+    [scrollView kgn_pinToBottomOfItem:intoLabel withOffset:20];
 
     [self.window makeKeyAndVisible];
     return YES;

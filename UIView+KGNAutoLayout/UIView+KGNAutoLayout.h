@@ -21,7 +21,33 @@ typedef NS_OPTIONS(NSUInteger, KGNAutoLayoutEdge){
 #pragma mark - Pin
 
 - (NSArray *)kgn_pinToSuperview;
-- (NSArray *)kgn_pinToSuperviewEdges:(KGNAutoLayoutEdge)edges withinViewController:(UIViewController *)viewController andOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToSuperviewTop;
+- (NSLayoutConstraint *)kgn_pinToSuperviewTopWithOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToSuperviewBottom;
+- (NSLayoutConstraint *)kgn_pinToSuperviewBottomWithOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToSuperviewLeft;
+- (NSLayoutConstraint *)kgn_pinToSuperviewLeftWithOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToSuperviewRight;
+- (NSLayoutConstraint *)kgn_pinToSuperviewRightWithOffset:(CGFloat)offset;
+
+- (NSArray *)kgn_pinToSuperviewSides;
+- (NSArray *)kgn_pinToSuperviewSidesWithOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide;
+- (NSLayoutConstraint *)kgn_pinToTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide;
+- (NSLayoutConstraint *)kgn_pinToBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToTopOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinToTopOfItem:(id)item withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToBottomOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinToBottomOfItem:(id)item withOffset:(CGFloat)offset;
 
 #pragma mark - Center
 
@@ -33,8 +59,14 @@ typedef NS_OPTIONS(NSUInteger, KGNAutoLayoutEdge){
 
 #pragma mark - Size
 
-- (NSLayoutConstraint *)kgn_constrainToWidth:(CGFloat)width;
-- (NSLayoutConstraint *)kgn_constrainToHeight:(CGFloat)height;
+- (NSLayoutConstraint *)kgn_sizeToWidth:(CGFloat)width;
+- (NSLayoutConstraint *)kgn_sizeToHeight:(CGFloat)height;
+
+- (NSLayoutConstraint *)kgn_sizeToWidthOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_sizeToWidthOfItem:(id)item withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_sizeToHeightOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_sizeToHeightOfItem:(id)item withOffset:(CGFloat)offset;
 
 #pragma mark - Position
 
@@ -43,8 +75,9 @@ typedef NS_OPTIONS(NSUInteger, KGNAutoLayoutEdge){
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item;
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item withOffset:(CGFloat)offset;
 
-#pragma mark - Attribute
+#pragma mark - Low Level
 
+- (NSArray *)kgn_pinToSuperviewEdges:(KGNAutoLayoutEdge)edges withinViewController:(UIViewController *)viewController andOffset:(CGFloat)offset;
 - (NSLayoutConstraint *)kgn_constrainAttribute:(NSLayoutAttribute)viewAttribute toAttribute:(NSLayoutAttribute)itemAttribute ofItem:(id)item withOffset:(CGFloat)offset;
 
 @end
