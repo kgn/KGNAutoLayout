@@ -8,31 +8,43 @@
 
 @import UIKit;
 
-typedef NS_OPTIONS(NSUInteger, KGNAutoLayoutEdge)
-{
-    /// Pins the top edge of an item.
+typedef NS_OPTIONS(NSUInteger, KGNAutoLayoutEdge){
     KGNAutoLayoutEdgeTop = 1 << 0,
-
-    /// Pins the right edge of an item.
     KGNAutoLayoutEdgeRight = 1 << 1,
-
-    /// Pins the bottom edge of an item.
     KGNAutoLayoutEdgeBottom = 1 << 2,
-
-    /// Pins the left edge of an item.
     KGNAutoLayoutEdgeLeft = 1 << 3,
-
-    /// Pins all edges of an item.
     KGNAutoLayoutEdgeAll = ~0UL
 };
 
 @interface UIView(KGNAutoLayout)
 
-- (NSArray *)kgn_pinToSuperview;
-- (NSArray *)kgn_pinToSuperviewEdges:(KGNAutoLayoutEdge)edges;
-- (NSArray *)kgn_pinToSuperviewEdges:(KGNAutoLayoutEdge)edges offset:(CGFloat)offset;
+#pragma mark - Pin
 
-//- (NSLayoutConstraint *)kgn_constrainViewBelow:(UIView *)view;
-//- (NSLayoutConstraint *)kgn_constrainViewBelow:(UIView *)view withOffset:(CGFloat)offset;
+- (NSArray *)kgn_pinToSuperview;
+- (NSArray *)kgn_pinToSuperviewEdges:(KGNAutoLayoutEdge)edges withinViewController:(UIViewController *)viewController andOffset:(CGFloat)offset;
+
+#pragma mark - Center
+
+- (NSArray *)kgn_centerInSuperview;
+- (NSLayoutConstraint *)kgn_centerHorizontallyInSuperview;
+- (NSLayoutConstraint *)kgn_centerHorizontallyInSuperviewWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_centerVerticallyInSuperview;
+- (NSLayoutConstraint *)kgn_centerVerticallyInSuperviewWithOffset:(CGFloat)offset;
+
+#pragma mark - Size
+
+- (NSLayoutConstraint *)kgn_constrainToWidth:(CGFloat)width;
+- (NSLayoutConstraint *)kgn_constrainToHeight:(CGFloat)height;
+
+#pragma mark - Position
+
+- (NSLayoutConstraint *)kgn_positionAboveItem:(id)item;
+- (NSLayoutConstraint *)kgn_positionAboveItem:(id)item withOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_positionBelowItem:(id)item;
+- (NSLayoutConstraint *)kgn_positionBelowItem:(id)item withOffset:(CGFloat)offset;
+
+#pragma mark - Attribute
+
+- (NSLayoutConstraint *)kgn_constrainAttribute:(NSLayoutAttribute)viewAttribute toAttribute:(NSLayoutAttribute)itemAttribute ofItem:(id)item withOffset:(CGFloat)offset;
 
 @end
