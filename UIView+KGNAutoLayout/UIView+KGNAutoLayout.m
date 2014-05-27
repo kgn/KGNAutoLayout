@@ -68,24 +68,6 @@
     return [constraints copy];
 }
 
-#pragma mark - Pin: Layout Guides
-
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide{
-    return [self kgn_pinToBottomEdgeOfTopLayoutGuide:topLayoutGuide withOffset:0];
-}
-
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:topLayoutGuide withOffset:offset];
-}
-
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide{
-    return [self kgn_pinToTopEdgeOfBottomLayoutGuide:bottomLayoutGuide withOffset:0];
-}
-
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop ofItem:bottomLayoutGuide withOffset:offset];
-}
-
 #pragma mark - Pin: Edges
 
 - (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item{

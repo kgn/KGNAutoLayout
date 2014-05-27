@@ -30,14 +30,6 @@
 - (NSArray *)kgn_pinToSuperviewSideEdges;
 - (NSArray *)kgn_pinToSuperviewSideEdgesWithOffset:(CGFloat)offset;
 
-#pragma mark - Pin: Layout Guides
-
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide;
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide withOffset:(CGFloat)offset;
-
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide;
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset;
-
 #pragma mark - Pin: Edges
 
 - (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item;

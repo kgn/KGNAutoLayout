@@ -29,7 +29,7 @@
 
     UIView *navigationBarContentView = [UIView new];
     [navigationBarView addSubview:navigationBarContentView];
-    [navigationBarContentView kgn_pinToBottomEdgeOfTopLayoutGuide:viewController.topLayoutGuide];
+    [navigationBarContentView kgn_positionBelowItem:viewController.topLayoutGuide];
     [navigationBarContentView kgn_pinToSuperviewSideEdges];
     [navigationBarContentView kgn_pinToSuperviewBottomEdge];
 
