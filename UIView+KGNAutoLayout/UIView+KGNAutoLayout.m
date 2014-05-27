@@ -26,7 +26,16 @@
 #pragma mark - Pin to Superview
 
 - (NSArray *)kgn_pinToSuperview{
-    return [self kgn_pinToSuperviewEdges:KGNAutoLayoutEdgeAll withinViewController:nil andOffset:0];
+    return [self kgn_pinToSuperviewWithOffset:0];
+}
+
+- (NSArray *)kgn_pinToSuperviewWithOffset:(CGFloat)offset{
+    NSMutableArray *constraints = [NSMutableArray array];
+    [constraints addObject:[self kgn_pinToSuperviewTopWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewRightWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewBottomWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewLeftWithOffset:offset]];
+    return [constraints copy];
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewTop{
@@ -34,7 +43,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewTopWithOffset:(CGFloat)offset{
-    return [[self kgn_pinToSuperviewEdges:KGNAutoLayoutEdgeTop withinViewController:nil andOffset:offset] firstObject];
+    return [self kgn_constrainEdgeAttribute:NSLayoutAttributeTop toSuperViewWithOffset:offset];
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewBottom{
@@ -42,7 +51,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewBottomWithOffset:(CGFloat)offset{
-    return [[self kgn_pinToSuperviewEdges:KGNAutoLayoutEdgeBottom withinViewController:nil andOffset:offset] firstObject];
+    return [self kgn_constrainEdgeAttribute:NSLayoutAttributeBottom toSuperViewWithOffset:-offset];
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewLeft{
@@ -50,7 +59,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewLeftWithOffset:(CGFloat)offset{
-    return [[self kgn_pinToSuperviewEdges:KGNAutoLayoutEdgeLeft withinViewController:nil andOffset:offset] firstObject];
+    return [self kgn_constrainEdgeAttribute:NSLayoutAttributeLeft toSuperViewWithOffset:offset];
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewRight{
@@ -58,7 +67,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewRightWithOffset:(CGFloat)offset{
-    return [[self kgn_pinToSuperviewEdges:KGNAutoLayoutEdgeRight withinViewController:nil andOffset:offset] firstObject];
+    return [self kgn_constrainEdgeAttribute:NSLayoutAttributeRight toSuperViewWithOffset:-offset];
 }
 
 - (NSArray *)kgn_pinToSuperviewSides{
@@ -66,7 +75,10 @@
 }
 
 - (NSArray *)kgn_pinToSuperviewSidesWithOffset:(CGFloat)offset{
-    return [self kgn_pinToSuperviewEdges:KGNAutoLayoutEdgeLeft|KGNAutoLayoutEdgeRight withinViewController:nil andOffset:offset];
+    NSMutableArray *constraints = [NSMutableArray array];
+    [constraints addObject:[self kgn_pinToSuperviewLeftWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewRightWithOffset:offset]];
+    return [constraints copy];
 }
 
 - (NSLayoutConstraint *)kgn_pinToTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide{
@@ -83,36 +95,6 @@
 
 - (NSLayoutConstraint *)kgn_pinToBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop ofItem:bottomLayoutGuide withOffset:offset];
-}
-
-- (NSArray *)kgn_pinToSuperviewEdges:(KGNAutoLayoutEdge)edges withinViewController:(UIViewController *)viewController andOffset:(CGFloat)offset{
-    UIView *superview = self.superview;
-    NSAssert(superview, @"Can't create constraints without a superview");
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-
-    id topItem = viewController.topLayoutGuide;
-    id bottomItem = viewController.bottomLayoutGuide;
-
-    NSMutableArray *constraints = [NSMutableArray new];
-    if(edges & KGNAutoLayoutEdgeTop){
-        id item = topItem ? topItem : superview;
-        NSLayoutAttribute attribute = topItem ? NSLayoutAttributeBottom : NSLayoutAttributeTop;
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:item attribute:attribute multiplier:1.0 constant:offset]];
-    }
-    if(edges & KGNAutoLayoutEdgeLeft){
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:superview attribute:NSLayoutAttributeLeft multiplier:1.0 constant:offset]];
-    }
-    if(edges & KGNAutoLayoutEdgeRight){
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:superview attribute:NSLayoutAttributeRight multiplier:1.0 constant:-offset]];
-    }
-    if(edges & KGNAutoLayoutEdgeBottom){
-        id item = bottomItem ? bottomItem : superview;
-        NSLayoutAttribute attribute = bottomItem ? NSLayoutAttributeTop : NSLayoutAttributeBottom;
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:item attribute:attribute multiplier:1.0 constant:-offset]];
-    }
-
-    [superview addConstraints:constraints];
-    return [constraints copy];
 }
 
 - (NSLayoutConstraint *)kgn_pinToTopOfItem:(id)item{
@@ -145,12 +127,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_centerHorizontallyInSuperviewWithOffset:(CGFloat)offset{
-    UIView *superview = self.superview;
-    NSAssert(superview, @"Can't create constraints without a superview");
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:superview attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:offset];
-    [superview addConstraint:constraint];
-    return constraint;
+    return [self kgn_constrainEdgeAttribute:NSLayoutAttributeCenterX toSuperViewWithOffset:offset];
 }
 
 - (NSLayoutConstraint *)kgn_centerVerticallyInSuperview{
@@ -158,26 +135,17 @@
 }
 
 - (NSLayoutConstraint *)kgn_centerVerticallyInSuperviewWithOffset:(CGFloat)offset{
-    UIView *superview = self.superview;
-    NSAssert(superview, @"Can't create constraints without a superview");
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:superview attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:offset];
-    [superview addConstraint:constraint];
-    return constraint;
+    return [self kgn_constrainEdgeAttribute:NSLayoutAttributeCenterY toSuperViewWithOffset:offset];
 }
 
 #pragma mark - Size
 
 - (NSLayoutConstraint *)kgn_sizeToWidth:(CGFloat)width{
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:0 constant:width];
-    [self addConstraint:constraint];
-    return constraint;
+    return [self kgn_constrainSizeAttribute:NSLayoutAttributeWidth withSize:width];
 }
 
 - (NSLayoutConstraint *)kgn_sizeToHeight:(CGFloat)height{
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:0 constant:height];
-    [self addConstraint:constraint];
-    return constraint;
+    return [self kgn_constrainSizeAttribute:NSLayoutAttributeHeight withSize:height];
 }
 
 - (NSLayoutConstraint *)kgn_sizeToWidthOfItem:(id)item{
@@ -214,7 +182,27 @@
     return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:item withOffset:offset];
 }
 
-#pragma mark - Attribute
+#pragma mark - Low Level
+
+- (NSLayoutConstraint *)kgn_constrainSizeAttribute:(NSLayoutAttribute)sizeAttribute withSize:(CGFloat)size{
+    UIView *superview = self.superview;
+    NSAssert(superview, @"Can't create constraints without a superview");
+
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:sizeAttribute relatedBy:NSLayoutRelationEqual toItem:nil attribute:0 multiplier:0 constant:size];
+    [superview addConstraint:constraint];
+    return constraint;
+}
+
+- (NSLayoutConstraint *)kgn_constrainEdgeAttribute:(NSLayoutAttribute)edgeAttribute toSuperViewWithOffset:(CGFloat)offset{
+    UIView *superview = self.superview;
+    NSAssert(superview, @"Can't create constraints without a superview");
+
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:edgeAttribute relatedBy:NSLayoutRelationEqual toItem:superview attribute:edgeAttribute multiplier:1 constant:offset];
+    [superview addConstraint:constraint];
+    return constraint;
+}
 
 - (NSLayoutConstraint *)kgn_constrainAttribute:(NSLayoutAttribute)viewAttribute toAttribute:(NSLayoutAttribute)itemAttribute ofItem:(id)item withOffset:(CGFloat)offset{
     NSParameterAssert(item);
@@ -227,8 +215,10 @@
     }
     NSAssert(superview, @"Can't create constraints without a common superview");
 
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:viewAttribute relatedBy:NSLayoutRelationEqual toItem:item attribute:itemAttribute multiplier:1.0 constant:offset];
+    self.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:viewAttribute relatedBy:NSLayoutRelationEqual toItem:item attribute:itemAttribute multiplier:1 constant:offset];
     [superview addConstraint:constraint];
     return constraint;
 }
+
 @end

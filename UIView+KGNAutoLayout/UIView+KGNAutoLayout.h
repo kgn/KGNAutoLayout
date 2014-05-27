@@ -8,19 +8,12 @@
 
 @import UIKit;
 
-typedef NS_OPTIONS(NSUInteger, KGNAutoLayoutEdge){
-    KGNAutoLayoutEdgeTop = 1 << 0,
-    KGNAutoLayoutEdgeRight = 1 << 1,
-    KGNAutoLayoutEdgeBottom = 1 << 2,
-    KGNAutoLayoutEdgeLeft = 1 << 3,
-    KGNAutoLayoutEdgeAll = ~0UL
-};
-
 @interface UIView(KGNAutoLayout)
 
 #pragma mark - Pin
 
 - (NSArray *)kgn_pinToSuperview;
+- (NSArray *)kgn_pinToSuperviewWithOffset:(CGFloat)offset;
 
 - (NSLayoutConstraint *)kgn_pinToSuperviewTop;
 - (NSLayoutConstraint *)kgn_pinToSuperviewTopWithOffset:(CGFloat)offset;
@@ -77,7 +70,8 @@ typedef NS_OPTIONS(NSUInteger, KGNAutoLayoutEdge){
 
 #pragma mark - Low Level
 
-- (NSArray *)kgn_pinToSuperviewEdges:(KGNAutoLayoutEdge)edges withinViewController:(UIViewController *)viewController andOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_constrainSizeAttribute:(NSLayoutAttribute)sizeAttribute withSize:(CGFloat)size;
+- (NSLayoutConstraint *)kgn_constrainEdgeAttribute:(NSLayoutAttribute)edgeAttribute toSuperViewWithOffset:(CGFloat)offset;
 - (NSLayoutConstraint *)kgn_constrainAttribute:(NSLayoutAttribute)viewAttribute toAttribute:(NSLayoutAttribute)itemAttribute ofItem:(id)item withOffset:(CGFloat)offset;
 
 @end
