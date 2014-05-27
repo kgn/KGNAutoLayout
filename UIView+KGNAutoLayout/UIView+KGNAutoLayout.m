@@ -10,20 +10,7 @@
 
 @implementation UIView(KGNAutoLayout)
 
-- (UIView *)commonSuperviewWithView:(UIView *)peerView{
-    UIView *startView = self;
-    UIView *commonSuperview = nil;
-    do {
-        if([peerView isDescendantOfView:startView]){
-            commonSuperview = startView;
-        }
-        startView = startView.superview;
-    } while (startView && !commonSuperview);
-
-    return commonSuperview;
-}
-
-#pragma mark - Pin to Superview
+#pragma mark - Pin: Superview
 
 - (NSArray *)kgn_pinToSuperview{
     return [self kgn_pinToSuperviewWithOffset:0];
@@ -31,86 +18,106 @@
 
 - (NSArray *)kgn_pinToSuperviewWithOffset:(CGFloat)offset{
     NSMutableArray *constraints = [NSMutableArray array];
-    [constraints addObject:[self kgn_pinToSuperviewTopWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewRightWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewBottomWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewLeftWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewTopEdgeWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewRightEdgeWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewBottomEdgeWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewLeftEdgeWithOffset:offset]];
     return [constraints copy];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewTop{
-    return [self kgn_pinToSuperviewTopWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdge{
+    return [self kgn_pinToSuperviewTopEdgeWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewTopWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdgeWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeTop toSuperViewWithOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottom{
-    return [self kgn_pinToSuperviewBottomWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdge{
+    return [self kgn_pinToSuperviewBottomEdgeWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottomWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdgeWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeBottom toSuperViewWithOffset:-offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeft{
-    return [self kgn_pinToSuperviewLeftWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdge{
+    return [self kgn_pinToSuperviewLeftEdgeWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeftWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdgeWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeLeft toSuperViewWithOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewRight{
-    return [self kgn_pinToSuperviewRightWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdge{
+    return [self kgn_pinToSuperviewRightEdgeWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewRightWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdgeWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeRight toSuperViewWithOffset:-offset];
 }
 
-- (NSArray *)kgn_pinToSuperviewSides{
-    return [self kgn_pinToSuperviewSidesWithOffset:0];
+- (NSArray *)kgn_pinToSuperviewSideEdges{
+    return [self kgn_pinToSuperviewSideEdgesWithOffset:0];
 }
 
-- (NSArray *)kgn_pinToSuperviewSidesWithOffset:(CGFloat)offset{
+- (NSArray *)kgn_pinToSuperviewSideEdgesWithOffset:(CGFloat)offset{
     NSMutableArray *constraints = [NSMutableArray array];
-    [constraints addObject:[self kgn_pinToSuperviewLeftWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewRightWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewLeftEdgeWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToSuperviewRightEdgeWithOffset:offset]];
     return [constraints copy];
 }
 
-- (NSLayoutConstraint *)kgn_pinToTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide{
-    return [self kgn_pinToTopLayoutGuide:topLayoutGuide withOffset:0];
+#pragma mark - Pin: Layout Guides
+
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide{
+    return [self kgn_pinToBottomEdgeOfTopLayoutGuide:topLayoutGuide withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:topLayoutGuide withOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide{
-    return [self kgn_pinToBottomLayoutGuide:bottomLayoutGuide withOffset:0];
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide{
+    return [self kgn_pinToTopEdgeOfBottomLayoutGuide:bottomLayoutGuide withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop ofItem:bottomLayoutGuide withOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToTopOfItem:(id)item{
-    return [self kgn_pinToTopOfItem:item withOffset:0];
+#pragma mark - Pin: Edges
+
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item{
+    return [self kgn_pinToTopEdgeOfItem:item withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToTopOfItem:(id)item withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeTop ofItem:item withOffset:-offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToBottomOfItem:(id)item{
-    return [self kgn_pinToTopOfItem:item withOffset:0];
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item{
+    return [self kgn_pinToRightEdgeOfItem:item withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToBottomOfItem:(id)item withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeRight ofItem:item withOffset:offset];
+}
+
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item{
+    return [self kgn_pinToBottomEdgeOfItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeBottom ofItem:item withOffset:offset];
+}
+
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item{
+    return [self kgn_pinToLeftEdgeOfItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
 }
 
 #pragma mark - Center
@@ -174,6 +181,14 @@
     return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop ofItem:item withOffset:-offset];
 }
 
+- (NSLayoutConstraint *)kgn_positionRightOfItem:(id)item{
+    return [self kgn_positionRightOfItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_positionRightOfItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeRight ofItem:item withOffset:offset];
+}
+
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item{
     return [self kgn_positionBelowItem:item withOffset:0];
 }
@@ -182,7 +197,28 @@
     return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:item withOffset:offset];
 }
 
+- (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item{
+    return [self kgn_positionLeftOfItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
+}
+
 #pragma mark - Low Level
+
+- (UIView *)commonSuperviewWithView:(UIView *)peerView{
+    UIView *startView = self;
+    UIView *commonSuperview = nil;
+    do {
+        if([peerView isDescendantOfView:startView]){
+            commonSuperview = startView;
+        }
+        startView = startView.superview;
+    } while (startView && !commonSuperview);
+
+    return commonSuperview;
+}
 
 - (NSLayoutConstraint *)kgn_constrainSizeAttribute:(NSLayoutAttribute)sizeAttribute withSize:(CGFloat)size{
     UIView *superview = self.superview;

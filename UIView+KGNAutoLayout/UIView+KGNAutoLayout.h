@@ -10,43 +10,55 @@
 
 @interface UIView(KGNAutoLayout)
 
-#pragma mark - Pin
+#pragma mark - Pin: Superview
 
 - (NSArray *)kgn_pinToSuperview;
 - (NSArray *)kgn_pinToSuperviewWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewTop;
-- (NSLayoutConstraint *)kgn_pinToSuperviewTopWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdge;
+- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdgeWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottom;
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottomWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdge;
+- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdgeWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeft;
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeftWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdge;
+- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdgeWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewRight;
-- (NSLayoutConstraint *)kgn_pinToSuperviewRightWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdge;
+- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdgeWithOffset:(CGFloat)offset;
 
-- (NSArray *)kgn_pinToSuperviewSides;
-- (NSArray *)kgn_pinToSuperviewSidesWithOffset:(CGFloat)offset;
+- (NSArray *)kgn_pinToSuperviewSideEdges;
+- (NSArray *)kgn_pinToSuperviewSideEdgesWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide;
-- (NSLayoutConstraint *)kgn_pinToTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide withOffset:(CGFloat)offset;
+#pragma mark - Pin: Layout Guides
 
-- (NSLayoutConstraint *)kgn_pinToBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide;
-- (NSLayoutConstraint *)kgn_pinToBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide;
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfTopLayoutGuide:(id<UILayoutSupport>)topLayoutGuide withOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToTopOfItem:(id)item;
-- (NSLayoutConstraint *)kgn_pinToTopOfItem:(id)item withOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide;
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfBottomLayoutGuide:(id<UILayoutSupport>)bottomLayoutGuide withOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToBottomOfItem:(id)item;
-- (NSLayoutConstraint *)kgn_pinToBottomOfItem:(id)item withOffset:(CGFloat)offset;
+#pragma mark - Pin: Edges
+
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item withOffset:(CGFloat)offset;
 
 #pragma mark - Center
 
 - (NSArray *)kgn_centerInSuperview;
+
 - (NSLayoutConstraint *)kgn_centerHorizontallyInSuperview;
 - (NSLayoutConstraint *)kgn_centerHorizontallyInSuperviewWithOffset:(CGFloat)offset;
+
 - (NSLayoutConstraint *)kgn_centerVerticallyInSuperview;
 - (NSLayoutConstraint *)kgn_centerVerticallyInSuperviewWithOffset:(CGFloat)offset;
 
@@ -65,8 +77,31 @@
 
 - (NSLayoutConstraint *)kgn_positionAboveItem:(id)item;
 - (NSLayoutConstraint *)kgn_positionAboveItem:(id)item withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_positionRightOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_positionRightOfItem:(id)item withOffset:(CGFloat)offset;
+
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item;
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item withOffset:(CGFloat)offset;
+
+- (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item withOffset:(CGFloat)offset;
+
+//#pragma mark - Fit: Between
+//
+//- (NSArray *)kgn_fitBetweenTopItem:(id)item andBottomItem:(id)item;
+//- (NSArray *)kgn_fitBetweenTopItem:(id)item andBottomItem:(id)item withOffset:(CGFloat)offset;
+//
+//- (NSArray *)kgn_fitBetweenLeftItem:(id)item andRightItem:(id)item;
+//- (NSArray *)kgn_fitBetweenLeftItem:(id)item andRightItem:(id)item withOffset:(CGFloat)offset;
+//
+//#pragma mark - Fit: Layout
+//
+//- (NSArray *)kgn_fitViewsHorizontally:(NSArray *)views;
+//- (NSArray *)kgn_fitViewsHorizontally:(NSArray *)views withOffset:(CGFloat)offset;
+//
+//- (NSArray *)kgn_fitViewsVertically:(NSArray *)views;
+//- (NSArray *)kgn_fitViewsVertically:(NSArray *)views withOffset:(CGFloat)offset;
 
 #pragma mark - Low Level
 
