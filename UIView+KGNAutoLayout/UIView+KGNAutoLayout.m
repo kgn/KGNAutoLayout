@@ -168,7 +168,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_positionRightOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeRight ofItem:item withOffset:offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeRight ofItem:item withOffset:offset];
 }
 
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item{
@@ -184,7 +184,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
 }
 
 #pragma mark - Low Level
