@@ -65,6 +65,9 @@
 - (NSLayoutConstraint *)kgn_sizeToHeightOfItem:(id)item;
 - (NSLayoutConstraint *)kgn_sizeToHeightOfItem:(id)item withOffset:(CGFloat)offset;
 
+- (NSLayoutConstraint *)kgn_sizeHeightToWidthOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_sizeWidthToHeightOfItem:(id)item;
+
 #pragma mark - Position
 
 - (NSLayoutConstraint *)kgn_positionAboveItem:(id)item;

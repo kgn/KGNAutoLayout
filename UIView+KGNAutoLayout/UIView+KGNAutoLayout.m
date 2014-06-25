@@ -153,6 +153,14 @@
     return [self kgn_constrainAttribute:NSLayoutAttributeHeight toAttribute:NSLayoutAttributeHeight ofItem:item withOffset:-(offset*2)];
 }
 
+- (NSLayoutConstraint *)kgn_sizeHeightToWidthOfItem:(id)item{
+    return [self kgn_constrainAttribute:NSLayoutAttributeHeight toAttribute:NSLayoutAttributeWidth ofItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_sizeWidthToHeightOfItem:(id)item{
+    return [self kgn_constrainAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeHeight ofItem:item withOffset:0];
+}
+
 #pragma mark - Position
 
 - (NSLayoutConstraint *)kgn_positionAboveItem:(id)item{
