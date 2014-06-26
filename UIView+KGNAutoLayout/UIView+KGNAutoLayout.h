@@ -12,23 +12,23 @@
 
 #pragma mark - Pin: Superview
 
-- (NSArray *)kgn_pinToSuperview;
+- (NSArray *)kgn_pinToEdgesOfSuperview;
 - (NSArray *)kgn_pinToSuperviewWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdge;
-- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdgeWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfSuperview;
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfSuperviewWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdge;
-- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdgeWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfSuperview;
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfSuperviewWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdge;
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdgeWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfSuperview;
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfSuperviewWithOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdge;
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdgeWithOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfSuperview;
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfSuperviewWithOffset:(CGFloat)offset;
 
-- (NSArray *)kgn_pinToSuperviewSideEdges;
-- (NSArray *)kgn_pinToSuperviewSideEdgesWithOffset:(CGFloat)offset;
+- (NSArray *)kgn_pinToSideEdgesOfSuperview;
+- (NSArray *)kgn_pinToSideEdgesOfSuperviewWithOffset:(CGFloat)offset;
 
 #pragma mark - Pin: Edges
 
@@ -68,6 +68,10 @@
 - (NSLayoutConstraint *)kgn_sizeHeightToWidthOfItem:(id)item;
 - (NSLayoutConstraint *)kgn_sizeWidthToHeightOfItem:(id)item;
 
+- (NSArray *)kgn_sizeToWidthAndHeight:(CGFloat)size;
+- (NSArray *)kgn_sizeToWidthAndHeightOfItem:(id)item;
+- (NSArray *)kgn_sizeToWidthAndHeightOfItem:(id)item withOffset:(CGFloat)offset;
+
 #pragma mark - Position
 
 - (NSLayoutConstraint *)kgn_positionAboveItem:(id)item;
@@ -89,14 +93,25 @@
 //
 //- (NSArray *)kgn_fitBetweenLeftItem:(id)item andRightItem:(id)item;
 //- (NSArray *)kgn_fitBetweenLeftItem:(id)item andRightItem:(id)item withOffset:(CGFloat)offset;
-//
-//#pragma mark - Fit: Layout
-//
-//- (NSArray *)kgn_fitViewsHorizontally:(NSArray *)views;
-//- (NSArray *)kgn_fitViewsHorizontally:(NSArray *)views withOffset:(CGFloat)offset;
-//
-//- (NSArray *)kgn_fitViewsVertically:(NSArray *)views;
-//- (NSArray *)kgn_fitViewsVertically:(NSArray *)views withOffset:(CGFloat)offset;
+
+#pragma mark - Fill
+
+- (void)kgn_fillHorizontallyWithViews:(NSArray *)views;
+- (void)kgn_fillHorizontallyWithViews:(NSArray *)views withSeparation:(CGFloat)separation;
+
+- (void)kgn_fillVerticallyWithViews:(NSArray *)views;
+- (void)kgn_fillVerticallyWithViews:(NSArray *)views withSeparation:(CGFloat)separation;
+
+#pragma mark - Bound
+
+// These methods are useful for filling scroll views with views becuase the passed views will be laid out,
+// and then the calling view will be bound to thier total width(horizontally) or height(vertically).
+
+- (void)kgn_boundHorizontallyWithViews:(NSArray *)views;
+- (void)kgn_boundHorizontallyWithViews:(NSArray *)views withSeparation:(CGFloat)separation;
+
+- (void)kgn_boundVerticallyLayoutViews:(NSArray *)views;
+- (void)kgn_boundVerticallyLayoutViews:(NSArray *)views withSeparation:(CGFloat)separation;
 
 #pragma mark - Low Level
 

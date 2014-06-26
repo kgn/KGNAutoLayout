@@ -12,59 +12,59 @@
 
 #pragma mark - Pin: Superview
 
-- (NSArray *)kgn_pinToSuperview{
+- (NSArray *)kgn_pinToEdgesOfSuperview{
     return [self kgn_pinToSuperviewWithOffset:0];
 }
 
 - (NSArray *)kgn_pinToSuperviewWithOffset:(CGFloat)offset{
     NSMutableArray *constraints = [NSMutableArray array];
-    [constraints addObject:[self kgn_pinToSuperviewTopEdgeWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewRightEdgeWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewBottomEdgeWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewLeftEdgeWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToTopEdgeOfSuperviewWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToRightEdgeOfSuperviewWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToBottomEdgeOfSuperviewWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToLeftEdgeOfSuperviewWithOffset:offset]];
     return [constraints copy];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdge{
-    return [self kgn_pinToSuperviewTopEdgeWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfSuperview{
+    return [self kgn_pinToTopEdgeOfSuperviewWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewTopEdgeWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToTopEdgeOfSuperviewWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeTop toSuperViewWithOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdge{
-    return [self kgn_pinToSuperviewBottomEdgeWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfSuperview{
+    return [self kgn_pinToBottomEdgeOfSuperviewWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewBottomEdgeWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfSuperviewWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeBottom toSuperViewWithOffset:-offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdge{
-    return [self kgn_pinToSuperviewLeftEdgeWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfSuperview{
+    return [self kgn_pinToLeftEdgeOfSuperviewWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewLeftEdgeWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfSuperviewWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeLeft toSuperViewWithOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdge{
-    return [self kgn_pinToSuperviewRightEdgeWithOffset:0];
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfSuperview{
+    return [self kgn_pinToRightEdgeOfSuperviewWithOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToSuperviewRightEdgeWithOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinToRightEdgeOfSuperviewWithOffset:(CGFloat)offset{
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeRight toSuperViewWithOffset:-offset];
 }
 
-- (NSArray *)kgn_pinToSuperviewSideEdges{
-    return [self kgn_pinToSuperviewSideEdgesWithOffset:0];
+- (NSArray *)kgn_pinToSideEdgesOfSuperview{
+    return [self kgn_pinToSideEdgesOfSuperviewWithOffset:0];
 }
 
-- (NSArray *)kgn_pinToSuperviewSideEdgesWithOffset:(CGFloat)offset{
+- (NSArray *)kgn_pinToSideEdgesOfSuperviewWithOffset:(CGFloat)offset{
     NSMutableArray *constraints = [NSMutableArray array];
-    [constraints addObject:[self kgn_pinToSuperviewLeftEdgeWithOffset:offset]];
-    [constraints addObject:[self kgn_pinToSuperviewRightEdgeWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToLeftEdgeOfSuperviewWithOffset:offset]];
+    [constraints addObject:[self kgn_pinToRightEdgeOfSuperviewWithOffset:offset]];
     return [constraints copy];
 }
 
@@ -161,6 +161,24 @@
     return [self kgn_constrainAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeHeight ofItem:item withOffset:0];
 }
 
+- (NSArray *)kgn_sizeToWidthAndHeight:(CGFloat)size{
+    NSMutableArray *constraints = [NSMutableArray new];
+    [constraints addObject:[self kgn_sizeToWidth:size]];
+    [constraints addObject:[self kgn_sizeToHeight:size]];
+    return [constraints copy];
+}
+
+- (NSArray *)kgn_sizeToWidthAndHeightOfItem:(id)item{
+    return [self kgn_sizeToWidthAndHeightOfItem:item withOffset:0];
+}
+
+- (NSArray *)kgn_sizeToWidthAndHeightOfItem:(id)item withOffset:(CGFloat)offset{
+    NSMutableArray *constraints = [NSMutableArray new];
+    [constraints addObject:[self kgn_sizeToWidthOfItem:item withOffset:offset]];
+    [constraints addObject:[self kgn_sizeToHeightOfItem:item withOffset:offset]];
+    return [constraints copy];
+}
+
 #pragma mark - Position
 
 - (NSLayoutConstraint *)kgn_positionAboveItem:(id)item{
@@ -193,6 +211,84 @@
 
 - (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
+}
+
+#pragma mark - Fit: Layout
+
+- (void)kgn_fillHorizontallyWithViews:(NSArray *)views{
+    [self kgn_fillHorizontallyWithViews:views withSeparation:0];
+}
+
+- (void)kgn_fillHorizontallyWithViews:(NSArray *)views withSeparation:(CGFloat)separation{
+    NSAssert([views count] > 1, @"Can only distribute 2 or more views");
+
+    __block UIView *lastView;
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        if(lastView){
+            [lastView kgn_sizeToWidthOfItem:view];
+            [view kgn_positionRightOfItem:lastView withOffset:separation];
+        }else{
+            [view kgn_pinToLeftEdgeOfSuperviewWithOffset:separation];
+        }
+        lastView = view;
+    }];
+
+    [lastView kgn_pinToRightEdgeOfSuperviewWithOffset:separation];
+}
+
+- (void)kgn_fillVerticallyWithViews:(NSArray *)views{
+    [self kgn_fillVerticallyWithViews:views withSeparation:0];
+}
+
+- (void)kgn_fillVerticallyWithViews:(NSArray *)views withSeparation:(CGFloat)separation{
+    NSAssert([views count] > 1, @"Can only distribute 2 or more views");
+
+    __block UIView *lastView;
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        if(lastView){
+            [lastView kgn_sizeToHeightOfItem:view];
+            [view kgn_positionBelowItem:lastView withOffset:separation];
+        }else{
+            [view kgn_pinToTopEdgeOfSuperviewWithOffset:separation];
+        }
+        lastView = view;
+    }];
+
+    [lastView kgn_pinToBottomEdgeOfSuperviewWithOffset:separation];
+}
+
+#pragma mark - Bound
+
+- (void)kgn_boundHorizontallyWithViews:(NSArray *)views{
+    [self kgn_boundHorizontallyWithViews:views withSeparation:0];
+}
+
+- (void)kgn_boundHorizontallyWithViews:(NSArray *)views withSeparation:(CGFloat)separation{
+    __block UIView *lastView;
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        if(lastView){
+            [view kgn_positionRightOfItem:lastView withOffset:separation];
+        }
+        lastView = view;
+    }];
+    [self kgn_pinToLeftEdgeOfItem:[views firstObject]];
+    [self kgn_pinToRightEdgeOfItem:[views lastObject]];
+}
+
+- (void)kgn_boundVerticallyLayoutViews:(NSArray *)views{
+    [self kgn_boundVerticallyLayoutViews:views withSeparation:0];
+}
+
+- (void)kgn_boundVerticallyLayoutViews:(NSArray *)views withSeparation:(CGFloat)separation{
+    __block UIView *lastView;
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        if(lastView){
+            [view kgn_positionBelowItem:lastView withOffset:separation];
+        }
+        lastView = view;
+    }];
+    [self kgn_pinToLeftEdgeOfItem:[views firstObject]];
+    [self kgn_pinToRightEdgeOfItem:[views lastObject]];
 }
 
 #pragma mark - Low Level
