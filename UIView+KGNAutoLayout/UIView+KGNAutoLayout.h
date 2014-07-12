@@ -13,7 +13,7 @@
 #pragma mark - Pin: Superview
 
 - (NSArray *)kgn_pinToEdgesOfSuperview;
-- (NSArray *)kgn_pinToSuperviewWithOffset:(CGFloat)offset;
+- (NSArray *)kgn_pinToEdgesOfSuperviewWithOffset:(CGFloat)offset;
 
 - (NSLayoutConstraint *)kgn_pinToTopEdgeOfSuperview;
 - (NSLayoutConstraint *)kgn_pinToTopEdgeOfSuperviewWithOffset:(CGFloat)offset;
