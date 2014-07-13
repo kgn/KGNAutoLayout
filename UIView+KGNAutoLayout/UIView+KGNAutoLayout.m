@@ -70,35 +70,35 @@
 
 #pragma mark - Pin: Edges
 
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item{
-    return [self kgn_pinToTopEdgeOfItem:item withOffset:0];
+- (NSLayoutConstraint *)kgn_pinTopEdgeToTopEdgeOfItem:(id)item{
+    return [self kgn_pinTopEdgeToTopEdgeOfItem:item withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinTopEdgeToTopEdgeOfItem:(id)item withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeTop ofItem:item withOffset:-offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item{
-    return [self kgn_pinToRightEdgeOfItem:item withOffset:0];
+- (NSLayoutConstraint *)kgn_pinRightEdgeToRightEdgeOfItem:(id)item{
+    return [self kgn_pinRightEdgeToRightEdgeOfItem:item withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinRightEdgeToRightEdgeOfItem:(id)item withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeRight ofItem:item withOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item{
-    return [self kgn_pinToBottomEdgeOfItem:item withOffset:0];
+- (NSLayoutConstraint *)kgn_pinBottomEdgeToBottomEdgeOfItem:(id)item{
+    return [self kgn_pinBottomEdgeToBottomEdgeOfItem:item withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinBottomEdgeToBottomEdgeOfItem:(id)item withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeBottom ofItem:item withOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item{
-    return [self kgn_pinToLeftEdgeOfItem:item withOffset:0];
+- (NSLayoutConstraint *)kgn_pinLeftEdgeToLeftEdgeOfItem:(id)item{
+    return [self kgn_pinLeftEdgeToLeftEdgeOfItem:item withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_pinLeftEdgeToLeftEdgeOfItem:(id)item withOffset:(CGFloat)offset{
     return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
 }
 
@@ -271,8 +271,8 @@
         }
         lastView = view;
     }];
-    [self kgn_pinToLeftEdgeOfItem:[views firstObject]];
-    [self kgn_pinToRightEdgeOfItem:[views lastObject]];
+    [self kgn_pinLeftEdgeToLeftEdgeOfItem:[views firstObject]];
+    [self kgn_pinRightEdgeToRightEdgeOfItem:[views lastObject]];
 }
 
 - (void)kgn_boundVerticallyLayoutViews:(NSArray *)views{
@@ -287,8 +287,8 @@
         }
         lastView = view;
     }];
-    [self kgn_pinToLeftEdgeOfItem:[views firstObject]];
-    [self kgn_pinToRightEdgeOfItem:[views lastObject]];
+    [self kgn_pinLeftEdgeToLeftEdgeOfItem:[views firstObject]];
+    [self kgn_pinRightEdgeToRightEdgeOfItem:[views lastObject]];
 }
 
 #pragma mark - Low Level

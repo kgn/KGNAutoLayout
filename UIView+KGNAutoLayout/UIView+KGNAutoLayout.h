@@ -32,17 +32,17 @@
 
 #pragma mark - Pin: Edges
 
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item;
-- (NSLayoutConstraint *)kgn_pinToTopEdgeOfItem:(id)item withOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinTopEdgeToTopEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinTopEdgeToTopEdgeOfItem:(id)item withOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item;
-- (NSLayoutConstraint *)kgn_pinToRightEdgeOfItem:(id)item withOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinRightEdgeToRightEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinRightEdgeToRightEdgeOfItem:(id)item withOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item;
-- (NSLayoutConstraint *)kgn_pinToBottomEdgeOfItem:(id)item withOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinBottomEdgeToBottomEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinBottomEdgeToBottomEdgeOfItem:(id)item withOffset:(CGFloat)offset;
 
-- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item;
-- (NSLayoutConstraint *)kgn_pinToLeftEdgeOfItem:(id)item withOffset:(CGFloat)offset;
+- (NSLayoutConstraint *)kgn_pinLeftEdgeToLeftEdgeOfItem:(id)item;
+- (NSLayoutConstraint *)kgn_pinLeftEdgeToLeftEdgeOfItem:(id)item withOffset:(CGFloat)offset;
 
 #pragma mark - Center
 
