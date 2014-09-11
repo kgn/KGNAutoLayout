@@ -24,25 +24,25 @@
     navigationBarView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
     [viewController.view addSubview:navigationBarView];
     [navigationBarView kgn_sizeToHeight:64];
-    [navigationBarView kgn_pinToSuperviewSideEdges];
-    [navigationBarView kgn_pinToSuperviewTopEdge];
+    [navigationBarView kgn_pinToSideEdgesOfSuperview];
+    [navigationBarView kgn_pinToTopEdgeOfSuperview];
 
     UIView *navigationBarContentView = [UIView new];
     [navigationBarView addSubview:navigationBarContentView];
     [navigationBarContentView kgn_positionBelowItem:viewController.topLayoutGuide];
-    [navigationBarContentView kgn_pinToSuperviewSideEdges];
-    [navigationBarContentView kgn_pinToSuperviewBottomEdge];
+    [navigationBarContentView kgn_pinToSideEdgesOfSuperview];
+    [navigationBarContentView kgn_pinToBottomEdgeOfSuperview];
 
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [leftButton setTitle:NSLocalizedString(@"Menu", @"Menu button title") forState:UIControlStateNormal];
     [navigationBarContentView addSubview:leftButton];
-    [leftButton kgn_pinToSuperviewLeftEdgeWithOffset:10];
+    [leftButton kgn_pinToLeftEdgeOfSuperviewWithOffset:10];
     [leftButton kgn_centerVerticallyInSuperview];
 
     UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [rightButton setTitle:NSLocalizedString(@"Settings", @"Settings button title") forState:UIControlStateNormal];
     [navigationBarContentView addSubview:rightButton];
-    [rightButton kgn_pinToSuperviewRightEdgeWithOffset:10];
+    [rightButton kgn_pinToRightEdgeOfSuperviewWithOffset:10];
     [rightButton kgn_centerVerticallyInSuperview];
 
     UILabel *titleLabel = [UILabel new];
@@ -54,16 +54,16 @@
     lineView.backgroundColor = [UIColor lightGrayColor];
     [navigationBarView addSubview:lineView];
     [lineView kgn_sizeToHeight:0.5];
-    [lineView kgn_pinToSuperviewSideEdges];
-    [lineView kgn_pinToSuperviewBottomEdge];
+    [lineView kgn_pinToSideEdgesOfSuperview];
+    [lineView kgn_pinToBottomEdgeOfSuperview];
 
     // Content
 
     UIScrollView *scrollView = [UIScrollView new];
     scrollView.clipsToBounds = NO;
     [viewController.view insertSubview:scrollView belowSubview:navigationBarView];
-    [scrollView kgn_pinToSuperviewSideEdges];
-    [scrollView kgn_pinToSuperviewBottomEdge];
+    [scrollView kgn_pinToSideEdgesOfSuperview];
+    [scrollView kgn_pinToBottomEdgeOfSuperview];
     [scrollView kgn_positionBelowItem:navigationBarView];
 
     UILabel *contentTitleLabel = [UILabel new];
@@ -89,8 +89,8 @@
     [intoLabel kgn_sizeToWidthOfItem:scrollView withOffset:20];
     [intoLabel kgn_centerHorizontallyInSuperview];
 
-    [scrollView kgn_pinToTopEdgeOfItem:contentTitleLabel withOffset:20];
-    [scrollView kgn_pinToBottomEdgeOfItem:intoLabel withOffset:20];
+    [scrollView kgn_pinTopEdgeToTopEdgeOfItem:contentTitleLabel withOffset:20];
+    [scrollView kgn_pinBottomEdgeToBottomEdgeOfItem:intoLabel withOffset:20];
 
     [self.window makeKeyAndVisible];
     return YES;

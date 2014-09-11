@@ -14,16 +14,6 @@
 		8324F4D11929205E00383AA2 /* tale-of-two-cities-book-cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8324F4D01929205E00383AA2 /* tale-of-two-cities-book-cover.jpg */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		83F5034D192800F800A77952 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83F50325192800F700A77952 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 83F5032C192800F700A77952;
-			remoteInfo = "UIView+KGNAutoLayout";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		8324F4C61928016100383AA2 /* KGNAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNAppDelegate.h; sourceTree = "<group>"; };
 		8324F4C71928016100383AA2 /* KGNAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNAppDelegate.m; sourceTree = "<group>"; };
@@ -33,18 +23,10 @@
 		8324F4CE1929094A00383AA2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8324F4D01929205E00383AA2 /* tale-of-two-cities-book-cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tale-of-two-cities-book-cover.jpg"; sourceTree = "<group>"; };
 		83F5032D192800F700A77952 /* UIView+KGNAutoLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIView+KGNAutoLayout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		83F50348192800F800A77952 /* UIView+KGNAutoLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UIView+KGNAutoLayoutTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		83F5032A192800F700A77952 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		83F50345192800F800A77952 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				83F5032D192800F700A77952 /* UIView+KGNAutoLayout.app */,
-				83F50348192800F800A77952 /* UIView+KGNAutoLayoutTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,24 +86,6 @@
 			productReference = 83F5032D192800F700A77952 /* UIView+KGNAutoLayout.app */;
 			productType = "com.apple.product-type.application";
 		};
-		83F50347192800F800A77952 /* UIView+KGNAutoLayoutTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 83F5035C192800F800A77952 /* Build configuration list for PBXNativeTarget "UIView+KGNAutoLayoutTests" */;
-			buildPhases = (
-				83F50344192800F800A77952 /* Sources */,
-				83F50345192800F800A77952 /* Frameworks */,
-				83F50346192800F800A77952 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				83F5034E192800F800A77952 /* PBXTargetDependency */,
-			);
-			name = "UIView+KGNAutoLayoutTests";
-			productName = "UIView+KGNAutoLayoutTests";
-			productReference = 83F50348192800F800A77952 /* UIView+KGNAutoLayoutTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -132,11 +95,6 @@
 				CLASSPREFIX = KGN;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "David Keegan";
-				TargetAttributes = {
-					83F50347192800F800A77952 = {
-						TestTargetID = 83F5032C192800F700A77952;
-					};
-				};
 			};
 			buildConfigurationList = 83F50328192800F700A77952 /* Build configuration list for PBXProject "UIView+KGNAutoLayout" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -151,7 +109,6 @@
 			projectRoot = "";
 			targets = (
 				83F5032C192800F700A77952 /* UIView+KGNAutoLayout */,
-				83F50347192800F800A77952 /* UIView+KGNAutoLayoutTests */,
 			);
 		};
 /* End PBXProject section */
@@ -163,13 +120,6 @@
 			files = (
 				8324F4CF1929094A00383AA2 /* Images.xcassets in Resources */,
 				8324F4D11929205E00383AA2 /* tale-of-two-cities-book-cover.jpg in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		83F50346192800F800A77952 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,22 +136,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83F50344192800F800A77952 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		83F5034E192800F800A77952 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 83F5032C192800F700A77952 /* UIView+KGNAutoLayout */;
-			targetProxy = 83F5034D192800F800A77952 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		83F50357192800F800A77952 /* Debug */ = {
@@ -298,46 +233,6 @@
 			};
 			name = Release;
 		};
-		83F5035D192800F800A77952 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UIView+KGNAutoLayout.app/UIView+KGNAutoLayout";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UIView+KGNAutoLayout/UIView+KGNAutoLayout-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "UIView+KGNAutoLayoutTests/UIView+KGNAutoLayoutTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		83F5035E192800F800A77952 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UIView+KGNAutoLayout.app/UIView+KGNAutoLayout";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UIView+KGNAutoLayout/UIView+KGNAutoLayout-Prefix.pch";
-				INFOPLIST_FILE = "UIView+KGNAutoLayoutTests/UIView+KGNAutoLayoutTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -355,15 +250,6 @@
 			buildConfigurations = (
 				83F5035A192800F800A77952 /* Debug */,
 				83F5035B192800F800A77952 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		83F5035C192800F800A77952 /* Build configuration list for PBXNativeTarget "UIView+KGNAutoLayoutTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				83F5035D192800F800A77952 /* Debug */,
-				83F5035E192800F800A77952 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
