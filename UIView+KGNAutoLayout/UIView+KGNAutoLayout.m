@@ -287,8 +287,8 @@
         }
         lastView = view;
     }];
-    [self kgn_pinLeftEdgeToLeftEdgeOfItem:[views firstObject]];
-    [self kgn_pinRightEdgeToRightEdgeOfItem:[views lastObject]];
+    [self kgn_pinTopEdgeToTopEdgeOfItem:[views firstObject]];
+    [self kgn_pinBottomEdgeToBottomEdgeOfItem:[views lastObject]];
 }
 
 #pragma mark - Low Level
