@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8320683419C630B30068006E /* Evernote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8320682F19C630B30068006E /* Evernote@2x.png */; };
+		8320683519C630B30068006E /* Pinterest@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8320683019C630B30068006E /* Pinterest@2x.png */; };
+		8320683619C630B30068006E /* Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8320683119C630B30068006E /* Twitter@2x.png */; };
+		8320683719C630B30068006E /* Facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8320683219C630B30068006E /* Facebook@2x.png */; };
+		8320683819C630B30068006E /* Linked-in@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8320683319C630B30068006E /* Linked-in@2x.png */; };
 		8324F4C91928016100383AA2 /* KGNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8324F4C71928016100383AA2 /* KGNAppDelegate.m */; };
 		8324F4CA1928016100383AA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8324F4C81928016100383AA2 /* main.m */; };
 		8324F4CD192801B300383AA2 /* UIView+KGNAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8324F4CC192801B300383AA2 /* UIView+KGNAutoLayout.m */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8320682F19C630B30068006E /* Evernote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Evernote@2x.png"; sourceTree = "<group>"; };
+		8320683019C630B30068006E /* Pinterest@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Pinterest@2x.png"; sourceTree = "<group>"; };
+		8320683119C630B30068006E /* Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter@2x.png"; sourceTree = "<group>"; };
+		8320683219C630B30068006E /* Facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Facebook@2x.png"; sourceTree = "<group>"; };
+		8320683319C630B30068006E /* Linked-in@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Linked-in@2x.png"; sourceTree = "<group>"; };
 		8324F4C61928016100383AA2 /* KGNAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNAppDelegate.h; sourceTree = "<group>"; };
 		8324F4C71928016100383AA2 /* KGNAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNAppDelegate.m; sourceTree = "<group>"; };
 		8324F4C81928016100383AA2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,6 +63,11 @@
 				8324F4C71928016100383AA2 /* KGNAppDelegate.m */,
 				8324F4CE1929094A00383AA2 /* Images.xcassets */,
 				8324F4D01929205E00383AA2 /* tale-of-two-cities-book-cover.jpg */,
+				8320682F19C630B30068006E /* Evernote@2x.png */,
+				8320683019C630B30068006E /* Pinterest@2x.png */,
+				8320683119C630B30068006E /* Twitter@2x.png */,
+				8320683219C630B30068006E /* Facebook@2x.png */,
+				8320683319C630B30068006E /* Linked-in@2x.png */,
 				8324F4C51928015100383AA2 /* UIView+KGNAutoLayout */,
 				83F5032E192800F700A77952 /* Products */,
 			);
@@ -119,7 +134,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8324F4CF1929094A00383AA2 /* Images.xcassets in Resources */,
+				8320683519C630B30068006E /* Pinterest@2x.png in Resources */,
+				8320683419C630B30068006E /* Evernote@2x.png in Resources */,
 				8324F4D11929205E00383AA2 /* tale-of-two-cities-book-cover.jpg in Resources */,
+				8320683719C630B30068006E /* Facebook@2x.png in Resources */,
+				8320683619C630B30068006E /* Twitter@2x.png in Resources */,
+				8320683819C630B30068006E /* Linked-in@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

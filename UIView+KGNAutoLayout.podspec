@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'UIView+KGNAutoLayout'
-  spec.version = '0.1.3'
+  spec.version = '0.2.0'
   spec.authors = {'David Keegan' => 'me@davidkeegan.com'}
   spec.homepage = 'https://github.com/kgn/UIView-KGNAutoLayout'
   spec.summary = 'Auto Layout helper methods for common layout operations.'

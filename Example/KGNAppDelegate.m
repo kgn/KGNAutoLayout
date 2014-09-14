@@ -62,9 +62,9 @@
     UIScrollView *scrollView = [UIScrollView new];
     scrollView.clipsToBounds = NO;
     [viewController.view insertSubview:scrollView belowSubview:navigationBarView];
-    [scrollView kgn_pinToSideEdgesOfSuperview];
-    [scrollView kgn_pinToBottomEdgeOfSuperview];
+    [scrollView kgn_sizeToWidthOfItem:scrollView.superview];
     [scrollView kgn_positionBelowItem:navigationBarView];
+    [scrollView kgn_pinToBottomEdgeOfSuperview];
 
     UILabel *contentTitleLabel = [UILabel new];
     contentTitleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
@@ -75,22 +75,54 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tale-of-two-cities-book-cover.jpg"]];
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     [scrollView addSubview:imageView];
-    [imageView kgn_positionBelowItem:contentTitleLabel withOffset:20];
-    [imageView kgn_centerHorizontallyInSuperview];
-    [imageView kgn_sizeToWidth:200];
+    [imageView kgn_sizeToWidthOfItem:imageView.superview];
     [imageView kgn_sizeToHeight:200];
 
     UILabel *intoLabel = [UILabel new];
     intoLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     intoLabel.numberOfLines = 0;
-    intoLabel.text = @"IT WAS the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way- in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.";
+    intoLabel.text = @"IT WAS the best of times, it was the worst of times, it was the age of wisdom,"
+    " it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity,"
+    " it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair,"
+    " we had everything before us, we had nothing before us, we were all going direct to Heaven,"
+    " we were all going direct the other way- in short, the period was so far like the present period,"
+    " that some of its noisiest authorities insisted on its being received, for good or for evil,"
+    " in the superlative degree of comparison only.";
     [scrollView addSubview:intoLabel];
-    [intoLabel kgn_positionBelowItem:imageView withOffset:20];
-    [intoLabel kgn_sizeToWidthOfItem:scrollView withOffset:20];
+    [intoLabel kgn_sizeToWidthOfItem:intoLabel.superview withOffset:20];
     [intoLabel kgn_centerHorizontallyInSuperview];
 
-    [scrollView kgn_pinTopEdgeToTopEdgeOfItem:contentTitleLabel withOffset:20];
-    [scrollView kgn_pinBottomEdgeToBottomEdgeOfItem:intoLabel withOffset:20];
+    UIView *shareView = [UIView new];
+    [scrollView addSubview:shareView];
+    [shareView kgn_sizeWidthToHeightOfItem:shareView.superview];
+    [shareView kgn_centerHorizontallyInSuperview];
+
+    UIImageView *facebookImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Facebook"]];
+    [shareView addSubview:facebookImageView];
+    [facebookImageView kgn_pinToTopEdgeOfSuperview];
+
+    UIImageView *twitterImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Twitter"]];
+    [shareView addSubview:twitterImageView];
+    [twitterImageView kgn_pinToTopEdgeOfSuperview];
+
+    UIImageView *linkedinImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Linked-in"]];
+    [shareView addSubview:linkedinImageView];
+    [linkedinImageView kgn_pinToTopEdgeOfSuperview];
+
+    [shareView kgn_centerViewsHorizontally:@[facebookImageView, twitterImageView, linkedinImageView] withSeparation:20];
+
+    UIImageView *evernoteImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Evernote"]];
+    [shareView addSubview:evernoteImageView];
+    [evernoteImageView kgn_positionBelowItem:twitterImageView withOffset:10];
+
+    UIImageView *pinterestImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Pinterest"]];
+    [shareView addSubview:pinterestImageView];
+    [pinterestImageView kgn_positionBelowItem:twitterImageView withOffset:10];
+
+    [shareView kgn_pinBottomEdgeToBottomEdgeOfItem:pinterestImageView];
+    [shareView kgn_centerViewsHorizontally:@[evernoteImageView, pinterestImageView] withSeparation:20];
+
+    [scrollView kgn_boundVerticallyLayoutViews:@[contentTitleLabel, imageView, intoLabel, shareView] withSeparation:20];
 
     [self.window makeKeyAndVisible];
     return YES;

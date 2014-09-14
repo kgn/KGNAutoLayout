@@ -75,7 +75,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinTopEdgeToTopEdgeOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeTop ofItem:item withOffset:-offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual ofItem:item withOffset:-offset];
 }
 
 - (NSLayoutConstraint *)kgn_pinRightEdgeToRightEdgeOfItem:(id)item{
@@ -83,7 +83,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinRightEdgeToRightEdgeOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeRight ofItem:item withOffset:offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual ofItem:item withOffset:offset];
 }
 
 - (NSLayoutConstraint *)kgn_pinBottomEdgeToBottomEdgeOfItem:(id)item{
@@ -91,7 +91,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinBottomEdgeToBottomEdgeOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeBottom ofItem:item withOffset:offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual ofItem:item withOffset:offset];
 }
 
 - (NSLayoutConstraint *)kgn_pinLeftEdgeToLeftEdgeOfItem:(id)item{
@@ -99,7 +99,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_pinLeftEdgeToLeftEdgeOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual ofItem:item withOffset:-offset];
 }
 
 #pragma mark - Center
@@ -127,6 +127,86 @@
     return [self kgn_constrainEdgeAttribute:NSLayoutAttributeCenterY toSuperViewWithOffset:offset];
 }
 
+- (void)kgn_centerViewsHorizontally:(NSArray *)views{
+    [self kgn_centerViewsHorizontally:views withSeparation:0];
+}
+
+- (void)kgn_centerViewsHorizontally:(NSArray *)views withSeparation:(CGFloat)separation{
+    NSAssert([views count] > 0, @"Can only distribute 1 or more views");
+
+    // odd number of views
+    if([views count] % 2){
+        NSUInteger centerIndex = [views count]/2;
+        [views[centerIndex] kgn_centerHorizontallyInSuperview];
+
+        NSArray *rightViews = [views subarrayWithRange:NSMakeRange(centerIndex+1, [views count]-centerIndex-1)];
+        if([rightViews count]){
+            [views[centerIndex] kgn_positionViewsToTheRight:rightViews withOffset:separation];
+        }
+
+        NSArray *leftViews = [views subarrayWithRange:NSMakeRange(0, centerIndex)];
+        if([leftViews count]){
+            [views[centerIndex] kgn_positionViewsToTheLeft:leftViews withOffset:separation];
+        }
+    }else{
+        NSUInteger rightIndex = [views count]/2;
+        NSUInteger leftIndex = rightIndex-1;
+
+        [views[leftIndex] kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationLessThanOrEqual ofItem:self withOffset:-separation/2];
+        [views[rightIndex] kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationLessThanOrEqual ofItem:self withOffset:separation/2];
+
+        NSArray *rightViews = [views subarrayWithRange:NSMakeRange(rightIndex+1, [views count]-rightIndex-1)];
+        if([rightViews count]){
+            [views[rightIndex] kgn_positionViewsToTheRight:rightViews withOffset:separation];
+        }
+
+        NSArray *leftViews = [views subarrayWithRange:NSMakeRange(0, leftIndex)];
+        if([leftViews count]){
+            [views[leftIndex] kgn_positionViewsToTheLeft:leftViews withOffset:separation];
+        }
+    }
+}
+
+- (void)kgn_centerViewsVertically:(NSArray *)views{
+    [self kgn_centerViewsVertically:views withSeparation:0];
+}
+
+- (void)kgn_centerViewsVertically:(NSArray *)views withSeparation:(CGFloat)separation{
+    NSAssert([views count] > 0, @"Can only distribute 1 or more views");
+
+    // odd number of views
+    if([views count] % 2){
+        NSUInteger centerIndex = [views count]/2;
+        [views[centerIndex] kgn_centerVerticallyInSuperview];
+
+        NSArray *belowViews = [views subarrayWithRange:NSMakeRange(centerIndex+1, [views count]-centerIndex-1)];
+        if([belowViews count]){
+            [views[centerIndex] kgn_positionViewsBelow:belowViews withOffset:separation];
+        }
+
+        NSArray *aboveViews = [views subarrayWithRange:NSMakeRange(0, centerIndex)];
+        if([aboveViews count]){
+            [views[centerIndex] kgn_positionViewsAbove:aboveViews withOffset:separation];
+        }
+    }else{
+        NSUInteger belowIndex = [views count]/2;
+        NSUInteger aboveIndex = belowIndex-1;
+
+        [views[aboveIndex] kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationLessThanOrEqual ofItem:self withOffset:-separation/2];
+        [views[belowIndex] kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationLessThanOrEqual ofItem:self withOffset:separation/2];
+
+        NSArray *belowViews = [views subarrayWithRange:NSMakeRange(belowIndex+1, [views count]-belowIndex-1)];
+        if([belowViews count]){
+            [views[belowIndex] kgn_positionViewsBelow:belowViews withOffset:separation];
+        }
+
+        NSArray *aboveViews = [views subarrayWithRange:NSMakeRange(0, aboveIndex)];
+        if([aboveViews count]){
+            [views[aboveIndex] kgn_positionViewsAbove:aboveViews withOffset:separation];
+        }
+    }
+}
+
 #pragma mark - Size
 
 - (NSLayoutConstraint *)kgn_sizeToWidth:(CGFloat)width{
@@ -142,7 +222,7 @@
 }
 
 - (NSLayoutConstraint *)kgn_sizeToWidthOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeWidth ofItem:item withOffset:-(offset*2)];
+    return [self kgn_constrainAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual ofItem:item withOffset:-(offset*2)];
 }
 
 - (NSLayoutConstraint *)kgn_sizeToHeightOfItem:(id)item{
@@ -150,15 +230,15 @@
 }
 
 - (NSLayoutConstraint *)kgn_sizeToHeightOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeHeight toAttribute:NSLayoutAttributeHeight ofItem:item withOffset:-(offset*2)];
+    return [self kgn_constrainAttribute:NSLayoutAttributeHeight toAttribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual ofItem:item withOffset:-(offset*2)];
 }
 
 - (NSLayoutConstraint *)kgn_sizeHeightToWidthOfItem:(id)item{
-    return [self kgn_constrainAttribute:NSLayoutAttributeHeight toAttribute:NSLayoutAttributeWidth ofItem:item withOffset:0];
+    return [self kgn_constrainAttribute:NSLayoutAttributeHeight toAttribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual ofItem:item withOffset:0];
 }
 
 - (NSLayoutConstraint *)kgn_sizeWidthToHeightOfItem:(id)item{
-    return [self kgn_constrainAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeHeight ofItem:item withOffset:0];
+    return [self kgn_constrainAttribute:NSLayoutAttributeWidth toAttribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual ofItem:item withOffset:0];
 }
 
 - (NSArray *)kgn_sizeToWidthAndHeight:(CGFloat)size{
@@ -186,15 +266,43 @@
 }
 
 - (NSLayoutConstraint *)kgn_positionAboveItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop ofItem:item withOffset:-offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeBottom toAttribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual ofItem:item withOffset:-offset];
 }
 
-- (NSLayoutConstraint *)kgn_positionRightOfItem:(id)item{
-    return [self kgn_positionRightOfItem:item withOffset:0];
+- (void)kgn_positionViewsAbove:(NSArray *)views{
+    [self kgn_positionViewsAbove:views withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_positionRightOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeRight ofItem:item withOffset:offset];
+- (void)kgn_positionViewsAbove:(NSArray *)views withOffset:(CGFloat)offset{
+    NSAssert([views count] > 0, @"Can only distribute 1 or more views");
+
+    __block UIView *lastView = self;
+    [views enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        [view kgn_positionAboveItem:lastView withOffset:offset];
+        lastView = view;
+    }];
+}
+
+- (NSLayoutConstraint *)kgn_positionToTheRightOfItem:(id)item{
+    return [self kgn_positionToTheRightOfItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_positionToTheRightOfItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeLeft toAttribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual ofItem:item withOffset:offset];
+}
+
+- (void)kgn_positionViewsToTheRight:(NSArray *)views{
+    [self kgn_positionViewsToTheRight:views withOffset:0];
+}
+
+- (void)kgn_positionViewsToTheRight:(NSArray *)views withOffset:(CGFloat)offset{
+    NSAssert([views count] > 0, @"Can only distribute 1 or more views");
+
+    __block UIView *lastView = self;
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        [view kgn_positionToTheRightOfItem:lastView withOffset:offset];
+        lastView = view;
+    }];
 }
 
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item{
@@ -202,18 +310,70 @@
 }
 
 - (NSLayoutConstraint *)kgn_positionBelowItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom ofItem:item withOffset:offset];
+    return [self kgn_constrainAttribute:NSLayoutAttributeTop toAttribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual ofItem:item withOffset:offset];
 }
 
-- (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item{
-    return [self kgn_positionLeftOfItem:item withOffset:0];
+- (void)kgn_positionViewsBelow:(NSArray *)views{
+    [self kgn_positionViewsBelow:views withOffset:0];
 }
 
-- (NSLayoutConstraint *)kgn_positionLeftOfItem:(id)item withOffset:(CGFloat)offset{
-    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft ofItem:item withOffset:-offset];
+- (void)kgn_positionViewsBelow:(NSArray *)views withOffset:(CGFloat)offset{
+    NSAssert([views count] > 0, @"Can only distribute 1 or more views");
+
+    __block UIView *lastView = self;
+    [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        [view kgn_positionBelowItem:lastView withOffset:offset];
+        lastView = view;
+    }];
 }
 
-#pragma mark - Fit: Layout
+- (NSLayoutConstraint *)kgn_positionToTheLeftOfItem:(id)item{
+    return [self kgn_positionToTheLeftOfItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_positionToTheLeftOfItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeRight toAttribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual ofItem:item withOffset:-offset];
+}
+
+- (void)kgn_positionViewsToTheLeft:(NSArray *)views{
+    [self kgn_positionViewsToTheLeft:views withOffset:0];
+}
+
+- (void)kgn_positionViewsToTheLeft:(NSArray *)views withOffset:(CGFloat)offset{
+    NSAssert([views count] > 0, @"Can only distribute 1 or more views");
+
+    __block UIView *lastView = self;
+    [views enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
+        [view kgn_positionToTheLeftOfItem:lastView withOffset:offset];
+        lastView = view;
+    }];
+}
+
+#pragma mark - Between
+
+- (NSArray *)kgn_fitBetweenTopItem:(id)topItem andBottomItem:(id)bottomItem{
+    return [self kgn_fitBetweenTopItem:topItem andBottomItem:bottomItem withOffset:0];
+}
+
+- (NSArray *)kgn_fitBetweenTopItem:(id)topItem andBottomItem:(id)bottomItem withOffset:(CGFloat)offset{
+    NSMutableArray *constraints = [NSMutableArray new];
+    [constraints addObject:[self kgn_positionBelowItem:topItem withOffset:offset]];
+    [constraints addObject:[self kgn_positionAboveItem:bottomItem withOffset:offset]];
+    return [constraints copy];
+}
+
+- (NSArray *)kgn_fitBetweenLeftItem:(id)leftItem andRightItem:(id)rightItem{
+    return [self kgn_fitBetweenLeftItem:leftItem andRightItem:rightItem withOffset:0];
+}
+
+- (NSArray *)kgn_fitBetweenLeftItem:(id)leftItem andRightItem:(id)rightItem withOffset:(CGFloat)offset{
+    NSMutableArray *constraints = [NSMutableArray new];
+    [constraints addObject:[self kgn_positionToTheRightOfItem:leftItem withOffset:offset]];
+    [constraints addObject:[self kgn_positionToTheLeftOfItem:rightItem withOffset:offset]];
+    return [constraints copy];
+}
+
+#pragma mark - Fill
 
 - (void)kgn_fillHorizontallyWithViews:(NSArray *)views{
     [self kgn_fillHorizontallyWithViews:views withSeparation:0];
@@ -226,7 +386,7 @@
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
         if(lastView){
             [lastView kgn_sizeToWidthOfItem:view];
-            [view kgn_positionRightOfItem:lastView withOffset:separation];
+            [view kgn_positionToTheRightOfItem:lastView withOffset:separation];
         }else{
             [view kgn_pinToLeftEdgeOfSuperviewWithOffset:separation];
         }
@@ -267,12 +427,12 @@
     __block UIView *lastView;
     [views enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
         if(lastView){
-            [view kgn_positionRightOfItem:lastView withOffset:separation];
+            [view kgn_positionToTheRightOfItem:lastView withOffset:separation];
         }
         lastView = view;
     }];
-    [self kgn_pinLeftEdgeToLeftEdgeOfItem:[views firstObject]];
-    [self kgn_pinRightEdgeToRightEdgeOfItem:[views lastObject]];
+    [self kgn_pinLeftEdgeToLeftEdgeOfItem:[views firstObject] withOffset:separation];
+    [self kgn_pinRightEdgeToRightEdgeOfItem:[views lastObject] withOffset:separation];
 }
 
 - (void)kgn_boundVerticallyLayoutViews:(NSArray *)views{
@@ -287,8 +447,8 @@
         }
         lastView = view;
     }];
-    [self kgn_pinTopEdgeToTopEdgeOfItem:[views firstObject]];
-    [self kgn_pinBottomEdgeToBottomEdgeOfItem:[views lastObject]];
+    [self kgn_pinTopEdgeToTopEdgeOfItem:[views firstObject] withOffset:separation];
+    [self kgn_pinBottomEdgeToBottomEdgeOfItem:[views lastObject] withOffset:separation];
 }
 
 #pragma mark - Low Level
@@ -326,7 +486,7 @@
     return constraint;
 }
 
-- (NSLayoutConstraint *)kgn_constrainAttribute:(NSLayoutAttribute)viewAttribute toAttribute:(NSLayoutAttribute)itemAttribute ofItem:(id)item withOffset:(CGFloat)offset{
+- (NSLayoutConstraint *)kgn_constrainAttribute:(NSLayoutAttribute)viewAttribute toAttribute:(NSLayoutAttribute)itemAttribute relatedBy:(NSLayoutRelation)relatedBy ofItem:(id)item withOffset:(CGFloat)offset{
     NSParameterAssert(item);
 
     UIView *superview;
@@ -338,7 +498,7 @@
     NSAssert(superview, @"Can't create constraints without a common superview");
 
     self.translatesAutoresizingMaskIntoConstraints = NO;
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:viewAttribute relatedBy:NSLayoutRelationEqual toItem:item attribute:itemAttribute multiplier:1 constant:offset];
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:viewAttribute relatedBy:relatedBy toItem:item attribute:itemAttribute multiplier:1 constant:offset];
     [superview addConstraint:constraint];
     return constraint;
 }
