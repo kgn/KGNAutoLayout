@@ -338,7 +338,7 @@ extension UIView {
     private func kgn_constrainSizeAttribute(sizeAttribute: NSLayoutAttribute, size: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         assert(self.superview != nil, "Can't create constraints without a superview")
 
-        self.translatesAutoresizingMaskIntoConstraints()
+        self.setTranslatesAutoresizingMaskIntoConstraints(false)
         let constraint = NSLayoutConstraint(item: self, attribute: sizeAttribute, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0, constant: size)
         if let p = priority {
             constraint.priority = p
@@ -350,7 +350,7 @@ extension UIView {
     private func kgn_constrainEdgeAttribute(edgeAttribute: NSLayoutAttribute, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         assert(self.superview != nil, "Can't create constraints without a superview")
 
-        self.translatesAutoresizingMaskIntoConstraints()
+        self.setTranslatesAutoresizingMaskIntoConstraints(false)
         let constraint = NSLayoutConstraint(item: self, attribute: edgeAttribute, relatedBy: .Equal, toItem: self.superview, attribute: edgeAttribute, multiplier: 1, constant: offset)
         if let p = priority {
             constraint.priority = p
@@ -369,20 +369,19 @@ extension UIView {
                 var startView: UIView! = self
                 var commonSuperview: UIView?
                 do {
-                    if startView != nil{
-                        if item.isDescendantOfView(startView) {
-                            commonSuperview = startView
-                        }
-                        startView = startView.superview
+                    if item.isDescendantOfView(startView) {
+                        commonSuperview = startView
                     }
+                    startView = startView.superview
                 } while (startView != nil && commonSuperview == nil)
+
                 return commonSuperview
+                }()
             }()
-        }()
 
         assert(commonSuperview != nil, "Can't create constraints without a common superview")
-
-        self.translatesAutoresizingMaskIntoConstraints()
+        
+        self.setTranslatesAutoresizingMaskIntoConstraints(false)
         let constraint = NSLayoutConstraint(item: self, attribute: viewAttribute, relatedBy: relatedBy, toItem: item, attribute: itemAttribute, multiplier: 1, constant: offset)
         if let p = priority {
             constraint.priority = p
@@ -390,5 +389,5 @@ extension UIView {
         commonSuperview!.addConstraint(constraint)
         return constraint
     }
-
+    
 }
