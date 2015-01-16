@@ -380,8 +380,8 @@ extension UIView {
                 } while (startView != nil && commonSuperview == nil)
 
                 return commonSuperview
-                }()
             }()
+        }()
 
         assert(commonSuperview != nil, "Can't create constraints without a common superview")
         
