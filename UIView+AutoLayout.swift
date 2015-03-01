@@ -327,7 +327,7 @@ extension UIView {
 
         var lastView: UIView!
         for view in views {
-            if lastView != nil{
+            if lastView != nil {
                 view.positionBelowItem(lastView, offset: separation, priority: priority)
             }
             lastView = view
@@ -366,7 +366,7 @@ extension UIView {
     private func constrainAttribute(viewAttribute: NSLayoutAttribute, toAttribute itemAttribute: NSLayoutAttribute, ofItem item: AnyObject, relatedBy: NSLayoutRelation = .Equal, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         let commonSuperview: UIView? = {
             if !item.isKindOfClass(UIView) {
-                return self.superview?
+                return self.superview
             }
 
             return {
