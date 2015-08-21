@@ -224,6 +224,38 @@
  */
 - (void)kgn_centerViewsVertically:(NSArray *)views withSeparation:(CGFloat)separation;
 
+
+/**
+ Center the view horizontally with item.
+ @param item Constraint the vertical axis of the view to this item, it may be a view or layout guide.
+ @return The NSLayoutConstraint constraint.
+ */
+- (NSLayoutConstraint *)kgn_centerHorizontallyToItem:(id)item;
+
+/**
+ Center the view horizontally with item.
+ @param item Constraint the vertical axis of the view to this item, it may be a view or layout guide.
+ @param offset How far to horizontally offset the center of the view from the item's center.
+ @return The NSLayoutConstraint constraint.
+ */
+- (NSLayoutConstraint *)kgn_centerHorizontallyToItem:(id)item withOffset:(CGFloat)offset;
+
+
+/**
+ Center the view vertically with item.
+ @param item Constraint the horizontal axis of the view to this item, it may be a view or layout guide.
+ @return The NSLayoutConstraint constraint.
+ */
+- (NSLayoutConstraint *)kgn_centerVerticallyToItem:(id)item;
+
+/**
+ Center the view vertically with item.
+ @param item Constraint the horizontal axis of the view to this item, it may be a view or layout guide.
+ @param offset How far to vertically offset the center of the view from the item's center.
+ @return The NSLayoutConstraint constraint.
+ */
+- (NSLayoutConstraint *)kgn_centerVerticallyToItem:(id)item withOffset:(CGFloat)offset;
+
 #pragma mark - Size
 
 /**
