@@ -207,6 +207,22 @@
     }
 }
 
+- (NSLayoutConstraint *)kgn_centerHorizontallyToItem:(id)item{
+    return [self kgn_centerHorizontallyToItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_centerHorizontallyToItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeCenterX toAttribute:NSLayoutAttributeCenterX ofItem:item relatedBy:NSLayoutRelationEqual withOffset:offset];
+}
+
+- (NSLayoutConstraint *)kgn_centerVerticallyToItem:(id)item{
+    return [self kgn_centerVerticallyToItem:item withOffset:0];
+}
+
+- (NSLayoutConstraint *)kgn_centerVerticallyToItem:(id)item withOffset:(CGFloat)offset{
+    return [self kgn_constrainAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:item relatedBy:NSLayoutRelationEqual withOffset:offset];
+}
+
 #pragma mark - Size
 
 - (NSLayoutConstraint *)kgn_sizeToWidth:(CGFloat)width{

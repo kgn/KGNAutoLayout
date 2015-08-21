@@ -155,6 +155,14 @@ extension UIView {
         }
     }
 
+    func centerHorizontallyToItem(item: AnyObject, offset: CGFloat = 0) -> NSLayoutConstraint {
+        return self.constrainEdgeAttribute(.CenterX, offset: offset)
+    }
+
+    func centerVerticallyToItem(item: AnyObject, offset: CGFloat = 0) -> NSLayoutConstraint {
+        return self.constrainEdgeAttribute(.CenterY, offset: offset)
+    }
+
     // MARK: - Size
 
     func sizeToWidth(width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
