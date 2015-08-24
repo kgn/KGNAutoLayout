@@ -567,4 +567,9 @@
  */
 - (void)kgn_boundVerticallyLayoutViews:(NSArray *)views withSeparation:(CGFloat)separation;
 
+/**
+ Low-level method to create arbitrary constraint not covered by convenience methods above.
+ */
+- (NSLayoutConstraint *)kgn_constrainAttribute:(NSLayoutAttribute)viewAttribute toAttribute:(NSLayoutAttribute)itemAttribute ofItem:(id)item relatedBy:(NSLayoutRelation)relatedBy withOffset:(CGFloat)offset;
+
 @end

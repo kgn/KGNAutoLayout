@@ -371,7 +371,7 @@ extension UIView {
         return constraint
     }
 
-    private func constrainAttribute(viewAttribute: NSLayoutAttribute, toAttribute itemAttribute: NSLayoutAttribute, ofItem item: AnyObject, relatedBy: NSLayoutRelation = .Equal, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
+    func constrainAttribute(viewAttribute: NSLayoutAttribute, toAttribute itemAttribute: NSLayoutAttribute, ofItem item: AnyObject, relatedBy: NSLayoutRelation = .Equal, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         let commonSuperview: UIView? = {
             if !item.isKindOfClass(UIView) {
                 return self.superview
