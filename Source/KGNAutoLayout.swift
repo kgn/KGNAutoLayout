@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
 
-    // MARK: - Pin: Superview
+// MARK: - Pin: Superview
 
     public func pinToEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, right: NSLayoutConstraint, bottom: NSLayoutConstraint, left: NSLayoutConstraint) {
         return (
@@ -44,7 +44,7 @@ extension UIView {
         )
     }
 
-    // MARK: - Pin: Edges
+// MARK: - Pin: Edges
 
     public func pinTopEdgeToTopEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Top, toAttribute: .Top, ofItem: item, offset: -offset, priority: priority)
@@ -62,7 +62,7 @@ extension UIView {
         return self.constrainAttribute(.Left, toAttribute: .Left, ofItem: item, offset: -offset, priority: priority)
     }
 
-    // MARK: - Center
+// MARK: - Center
 
     public func centerInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (horizontal: NSLayoutConstraint, vertical: NSLayoutConstraint){
         return (
@@ -155,7 +155,7 @@ extension UIView {
         }
     }
 
-    // MARK: - Size
+// MARK: - Size
 
     public func sizeWidth(width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         return self.constrainSizeAttribute(.Width, size: width, priority: priority)
@@ -211,7 +211,7 @@ extension UIView {
         )
     }
 
-    // MARK: - Position
+// MARK: - Position
 
     public func positionAboveItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Bottom, toAttribute:.Top, ofItem:item, offset:-offset, priority: priority)
@@ -269,7 +269,7 @@ extension UIView {
         }
     }
 
-    // MARK: - Between
+// MARK: - Between
 
     public func fitBetween(topItem: AnyObject, bottomItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint){
         return (
@@ -285,7 +285,7 @@ extension UIView {
         )
     }
 
-    // MARK: - Fill
+// MARK: - Fill
 
     public func fillHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 1, "Can only distribute 2 or more views")
@@ -321,7 +321,7 @@ extension UIView {
         lastView?.pinToBottomEdgeOfSuperview(separation, priority: priority)
     }
 
-    // MARK: - Bound
+// MARK: - Bound
 
     public func boundHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 1, "Can only distribute 2 or more views")
@@ -353,7 +353,7 @@ extension UIView {
         self.pinBottomEdgeToBottomEdgeOfItem(views.last!, offset: separation, priority: priority)
     }
 
-    // MARK: - Private
+// MARK: - Private
 
     private func constrainSizeAttribute(sizeAttribute: NSLayoutAttribute, multiplier: CGFloat = 0, size: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
