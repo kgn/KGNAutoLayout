@@ -1,0 +1,18 @@
+language: objective-c
+osx_image: xcode7
+
+env:
+  matrix:
+    # - SDK=iphonesimulator8.0
+    # - SDK=iphonesimulator8.1
+    # - SDK=iphonesimulator8.2
+    # - SDK=iphonesimulator8.3
+    # - SDK=iphonesimulator8.4
+    - SDK=iphonesimulator9.0
+
+before_install:
+  - export PROJECT=KGNColor
+  - export SCHEME=$PROJECT    
+
+script: 
+  - xctool clean test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk $SDK
