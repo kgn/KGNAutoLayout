@@ -29,17 +29,13 @@ pod 'KGNAutoLayout'
 
 ## Examples
 
-### Hex Initializer
-Using a hex value is often the easiest way to use the exact color from a design.
-``` Swift
-let tintColor = UIColor(hex: 0x2DFF5F)
-```
+*TODO*
 
-TODO:
+## TODO:
 - [ ] Travis ([#4961](https://github.com/travis-ci/travis-ci/issues/4961)) ([#4962](https://github.com/travis-ci/travis-ci/issues/4962))
 - [ ] Badges (Needs release)
 - [ ] Tests (Needs tests)
 - [X] Carthage
-- [ ] CocoaPods (Update podspec and release)
+- [ ] CocoaPods (Just need to release)
 - [ ] Description (Give examples)
-- [ ] Documentation (Add to code, confirm it’s working)
+- [ ] Documentation (Need to finish documentation, confirm it’s working)
