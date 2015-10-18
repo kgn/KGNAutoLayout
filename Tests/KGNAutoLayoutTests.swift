@@ -25,7 +25,7 @@ class KGNAutoLayoutTests: XCTestCase {
         let childView = IntrinsicView()
         parentView.addSubview(childView)
         block(view: childView)
-        childView.layoutIfNeeded()
+        parentView.layoutIfNeeded()
         return childView.frame
     }
 
@@ -255,35 +255,258 @@ class KGNAutoLayoutTests: XCTestCase {
     // MARK: - Center
 
     func testCenterInSuperview() {
-
+        let size = CGSizeMake(40, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraints = $0.centerInSuperview(priority: priority)
+            XCTAssertEqual(priority, constraints.horizontal.priority)
+            XCTAssertEqual(priority, constraints.vertical.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)
+        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterInSuperviewOffset() {
-
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraints = $0.centerInSuperview(offset, priority: priority)
+            XCTAssertEqual(priority, constraints.horizontal.priority)
+            XCTAssertEqual(priority, constraints.vertical.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)+offset
+        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)+offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterHorizontallyInSuperview() {
-
+        let size = CGSizeMake(40, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.centerHorizontallyInSuperview(priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterHorizontallyInSuperviewOffset() {
-
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.centerHorizontallyInSuperview(offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)+offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyInSuperview() {
-
+        let size = CGSizeMake(40, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.centerVerticallyInSuperview(priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyInSuperviewOffset() {
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.centerVerticallyInSuperview(offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)+offset
+        XCTAssertEqual(childViewFrame, frame)
+    }
+
+    func testCenterViewsHorizontally1() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 20
+        view1.height = 10
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(view1)
+
+        parentView.centerViewsHorizontally([view1], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.size = CGSizeMake(view1.width, view1.height)
+        frame1.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame1)
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testCenterViewsHorizontally1Seperation() {
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 20
+        view1.height = 10
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(view1)
+
+        parentView.centerViewsHorizontally([view1], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.size = CGSizeMake(view1.width, view1.height)
+        frame1.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame1)
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testCenterViewsHorizontally2() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 20
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 30
+        view2.height = 20
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        parentView.centerViewsHorizontally([view1, view2], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.size = CGSizeMake(view1.width, view1.height)
+        frame1.origin.x = CGRectGetMidX(parentView.frame)-view1.width
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.size = CGSizeMake(view2.width, view2.height)
+        frame2.origin.x = CGRectGetMidX(parentView.frame)
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testCenterViewsHorizontally2Seperation() {
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 20
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 30
+        view2.height = 20
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        parentView.centerViewsHorizontally([view1, view2], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.size = CGSizeMake(view1.width, view1.height)
+        frame1.origin.x = CGRectGetMidX(parentView.frame)-view1.width-(separation/2)
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.size = CGSizeMake(view2.width, view2.height)
+        frame2.origin.x = CGRectGetMidX(parentView.frame)+(separation/2)
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testCenterViewsHorizontally3() {
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 20
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 40
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 30
+        view3.height = 20
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        parentView.centerViewsHorizontally([view1, view2, view3], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.size = CGSizeMake(view1.width, view1.height)
+        frame1.origin.x = CGRectGetMidX(parentView.frame)-(view2.width/2)-view1.width
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.size = CGSizeMake(view2.width, view2.height)
+        frame2.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame2)
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.size = CGSizeMake(view3.width, view3.height)
+        frame3.origin.x = CGRectGetMidX(parentView.frame)+(view2.width/2)
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testCenterViewsHorizontally3Seperation() {
+        
+    }
+
+    func testCenterViewsHorizontally4() {
 
     }
 
-    func testCenterViewsHorizontally() {
+    func testCenterViewsHorizontally4Seperation() {
 
     }
 
-    func testCenterViewsHorizontallySeperation() {
+    func testCenterViewsHorizontally5() {
 
+    }
+
+    func testCenterViewsHorizontally5Seperation() {
+        
     }
 
     func testCenterViewsVertically() {

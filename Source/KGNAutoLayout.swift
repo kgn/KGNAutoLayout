@@ -213,35 +213,38 @@ extension UIView {
     public func centerViewsHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
-        // odd number of views
-        if views.count % 2  == 0 {
-            let centerIndex = views.count/2
-            views[centerIndex].centerHorizontallyInSuperview()
-
-            let rightViews = Array(views[centerIndex+1...views.count-1])
-            if rightViews.count > 0 {
-                views[centerIndex].positionViewsToTheRight(rightViews, offset: separation, priority: priority)
-            }
-
-            let leftViews = Array(views[0...centerIndex-1])
-            if leftViews.count > 0{
-                views[centerIndex].positionViewsToTheLeft(leftViews, offset: separation, priority: priority)
-            }
-        } else {
+        if views.count % 2  == 0 { // even
             let rightIndex = views.count/2
             let leftIndex = rightIndex-1
 
             views[leftIndex].constrainAttribute(.Right, toAttribute: .CenterX, ofItem: self, relatedBy: .LessThanOrEqual, offset:-separation/2, priority: priority)
             views[rightIndex].constrainAttribute(.Left, toAttribute: .CenterX, ofItem: self, relatedBy: .LessThanOrEqual, offset:separation/2, priority: priority)
 
-            let rightViews = Array(views[rightIndex+1...views.count-1])
-            if rightViews.count > 0 {
-                views[rightIndex].positionViewsToTheRight(rightViews, offset: separation, priority: priority)
-            }
+            if views.count > 2 {
+                let rightViews = Array(views[rightIndex+1...views.count-1])
+                if rightViews.count > 0 {
+                    views[rightIndex].positionViewsToTheRight(rightViews, offset: separation, priority: priority)
+                }
 
-            let leftViews = Array(views[0...leftIndex-1])
-            if leftViews.count > 0 {
-                views[leftIndex].positionViewsToTheLeft(leftViews, offset: separation, priority: priority)
+                let leftViews = Array(views[0...leftIndex-1])
+                if leftViews.count > 0 {
+                    views[leftIndex].positionViewsToTheLeft(leftViews, offset: separation, priority: priority)
+                }
+            }
+        } else { // odd
+            let centerIndex = views.count/2
+            views[centerIndex].centerHorizontallyInSuperview()
+
+            if views.count > 1 {
+                let rightViews = Array(views[centerIndex+1...views.count-1])
+                if rightViews.count > 0 {
+                    views[centerIndex].positionViewsToTheRight(rightViews, offset: separation, priority: priority)
+                }
+
+                let leftViews = Array(views[0...centerIndex-1])
+                if leftViews.count > 0{
+                    views[centerIndex].positionViewsToTheLeft(leftViews, offset: separation, priority: priority)
+                }
             }
         }
     }
