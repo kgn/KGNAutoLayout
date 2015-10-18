@@ -330,7 +330,7 @@ extension UIView {
 
     - Returns: The constraint object.
     */
-    public func sizeWidth(width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
+    public func sizeToWidth(width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         return self.constrainSizeAttribute(.Width, size: width, priority: priority)
     }
 
@@ -342,7 +342,7 @@ extension UIView {
 
      - Returns: The constraint object.
      */
-    public func sizeHeight(height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
+    public func sizeToHeight(height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         return self.constrainSizeAttribute(.Height, size: height, priority: priority)
     }
 
@@ -354,10 +354,10 @@ extension UIView {
 
      - Returns: The constraint object.
      */
-    public func sizeWidthAndHeight(size: CGFloat, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+    public func sizeToWidthAndHeight(size: CGFloat, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
-            self.sizeWidth(size, priority: priority),
-            self.sizeHeight(size, priority: priority)
+            self.sizeToWidth(size, priority: priority),
+            self.sizeToHeight(size, priority: priority)
         )
     }
 
@@ -371,7 +371,7 @@ extension UIView {
      - Returns: The constraint object.
      */
     public func sizeWidthToWidthOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Width, toAttribute: .Width, ofItem: item, offset: -(offset*2), priority: priority)
+        return self.constrainAttribute(.Width, toAttribute: .Width, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
@@ -384,19 +384,20 @@ extension UIView {
      - Returns: The constraint object.
      */
     public func sizeHeightToHeightOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Height, toAttribute: .Height, ofItem: item, offset: -(offset*2), priority: priority)
+        return self.constrainAttribute(.Height, toAttribute: .Height, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
      Constrain the height of the view to the width of an item.
 
      - Parameter item: Constrain the height of the view to the width of this item, it may be a view or layout guide.
+     - Parameter offset: How far to offset the height of the view from the width of the item.    
      - Parameter priority: The priority of the constraint.
 
      - Returns: The constraint object.
      */
-    public func sizeHeightToWidthOfItem(item: AnyObject, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Height, toAttribute: .Width, ofItem:item, priority: priority)
+    public func sizeHeightToWidthOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return self.constrainAttribute(.Height, toAttribute: .Width, ofItem:item, offset: -offset, priority: priority)
     }
 
     /**
@@ -407,8 +408,8 @@ extension UIView {
 
      - Returns: The constraint object.
      */
-    public func sizeWidthToHeightOfItem(item: AnyObject, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Width, toAttribute: .Height, ofItem:item, priority: priority)
+    public func sizeWidthToHeightOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return self.constrainAttribute(.Width, toAttribute: .Height, ofItem:item, offset: -offset, priority: priority)
     }
 
     /**

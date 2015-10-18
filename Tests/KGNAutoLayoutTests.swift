@@ -170,7 +170,7 @@ class KGNAutoLayoutTests: XCTestCase {
 
     func testPinToSideEdgesOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraints = $0.pinToSideEdgesOfSuperview(priority: priority)
@@ -208,7 +208,7 @@ class KGNAutoLayoutTests: XCTestCase {
     func testPinToTopAndBottomEdgesOfSuperviewOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraints = $0.pinToTopAndBottomEdgesOfSuperview(offset, priority: priority)
@@ -312,56 +312,177 @@ class KGNAutoLayoutTests: XCTestCase {
 
     // MARK: - Size
 
-    func testSizeWidth() {
-
+    func testSizeToWidth() {
+        let size = CGSizeMake(50, 10)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.height = size.height
+            let constraint = $0.sizeToWidth(size.width, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, size.height))
     }
 
     func testSizeHeight() {
-
+        let size = CGSizeMake(10, 50)
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            let constraint = $0.sizeToHeight(size.height, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, size.height))
     }
 
     func testSizeWidthAndHeight() {
-
+        let size:CGFloat = 30
+        let priority = UILayoutPriorityRequired
+        let childViewFrame = self.compareViewFrame {
+            let constraints = $0.sizeToWidthAndHeight(size, priority: priority)
+            XCTAssertEqual(priority, constraints.width.priority)
+            XCTAssertEqual(priority, constraints.height.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size))
     }
 
     func testSizeWidthToWidthOfItem() {
-
+        let size: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.height = size
+            let constraint = $0.sizeWidthToWidthOfItem($0.superview!, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame), size))
     }
 
     func testSizeWidthToWidthOfItemOffset() {
-
+        let size: CGFloat = 10
+        let offset: CGFloat = 20
+        let priority = UILayoutPriorityRequired
+        let childViewFrame = self.compareViewFrame {
+            $0.height = size
+            let constraint = $0.sizeWidthToWidthOfItem($0.superview!, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame)-offset, size))
     }
 
     func testSizeHeightToHeightOfItem() {
-
+        let size: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size
+            let constraint = $0.sizeHeightToHeightOfItem($0.superview!, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
     }
 
     func testSizeHeightToHeightOfItemOffset() {
-
+        let size: CGFloat = 10
+        let offset: CGFloat = 20
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size
+            let constraint = $0.sizeHeightToHeightOfItem($0.superview!, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)-offset))
     }
 
     func testSizeHeightToWidthOfItem() {
+        let size: CGFloat = 10
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size
+            let constraint = $0.sizeHeightToWidthOfItem($0.superview!, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
+    }
 
+    func testSizeHeightToWidthOfItemOffset() {
+        let size: CGFloat = 10
+        let offset: CGFloat = 20
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size
+            let constraint = $0.sizeHeightToWidthOfItem($0.superview!, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)-offset))
     }
 
     func testSizeWidthToHeightOfItem() {
+        let size: CGFloat = 10
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.height = size
+            let constraint = $0.sizeWidthToHeightOfItem($0.superview!, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetHeight(self.parentViewFrame), size))
+    }
 
+    func testSizeWidthToHeightOfItemOffset() {
+        let size: CGFloat = 10
+        let offset: CGFloat = 20
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.height = size
+            let constraint = $0.sizeWidthToHeightOfItem($0.superview!, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetHeight(self.parentViewFrame)-offset, size))
     }
 
     func testSizeToWidthAndHeightOfItem() {
-
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            let constraints = $0.sizeToWidthAndHeightOfItem($0.superview!, priority: priority)
+            XCTAssertEqual(priority, constraints.width.priority)
+            XCTAssertEqual(priority, constraints.height.priority)
+        }
+        XCTAssertEqual(childViewFrame, self.parentViewFrame)
     }
 
     func testSizeToWidthAndHeightOfItemOffset() {
-
+        let offset: CGFloat = 20
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            let constraints = $0.sizeToWidthAndHeightOfItem($0.superview!, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraints.width.priority)
+            XCTAssertEqual(priority, constraints.height.priority)
+        }
+        var frame = self.parentViewFrame
+        frame.size.width -= offset
+        frame.size.height -= offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testSizeHeightToWidthAspectRatio() {
-
+        let size: CGFloat = 20
+        let aspectRatio: CGFloat = 2
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size
+            let constraint = $0.sizeHeightToWidthAspectRatio(aspectRatio, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size*aspectRatio))
     }
 
     func testSizeWidthToHeightAspectRatio() {
-
+        let size: CGFloat = 20
+        let aspectRatio: CGFloat = 2
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.height = size
+            let constraint = $0.sizeWidthToHeightAspectRatio(aspectRatio, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size*aspectRatio, size))
     }
 
     // MARK: - Position
