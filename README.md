@@ -14,6 +14,8 @@
 [![CocoaPods Platforms](https://img.shields.io/cocoapods/p/KGNAutoLayout.svg)](https://cocoapods.org/pods/KGNAutoLayout)
 
 [![Twitter](https://img.shields.io/badge/Twitter-@iamkgn-55ACEE.svg)](http://twitter.com/iamkgn)
+[![Star](https://img.shields.io/github/followers/kgn.svg?style=social&label=Follow%20%40kgn)](https://github.com/kgn)
+[![Star](https://img.shields.io/github/stars/kgn/KGNAutoLayout.svg?style=social&label=Star)](https://github.com/kgn/KGNAutoLayout)
 
 ## Installing
 
@@ -32,10 +34,11 @@ pod 'KGNAutoLayout'
 *TODO*
 
 ## TODO:
+- [ ] Convert example to Swift
 - [ ] Travis ([#4961](https://github.com/travis-ci/travis-ci/issues/4961)) ([#4962](https://github.com/travis-ci/travis-ci/issues/4962))
-- [ ] Badges (Needs release)
+- [X] Badges
 - [ ] Tests (Needs tests)
 - [X] Carthage
 - [ ] CocoaPods (Just need to release)
 - [ ] Description (Give examples)
-- [ ] Documentation (confirm it’s working)
+- [X] Documentation
