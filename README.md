@@ -38,4 +38,4 @@ pod 'KGNAutoLayout'
 - [X] Carthage
 - [ ] CocoaPods (Just need to release)
 - [ ] Description (Give examples)
-- [ ] Documentation (Need to finish documentation, confirm it’s working)
+- [ ] Documentation (confirm it’s working)

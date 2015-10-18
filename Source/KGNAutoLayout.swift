@@ -10,14 +10,14 @@ import UIKit
 
 extension UIView {
 
-// MARK: - Pin: Superview
+    // MARK: - Pin: Superview
 
     /**
     Pin a view to all four edges of it's super view, with an offset(inset from the edges).
 
     - Parameter offset: How far to offset(inset) the edges of the view from the superview's edges.
     - Parameter priority: The priority of the constraints.
-    
+
     - Returns: The top, right, bottom, and left constraint objects.
     */
     public func pinToEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, right: NSLayoutConstraint, bottom: NSLayoutConstraint, left: NSLayoutConstraint) {
@@ -30,62 +30,62 @@ extension UIView {
     }
 
     /**
-    Pin the top edge of the view to the top edge of it's superview.
+     Pin the top edge of the view to the top edge of it's superview.
 
-    - Parameter offset: How far to offset the top edge of the view from the top edge of its superview.
-    - Parameter priority: The priority of the constraint.
+     - Parameter offset: How far to offset the top edge of the view from the top edge of its superview.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func pinToTopEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Top, offset: offset, priority: priority)
     }
 
     /**
-    Pin the right edge of the view to the right edge of it's superview.
+     Pin the right edge of the view to the right edge of it's superview.
 
-    - Parameter offset: How far to offset the right edge of the view from the right edge of its superview.
-    - Parameter priority: The priority of the constraint.
+     - Parameter offset: How far to offset the right edge of the view from the right edge of its superview.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func pinToRightEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Right, offset: -offset, priority: priority)
     }
 
 
     /**
-    Pin the bottom edge of the view to the bottom edge of it's superview.
+     Pin the bottom edge of the view to the bottom edge of it's superview.
 
-    - Parameter offset: How far to offset the bottom edge of the view from the bottom edge of its superview.
-    - Parameter priority: The priority of the constraint.
+     - Parameter offset: How far to offset the bottom edge of the view from the bottom edge of its superview.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func pinToBottomEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Bottom, offset: -offset, priority: priority)
     }
 
     /**
-    Pin the left edge of the view to the left edge of it's superview.
+     Pin the left edge of the view to the left edge of it's superview.
 
-    - Parameter offset: How far to offset the left edge of the view from the bottom edge of its superview.
-    - Parameter priority: The priority of the constraint.
+     - Parameter offset: How far to offset the left edge of the view from the bottom edge of its superview.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func pinToLeftEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Left, offset: offset, priority: priority)
     }
 
     /**
-    Pin the left and right edges of the view to the left and right edges of it's superview.
+     Pin the left and right edges of the view to the left and right edges of it's superview.
 
-    - Parameter offset: How far to offset the left and right edges of the view from the left and right edges of its superview.
-    - Parameter priority: The priority of the constraints.
+     - Parameter offset: How far to offset the left and right edges of the view from the left and right edges of its superview.
+     - Parameter priority: The priority of the constraints.
 
-    - Returns: The left and right constraint objects.
-    */
+     - Returns: The left and right constraint objects.
+     */
     public func pinToSideEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
             self.pinToLeftEdgeOfSuperview(offset, priority: priority),
@@ -94,13 +94,13 @@ extension UIView {
     }
 
     /**
-    Pin the top and bottom edges of the view to the top and bottom edges of it's superview.
+     Pin the top and bottom edges of the view to the top and bottom edges of it's superview.
 
-    - Parameter offset: How far to offset the top and bottom edges of the view from the top and bottom edges of its superview.
-    - Parameter priority: The priority of the constraints.
+     - Parameter offset: How far to offset the top and bottom edges of the view from the top and bottom edges of its superview.
+     - Parameter priority: The priority of the constraints.
 
-    - Returns: The top and bottom constraint objects.
-    */
+     - Returns: The top and bottom constraint objects.
+     */
     public func pinToTopAndBottomEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint) {
         return (
             self.pinToTopEdgeOfSuperview(offset, priority: priority),
@@ -108,14 +108,14 @@ extension UIView {
         )
     }
 
-// MARK: - Pin: Edges
+    // MARK: - Pin: Edges
 
     /**
     Pin the top edge of the view to the top edge of another item.
 
     - Parameter item: Constrain the top edge of the view to the top edge of this item, it may be a view or layout guide.
     - Parameter offset: How far to offset the top edge of the view from the top edge of the item.
-    - Parameter priority: The priority of the constraints.
+    - Parameter priority: The priority of the constraint.
 
     - Returns: The constraint object.
     */
@@ -124,45 +124,45 @@ extension UIView {
     }
 
     /**
-    Pin the right edge of the view to the right edge of another item.
+     Pin the right edge of the view to the right edge of another item.
 
-    - Parameter item: Constrain the right edge of the view to the right edge of this item, it may be a view or layout guide.
-    - Parameter offset: How far to offset the right edge of the view from the right edge of the item.
-    - Parameter priority: The priority of the constraints.
+     - Parameter item: Constrain the right edge of the view to the right edge of this item, it may be a view or layout guide.
+     - Parameter offset: How far to offset the right edge of the view from the right edge of the item.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func pinRightEdgeToRightEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Right, toAttribute: .Right, ofItem: item, offset: offset, priority: priority)
     }
 
     /**
-    Pin the bottom edge of the view to the bottom edge of another item.
+     Pin the bottom edge of the view to the bottom edge of another item.
 
-    - Parameter item: Constrain the bottom edge of the view to the bottom edge of this item, it may be a view or layout guide.
-    - Parameter offset: How far to offset the bottom edge of the view from the bottom edge of the item.
-    - Parameter priority: The priority of the constraints.
+     - Parameter item: Constrain the bottom edge of the view to the bottom edge of this item, it may be a view or layout guide.
+     - Parameter offset: How far to offset the bottom edge of the view from the bottom edge of the item.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func pinBottomEdgeToBottomEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Bottom, toAttribute: .Bottom, ofItem: item, offset: offset, priority: priority)
     }
 
     /**
-    Pin the left edge of the view to the left edge of another item.
+     Pin the left edge of the view to the left edge of another item.
 
-    - Parameter item: Constrain the left edge of the view to the left edge of this item, it may be a view or layout guide.
-    - Parameter offset: How far to offset the left edge of the view from the left edge of the item.
-    - Parameter priority: The priority of the constraints.
-
-    - Returns: The constraint object.
-    */
+     - Parameter item: Constrain the left edge of the view to the left edge of this item, it may be a view or layout guide.
+     - Parameter offset: How far to offset the left edge of the view from the left edge of the item.
+     - Parameter priority: The priority of the constraint.
+     
+     - Returns: The constraint object.
+     */
     public func pinLeftEdgeToLeftEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Left, toAttribute: .Left, ofItem: item, offset: -offset, priority: priority)
     }
 
-// MARK: - Center
+    // MARK: - Center
 
     /**
     Center the view horizontally and vertically within it's superview.
@@ -180,36 +180,36 @@ extension UIView {
     }
 
     /**
-    Center the view horizontally within it's super view.
+     Center the view horizontally within it's super view.
 
-    - Parameter offset: How far to horizontally offset the center of the view from the superview's center.
-    - Parameter priority: The priority of the constraints.
-    
-    - Returns: The constraint object.
-    */
+     - Parameter offset: How far to horizontally offset the center of the view from the superview's center.
+     - Parameter priority: The priority of the constraint.
+     
+     - Returns: The constraint object.
+     */
     public func centerHorizontallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.CenterX, offset: offset, priority: priority)
     }
 
     /**
-    Center the view vertical within it's super view.
+     Center the view vertical within it's super view.
 
-    - Parameter offset: How far to vertical offset the center of the view from the superview's center.
-    - Parameter priority: The priority of the constraints.
-    
-    - Returns: The constraint object.
-    */
+     - Parameter offset: How far to vertical offset the center of the view from the superview's center.
+     - Parameter priority: The priority of the constraint.
+     
+     - Returns: The constraint object.
+     */
     public func centerVerticallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.CenterY, offset: offset, priority: priority)
     }
 
     /**
-    Center the views horizontally within a view.
+     Center the views horizontally within a view.
 
-    - Parameter views: The views to center horizontally.
-    - Parameter separation: The separation between the views.
-    - Parameter priority: The priority of the constraints.
-    */
+     - Parameter views: The views to center horizontally.
+     - Parameter separation: The separation between the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func centerViewsHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
@@ -247,12 +247,12 @@ extension UIView {
     }
 
     /**
-    Center the views vertically within a view.
+     Center the views vertically within a view.
 
-    - Parameter views: The views to center vertically.
-    - Parameter separation: The separation between the views.
-    - Parameter priority: The priority of the constraints.
-    */
+     - Parameter views: The views to center vertically.
+     - Parameter separation: The separation between the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func centerViewsVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
@@ -294,39 +294,39 @@ extension UIView {
     }
 
     /**
-    Center the view horizontally to an item.
+     Center the view horizontally to an item.
 
-    - Parameter item: Constraint the horizontal axis of the view to this item, it may be a view or layout guide.
-    - Parameter offset: How far to horizontally offset the center of the view from the item's center.
-    - Parameter priority: The priority of the constraints.
-    
-    - Returns: The constraint object.
-    */
+     - Parameter item: Constraint the horizontal axis of the view to this item, it may be a view or layout guide.
+     - Parameter offset: How far to horizontally offset the center of the view from the item's center.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
     public func centerHorizontallyToItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.CenterX, toAttribute: .CenterX, ofItem: item, offset: offset, priority: priority)
     }
 
     /**
-    Center the view vertically to an item.
+     Center the view vertically to an item.
 
-    - Parameter item: Constraint the vertical axis of the view to this item, it may be a view or layout guide.
-    - Parameter offset: How far to vertically offset the center of the view from the item's center.
-    - Parameter priority: The priority of the constraints.
+     - Parameter item: Constraint the vertical axis of the view to this item, it may be a view or layout guide.
+     - Parameter offset: How far to vertically offset the center of the view from the item's center.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func centerVerticallyToItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.CenterY, toAttribute: .CenterY, ofItem: item, offset: offset, priority: priority)
     }
 
 
-// MARK: - Size
+    // MARK: - Size
 
     /**
     Constrain the width of the view.
 
     - Parameter width: The width to constrain the view to.
-    - Parameter priority: The priority of the constraints.
+    - Parameter priority: The priority of the constraint.
 
     - Returns: The constraint object.
     */
@@ -335,74 +335,90 @@ extension UIView {
     }
 
     /**
-    Constrain the height of the view.
+     Constrain the height of the view.
 
-    - Parameter height: The width to constrain the view to.
-    - Parameter priority: The priority of the constraints.
+     - Parameter height: The width to constrain the view to.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func sizeHeight(height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         return self.constrainSizeAttribute(.Height, size: height, priority: priority)
     }
 
     /**
-    Constrain the width of the view to the width of an item.
+     Constrain the width and height of the view.
 
-    - Parameter item: Constrain the width of the view to the width of the item, it may be a view or layout guide.
-    - Parameter offset: How far to offset the width of the view from the width of the item.
-    - Parameter priority: The priority of the constraints.
+     - Parameter size: The width and height to constrain the view to.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
+    public func sizeWidthAndHeight(size: CGFloat, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (
+            self.sizeWidth(size, priority: priority),
+            self.sizeHeight(size, priority: priority)
+        )
+    }
+
+    /**
+     Constrain the width of the view to the width of an item.
+
+     - Parameter item: Constrain the width of the view to the width of the item, it may be a view or layout guide.
+     - Parameter offset: How far to offset the width of the view from the width of the item.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
     public func sizeWidthToWidthOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Width, toAttribute: .Width, ofItem: item, offset: -(offset*2), priority: priority)
     }
 
     /**
-    Constrain the height of the view to the height of an item.
+     Constrain the height of the view to the height of an item.
 
-    - Parameter item: Constrain the height of the view to the height of the item, it may be a view or layout guide.
-    - Parameter offset: How far to offset the height of the view from the height of the item.
-    - Parameter priority: The priority of the constraints.
+     - Parameter item: Constrain the height of the view to the height of the item, it may be a view or layout guide.
+     - Parameter offset: How far to offset the height of the view from the height of the item.
+     - Parameter priority: The priority of the constraint.
 
-    - Returns: The constraint object.
-    */
+     - Returns: The constraint object.
+     */
     public func sizeHeightToHeightOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Height, toAttribute: .Height, ofItem: item, offset: -(offset*2), priority: priority)
     }
 
+    /**
+     Constrain the height of the view to the width of an item.
+
+     - Parameter item: Constrain the height of the view to the width of this item, it may be a view or layout guide.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
     public func sizeHeightToWidthOfItem(item: AnyObject, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Height, toAttribute: .Width, ofItem:item, priority: priority)
     }
 
+    /**
+     Constrain the width of the view to the height of an item.
+
+     - Parameter item: Constrain the width of the view to the height of this item, it may be a view or layout guide.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
     public func sizeWidthToHeightOfItem(item: AnyObject, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Width, toAttribute: .Height, ofItem:item, priority: priority)
     }
 
-    public func sizeHeightToWidthAspectRatio(aspectRatio: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.sizeHeightToWidthAspectRatioOfItem(aspectRatio, item: self, priority: priority)
-    }
+    /**
+     Constrain the width and height of the view to the width and height of an item.
 
-    public func sizeWidthToHeightAspectRatio(aspectRatio: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.sizeWidthToHeightAspectRatioOfItem(aspectRatio, item: self, priority: priority)
-    }
+     - Parameter item: Constrain the width and height of the view to the width and height of the item, it may be a view or layout guide.
+     - Parameter priority: The priority of the constraints.
 
-    public func sizeHeightToWidthAspectRatioOfItem(aspectRatio: CGFloat, item: AnyObject, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Height, toAttribute: .Width, ofItem: item, multiplier: aspectRatio, priority: priority)
-    }
-
-    public func sizeWidthToHeightAspectRatioOfItem(aspectRatio: CGFloat, item: AnyObject, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Width, toAttribute: .Height, ofItem: item, multiplier: aspectRatio, priority: priority)
-    }
-
-    public func sizeWidthAndHeight(toSize: CGFloat, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
-        return (
-            self.sizeWidth(toSize, priority: priority),
-            self.sizeHeight(toSize, priority: priority)
-        )
-    }
-
+     - Returns: The width and height constraint objects.
+     */
     public func sizeToWidthAndHeightOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             self.sizeWidthToWidthOfItem(item, offset: offset, priority: priority),
@@ -410,24 +426,92 @@ extension UIView {
         )
     }
 
+    /**
+     Constrain the height to a width aspect ratio.
+
+     - Parameter aspectRatio: The aspect ratio of the width to constrain the height to.
+     - Parameter priority: The priority of the constraints.
+
+     - Returns: The constraint object.
+     */
+    public func sizeHeightToWidthAspectRatio(aspectRatio: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return self.constrainAttribute(.Height, toAttribute: .Width, ofItem: self, multiplier: aspectRatio, priority: priority)
+    }
+
+    /**
+     Constrain the width to a height aspect ratio.
+
+     - Parameter aspectRatio: The aspect ratio of the height to constrain the width to.
+     - Parameter priority: The priority of the constraints.
+
+     - Returns: The constraint object.
+     */
+    public func sizeWidthToHeightAspectRatio(aspectRatio: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+        return self.constrainAttribute(.Width, toAttribute: .Height, ofItem: self, multiplier: aspectRatio, priority: priority)
+    }
+
     // MARK: - Position
 
+    /**
+    Position the view above an item.
+
+    - Parameter item: Position the view above this item, it may be a view or layout guide.
+    - Parameter offset: How far to offset(seperate) the bottom of the view from the top of the item.
+    - Parameter priority: The priority of the constraint.
+
+    - Returns: The constraint object.
+    */
     public func positionAboveItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Bottom, toAttribute:.Top, ofItem:item, offset:-offset, priority: priority)
     }
 
+    /**
+     Position the view to the right of an item.
+
+     - Parameter item: Position the view to the right of this item, it may be a view or layout guide.
+     - Parameter offset: How far to offset(seperate) the left of the view from the right of the item.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
     public func positionToTheRightOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Left, toAttribute:.Right, ofItem:item, offset:offset, priority: priority)
     }
 
+    /**
+     Position the view below an item.
+
+     - Parameter item: Position the view below this item, it may be a view or layout guide.
+     - Parameter offset: How far to offset(seperate) the top of the view from the bottom of the item.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
     public func positionBelowItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Top, toAttribute:.Bottom, ofItem:item, offset:offset, priority: priority)
     }
 
+
+    /**
+     Position the view to the left of an item.
+
+     - Parameter item: Position the view to the left of this item, it may be a view or layout guide.
+     - Parameter offset: How far to offset(seperate) the right of the view from the left of the item.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
     public func positionToTheLeftOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainAttribute(.Right, toAttribute:.Left, ofItem:item, offset:-offset, priority: priority)
     }
 
+    /**
+     Position the views above the view.
+
+     - Parameter views: The views to position above the view.
+     - Parameter offset: How far to offset(seperate) the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func positionViewsAbove(views: [UIView], offset: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
@@ -438,6 +522,13 @@ extension UIView {
         }
     }
 
+    /**
+     Position the views to the right of the view.
+
+     - Parameter views: The views to position to the right of the view.
+     - Parameter offset: How far to offset(seperate) the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func positionViewsToTheRight(views: [UIView], offset: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
@@ -448,6 +539,13 @@ extension UIView {
         }
     }
 
+    /**
+     Position the views below the view.
+
+     - Parameter views: The views to position below the view.
+     - Parameter offset: How far to offset(seperate) the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func positionViewsBelow(views: [UIView], offset: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
@@ -458,6 +556,13 @@ extension UIView {
         }
     }
 
+    /**
+     Position the views to the left of the view.
+
+     - Parameter views: The views to position to the left of the view.
+     - Parameter offset: How far to offset(seperate) the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func positionViewsToTheLeft(views: [UIView], offset: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
@@ -470,6 +575,16 @@ extension UIView {
 
     // MARK: - Between
 
+    /**
+    Fit the view between the top and bottom items.
+
+    - Parameter topItem: The top item to fit below.
+    - Parameter bottomItem: The bottom item to fit below.
+    - Parameter offset: How far to offset(seperate) the view from the top and bottom items.
+    - Parameter priority: The priority of the constraints.
+
+    - Returns: The top and bottom constraint objects.
+    */
     public func fitBetween(topItem: AnyObject, bottomItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint){
         return (
             self.positionBelowItem(topItem, offset: offset, priority: priority),
@@ -477,6 +592,16 @@ extension UIView {
         )
     }
 
+    /**
+     Fit the view between the left and right items.
+
+     - Parameter leftItem: The left item to fit below.
+     - Parameter rightItem: The right item to fit below.
+     - Parameter offset: How far to offset(seperate) the view from the top and bottom items.
+     - Parameter priority: The priority of the constraints.
+
+     - Returns: The left and right constraint objects.
+     */
     public func fitBetween(leftItem: AnyObject, rightItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint, right: NSLayoutConstraint){
         return (
             self.positionToTheRightOfItem(leftItem, offset: offset, priority: priority),
@@ -486,6 +611,13 @@ extension UIView {
 
     // MARK: - Fill
 
+    /**
+    Horizontally layout and fill the view with views.
+
+    - Parameter views: An array of views to horizontally layout and fill the view with.
+    - Parameter separation: The separation between the views.
+    - Parameter priority: The priority of the constraints.
+    */
     public func fillHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 1, "Can only distribute 2 or more views")
 
@@ -503,6 +635,13 @@ extension UIView {
         lastView?.pinToRightEdgeOfSuperview(separation, priority: priority)
     }
 
+    /**
+     Vertically layout and fill the view with views.
+
+     - Parameter views: An array of views to vertically layout and fill the view with.
+     - Parameter separation: The separation between the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func fillVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 1, "Can only distribute 2 or more views")
 
@@ -522,6 +661,15 @@ extension UIView {
 
     // MARK: - Bound
 
+    /**
+    Horizontally layout views and then bound the left and right edges of the view to the left and right edges of the first and last views.
+    This method is useful for filling scroll views with views becuase the passed views will be laid out,
+    and then the calling view(scroll view) will be bound to their total width.
+
+    - Parameter views: An array of views to layout horizontally. The left and right edges of the view are bound to the left and right edges of first and last views.
+    - Parameter separation: The separation between the views.
+    - Parameter priority: The priority of the constraints.
+    */
     public func boundHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 1, "Can only distribute 2 or more views")
 
@@ -537,6 +685,15 @@ extension UIView {
         self.pinRightEdgeToRightEdgeOfItem(views.last!, offset: separation, priority: priority)
     }
 
+    /**
+     Vertically layout views and then bound the top and bottom edges of the view to the top and bottom edges of the first and last views.
+     This method is useful for filling scroll views with views becuase the passed views will be laid out,
+     and then the calling view(scroll view) will be bound to their total height.
+
+     - Parameter views: An array of views to layout vertically. The top and bottom edges of the view are bound to the top and bottom edges of first and last views.
+     - Parameter separation: The separation between the views.
+     - Parameter priority: The priority of the constraints.
+     */
     public func boundVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 1, "Can only distribute 2 or more views")
 
@@ -591,11 +748,11 @@ extension UIView {
                     }
                     startView = startView.superview
                 } while (startView != nil && commonSuperview == nil)
-
+                
                 return commonSuperview
-            }()
+                }()
         }()
-
+        
         assert(commonSuperview != nil, "Can't create constraints without a common superview")
         
         self.translatesAutoresizingMaskIntoConstraints = false
