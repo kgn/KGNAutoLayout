@@ -2,17 +2,18 @@ language: objective-c
 osx_image: xcode7
 
 env:
+  global:
+  - PROJECT=KGNAutoLayout
+  - SCHEME=$PROJECT
   matrix:
-    # - SDK=iphonesimulator8.0
-    # - SDK=iphonesimulator8.1
-    # - SDK=iphonesimulator8.2
-    # - SDK=iphonesimulator8.3
-    # - SDK=iphonesimulator8.4
-    - SDK=iphonesimulator9.0
+    - DESTINATION="OS=9.0,name=iPad 2"
+    - DESTINATION="OS=9.0,name=iPhone 6"
+    - DESTINATION="OS=9.0,name=iPhone 6 Plus"
 
-before_install:
-  - export PROJECT=KGNColor
-  - export SCHEME=$PROJECT    
+    - DESTINATION="OS=8.1,name=iPad 2"
+    - DESTINATION="OS=8.2,name=iPhone 4s"
+    - DESTINATION="OS=8.3,name=iPhone 5"
+    - DESTINATION="OS=8.4,name=iPhone 5s"
 
 script: 
-  - xctool clean test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk $SDK
+  - xctool clean test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"

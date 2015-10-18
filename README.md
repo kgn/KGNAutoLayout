@@ -35,7 +35,7 @@ pod 'KGNAutoLayout'
 
 ## TODO:
 - [ ] Convert example to Swift
-- [ ] Travis ([#4961](https://github.com/travis-ci/travis-ci/issues/4961)) ([#4962](https://github.com/travis-ci/travis-ci/issues/4962))
+- [X] Travis
 - [X] Badges
 - [ ] Tests (Needs tests)
 - [X] Carthage
