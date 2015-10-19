@@ -1536,35 +1536,167 @@ class KGNAutoLayoutTests: XCTestCase {
     // MARK: - Position
 
     func testPositionAboveItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionAboveItem(itemView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMinY(itemFrame)-size.height
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionAboveItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionAboveItem(itemView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMinY(itemFrame)-size.height-offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheRightOfItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionToTheRightOfItem(itemView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMaxX(itemFrame)
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheRightOfItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionToTheRightOfItem(itemView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMaxX(itemFrame)+offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionBelowItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionBelowItem(itemView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMaxY(itemFrame)
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionBelowItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionBelowItem(itemView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMaxY(itemFrame)+offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheLeftOfItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionToTheLeftOfItem(itemView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMinX(itemFrame)-size.width
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheLeftOfItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let itemView = UIView(frame: itemFrame)
+            $0.superview!.addSubview(itemView)
+
+            let constraint = $0.positionToTheLeftOfItem(itemView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMinX(itemFrame)-size.width-offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionViewsAbove() {
