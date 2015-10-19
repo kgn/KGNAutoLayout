@@ -259,23 +259,7 @@ extension UIView {
     public func centerViewsVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
-        // odd number of views
-        if views.count % 2  != 0 {
-            let centerIndex = views.count/2
-            views[centerIndex].centerVerticallyInSuperview()
-
-            if views.count > 1 {
-                let belowViews = Array(views[centerIndex+1...views.count-1])
-                if belowViews.count > 0 {
-                    views[centerIndex].positionViewsBelow(belowViews, offset: separation, priority: priority)
-                }
-
-                let aboveViews = Array(views[0...centerIndex-1])
-                if aboveViews.count > 0{
-                    views[centerIndex].positionViewsAbove(aboveViews, offset: separation, priority: priority)
-                }
-            }
-        }else{
+        if views.count % 2  == 0 { // even
             let belowIndex = views.count/2
             let aboveIndex = belowIndex-1
 
@@ -291,6 +275,21 @@ extension UIView {
                 let aboveViews = Array(views[0...aboveIndex-1])
                 if aboveViews.count > 0 {
                     views[aboveIndex].positionViewsAbove(aboveViews, offset: separation, priority: priority)
+                }
+            }
+        }else{ // ood
+            let centerIndex = views.count/2
+            views[centerIndex].centerVerticallyInSuperview()
+
+            if views.count > 1 {
+                let belowViews = Array(views[centerIndex+1...views.count-1])
+                if belowViews.count > 0 {
+                    views[centerIndex].positionViewsBelow(belowViews, offset: separation, priority: priority)
+                }
+
+                let aboveViews = Array(views[0...centerIndex-1])
+                if aboveViews.count > 0{
+                    views[centerIndex].positionViewsAbove(aboveViews, offset: separation, priority: priority)
                 }
             }
         }
