@@ -622,7 +622,12 @@ extension UIView {
     - Parameter priority: The priority of the constraints.
     */
     public func fillHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
-        assert(views.count > 1, "Can only distribute 2 or more views")
+        assert(views.count > 0, "Can only distribute 1 or more views")
+
+        if views.count == 1 {
+            views.first?.pinToSideEdgesOfSuperview(separation, priority: priority)
+            return
+        }
 
         var lastView: UIView!
         for view in views {
@@ -646,7 +651,12 @@ extension UIView {
      - Parameter priority: The priority of the constraints.
      */
     public func fillVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
-        assert(views.count > 1, "Can only distribute 2 or more views")
+        assert(views.count > 0, "Can only distribute 1 or more views")
+
+        if views.count == 1 {
+            views.first?.pinToTopAndBottomEdgesOfSuperview(separation, priority: priority)
+            return
+        }
 
         var lastView: UIView!
         for view in views {
