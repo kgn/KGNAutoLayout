@@ -120,7 +120,7 @@ extension UIView {
     - Returns: The constraint object.
     */
     public func pinTopEdgeToTopEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Top, toAttribute: .Top, ofItem: item, offset: -offset, priority: priority)
+        return self.constrainAttribute(.Top, toAttribute: .Top, ofItem: item, offset: offset, priority: priority)
     }
 
     /**
@@ -133,7 +133,7 @@ extension UIView {
      - Returns: The constraint object.
      */
     public func pinRightEdgeToRightEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Right, toAttribute: .Right, ofItem: item, offset: offset, priority: priority)
+        return self.constrainAttribute(.Right, toAttribute: .Right, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
@@ -146,7 +146,7 @@ extension UIView {
      - Returns: The constraint object.
      */
     public func pinBottomEdgeToBottomEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Bottom, toAttribute: .Bottom, ofItem: item, offset: offset, priority: priority)
+        return self.constrainAttribute(.Bottom, toAttribute: .Bottom, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
@@ -159,7 +159,7 @@ extension UIView {
      - Returns: The constraint object.
      */
     public func pinLeftEdgeToLeftEdgeOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainAttribute(.Left, toAttribute: .Left, ofItem: item, offset: -offset, priority: priority)
+        return self.constrainAttribute(.Left, toAttribute: .Left, ofItem: item, offset: offset, priority: priority)
     }
 
     // MARK: - Center

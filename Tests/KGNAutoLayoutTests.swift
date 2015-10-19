@@ -221,35 +221,167 @@ class KGNAutoLayoutTests: XCTestCase {
     // MARK: - Pin: Edges
 
     func testPinTopEdgeToTopEdgeOfItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinTopEdgeToTopEdgeOfItem(matchView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMinY(matchFrame)
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinTopEdgeToTopEdgeOfItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinTopEdgeToTopEdgeOfItem(matchView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMinY(matchFrame)+offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinRightEdgeToRightEdgeOfItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinRightEdgeToRightEdgeOfItem(matchView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMaxX(matchFrame)-size.width
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinRightEdgeToRightEdgeOfItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinRightEdgeToRightEdgeOfItem(matchView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMaxX(matchFrame)-size.width-offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinBottomEdgeToBottomEdgeOfItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinBottomEdgeToBottomEdgeOfItem(matchView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMaxY(matchFrame)-size.height
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinBottomEdgeToBottomEdgeOfItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinBottomEdgeToBottomEdgeOfItem(matchView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.y = CGRectGetMaxY(matchFrame)-size.height-offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinLeftEdgeToLeftEdgeOfItem() {
-        XCTAssert(false)
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinLeftEdgeToLeftEdgeOfItem(matchView, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMinX(matchFrame)
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinLeftEdgeToLeftEdgeOfItemOffset() {
-        XCTAssert(false)
+        let offset: CGFloat = 10
+        let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.pinLeftEdgeToLeftEdgeOfItem(matchView, offset: offset, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        var frame = CGRectZero
+        frame.size = size
+        frame.origin.x = CGRectGetMinX(matchFrame)+offset
+        XCTAssertEqual(childViewFrame, frame)
     }
 
     // MARK: - Center
@@ -1143,63 +1275,86 @@ class KGNAutoLayoutTests: XCTestCase {
     
     func testCenterHorizontallyToItem() {
         let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(20, 30, 40, 50)
         let priority = UILayoutPriorityDefaultLow
+
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
-            let constraint = $0.centerHorizontallyToItem($0.superview!, priority: priority)
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.centerHorizontallyToItem(matchView, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
         var frame = CGRectZero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)
+        frame.origin.x = CGRectGetMidX(matchFrame)-size.width/2
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterHorizontallyToItemOffset() {
         let offset: CGFloat = 10
         let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(30, 20, 10, 80)
         let priority = UILayoutPriorityDefaultLow
+
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
-            let constraint = $0.centerHorizontallyToItem($0.superview!, offset: offset, priority: priority)
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.centerHorizontallyToItem(matchView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
         var frame = CGRectZero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)+offset
+        frame.origin.x = CGRectGetMidX(matchFrame)-size.width/2+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyToItem() {
         let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(100, 80, 60, 40)
         let priority = UILayoutPriorityDefaultLow
+
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
-            let constraint = $0.centerVerticallyToItem($0.superview!, priority: priority)
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.centerVerticallyToItem(matchView, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
         var frame = CGRectZero
         frame.size = size
-        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)
+        frame.origin.y = CGRectGetMidY(matchFrame)-size.height/2
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyToItemOffset() {
         let offset: CGFloat = 10
         let size = CGSizeMake(40, 20)
+        let matchFrame = CGRectMake(120, 50, 60, 20)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
-            let constraint = $0.centerVerticallyToItem($0.superview!, offset: offset, priority: priority)
+
+            let matchView = UIView(frame: matchFrame)
+            $0.superview!.addSubview(matchView)
+
+            let constraint = $0.centerVerticallyToItem(matchView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
         var frame = CGRectZero
         frame.size = size
-        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)+offset
+        frame.origin.y = CGRectGetMidY(matchFrame)-size.height/2+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
