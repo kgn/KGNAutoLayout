@@ -221,35 +221,35 @@ class KGNAutoLayoutTests: XCTestCase {
     // MARK: - Pin: Edges
 
     func testPinTopEdgeToTopEdgeOfItem() {
-
+        XCTAssert(false)
     }
 
     func testPinTopEdgeToTopEdgeOfItemOffset() {
-
+        XCTAssert(false)
     }
 
     func testPinRightEdgeToRightEdgeOfItem() {
-
+        XCTAssert(false)
     }
 
     func testPinRightEdgeToRightEdgeOfItemOffset() {
-
+        XCTAssert(false)
     }
 
     func testPinBottomEdgeToBottomEdgeOfItem() {
-
+        XCTAssert(false)
     }
 
     func testPinBottomEdgeToBottomEdgeOfItemOffset() {
-
+        XCTAssert(false)
     }
 
     func testPinLeftEdgeToLeftEdgeOfItem() {
-
+        XCTAssert(false)
     }
 
     func testPinLeftEdgeToLeftEdgeOfItemOffset() {
-
+        XCTAssert(false)
     }
 
     // MARK: - Center
@@ -1381,121 +1381,121 @@ class KGNAutoLayoutTests: XCTestCase {
     // MARK: - Position
 
     func testPositionAboveItem() {
-
+        XCTAssert(false)
     }
 
     func testPositionAboveItemOffset() {
-
+        XCTAssert(false)
     }
 
     func testPositionToTheRightOfItem() {
-
+        XCTAssert(false)
     }
 
     func testPositionToTheRightOfItemOffset() {
-        
+        XCTAssert(false)
     }
 
     func testPositionBelowItem() {
-
+        XCTAssert(false)
     }
 
     func testPositionBelowItemOffset() {
-
+        XCTAssert(false)
     }
 
     func testPositionToTheLeftOfItem() {
-
+        XCTAssert(false)
     }
 
     func testPositionToTheLeftOfItemOffset() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsAbove() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsAboveOffset() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsToTheRight() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsToTheRightOffset() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsBelow() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsBelowOffset() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsToTheLeft() {
-
+        XCTAssert(false)
     }
 
     func testPositionViewsToTheLeftOffset() {
-
+        XCTAssert(false)
     }
 
     // MARK: - Between
 
     func testFitBetweenTopAndBottom() {
-
+        XCTAssert(false)
     }
 
     func testFitBetweenTopAndBottomOffset() {
-
+        XCTAssert(false)
     }
 
     func testFitBetweenLeftAndRight() {
-
+        XCTAssert(false)
     }
 
     func testFitBetweenLeftAndRightOffset() {
-        
+        XCTAssert(false)
     }
 
     // MARK: - Fill
 
     func testFillHorizontally() {
-
+        XCTAssert(false)
     }
 
     func testFillHorizontallySeperation() {
-
+        XCTAssert(false)
     }
 
     func testFillVertically() {
-
+        XCTAssert(false)
     }
 
     func testFillVerticallySeperation() {
-        
+        XCTAssert(false)
     }
 
     // MARK: - Bound
 
     func testBoundHorizontally() {
-
+        XCTAssert(false)
     }
 
     func testBoundHorizontallySeperation() {
-
+        XCTAssert(false)
     }
 
     func testBoundVertically() {
-
+        XCTAssert(false)
     }
 
     func testBoundVerticallySeperation() {
-        
+        XCTAssert(false)
     }
     
 }
