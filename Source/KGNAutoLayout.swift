@@ -422,7 +422,7 @@ extension UIView {
 
      - Returns: The width and height constraint objects.
      */
-    public func sizeToWidthAndHeightOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+    public func sizeWidthAndHeightToWidthAndHeightOfItem(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
         return (
             self.sizeWidthToWidthOfItem(item, offset: offset, priority: priority),
             self.sizeHeightToHeightOfItem(item, offset: offset, priority: priority)

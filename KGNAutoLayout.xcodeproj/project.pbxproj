@@ -10,6 +10,16 @@
 		83720E251BCB973700C8A14D /* KGNAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 83720E241BCB973700C8A14D /* KGNAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83720E2C1BCB973700C8A14D /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; };
 		83720E311BCB973700C8A14D /* KGNAutoLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */; };
+		8376BC011BD6AA290084754D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC001BD6AA290084754D /* AppDelegate.swift */; };
+		8376BC0B1BD6AA290084754D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC091BD6AA290084754D /* LaunchScreen.storyboard */; };
+		8376BC161BD6B8900084754D /* The Resistance.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC121BD6B8900084754D /* The Resistance.jpg */; settings = {ASSET_TAGS = (); }; };
+		8376BC171BD6B8900084754D /* Drink The Sea.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC131BD6B8900084754D /* Drink The Sea.jpg */; settings = {ASSET_TAGS = (); }; };
+		8376BC191BD6B8900084754D /* Broken Bells.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC151BD6B8900084754D /* Broken Bells.jpg */; settings = {ASSET_TAGS = (); }; };
+		8376BC1A1BD6B8990084754D /* Albums.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC101BD6B87F0084754D /* Albums.plist */; settings = {ASSET_TAGS = (); }; };
+		8376BC1C1BD6C6520084754D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC1B1BD6C6520084754D /* PageViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8376BC1E1BD6C65D0084754D /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC1D1BD6C65D0084754D /* AlbumViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8376BC1F1BD6C9A80084754D /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; };
+		8376BC211BD6DBC80084754D /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC201BD6DBC80084754D /* TrackTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		83B95AA51BCB978C000FA7C9 /* KGNAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +40,17 @@
 		83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KGNAutoLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTests.swift; sourceTree = "<group>"; };
 		83720E321BCB973700C8A14D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8376BBFE1BD6AA290084754D /* KGNAutoLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KGNAutoLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8376BC001BD6AA290084754D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8376BC0A1BD6AA290084754D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8376BC0C1BD6AA290084754D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8376BC101BD6B87F0084754D /* Albums.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Albums.plist; sourceTree = "<group>"; };
+		8376BC121BD6B8900084754D /* The Resistance.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The Resistance.jpg"; sourceTree = "<group>"; };
+		8376BC131BD6B8900084754D /* Drink The Sea.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Drink The Sea.jpg"; sourceTree = "<group>"; };
+		8376BC151BD6B8900084754D /* Broken Bells.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Broken Bells.jpg"; sourceTree = "<group>"; };
+		8376BC1B1BD6C6520084754D /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8376BC1D1BD6C65D0084754D /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		8376BC201BD6DBC80084754D /* TrackTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 		83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,12 +70,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8376BBFB1BD6AA290084754D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8376BC1F1BD6C9A80084754D /* KGNAutoLayout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		83720E171BCB973700C8A14D = {
 			isa = PBXGroup;
 			children = (
+				8376BBFF1BD6AA290084754D /* Example */,
 				83720E231BCB973700C8A14D /* Source */,
 				83720E2F1BCB973700C8A14D /* Tests */,
 				83720E221BCB973700C8A14D /* Products */,
@@ -66,6 +96,7 @@
 			children = (
 				83720E211BCB973700C8A14D /* KGNAutoLayout.framework */,
 				83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests.xctest */,
+				8376BBFE1BD6AA290084754D /* KGNAutoLayoutExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,6 +118,23 @@
 				83720E321BCB973700C8A14D /* Info.plist */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		8376BBFF1BD6AA290084754D /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				8376BC001BD6AA290084754D /* AppDelegate.swift */,
+				8376BC1B1BD6C6520084754D /* PageViewController.swift */,
+				8376BC1D1BD6C65D0084754D /* AlbumViewController.swift */,
+				8376BC201BD6DBC80084754D /* TrackTableViewCell.swift */,
+				8376BC091BD6AA290084754D /* LaunchScreen.storyboard */,
+				8376BC0C1BD6AA290084754D /* Info.plist */,
+				8376BC101BD6B87F0084754D /* Albums.plist */,
+				8376BC121BD6B8900084754D /* The Resistance.jpg */,
+				8376BC131BD6B8900084754D /* Drink The Sea.jpg */,
+				8376BC151BD6B8900084754D /* Broken Bells.jpg */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +187,23 @@
 			productReference = 83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8376BBFD1BD6AA290084754D /* KGNAutoLayoutExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8376BC0F1BD6AA290084754D /* Build configuration list for PBXNativeTarget "KGNAutoLayoutExample" */;
+			buildPhases = (
+				8376BBFA1BD6AA290084754D /* Sources */,
+				8376BBFB1BD6AA290084754D /* Frameworks */,
+				8376BBFC1BD6AA290084754D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KGNAutoLayoutExample;
+			productName = KGNAutoLayoutExample;
+			productReference = 8376BBFE1BD6AA290084754D /* KGNAutoLayoutExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -155,6 +220,9 @@
 					83720E2A1BCB973700C8A14D = {
 						CreatedOnToolsVersion = 7.1;
 					};
+					8376BBFD1BD6AA290084754D = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 				};
 			};
 			buildConfigurationList = 83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */;
@@ -163,6 +231,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 83720E171BCB973700C8A14D;
 			productRefGroup = 83720E221BCB973700C8A14D /* Products */;
@@ -171,6 +240,7 @@
 			targets = (
 				83720E201BCB973700C8A14D /* KGNAutoLayout */,
 				83720E2A1BCB973700C8A14D /* KGNAutoLayoutTests */,
+				8376BBFD1BD6AA290084754D /* KGNAutoLayoutExample */,
 			);
 		};
 /* End PBXProject section */
@@ -187,6 +257,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8376BBFC1BD6AA290084754D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8376BC0B1BD6AA290084754D /* LaunchScreen.storyboard in Resources */,
+				8376BC1A1BD6B8990084754D /* Albums.plist in Resources */,
+				8376BC191BD6B8900084754D /* Broken Bells.jpg in Resources */,
+				8376BC171BD6B8900084754D /* Drink The Sea.jpg in Resources */,
+				8376BC161BD6B8900084754D /* The Resistance.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +291,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8376BBFA1BD6AA290084754D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8376BC1E1BD6C65D0084754D /* AlbumViewController.swift in Sources */,
+				8376BC011BD6AA290084754D /* AppDelegate.swift in Sources */,
+				8376BC1C1BD6C6520084754D /* PageViewController.swift in Sources */,
+				8376BC211BD6DBC80084754D /* TrackTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -218,6 +311,17 @@
 			targetProxy = 83720E2D1BCB973700C8A14D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8376BC091BD6AA290084754D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8376BC0A1BD6AA290084754D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		83720E331BCB973700C8A14D /* Debug */ = {
@@ -368,6 +472,30 @@
 			};
 			name = Release;
 		};
+		8376BC0D1BD6AA290084754D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8376BC0E1BD6AA290084754D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -397,6 +525,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		8376BC0F1BD6AA290084754D /* Build configuration list for PBXNativeTarget "KGNAutoLayoutExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8376BC0D1BD6AA290084754D /* Debug */,
+				8376BC0E1BD6AA290084754D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

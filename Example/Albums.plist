@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>artist</key>
+		<string>Muse</string>
+		<key>album</key>
+		<string>The Resistance</string>
+		<key>artwork</key>
+		<string>The Resistance.jpg</string>
+		<key>tracks</key>
+		<array>
+			<string>Uprising</string>
+			<string>Resistance</string>
+			<string>Undisclosed Desires</string>
+			<string>United States of Eurasia / Collateral Damage (Excerpt from Nocturne in E-Flat, Op. 9 No. 2)</string>
+			<string>Guiding Light</string>
+			<string>Unnatural Selection</string>
+			<string>MK Ultra</string>
+			<string>I Belong to You / Mon cœur s&apos;ouvre à ta voix.m4a</string>
+			<string>Exogenesis: Symphony, Part 1 (Overture)</string>
+			<string>Exogenesis: Symphony, Part 2 (Cross-pollination)</string>
+			<string>Exogenesis: Symphony, Part 3 (Redemption)</string>
+		</array>
+	</dict>
+	<dict>
+		<key>artist</key>
+		<string>The Glitch Mob</string>
+		<key>album</key>
+		<string>Drink The Sea</string>
+		<key>artwork</key>
+		<string>Drink The Sea.jpg</string>
+		<key>tracks</key>
+		<array>
+			<string>Animus Vox</string>
+			<string>Bad Wings</string>
+			<string>How To Be Eaten By A Woman</string>
+			<string>A Dream Within A Dream</string>
+			<string>Fistful Of Silence</string>
+			<string>Between Two Points (feat. Swan)</string>
+			<string>We Swarm</string>
+			<string>Drive It Like You Stole It</string>
+			<string>Fortune Days</string>
+			<string>Starve The Ego, Feed The Soul</string>
+		</array>
+	</dict>
+	<dict>
+		<key>artist</key>
+		<string>Broken Bells</string>
+		<key>album</key>
+		<string>Broken Bells</string>
+		<key>artwork</key>
+		<string>Broken Bells.jpg</string>
+		<key>tracks</key>
+		<array>
+			<string>The High Road</string>
+			<string>Vaporize</string>
+			<string>Your Head Is On Fire</string>
+			<string>The Ghost Inside</string>
+			<string>Sailing to Nowhere</string>
+			<string>Trap Doors</string>
+			<string>Citizen</string>
+			<string>October</string>
+			<string>Mongrel Heart</string>
+			<string>The Mall and Misery</string>
+		</array>
+	</dict>
+</array>
+</plist>
