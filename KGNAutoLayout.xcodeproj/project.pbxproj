@@ -81,6 +81,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		835594E61BD6E1A100F0DDB2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8376BC101BD6B87F0084754D /* Albums.plist */,
+				8376BC121BD6B8900084754D /* The Resistance.jpg */,
+				8376BC131BD6B8900084754D /* Drink The Sea.jpg */,
+				8376BC151BD6B8900084754D /* Broken Bells.jpg */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		83720E171BCB973700C8A14D = {
 			isa = PBXGroup;
 			children = (
@@ -129,10 +140,7 @@
 				8376BC201BD6DBC80084754D /* TrackTableViewCell.swift */,
 				8376BC091BD6AA290084754D /* LaunchScreen.storyboard */,
 				8376BC0C1BD6AA290084754D /* Info.plist */,
-				8376BC101BD6B87F0084754D /* Albums.plist */,
-				8376BC121BD6B8900084754D /* The Resistance.jpg */,
-				8376BC131BD6B8900084754D /* Drink The Sea.jpg */,
-				8376BC151BD6B8900084754D /* Broken Bells.jpg */,
+				835594E61BD6E1A100F0DDB2 /* Data */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -533,6 +541,7 @@
 				8376BC0E1BD6AA290084754D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
