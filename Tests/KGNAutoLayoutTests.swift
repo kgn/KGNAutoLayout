@@ -36,8 +36,9 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssertEqual(view.intrinsicContentSize(), CGSizeMake(10, 20))
         XCTAssertEqual(IntrinsicView().intrinsicContentSize(), CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric))
     }
+}
 
-    // MARK: - Pin: Superview
+class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToEdgesOfSuperview() {
         let priority = UILayoutPriorityDefaultLow
@@ -218,7 +219,9 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssertEqual(childViewFrame, CGRectMake(0, offset, size, CGRectGetHeight(self.parentViewFrame)-offset*2))
     }
 
-    // MARK: - Pin: Edges
+}
+
+class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
 
     func testPinTopEdgeToTopEdgeOfItem() {
         let size = CGSizeMake(40, 20)
@@ -384,7 +387,10 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssertEqual(childViewFrame, frame)
     }
 
-    // MARK: - Center
+}
+
+
+class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterInSuperview() {
         let size = CGSizeMake(40, 20)
@@ -1358,7 +1364,9 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssertEqual(childViewFrame, frame)
     }
 
-    // MARK: - Size
+}
+
+class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeToWidth() {
         let size = CGSizeMake(50, 10)
@@ -1533,7 +1541,9 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size*aspectRatio, size))
     }
 
-    // MARK: - Position
+}
+
+class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
 
     func testPositionAboveItem() {
         let size = CGSizeMake(40, 20)
@@ -1731,7 +1741,9 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssert(false)
     }
 
-    // MARK: - Between
+}
+
+class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
 
     func testFitBetweenTopItemAndBottomItem() {
         let width: CGFloat = 40
@@ -1835,7 +1847,9 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssertEqual(childViewFrame, frame)
     }
 
-    // MARK: - Fill
+}
+
+class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillHorizontally1() {
         let priority = UILayoutPriorityDefaultLow
@@ -2193,7 +2207,9 @@ class KGNAutoLayoutTests: XCTestCase {
         XCTAssertEqual(view3.frame, frame3)
     }
 
-    // MARK: - Bound
+}
+
+class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
     func testBoundHorizontally() {
         XCTAssert(false)
