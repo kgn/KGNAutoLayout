@@ -18,7 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window?.rootViewController = PageViewController()
+        let filePath = NSBundle.mainBundle().pathForResource("Albums", ofType: "plist")
+        let albums = NSArray(contentsOfFile: filePath!)
+        let albumViewController = AlbumViewController()
+        albumViewController.album = albums?.firstObject as? [String : AnyObject]
+        self.window?.rootViewController = albumViewController
+//        self.window?.rootViewController = PageViewController()
         self.window?.makeKeyAndVisible()
         return true
     }

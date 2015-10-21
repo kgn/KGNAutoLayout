@@ -25,15 +25,19 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
 
+    var albumArtTopConstraint: NSLayoutConstraint!
+    var albumArtHeightConstraint: NSLayoutConstraint!
     private lazy var albumArtImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "The Resistance.jpg")
         imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
 
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = UIImage(named: "The Resistance.jpg")
         imageView.contentMode = .ScaleAspectFill
         return imageView
     }()
@@ -41,6 +45,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRectZero, style: .Plain)
         tableView.registerClass(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.identifier())
+        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(CGRectGetHeight(UIApplication.sharedApplication().statusBarFrame), 0, 0, 0)
         let screenWidth = CGRectGetWidth(UIScreen.mainScreen().bounds)
         tableView.separatorColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
         tableView.backgroundColor = UIColor.clearColor()
@@ -62,12 +67,25 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         blurView.pinToEdgesOfSuperview()
 
         self.view.addSubview(self.albumArtImageView)
-        self.albumArtImageView.pinToTopEdgeOfSuperview()
-        self.albumArtImageView.centerHorizontallyInSuperview()
-        self.albumArtImageView.sizeHeightToWidthOfItem(self.view)
+        self.albumArtTopConstraint = self.albumArtImageView.pinToTopEdgeOfSuperview()
+        self.albumArtHeightConstraint = self.albumArtImageView.sizeHeightToWidthOfItem(self.view)
+        self.albumArtImageView.pinToSideEdgesOfSuperview()
 
         self.view.addSubview(self.tableView)
         self.tableView.pinToEdgesOfSuperview()
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "statusBarFrameDidChange:", name: UIApplicationDidChangeStatusBarFrameNotification, object: nil)
+    }
+
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
+    func statusBarFrameDidChange(notification: NSNotification) {
+        if let frame = notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? CGRect {
+            let height = CGRectGetHeight(frame)
+            self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(height, 0, 0, 0)
+        }
     }
 
     // MARK: - UITableViewDataSource
@@ -85,5 +103,19 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     // MARK: - UITableViewDelegate
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 0 {
+            self.albumArtTopConstraint.constant = -scrollView.contentOffset.y
+            self.albumArtHeightConstraint.constant = 0
+        } else {
+            self.albumArtHeightConstraint.constant = -scrollView.contentOffset.y
+            self.albumArtTopConstraint.constant = 0
+        }
+    }
 
 }

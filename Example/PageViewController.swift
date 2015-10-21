@@ -19,11 +19,9 @@ class PageViewController: UIViewController {
 
         let albumViewController = AlbumViewController()
         albumViewController.album = albums?.firstObject as? [String : AnyObject]
-        albumViewController.didMoveToParentViewController(self)
         self.view.addSubview(albumViewController.view)
-        albumViewController.view.pinToTopEdgeOfSuperview()
-        albumViewController.view.pinToBottomEdgeOfSuperview()
-        albumViewController.view.sizeWidthToWidthOfItem(self.view)
+        albumViewController.didMoveToParentViewController(self)
+        albumViewController.view.pinToEdgesOfSuperview()
 
 //        let pageScrollView = UIScrollView()
 //        pageScrollView.pagingEnabled = true
