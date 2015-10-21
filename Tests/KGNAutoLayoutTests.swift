@@ -1709,36 +1709,840 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         XCTAssertEqual(childViewFrame, frame)
     }
 
-    func testPositionViewsAbove() {
-        XCTAssert(false)
+    func testPositionViewsAbove1() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsAbove([view1], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMinY(itemView.frame)-view1.height
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
     }
 
-    func testPositionViewsAboveOffset() {
-        XCTAssert(false)
+    func testPositionViewsAbove1Offset() {
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsAbove([view1], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMinY(itemView.frame)-view1.height-offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
     }
 
-    func testPositionViewsToTheRight() {
-        XCTAssert(false)
+    func testPositionViewsAbove2() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsAbove([view1, view2], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMinY(itemView.frame)-view2.height-view1.height
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMinY(itemView.frame)-view2.height
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
     }
 
-    func testPositionViewsToTheRightOffset() {
-        XCTAssert(false)
+    func testPositionViewsAbove2Offset() {
+        let number: CGFloat = 2
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsAbove([view1, view2], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMinY(itemView.frame)-view2.height-view1.height-(offset*number)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMinY(itemView.frame)-view2.height-offset
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
     }
 
-    func testPositionViewsBelow() {
-        XCTAssert(false)
+    func testPositionViewsAbove3() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        itemView.positionViewsAbove([view1, view2, view3], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height-view1.height
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.y = CGRectGetMinY(itemView.frame)-view3.height
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
     }
 
-    func testPositionViewsBelowOffset() {
-        XCTAssert(false)
+    func testPositionViewsAbove3Offset() {
+        let number: CGFloat = 3
+        let offset: CGFloat = 5
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        itemView.positionViewsAbove([view1, view2, view3], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height-view1.height-(offset*number)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height-(offset*2)
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.y = CGRectGetMinY(itemView.frame)-view3.height-offset
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
     }
 
-    func testPositionViewsToTheLeft() {
-        XCTAssert(false)
+    func testPositionViewsToTheRight1() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsToTheRight([view1], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMaxX(itemView.frame)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
     }
 
-    func testPositionViewsToTheLeftOffset() {
-        XCTAssert(false)
+    func testPositionViewsToTheRight1Offset() {
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsToTheRight([view1], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMaxX(itemView.frame)+offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testPositionViewsToTheRight2() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsToTheRight([view1, view2], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMaxX(itemView.frame)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testPositionViewsToTheRight2Offset() {
+        let number: CGFloat = 2
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsToTheRight([view1, view2], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMaxX(itemView.frame)+offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+(offset*number)
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testPositionViewsToTheRight3() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        itemView.positionViewsToTheRight([view1, view2, view3], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMaxX(itemView.frame)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+view2.width
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testPositionViewsToTheRight3Offset() {
+        let number: CGFloat = 3
+        let offset: CGFloat = 5
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        itemView.positionViewsToTheRight([view1, view2, view3], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMaxX(itemView.frame)+offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+(offset*2)
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+view2.width+(offset*number)
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testPositionViewsBelow1() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsBelow([view1], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMaxY(itemView.frame)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testPositionViewsBelow1Offset() {
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsBelow([view1], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMaxY(itemView.frame)+offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testPositionViewsBelow2() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsBelow([view1, view2], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMaxY(itemView.frame)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testPositionViewsBelow2Offset() {
+        let number: CGFloat = 2
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsBelow([view1, view2], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMaxY(itemView.frame)+offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+(offset*number)
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testPositionViewsBelow3() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        itemView.positionViewsBelow([view1, view2, view3], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMaxY(itemView.frame)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+view2.height
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testPositionViewsBelow3Offset() {
+        let number: CGFloat = 3
+        let offset: CGFloat = 5
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        itemView.positionViewsBelow([view1, view2, view3], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.y = CGRectGetMaxY(itemView.frame)+offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+(offset*2)
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+view2.height+(offset*number)
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testPositionViewsToTheLeft1() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsToTheLeft([view1], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMinX(itemView.frame)-view1.width
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testPositionViewsToTheLeft1Offset() {
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+
+        itemView.positionViewsToTheLeft([view1], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMinX(itemView.frame)-view1.width-offset
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testPositionViewsToTheLeft2() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsToTheLeft([view1, view2], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMinX(itemView.frame)-view2.width-view1.width
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMinX(itemView.frame)-view2.width
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testPositionViewsToTheLeft2Offset() {
+        let number: CGFloat = 2
+        let offset: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        itemView.positionViewsToTheLeft([view1, view2], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMinX(itemView.frame)-view2.width-view1.width-(offset*number)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMinX(itemView.frame)-view2.width-offset
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testPositionViewsToTheLeft3() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        itemView.positionViewsToTheLeft([view1, view2, view3], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width-view1.width
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.x = CGRectGetMinX(itemView.frame)-view3.width
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testPositionViewsToTheLeft3Offset() {
+        let number: CGFloat = 3
+        let offset: CGFloat = 5
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = IntrinsicView()
+        view1.width = 30
+        view1.height = 10
+        
+        let view2 = IntrinsicView()
+        view2.width = 10
+        view2.height = 20
+        
+        let view3 = IntrinsicView()
+        view3.width = 40
+        view3.height = 40
+        
+        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        
+        let parentView = UIView(frame: self.parentViewFrame)
+        parentView.addSubview(itemView)
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+        
+        itemView.positionViewsToTheLeft([view1, view2, view3], offset: offset, priority: priority)
+        parentView.layoutIfNeeded()
+        
+        var frame1 = CGRectZero
+        frame1.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width-view1.width-(offset*number)
+        frame1.size.width = view1.width
+        frame1.size.height = view1.height
+        XCTAssertEqual(view1.frame, frame1)
+        
+        var frame2 = CGRectZero
+        frame2.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width-(offset*2)
+        frame2.size.width = view2.width
+        frame2.size.height = view2.height
+        XCTAssertEqual(view2.frame, frame2)
+        
+        var frame3 = CGRectZero
+        frame3.origin.x = CGRectGetMinX(itemView.frame)-view3.width-offset
+        frame3.size.width = view3.width
+        frame3.size.height = view3.height
+        XCTAssertEqual(view3.frame, frame3)
     }
 
 }
@@ -2211,20 +3015,406 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
 class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
-    func testBoundHorizontally() {
-        XCTAssert(false)
+    func testBoundHorizontally1() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = UIView()
+        let view1Width: CGFloat = 30
+        view1.sizeToWidth(view1Width)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+
+        parentView.boundHorizontally([view1], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.width = view1Width
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.size.width = view1Width
+        XCTAssertEqual(view1.frame, frame1)
     }
 
-    func testBoundHorizontallySeperation() {
-        XCTAssert(false)
+    func testBoundHorizontally1Seperation() {
+        let number: CGFloat = 1
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = UIView()
+        let view1Width: CGFloat = 30
+        view1.sizeToWidth(view1Width)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+
+        parentView.boundHorizontally([view1], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.width = view1Width+separation*(number+1)
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.origin.x = separation
+        frame1.size.width = view1Width
+        XCTAssertEqual(view1.frame, frame1)
     }
 
-    func testBoundVertically() {
-        XCTAssert(false)
+    func testBoundHorizontally2() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Width: CGFloat = 30
+        view1.sizeToWidth(view1Width)
+
+        let view2 = UIView()
+        let view2Width: CGFloat = 20
+        view2.sizeToWidth(view2Width)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        parentView.boundHorizontally([view1, view2], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.width = view1Width+view2Width
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.size.width = view1Width
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = view1Width
+        frame2.size.width = view2Width
+        XCTAssertEqual(view2.frame, frame2)
     }
 
-    func testBoundVerticallySeperation() {
-        XCTAssert(false)
+    func testBoundHorizontally2Seperation() {
+        let number: CGFloat = 2
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Width: CGFloat = 30
+        view1.sizeToWidth(view1Width)
+
+        let view2 = UIView()
+        let view2Width: CGFloat = 20
+        view2.sizeToWidth(view2Width)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        parentView.boundHorizontally([view1, view2], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.width = view1Width+view2Width+separation*(number+1)
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.origin.x = separation
+        frame1.size.width = view1Width
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = separation*number+view1Width
+        frame2.size.width = view2Width
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testBoundHorizontally3() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Width: CGFloat = 30
+        view1.sizeToWidth(view1Width)
+
+        let view2 = UIView()
+        let view2Width: CGFloat = 20
+        view2.sizeToWidth(view2Width)
+
+        let view3 = UIView()
+        let view3Width: CGFloat = 50
+        view3.sizeToWidth(view3Width)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        parentView.boundHorizontally([view1, view2, view3], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.width = view1Width+view2Width+view3Width
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.size.width = view1Width
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = view1Width
+        frame2.size.width = view2Width
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.x = view1Width+view2Width
+        frame3.size.width = view3Width
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testBoundHorizontally3Seperation() {
+        let number: CGFloat = 3
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Width: CGFloat = 30
+        view1.sizeToWidth(view1Width)
+
+        let view2 = UIView()
+        let view2Width: CGFloat = 20
+        view2.sizeToWidth(view2Width)
+
+        let view3 = UIView()
+        let view3Width: CGFloat = 50
+        view3.sizeToWidth(view3Width)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        parentView.boundHorizontally([view1, view2, view3], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.width = view1Width+view2Width+view3Width+separation*(number+1)
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.origin.x = separation
+        frame1.size.width = view1Width
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.x = separation*2+view1Width
+        frame2.size.width = view2Width
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.x = separation*number+view1Width+view2Width
+        frame3.size.width = view3Width
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testBoundVertically1() {
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = UIView()
+        let view1Height: CGFloat = 30
+        view1.sizeToHeight(view1Height)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+
+        parentView.boundVertically([view1], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.height = view1Height
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.size.height = view1Height
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testBoundVertically1Seperation() {
+        let number: CGFloat = 1
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultLow
+
+        let view1 = UIView()
+        let view1Height: CGFloat = 30
+        view1.sizeToHeight(view1Height)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+
+        parentView.boundVertically([view1], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.height = view1Height+separation*(number+1)
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.origin.y = separation
+        frame1.size.height = view1Height
+        XCTAssertEqual(view1.frame, frame1)
+    }
+
+    func testBoundVertically2() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Height: CGFloat = 30
+        view1.sizeToHeight(view1Height)
+
+        let view2 = UIView()
+        let view2Height: CGFloat = 20
+        view2.sizeToHeight(view2Height)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        parentView.boundVertically([view1, view2], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.height = view1Height+view2Height
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.size.height = view1Height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = view1Height
+        frame2.size.height = view2Height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testBoundVertically2Seperation() {
+        let number: CGFloat = 2
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Height: CGFloat = 30
+        view1.sizeToHeight(view1Height)
+
+        let view2 = UIView()
+        let view2Height: CGFloat = 20
+        view2.sizeToHeight(view2Height)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+
+        parentView.boundVertically([view1, view2], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.height = view1Height+view2Height+separation*(number+1)
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.origin.y = separation
+        frame1.size.height = view1Height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = separation*number+view1Height
+        frame2.size.height = view2Height
+        XCTAssertEqual(view2.frame, frame2)
+    }
+
+    func testBoundVertically3() {
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Height: CGFloat = 30
+        view1.sizeToHeight(view1Height)
+
+        let view2 = UIView()
+        let view2Height: CGFloat = 20
+        view2.sizeToHeight(view2Height)
+
+        let view3 = UIView()
+        let view3Height: CGFloat = 50
+        view3.sizeToHeight(view3Height)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        parentView.boundVertically([view1, view2, view3], priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.height = view1Height+view2Height+view3Height
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.size.height = view1Height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = view1Height
+        frame2.size.height = view2Height
+        XCTAssertEqual(view2.frame, frame2)
+
+        var frame3 = CGRectZero
+        frame3.origin.y = view1Height+view2Height
+        frame3.size.height = view3Height
+        XCTAssertEqual(view3.frame, frame3)
+    }
+
+    func testBoundVertically3Seperation() {
+        let number: CGFloat = 3
+        let separation: CGFloat = 10
+        let priority = UILayoutPriorityDefaultHigh
+
+        let view1 = UIView()
+        let view1Height: CGFloat = 30
+        view1.sizeToHeight(view1Height)
+
+        let view2 = UIView()
+        let view2Height: CGFloat = 20
+        view2.sizeToHeight(view2Height)
+
+        let view3 = UIView()
+        let view3Height: CGFloat = 50
+        view3.sizeToHeight(view3Height)
+
+        let parentView = UIView()
+        parentView.addSubview(view1)
+        parentView.addSubview(view2)
+        parentView.addSubview(view3)
+
+        parentView.boundVertically([view1, view2, view3], separation: separation, priority: priority)
+        parentView.layoutIfNeeded()
+
+        var parentFrame = CGRectZero
+        parentFrame.size.height = view1Height+view2Height+view3Height+separation*(number+1)
+        XCTAssertEqual(parentView.frame, parentFrame)
+
+        var frame1 = CGRectZero
+        frame1.origin.y = separation
+        frame1.size.height = view1Height
+        XCTAssertEqual(view1.frame, frame1)
+
+        var frame2 = CGRectZero
+        frame2.origin.y = separation*2+view1Height
+        frame2.size.height = view2Height
+        XCTAssertEqual(view2.frame, frame2)
+        
+        var frame3 = CGRectZero
+        frame3.origin.y = separation*number+view1Height+view2Height
+        frame3.size.height = view3Height
+        XCTAssertEqual(view3.frame, frame3)
     }
     
 }

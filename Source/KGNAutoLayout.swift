@@ -511,7 +511,7 @@ extension UIView {
     /**
      Position the views above the view.
 
-     - Parameter views: The views to position above the view.
+     - Parameter views: The views to position above the view. Views are positioned in order from top to bottom.
      - Parameter offset: How far to offset(seperate) the views.
      - Parameter priority: The priority of the constraints.
      */
@@ -562,7 +562,7 @@ extension UIView {
     /**
      Position the views to the left of the view.
 
-     - Parameter views: The views to position to the left of the view.
+     - Parameter views: The views to position to the left of the view. Views are positioned in order from left to right.
      - Parameter offset: How far to offset(seperate) the views.
      - Parameter priority: The priority of the constraints.
      */
@@ -684,18 +684,20 @@ extension UIView {
     - Parameter priority: The priority of the constraints.
     */
     public func boundHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
-        assert(views.count > 1, "Can only distribute 2 or more views")
+        assert(views.count > 0, "Can only distribute 1 or more views")
 
-        var lastView: UIView!
-        for view in views {
-            if lastView != nil{
-                view.positionToTheRightOfItem(lastView, offset: separation, priority: priority)
+        if views.count > 1 {
+            var lastView: UIView!
+            for view in views {
+                if lastView != nil{
+                    view.positionToTheRightOfItem(lastView, offset: separation, priority: priority)
+                }
+                lastView = view
             }
-            lastView = view
         }
 
-        self.pinLeftEdgeToLeftEdgeOfItem(views.first!, offset: separation, priority: priority)
-        self.pinRightEdgeToRightEdgeOfItem(views.last!, offset: separation, priority: priority)
+        self.pinLeftEdgeToLeftEdgeOfItem(views.first!, offset: -separation, priority: priority)
+        self.pinRightEdgeToRightEdgeOfItem(views.last!, offset: -separation, priority: priority)
     }
 
     /**
@@ -708,18 +710,20 @@ extension UIView {
      - Parameter priority: The priority of the constraints.
      */
     public func boundVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
-        assert(views.count > 1, "Can only distribute 2 or more views")
+        assert(views.count > 0, "Can only distribute 1 or more views")
 
-        var lastView: UIView!
-        for view in views {
-            if lastView != nil {
-                view.positionBelowItem(lastView, offset: separation, priority: priority)
+        if views.count > 1 {
+            var lastView: UIView!
+            for view in views {
+                if lastView != nil {
+                    view.positionBelowItem(lastView, offset: separation, priority: priority)
+                }
+                lastView = view
             }
-            lastView = view
         }
 
-        self.pinTopEdgeToTopEdgeOfItem(views.first!, offset: separation, priority: priority)
-        self.pinBottomEdgeToBottomEdgeOfItem(views.last!, offset: separation, priority: priority)
+        self.pinTopEdgeToTopEdgeOfItem(views.first!, offset: -separation, priority: priority)
+        self.pinBottomEdgeToBottomEdgeOfItem(views.last!, offset: -separation, priority: priority)
     }
 
     // MARK: - Private

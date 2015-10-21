@@ -34,11 +34,11 @@ pod 'KGNAutoLayout'
 *TODO*
 
 ## TODO:
-- [ ] Convert example to Swift
 - [X] Travis
 - [X] Badges
-- [ ] Tests (Needs tests)
+- [X] Tests
 - [X] Carthage
 - [ ] CocoaPods (Just need to release)
 - [ ] Description (Give examples)
 - [X] Documentation
+- [ ] Example App (Just need to finish it)
