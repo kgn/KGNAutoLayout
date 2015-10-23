@@ -146,7 +146,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToLeftEdgeOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -196,7 +196,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToTopAndBottomEdgesOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraints = $0.pinToTopAndBottomEdgesOfSuperview(priority: priority)
@@ -267,7 +267,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
     func testPinRightEdgeToRightEdgeOfItem() {
         let size = CGSizeMake(40, 20)
         let itemFrame = CGRectMake(120, 50, 60, 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -329,7 +329,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSizeMake(40, 20)
         let itemFrame = CGRectMake(120, 50, 60, 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -394,7 +394,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterInSuperview() {
         let size = CGSizeMake(40, 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -445,7 +445,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterHorizontallyInSuperviewOffset() {
         let offset: CGFloat = 10
         let size = CGSizeMake(40, 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -476,7 +476,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterVerticallyInSuperviewOffset() {
         let offset: CGFloat = 10
         let size = CGSizeMake(40, 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -559,7 +559,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsHorizontally2Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -588,7 +588,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsHorizontally3() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -826,7 +826,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsHorizontally5Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -885,7 +885,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsVertically1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -1023,7 +1023,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsVertically3Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -1282,7 +1282,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterHorizontallyToItem() {
         let size = CGSizeMake(40, 20)
         let itemFrame = CGRectMake(20, 30, 40, 50)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1426,7 +1426,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeHeightToHeightOfItem() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToHeightOfItem($0.superview!, priority: priority)
@@ -1589,7 +1589,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionToTheRightOfItem() {
         let size = CGSizeMake(40, 20)
         let itemFrame = CGRectMake(120, 50, 60, 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -1692,7 +1692,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSizeMake(40, 20)
         let itemFrame = CGRectMake(120, 50, 60, 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -1919,7 +1919,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsToTheRight1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -2152,7 +2152,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
 
     func testPositionViewsBelow1Offset() {
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -2656,7 +2656,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
 class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillHorizontally1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = IntrinsicView()
         view1.height = 30
@@ -3013,10 +3013,24 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
 }
 
+@available(iOS 9, *)
 class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
+    // boundHorizontally and boundVertically only 
+    // work with the AutoLayout engine in iOS 9+
+    func canRun() -> Bool {
+        if NSProcessInfo.processInfo().operatingSystemVersion.majorVersion >= 9 {
+            return true
+        }
+        return false
+    }
+
     func testBoundHorizontally1() {
-        let priority = UILayoutPriorityDefaultLow
+        if !self.canRun() {
+            return
+        }
+
+        let priority = UILayoutPriorityRequired
 
         let view1 = UIView()
         let view1Width: CGFloat = 30
@@ -3038,6 +3052,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally1Seperation() {
+        if !self.canRun() {
+            return
+        }
+
         let number: CGFloat = 1
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultLow
@@ -3063,6 +3081,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally2() {
+        if !self.canRun() {
+            return
+        }
+
         let priority = UILayoutPriorityDefaultHigh
 
         let view1 = UIView()
@@ -3095,6 +3117,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally2Seperation() {
+        if !self.canRun() {
+            return
+        }
+
         let number: CGFloat = 2
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
@@ -3130,6 +3156,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally3() {
+        if !self.canRun() {
+            return
+        }
+
         let priority = UILayoutPriorityDefaultHigh
 
         let view1 = UIView()
@@ -3172,6 +3202,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally3Seperation() {
+        if !self.canRun() {
+            return
+        }
+
         let number: CGFloat = 3
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
@@ -3217,7 +3251,11 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically1() {
-        let priority = UILayoutPriorityDefaultLow
+        if !self.canRun() {
+            return
+        }
+
+        let priority = UILayoutPriorityRequired
 
         let view1 = UIView()
         let view1Height: CGFloat = 30
@@ -3239,9 +3277,13 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically1Seperation() {
+        if !self.canRun() {
+            return
+        }
+
         let number: CGFloat = 1
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityRequired
 
         let view1 = UIView()
         let view1Height: CGFloat = 30
@@ -3264,6 +3306,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically2() {
+        if !self.canRun() {
+            return
+        }
+
         let priority = UILayoutPriorityDefaultHigh
 
         let view1 = UIView()
@@ -3296,6 +3342,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically2Seperation() {
+        if !self.canRun() {
+            return
+        }
+
         let number: CGFloat = 2
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
@@ -3331,6 +3381,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically3() {
+        if !self.canRun() {
+            return
+        }
+
         let priority = UILayoutPriorityDefaultHigh
 
         let view1 = UIView()
@@ -3373,6 +3427,10 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically3Seperation() {
+        if !self.canRun() {
+            return
+        }
+
         let number: CGFloat = 3
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
