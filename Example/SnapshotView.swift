@@ -47,13 +47,13 @@ class SnapshotView: UIView {
     }
 
     override func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(140, 140)
+        return CGSizeMake(280, 280)
     }
 
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
 
-        let spaceing: CGFloat = 20
+        let spaceing: CGFloat = 40
         let lineColor = UIColor(white: 1, alpha: 0.2)
         let context = UIGraphicsGetCurrentContext()
 

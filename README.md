@@ -34,61 +34,153 @@ pod 'KGNAutoLayout'
 ### Pin: Superview
 
 ``` Swift
-view.pinToEdgesOfSuperview(offset: 10)
+let view = UIView()
+parentView.addSubview(view)
+view.pinToEdgesOfSuperview(offset: 20)
 ```
-![pinToEdgesOfSuperview_offset10](Example/Snapshots/pinToEdgesOfSuperview_offset10.png)
+![pinToEdgesOfSuperview_offset20](Example/Snapshots/pinToEdgesOfSuperview_offset20.png)
 
 
 ``` Swift
-view.pinToTopEdgeOfSuperview(offset: 10)
+let view = UIView()
+parentView.addSubview(view)
+view.pinToTopEdgeOfSuperview(offset: 20)
 
 view.centerHorizontallyInSuperview()
-view.sizeToWidthAndHeight(80)
+view.sizeToWidthAndHeight(160)
 ```
-![pinToTopEdgeOfSuperview_offset10](Example/Snapshots/pinToTopEdgeOfSuperview_offset10.png)
+![pinToTopEdgeOfSuperview_offset20](Example/Snapshots/pinToTopEdgeOfSuperview_offset20.png)
 
 
 ``` Swift
-view.pinToRightEdgeOfSuperview(offset: 10)
-
-view.centerHorizontallyInSuperview()
-view.sizeToWidthAndHeight(80)
-```
-![pinToRightEdgeOfSuperview_offset10](Example/Snapshots/pinToRightEdgeOfSuperview_offset10.png)
-
-
-``` Swift
-view.pinToBottomEdgeOfSuperview(offset: 10)
-
-view.centerHorizontallyInSuperview()
-view.sizeToWidthAndHeight(80)
-```
-![pinToBottomEdgeOfSuperview_offset10](Example/Snapshots/pinToBottomEdgeOfSuperview_offset10.png)
-
-
-``` Swift
-view.pinToLeftEdgeOfSuperview(offset: 10)
-
-view.centerHorizontallyInSuperview()
-view.sizeToWidthAndHeight(80)
-```
-![pinToLeftEdgeOfSuperview_offset10](Example/Snapshots/pinToLeftEdgeOfSuperview_offset10.png)
-
-
-``` Swift
-view.pinToSideEdgesOfSuperview(offset: 10)
+let view = UIView()
+parentView.addSubview(view)
+view.pinToRightEdgeOfSuperview(offset: 20)
 
 view.centerVerticallyInSuperview()
+view.sizeToWidthAndHeight(160)
 ```
-![pinToSideEdgesOfSuperview_offset10](Example/Snapshots/pinToSideEdgesOfSuperview_offset10.png)
+![pinToRightEdgeOfSuperview_offset20](Example/Snapshots/pinToRightEdgeOfSuperview_offset20.png)
 
 
 ``` Swift
-view.pinToTopAndBottomEdgesOfSuperview(offset: 10)
+let view = UIView()
+parentView.addSubview(view)
+view.pinToBottomEdgeOfSuperview(offset: 20)
 
 view.centerHorizontallyInSuperview()
+view.sizeToWidthAndHeight(160)
 ```
-![pinToTopAndBottomEdgesOfSuperview_offset10](Example/Snapshots/pinToTopAndBottomEdgesOfSuperview_offset10.png)
+![pinToBottomEdgeOfSuperview_offset20](Example/Snapshots/pinToBottomEdgeOfSuperview_offset20.png)
+
+
+``` Swift
+let view = UIView()
+parentView.addSubview(view)
+view.pinToLeftEdgeOfSuperview(offset: 20)
+
+view.centerVerticallyInSuperview()
+view.sizeToWidthAndHeight(160)
+```
+![pinToLeftEdgeOfSuperview_offset20](Example/Snapshots/pinToLeftEdgeOfSuperview_offset20.png)
+
+
+``` Swift
+let view = UIView()
+parentView.addSubview(view)
+view.pinToSideEdgesOfSuperview(offset: 20)
+
+view.centerVerticallyInSuperview()
+view.sizeToHeight(100)
+```
+![pinToSideEdgesOfSuperview_offset20](Example/Snapshots/pinToSideEdgesOfSuperview_offset20.png)
+
+
+``` Swift
+let view = UIView()
+parentView.addSubview(view)
+view.pinToTopAndBottomEdgesOfSuperview(offset: 20)
+
+view.centerHorizontallyInSuperview()
+view.sizeToWidth(100)
+```
+![pinToTopAndBottomEdgesOfSuperview_offset20](Example/Snapshots/pinToTopAndBottomEdgesOfSuperview_offset20.png)
+
+### Pin: Edges
+### Center
+
+``` Swift
+let view = UIView()
+parentView.addSubview(view)
+view.centerInSuperview()
+
+view.sizeToWidthAndHeight(160)
+```
+![centerInSuperview](Example/Snapshots/centerInSuperview.png)
+
+
+``` Swift
+let view = UIView()
+parentView.addSubview(view)
+view.centerHorizontallyInSuperview()
+
+view.pinToTopEdgeOfSuperview()
+view.sizeToWidthAndHeight(160)
+```
+![centerHorizontallyInSuperview](Example/Snapshots/centerHorizontallyInSuperview.png)
+
+
+``` Swift
+let view = UIView()
+parentView.addSubview(view)
+view.centerVerticallyInSuperview()
+
+view.pinToLeftEdgeOfSuperview()
+view.sizeToWidthAndHeight(160)
+```
+![centerVerticallyInSuperview](Example/Snapshots/centerVerticallyInSuperview.png)
+
+
+``` Swift
+let view1 = UIView()
+parentView.addSubview(view1)
+view1.centerVerticallyInSuperview()
+view1.sizeToWidthAndHeight(60)
+
+let view2 = UIView()
+parentView.addSubview(view2)
+view2.centerVerticallyInSuperview()
+view2.sizeToWidthAndHeight(80)
+
+let view3 = UIView()
+parentView.addSubview(view3)
+view3.centerVerticallyInSuperview()
+iew3.sizeToWidthAndHeight(50)
+
+parentView.centerViewsHorizontally([view1, view2, view3])
+```
+![centerViewsHorizontally](Example/Snapshots/centerViewsHorizontally.png)
+
+
+``` Swift
+let view1 = UIView()
+parentView.addSubview(view1)
+view1.centerHorizontallyInSuperview()
+view1.sizeToWidthAndHeight(60)
+
+let view2 = UIView()
+parentView.addSubview(view2)
+view2.centerHorizontallyInSuperview()
+view2.sizeToWidthAndHeight(80)
+
+let view3 = UIView()
+parentView.addSubview(view3)
+view3.centerHorizontallyInSuperview()
+iew3.sizeToWidthAndHeight(50)
+
+parentView.centerViewsVertically([view1, view2, view3])
+```
+![centerViewsVertically](Example/Snapshots/centerViewsVertically.png)
 
 ### Example App
 
