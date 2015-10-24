@@ -31,7 +31,8 @@ pod 'KGNAutoLayout'
 
 ## Examples
 
-*TODO*
+Check out the example app in the project for more a real use case.
+![Example App](/KGNAutoLayoutExample.gif)
 
 ## TODO:
 - [X] Travis
@@ -41,4 +42,4 @@ pod 'KGNAutoLayout'
 - [ ] CocoaPods (Just need to release)
 - [ ] Description (Give examples)
 - [X] Documentation
-- [ ] Example App (Just need to finish it)
+- [X] Example App
