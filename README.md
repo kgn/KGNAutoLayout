@@ -31,7 +31,21 @@ pod 'KGNAutoLayout'
 
 ## Examples
 
-Check out the example app in the project for more a real use case.
+### Pin: Superview
+
+``` Swift
+view.pinToEdgesOfSuperview(offset: 20)
+```
+![pinToEdgesOfSuperview_offset20](Example/Snapshots/pinToEdgesOfSuperview_offset20.png)
+
+``` Swift
+view.pinToTopEdgeOfSuperview(offset: 20)
+view.centerHorizontallyInSuperview()
+view.sizeToWidthAndHeight(160)
+```
+![pinToTopEdgeOfSuperview_offset20](Example/Snapshots/pinToTopEdgeOfSuperview_offset20.png)
+
+Check out the example app in the project for more examples.
 ![Example App](/KGNAutoLayoutExample.gif)
 
 ## TODO:

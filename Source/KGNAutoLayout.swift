@@ -20,12 +20,12 @@ extension UIView {
 
     - Returns: The top, right, bottom, and left constraint objects.
     */
-    public func pinToEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, right: NSLayoutConstraint, bottom: NSLayoutConstraint, left: NSLayoutConstraint) {
+    public func pinToEdgesOfSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, right: NSLayoutConstraint, bottom: NSLayoutConstraint, left: NSLayoutConstraint) {
         return (
-            self.pinToTopEdgeOfSuperview(offset, priority: priority),
-            self.pinToRightEdgeOfSuperview(offset, priority: priority),
-            self.pinToBottomEdgeOfSuperview(offset, priority: priority),
-            self.pinToLeftEdgeOfSuperview(offset, priority: priority)
+            self.pinToTopEdgeOfSuperview(offset: offset, priority: priority),
+            self.pinToRightEdgeOfSuperview(offset: offset, priority: priority),
+            self.pinToBottomEdgeOfSuperview(offset: offset, priority: priority),
+            self.pinToLeftEdgeOfSuperview(offset: offset, priority: priority)
         )
     }
 
@@ -37,7 +37,7 @@ extension UIView {
 
      - Returns: The constraint object.
      */
-    public func pinToTopEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    public func pinToTopEdgeOfSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Top, offset: offset, priority: priority)
     }
 
@@ -49,7 +49,7 @@ extension UIView {
 
      - Returns: The constraint object.
      */
-    public func pinToRightEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    public func pinToRightEdgeOfSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Right, offset: -offset, priority: priority)
     }
 
@@ -62,7 +62,7 @@ extension UIView {
 
      - Returns: The constraint object.
      */
-    public func pinToBottomEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    public func pinToBottomEdgeOfSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Bottom, offset: -offset, priority: priority)
     }
 
@@ -74,7 +74,7 @@ extension UIView {
 
      - Returns: The constraint object.
      */
-    public func pinToLeftEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    public func pinToLeftEdgeOfSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.Left, offset: offset, priority: priority)
     }
 
@@ -86,10 +86,10 @@ extension UIView {
 
      - Returns: The left and right constraint objects.
      */
-    public func pinToSideEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint, right: NSLayoutConstraint) {
+    public func pinToSideEdgesOfSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint, right: NSLayoutConstraint) {
         return (
-            self.pinToLeftEdgeOfSuperview(offset, priority: priority),
-            self.pinToRightEdgeOfSuperview(offset, priority: priority)
+            self.pinToLeftEdgeOfSuperview(offset: offset, priority: priority),
+            self.pinToRightEdgeOfSuperview(offset: offset, priority: priority)
         )
     }
 
@@ -101,10 +101,10 @@ extension UIView {
 
      - Returns: The top and bottom constraint objects.
      */
-    public func pinToTopAndBottomEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint) {
+    public func pinToTopAndBottomEdgesOfSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint) {
         return (
-            self.pinToTopEdgeOfSuperview(offset, priority: priority),
-            self.pinToBottomEdgeOfSuperview(offset, priority: priority)
+            self.pinToTopEdgeOfSuperview(offset: offset, priority: priority),
+            self.pinToBottomEdgeOfSuperview(offset: offset, priority: priority)
         )
     }
 
@@ -172,10 +172,10 @@ extension UIView {
     
     - Returns: The horizontal and vertical constraint objects.
     */
-    public func centerInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (horizontal: NSLayoutConstraint, vertical: NSLayoutConstraint){
+    public func centerInSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (horizontal: NSLayoutConstraint, vertical: NSLayoutConstraint){
         return (
-            self.centerHorizontallyInSuperview(offset, priority: priority),
-            self.centerVerticallyInSuperview(offset, priority: priority)
+            self.centerHorizontallyInSuperview(offset: offset, priority: priority),
+            self.centerVerticallyInSuperview(offset: offset, priority: priority)
         )
     }
 
@@ -187,7 +187,7 @@ extension UIView {
      
      - Returns: The constraint object.
      */
-    public func centerHorizontallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    public func centerHorizontallyInSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.CenterX, offset: offset, priority: priority)
     }
 
@@ -199,7 +199,7 @@ extension UIView {
      
      - Returns: The constraint object.
      */
-    public func centerVerticallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    public func centerVerticallyInSuperview(offset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrainEdgeAttribute(.CenterY, offset: offset, priority: priority)
     }
 
@@ -625,7 +625,7 @@ extension UIView {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count == 1 {
-            views.first?.pinToSideEdgesOfSuperview(separation, priority: priority)
+            views.first?.pinToSideEdgesOfSuperview(offset: separation, priority: priority)
             return
         }
 
@@ -635,12 +635,12 @@ extension UIView {
                 lastView.sizeWidthToWidthOfItem(view)
                 view.positionToTheRightOfItem(lastView, offset: separation, priority: priority)
             } else {
-                view.pinToLeftEdgeOfSuperview(separation, priority: priority)
+                view.pinToLeftEdgeOfSuperview(offset: separation, priority: priority)
             }
             lastView = view
         }
 
-        lastView?.pinToRightEdgeOfSuperview(separation, priority: priority)
+        lastView?.pinToRightEdgeOfSuperview(offset: separation, priority: priority)
     }
 
     /**
@@ -654,7 +654,7 @@ extension UIView {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count == 1 {
-            views.first?.pinToTopAndBottomEdgesOfSuperview(separation, priority: priority)
+            views.first?.pinToTopAndBottomEdgesOfSuperview(offset: separation, priority: priority)
             return
         }
 
@@ -664,12 +664,12 @@ extension UIView {
                 lastView.sizeHeightToHeightOfItem(view)
                 view.positionBelowItem(lastView, offset: separation, priority: priority)
             } else {
-                view.pinToTopEdgeOfSuperview(separation, priority: priority)
+                view.pinToTopEdgeOfSuperview(offset: separation, priority: priority)
             }
             lastView = view
         }
 
-        lastView?.pinToBottomEdgeOfSuperview(separation, priority: priority)
+        lastView?.pinToBottomEdgeOfSuperview(offset: separation, priority: priority)
     }
 
     // MARK: - Bound
