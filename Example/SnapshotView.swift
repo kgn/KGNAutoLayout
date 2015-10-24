@@ -43,6 +43,7 @@ class SnapshotView: UIView {
         }
         print("```")
         print("![\(imageName)](Example/Snapshots/\(imageName).png)")
+        print("--")
         print("")
     }
 

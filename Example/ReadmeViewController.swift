@@ -53,6 +53,7 @@ class ReadmeViewController: UIViewController {
 
             if title != lastTitle {
                 print("### \(title)")
+                print("--")
                 lastTitle = title
             }
 
@@ -75,6 +76,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.pinToEdgesOfSuperview(offset: 20)"
         )
     }
@@ -89,6 +91,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.pinToTopEdgeOfSuperview(offset: 20)",
             "",
             "view.centerHorizontallyInSuperview()",
@@ -106,6 +109,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.pinToRightEdgeOfSuperview(offset: 20)",
             "",
             "view.centerVerticallyInSuperview()",
@@ -123,6 +127,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.pinToBottomEdgeOfSuperview(offset: 20)",
             "",
             "view.centerHorizontallyInSuperview()",
@@ -140,6 +145,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.pinToLeftEdgeOfSuperview(offset: 20)",
             "",
             "view.centerVerticallyInSuperview()",
@@ -157,6 +163,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.pinToSideEdgesOfSuperview(offset: 20)",
             "",
             "view.centerVerticallyInSuperview()",
@@ -174,6 +181,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.pinToTopAndBottomEdgesOfSuperview(offset: 20)",
             "",
             "view.centerHorizontallyInSuperview()",
@@ -210,6 +218,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.centerInSuperview()",
             "",
             "view.sizeToWidthAndHeight(160)"
@@ -226,6 +235,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.centerHorizontallyInSuperview()",
             "",
             "view.pinToTopEdgeOfSuperview()",
@@ -243,6 +253,7 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
+            "",
             "view.centerVerticallyInSuperview()",
             "",
             "view.pinToLeftEdgeOfSuperview()",
