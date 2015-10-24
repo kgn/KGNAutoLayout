@@ -34,16 +34,63 @@ pod 'KGNAutoLayout'
 ### Pin: Superview
 
 ``` Swift
-view.pinToEdgesOfSuperview(offset: 20)
+view.pinToEdgesOfSuperview(offset: 10)
 ```
-![pinToEdgesOfSuperview_offset20](Example/Snapshots/pinToEdgesOfSuperview_offset20.png)
+![pinToEdgesOfSuperview_offset10](Example/Snapshots/pinToEdgesOfSuperview_offset10.png)
+
 
 ``` Swift
-view.pinToTopEdgeOfSuperview(offset: 20)
+view.pinToTopEdgeOfSuperview(offset: 10)
+
 view.centerHorizontallyInSuperview()
-view.sizeToWidthAndHeight(160)
+view.sizeToWidthAndHeight(80)
 ```
-![pinToTopEdgeOfSuperview_offset20](Example/Snapshots/pinToTopEdgeOfSuperview_offset20.png)
+![pinToTopEdgeOfSuperview_offset10](Example/Snapshots/pinToTopEdgeOfSuperview_offset10.png)
+
+
+``` Swift
+view.pinToRightEdgeOfSuperview(offset: 10)
+
+view.centerHorizontallyInSuperview()
+view.sizeToWidthAndHeight(80)
+```
+![pinToRightEdgeOfSuperview_offset10](Example/Snapshots/pinToRightEdgeOfSuperview_offset10.png)
+
+
+``` Swift
+view.pinToBottomEdgeOfSuperview(offset: 10)
+
+view.centerHorizontallyInSuperview()
+view.sizeToWidthAndHeight(80)
+```
+![pinToBottomEdgeOfSuperview_offset10](Example/Snapshots/pinToBottomEdgeOfSuperview_offset10.png)
+
+
+``` Swift
+view.pinToLeftEdgeOfSuperview(offset: 10)
+
+view.centerHorizontallyInSuperview()
+view.sizeToWidthAndHeight(80)
+```
+![pinToLeftEdgeOfSuperview_offset10](Example/Snapshots/pinToLeftEdgeOfSuperview_offset10.png)
+
+
+``` Swift
+view.pinToSideEdgesOfSuperview(offset: 10)
+
+view.centerVerticallyInSuperview()
+```
+![pinToSideEdgesOfSuperview_offset10](Example/Snapshots/pinToSideEdgesOfSuperview_offset10.png)
+
+
+``` Swift
+view.pinToTopAndBottomEdgesOfSuperview(offset: 10)
+
+view.centerHorizontallyInSuperview()
+```
+![pinToTopAndBottomEdgesOfSuperview_offset10](Example/Snapshots/pinToTopAndBottomEdgesOfSuperview_offset10.png)
+
+### Example App
 
 Check out the example app in the project for more examples.
 ![Example App](/KGNAutoLayoutExample.gif)
