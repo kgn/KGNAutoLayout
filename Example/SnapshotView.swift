@@ -54,6 +54,7 @@ class SnapshotView: UIView {
         super.drawRect(rect)
 
         let spaceing: CGFloat = 40
+        let lineOffset: CGFloat = 0.5
         let lineColor = UIColor(white: 1, alpha: 0.2)
         let context = UIGraphicsGetCurrentContext()
 
@@ -67,9 +68,15 @@ class SnapshotView: UIView {
 
         var x = spaceing
         while x < CGRectGetMaxX(rect) {
+            var innerX = x
+            if x > CGRectGetMidX(rect) {
+                innerX += lineOffset
+            } else {
+                innerX -= lineOffset
+            }
             CGContextSaveGState(context);
-            CGContextMoveToPoint(context, x, CGRectGetMinY(rect));
-            CGContextAddLineToPoint(context, x, CGRectGetMaxY(rect));
+            CGContextMoveToPoint(context, innerX, CGRectGetMinY(rect));
+            CGContextAddLineToPoint(context, innerX, CGRectGetMaxY(rect));
             CGContextStrokePath(context);
             CGContextRestoreGState(context);
             x += spaceing
@@ -77,9 +84,15 @@ class SnapshotView: UIView {
 
         var y = spaceing
         while y < CGRectGetMaxY(rect) {
+            var innerY = y
+            if y > CGRectGetMidX(rect) {
+                innerY += lineOffset
+            } else {
+                innerY -= lineOffset
+            }
             CGContextSaveGState(context);
-            CGContextMoveToPoint(context, CGRectGetMinX(rect), y);
-            CGContextAddLineToPoint(context, CGRectGetMaxX(rect), y);
+            CGContextMoveToPoint(context, CGRectGetMinX(rect), innerY);
+            CGContextAddLineToPoint(context, CGRectGetMaxX(rect), innerY);
             CGContextStrokePath(context);
             CGContextRestoreGState(context);
             y += spaceing
