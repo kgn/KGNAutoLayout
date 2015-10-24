@@ -12,15 +12,16 @@
 		83720E311BCB973700C8A14D /* KGNAutoLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */; };
 		8376BC011BD6AA290084754D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC001BD6AA290084754D /* AppDelegate.swift */; };
 		8376BC0B1BD6AA290084754D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC091BD6AA290084754D /* LaunchScreen.storyboard */; };
-		8376BC161BD6B8900084754D /* The Resistance.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC121BD6B8900084754D /* The Resistance.jpg */; settings = {ASSET_TAGS = (); }; };
-		8376BC171BD6B8900084754D /* Drink The Sea.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC131BD6B8900084754D /* Drink The Sea.jpg */; settings = {ASSET_TAGS = (); }; };
-		8376BC191BD6B8900084754D /* Broken Bells.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC151BD6B8900084754D /* Broken Bells.jpg */; settings = {ASSET_TAGS = (); }; };
-		8376BC1A1BD6B8990084754D /* Albums.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC101BD6B87F0084754D /* Albums.plist */; settings = {ASSET_TAGS = (); }; };
-		8376BC1C1BD6C6520084754D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC1B1BD6C6520084754D /* PageViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8376BC1E1BD6C65D0084754D /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC1D1BD6C65D0084754D /* AlbumViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8376BC1F1BD6C9A80084754D /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; };
-		8376BC211BD6DBC80084754D /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC201BD6DBC80084754D /* TrackTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		8376BC161BD6B8900084754D /* The Resistance.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC121BD6B8900084754D /* The Resistance.jpg */; };
+		8376BC171BD6B8900084754D /* Drink The Sea.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC131BD6B8900084754D /* Drink The Sea.jpg */; };
+		8376BC191BD6B8900084754D /* Broken Bells.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC151BD6B8900084754D /* Broken Bells.jpg */; };
+		8376BC1A1BD6B8990084754D /* Albums.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8376BC101BD6B87F0084754D /* Albums.plist */; };
+		8376BC1C1BD6C6520084754D /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC1B1BD6C6520084754D /* PageViewController.swift */; };
+		8376BC1E1BD6C65D0084754D /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC1D1BD6C65D0084754D /* AlbumViewController.swift */; };
+		8376BC211BD6DBC80084754D /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8376BC201BD6DBC80084754D /* TrackTableViewCell.swift */; };
 		83B95AA51BCB978C000FA7C9 /* KGNAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */; };
+		83D2AA531BDA05A6004A6F07 /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; };
+		83D2AA541BDA05A6004A6F07 /* KGNAutoLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +32,28 @@
 			remoteGlobalIDString = 83720E201BCB973700C8A14D;
 			remoteInfo = KGNAutoLayout;
 		};
+		83D2AA551BDA05A6004A6F07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83720E181BCB973700C8A14D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83720E201BCB973700C8A14D;
+			remoteInfo = KGNAutoLayout;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		83D2AA571BDA05A6004A6F07 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				83D2AA541BDA05A6004A6F07 /* KGNAutoLayout.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		83720E211BCB973700C8A14D /* KGNAutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNAutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8376BC1F1BD6C9A80084754D /* KGNAutoLayout.framework in Frameworks */,
+				83D2AA531BDA05A6004A6F07 /* KGNAutoLayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,10 +224,12 @@
 				8376BBFA1BD6AA290084754D /* Sources */,
 				8376BBFB1BD6AA290084754D /* Frameworks */,
 				8376BBFC1BD6AA290084754D /* Resources */,
+				83D2AA571BDA05A6004A6F07 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				83D2AA561BDA05A6004A6F07 /* PBXTargetDependency */,
 			);
 			name = KGNAutoLayoutExample;
 			productName = KGNAutoLayoutExample;
@@ -317,6 +341,11 @@
 			isa = PBXTargetDependency;
 			target = 83720E201BCB973700C8A14D /* KGNAutoLayout */;
 			targetProxy = 83720E2D1BCB973700C8A14D /* PBXContainerItemProxy */;
+		};
+		83D2AA561BDA05A6004A6F07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83720E201BCB973700C8A14D /* KGNAutoLayout */;
+			targetProxy = 83D2AA551BDA05A6004A6F07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -483,8 +512,9 @@
 		8376BC0D1BD6AA290084754D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,8 +525,9 @@
 		8376BC0E1BD6AA290084754D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
