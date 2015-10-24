@@ -60,12 +60,12 @@ class ReadmeViewController: UIViewController {
         snapshotView.addSubview(view)
         view.pinToTopEdgeOfSuperview(offset: 20)
         view.centerHorizontallyInSuperview()
-        view.sizeToWidthAndHeight(160)
+        view.sizeToWidthAndHeight(80)
 
         snapshotView.saveSnapshot(__FUNCTION__,
             "view.pinToTopEdgeOfSuperview(offset: 20)",
             "view.centerHorizontallyInSuperview()",
-            "view.sizeToWidthAndHeight(160)"
+            "view.sizeToWidthAndHeight(80)"
         )
     }
 
