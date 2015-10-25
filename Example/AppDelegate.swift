@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window?.rootViewController = ReadmeViewController() // Generate readme examples
-//        self.window?.rootViewController = PageViewController() // Example music app
+//        self.window?.rootViewController = ReadmeViewController() // Generate readme examples
+        self.window?.rootViewController = PageViewController() // Example music app
         self.window?.makeKeyAndVisible()
         return true
     }
