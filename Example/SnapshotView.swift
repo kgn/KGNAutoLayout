@@ -38,13 +38,13 @@ class SnapshotView: UIView {
 
         print("")
 
-        print("![\(imageName)](Example/Snapshots/\(imageName).png)")
-
         print("``` Swift")
         for line in code {
             print(line)
         }
         print("```")
+
+        print("![\(imageName)](Example/Snapshots/\(imageName).png)")
 
         print("--")
         print("")

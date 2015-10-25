@@ -58,11 +58,11 @@ class ReadmeViewController: UIViewController {
         "Between - fitBetweenTopAndBottomItems_offset20:",
         "Between - fitBetweenLeftAndRightItems_offset20:",
 
-        "Fill - fillHorizontally:",
-        "Fill - fillVertically:",
+        "Fill - fillHorizontally_separation20:",
+        "Fill - fillVertically_separation20:",
 
-        "Bound - boundHorizontally:",
-        "Bound - boundVertically:"
+        "Bound - boundHorizontally_separation20:",
+        "Bound - boundVertically_separation20:"
     ]
 
     override func viewDidLoad() {
@@ -555,7 +555,25 @@ class ReadmeViewController: UIViewController {
     }
 
     func sizeToWidthAndHeight80(parentView: SnapshotView) {
-        // TODO
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToWidthAndHeight(80)
+        view.centerInSuperview()
+
+        let widthSpringView = SpringView()
+        view.addSubview(widthSpringView)
+        widthSpringView.pinToSideEdgesOfSuperview()
+        widthSpringView.centerVerticallyInSuperview()
+
+        let heightSpringView = SpringView()
+        heightSpringView.direction = .Vertical
+        view.addSubview(heightSpringView)
+        heightSpringView.pinToTopAndBottomEdgesOfSuperview()
+        heightSpringView.centerHorizontallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeToWidthAndHeight(80)"
+        )
     }
 
     func sizeWidthToWidthOfItem(parentView: SnapshotView) {
@@ -579,11 +597,38 @@ class ReadmeViewController: UIViewController {
     }
 
     func sizeHeightToWidthAspectRatio16by9(parentView: SnapshotView) {
-        // TODO
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToWidth(100)
+        view.sizeHeightToWidthAspectRatio(16/9)
+        view.centerInSuperview()
+
+        let heightSpringView = SpringView()
+        heightSpringView.direction = .Vertical
+        view.addSubview(heightSpringView)
+        heightSpringView.pinToTopAndBottomEdgesOfSuperview()
+        heightSpringView.centerHorizontallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeHeightToWidthAspectRatio(16/9)"
+        )
     }
 
     func sizeWidthToHeightAspectRatio16by9(parentView: SnapshotView) {
-        // TODO
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToHeight(100)
+        view.sizeWidthToHeightAspectRatio(16/9)
+        view.centerInSuperview()
+
+        let widthSpringView = SpringView()
+        view.addSubview(widthSpringView)
+        widthSpringView.pinToSideEdgesOfSuperview()
+        widthSpringView.centerVerticallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeWidthToHeightAspectRatio(16/9)"
+        )
     }
 
     // MARK: - Position
@@ -633,7 +678,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(bottomView)
         bottomView.pinToBottomEdgeOfSuperview()
         bottomView.centerHorizontallyInSuperview()
-        bottomView.sizeToWidthAndHeight(80)
+        bottomView.sizeToWidthAndHeight(30)
 
         let view = LayoutView()
         parentView.addSubview(view)
@@ -671,7 +716,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(rightView)
         rightView.pinToRightEdgeOfSuperview()
         rightView.centerVerticallyInSuperview()
-        rightView.sizeToWidthAndHeight(80)
+        rightView.sizeToWidthAndHeight(30)
 
         let view = LayoutView()
         parentView.addSubview(view)
@@ -698,21 +743,136 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Fill
 
-    func fillHorizontally(parentView: SnapshotView) {
-        // TODO
+    func fillHorizontally_separation20(parentView: SnapshotView) {
+        let view1 = LayoutView()
+        parentView.addSubview(view1)
+        view1.centerVerticallyInSuperview()
+        view1.sizeToHeight(80)
+
+        let view2 = LayoutView()
+        parentView.addSubview(view2)
+        view2.centerVerticallyInSuperview()
+        view2.sizeToHeight(60)
+
+        let view3 = LayoutView()
+        parentView.addSubview(view3)
+        view3.centerVerticallyInSuperview()
+        view3.sizeToHeight(100)
+
+        let springView1 = SpringView()
+        parentView.addSubview(springView1)
+        springView1.pinToLeftEdgeOfSuperview()
+        springView1.positionToTheLeftOfItem(view1)
+        springView1.centerVerticallyInSuperview()
+
+        let springView2 = SpringView()
+        parentView.addSubview(springView2)
+        springView2.positionToTheRightOfItem(view1)
+        springView2.positionToTheLeftOfItem(view2)
+        springView2.centerVerticallyInSuperview()
+
+        let springView3 = SpringView()
+        parentView.addSubview(springView3)
+        springView3.positionToTheRightOfItem(view2)
+        springView3.positionToTheLeftOfItem(view3)
+        springView3.centerVerticallyInSuperview()
+
+        let springView4 = SpringView()
+        parentView.addSubview(springView4)
+        springView4.positionToTheRightOfItem(view3)
+        springView4.pinToRightEdgeOfSuperview()
+        springView4.centerVerticallyInSuperview()
+
+        parentView.fillHorizontally([view1, view2, view3], separation: 20)
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "parentView.fillHorizontally([view1, view2, view3], separation: 20)"
+        )
     }
 
-    func fillVertically(parentView: SnapshotView) {
-        // TODO
+    func fillVertically_separation20(parentView: SnapshotView) {
+        let view1 = LayoutView()
+        parentView.addSubview(view1)
+        view1.centerHorizontallyInSuperview()
+        view1.sizeToWidth(80)
+
+        let view2 = LayoutView()
+        parentView.addSubview(view2)
+        view2.centerHorizontallyInSuperview()
+        view2.sizeToWidth(60)
+
+        let view3 = LayoutView()
+        parentView.addSubview(view3)
+        view3.centerHorizontallyInSuperview()
+        view3.sizeToWidth(100)
+
+        let springView1 = SpringView()
+        springView1.direction = .Vertical
+        parentView.addSubview(springView1)
+        springView1.pinToTopEdgeOfSuperview()
+        springView1.positionAboveItem(view1)
+        springView1.centerHorizontallyInSuperview()
+
+        let springView2 = SpringView()
+        springView2.direction = .Vertical
+        parentView.addSubview(springView2)
+        springView2.positionBelowItem(view1)
+        springView2.positionAboveItem(view2)
+        springView2.centerHorizontallyInSuperview()
+
+        let springView3 = SpringView()
+        springView3.direction = .Vertical
+        parentView.addSubview(springView3)
+        springView3.positionBelowItem(view2)
+        springView3.positionAboveItem(view3)
+        springView3.centerHorizontallyInSuperview()
+
+        let springView4 = SpringView()
+        springView4.direction = .Vertical
+        parentView.addSubview(springView4)
+        springView4.positionBelowItem(view3)
+        springView4.pinToBottomEdgeOfSuperview()
+        springView4.centerHorizontallyInSuperview()
+
+        parentView.fillVertically([view1, view2, view3], separation: 20)
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "parentView.fillVertically([view1, view2, view3], separation: 20)"
+        )
     }
 
     // MARK: - Bound
 
-    func boundHorizontally(parentView: SnapshotView) {
+    func boundHorizontally_separation20(parentView: SnapshotView) {
         // TODO
+//        let view = ItemView()
+//        parentView.addSubview(view)
+//        view.centerInSuperview()
+//        view.sizeToHeight(160)
+//
+//        let view1 = LayoutView()
+//        view.addSubview(view1)
+//        view1.centerVerticallyInSuperview()
+//        view1.sizeToHeight(80)
+//
+//        let view2 = LayoutView()
+//        view.addSubview(view2)
+//        view2.centerVerticallyInSuperview()
+//        view2.sizeToHeight(60)
+//
+//        let view3 = LayoutView()
+//        view.addSubview(view3)
+//        view3.centerVerticallyInSuperview()
+//        view3.sizeToHeight(100)
+//
+//        view.boundHorizontally([view1, view2, view3], separation: 20)
+//
+//        parentView.saveSnapshot(__FUNCTION__,
+//            "view.boundHorizontally([view1, view2, view3], separation: 20)"
+//        )
     }
 
-    func boundVertically(parentView: SnapshotView) {
+    func boundVertically_separation20(parentView: SnapshotView) {
         // TODO
     }
 

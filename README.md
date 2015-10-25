@@ -37,151 +37,186 @@ pod 'KGNAutoLayout'
 
 ### Pin: Superview
 
-![pinToEdgesOfSuperview_offset20](Example/Snapshots/pinToEdgesOfSuperview_offset20.png)
 ``` Swift
 view.pinToEdgesOfSuperview(offset: 20)
 ```
+![pinToEdgesOfSuperview_offset20](Example/Snapshots/pinToEdgesOfSuperview_offset20.png)
 --
 
 
-![pinToTopEdgeOfSuperview_offset20](Example/Snapshots/pinToTopEdgeOfSuperview_offset20.png)
 ``` Swift
 view.pinToTopEdgeOfSuperview(offset: 20)
 ```
+![pinToTopEdgeOfSuperview_offset20](Example/Snapshots/pinToTopEdgeOfSuperview_offset20.png)
 --
 
 
-![pinToRightEdgeOfSuperview_offset20](Example/Snapshots/pinToRightEdgeOfSuperview_offset20.png)
 ``` Swift
 view.pinToRightEdgeOfSuperview(offset: 20)
 ```
+![pinToRightEdgeOfSuperview_offset20](Example/Snapshots/pinToRightEdgeOfSuperview_offset20.png)
 --
 
 
-![pinToBottomEdgeOfSuperview_offset20](Example/Snapshots/pinToBottomEdgeOfSuperview_offset20.png)
 ``` Swift
 view.pinToBottomEdgeOfSuperview(offset: 20)
 ```
+![pinToBottomEdgeOfSuperview_offset20](Example/Snapshots/pinToBottomEdgeOfSuperview_offset20.png)
 --
 
 
-![pinToLeftEdgeOfSuperview_offset20](Example/Snapshots/pinToLeftEdgeOfSuperview_offset20.png)
 ``` Swift
 view.pinToLeftEdgeOfSuperview(offset: 20)
 ```
+![pinToLeftEdgeOfSuperview_offset20](Example/Snapshots/pinToLeftEdgeOfSuperview_offset20.png)
 --
 
 
-![pinToSideEdgesOfSuperview_offset20](Example/Snapshots/pinToSideEdgesOfSuperview_offset20.png)
 ``` Swift
 view.pinToSideEdgesOfSuperview(offset: 20)
 ```
+![pinToSideEdgesOfSuperview_offset20](Example/Snapshots/pinToSideEdgesOfSuperview_offset20.png)
 --
 
 
-![pinToTopAndBottomEdgesOfSuperview_offset20](Example/Snapshots/pinToTopAndBottomEdgesOfSuperview_offset20.png)
 ``` Swift
 view.pinToTopAndBottomEdgesOfSuperview(offset: 20)
 ```
+![pinToTopAndBottomEdgesOfSuperview_offset20](Example/Snapshots/pinToTopAndBottomEdgesOfSuperview_offset20.png)
 --
 
 ### Pin: Edges
 
-![pinTopEdgeToTopEdgeOfItem_offset20](Example/Snapshots/pinTopEdgeToTopEdgeOfItem_offset20.png)
 ``` Swift
 view.pinTopEdgeToTopEdgeOfItem(itemView, offset: 20)
 ```
+![pinTopEdgeToTopEdgeOfItem_offset20](Example/Snapshots/pinTopEdgeToTopEdgeOfItem_offset20.png)
 --
 
 
-![pinRightEdgeToRightEdgeOfItem_offset20](Example/Snapshots/pinRightEdgeToRightEdgeOfItem_offset20.png)
 ``` Swift
 view.pinRightEdgeToRightEdgeOfItem(itemView, offset: 20)
 ```
+![pinRightEdgeToRightEdgeOfItem_offset20](Example/Snapshots/pinRightEdgeToRightEdgeOfItem_offset20.png)
 --
 
 
-![pinBottomEdgeToBottomEdgeOfItem_offset20](Example/Snapshots/pinBottomEdgeToBottomEdgeOfItem_offset20.png)
 ``` Swift
 view.pinBottomEdgeToBottomEdgeOfItem(itemView, offset: 20)
 ```
+![pinBottomEdgeToBottomEdgeOfItem_offset20](Example/Snapshots/pinBottomEdgeToBottomEdgeOfItem_offset20.png)
 --
 
 
-![pinLeftEdgeToLeftEdgeOfItem_offset20](Example/Snapshots/pinLeftEdgeToLeftEdgeOfItem_offset20.png)
 ``` Swift
 view.pinLeftEdgeToLeftEdgeOfItem(itemView, offset: 20)
 ```
+![pinLeftEdgeToLeftEdgeOfItem_offset20](Example/Snapshots/pinLeftEdgeToLeftEdgeOfItem_offset20.png)
 --
 
 ### Center
 
-![centerInSuperview](Example/Snapshots/centerInSuperview.png)
 ``` Swift
 view.centerInSuperview()
 ```
+![centerInSuperview](Example/Snapshots/centerInSuperview.png)
 --
 
 
-![centerHorizontallyInSuperview](Example/Snapshots/centerHorizontallyInSuperview.png)
 ``` Swift
 view.centerHorizontallyInSuperview()
 ```
+![centerHorizontallyInSuperview](Example/Snapshots/centerHorizontallyInSuperview.png)
 --
 
 
-![centerVerticallyInSuperview](Example/Snapshots/centerVerticallyInSuperview.png)
 ``` Swift
 view.centerVerticallyInSuperview()
 ```
+![centerVerticallyInSuperview](Example/Snapshots/centerVerticallyInSuperview.png)
 --
 
 
-![centerViewsHorizontally](Example/Snapshots/centerViewsHorizontally.png)
 ``` Swift
 parentView.centerViewsHorizontally([view1, view2, view3])
 ```
+![centerViewsHorizontally](Example/Snapshots/centerViewsHorizontally.png)
 --
 
 
-![centerViewsVertically](Example/Snapshots/centerViewsVertically.png)
 ``` Swift
 parentView.centerViewsVertically([view1, view2, view3])
 ```
+![centerViewsVertically](Example/Snapshots/centerViewsVertically.png)
 --
 
 ### Size
 
-![sizeToWidth80](Example/Snapshots/sizeToWidth80.png)
 ``` Swift
 view.sizeToWidth(80)
 ```
+![sizeToWidth80](Example/Snapshots/sizeToWidth80.png)
 --
 
 
-![sizeToHeight80](Example/Snapshots/sizeToHeight80.png)
 ``` Swift
 view.sizeToHeight(80)
 ```
+![sizeToHeight80](Example/Snapshots/sizeToHeight80.png)
+--
+
+
+``` Swift
+view.sizeToWidthAndHeight(80)
+```
+![sizeToWidthAndHeight80](Example/Snapshots/sizeToWidthAndHeight80.png)
+--
+
+
+``` Swift
+view.sizeHeightToWidthAspectRatio(16/9)
+```
+![sizeHeightToWidthAspectRatio16by9](Example/Snapshots/sizeHeightToWidthAspectRatio16by9.png)
+--
+
+
+``` Swift
+view.sizeWidthToHeightAspectRatio(16/9)
+```
+![sizeWidthToHeightAspectRatio16by9](Example/Snapshots/sizeWidthToHeightAspectRatio16by9.png)
 --
 
 ### Position
 ### Between
 
-![fitBetweenTopAndBottomItems_offset20](Example/Snapshots/fitBetweenTopAndBottomItems_offset20.png)
 ``` Swift
 view.fitBetween(topView, bottomItem: bottomView, offset: 20)
 ```
+![fitBetweenTopAndBottomItems_offset20](Example/Snapshots/fitBetweenTopAndBottomItems_offset20.png)
 --
 
 
-![fitBetweenLeftAndRightItems_offset20](Example/Snapshots/fitBetweenLeftAndRightItems_offset20.png)
 ``` Swift
 view.fitBetween(leftView, rightItem: rightView, offset: 20)
 ```
+![fitBetweenLeftAndRightItems_offset20](Example/Snapshots/fitBetweenLeftAndRightItems_offset20.png)
 --
 
 ### Fill
+
+``` Swift
+parentView.fillHorizontally([view1, view2, view3], separation: 20)
+```
+![fillHorizontally_separation20](Example/Snapshots/fillHorizontally_separation20.png)
+--
+
+
+``` Swift
+parentView.fillVertically([view1, view2, view3], separation: 20)
+```
+![fillVertically_separation20](Example/Snapshots/fillVertically_separation20.png)
+--
+
 ### Bound
 
 ## TODO:
