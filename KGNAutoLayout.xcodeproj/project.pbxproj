@@ -23,6 +23,7 @@
 		83797CC91BDB51F700D63A40 /* ReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83797CC81BDB51F700D63A40 /* ReadmeViewController.swift */; };
 		83797CCC1BDB55F000D63A40 /* SnapshotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83797CCB1BDB55F000D63A40 /* SnapshotView.swift */; };
 		83797CCE1BDB5B2F00D63A40 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83797CCD1BDB5B2F00D63A40 /* LayoutView.swift */; };
+		838CE7C51BDC542500185494 /* SpringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CE7C41BDC542500185494 /* SpringView.swift */; };
 		83B95AA51BCB978C000FA7C9 /* KGNAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */; };
 		83D2AA531BDA05A6004A6F07 /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; };
 		83D2AA541BDA05A6004A6F07 /* KGNAutoLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -80,6 +81,7 @@
 		83797CC81BDB51F700D63A40 /* ReadmeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadmeViewController.swift; sourceTree = "<group>"; };
 		83797CCB1BDB55F000D63A40 /* SnapshotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotView.swift; sourceTree = "<group>"; };
 		83797CCD1BDB5B2F00D63A40 /* LayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
+		838CE7C41BDC542500185494 /* SpringView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringView.swift; sourceTree = "<group>"; };
 		83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayout.swift; sourceTree = "<group>"; };
 		83DBD37E1BDB7B7200F017E4 /* ItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +183,7 @@
 			children = (
 				83797CCD1BDB5B2F00D63A40 /* LayoutView.swift */,
 				83DBD37E1BDB7B7200F017E4 /* ItemView.swift */,
+				838CE7C41BDC542500185494 /* SpringView.swift */,
 				83797CCB1BDB55F000D63A40 /* SnapshotView.swift */,
 				83797CC81BDB51F700D63A40 /* ReadmeViewController.swift */,
 			);
@@ -351,6 +354,7 @@
 				8376BC1E1BD6C65D0084754D /* AlbumViewController.swift in Sources */,
 				8376BC011BD6AA290084754D /* AppDelegate.swift in Sources */,
 				8352DE901BDB7D7500131077 /* ItemView.swift in Sources */,
+				838CE7C51BDC542500185494 /* SpringView.swift in Sources */,
 				8376BC1C1BD6C6520084754D /* PageViewController.swift in Sources */,
 				83797CCE1BDB5B2F00D63A40 /* LayoutView.swift in Sources */,
 				8376BC211BD6DBC80084754D /* TrackTableViewCell.swift in Sources */,

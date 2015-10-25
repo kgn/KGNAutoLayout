@@ -33,7 +33,36 @@ class ReadmeViewController: UIViewController {
         "Center - centerViewsHorizontally:",
         "Center - centerViewsVertically:",
         "Center - centerHorizontallyToItem:",
-        "Center - centerVerticallyToItem:"
+        "Center - centerVerticallyToItem:",
+
+        "Size - sizeToWidth80:",
+        "Size - sizeToHeight80:",
+        "Size - sizeToWidthAndHeight80:",
+        "Size - sizeWidthToWidthOfItem:",
+        "Size - sizeHeightToHeightOfItem:",
+        "Size - sizeHeightToWidthOfItem:",
+        "Size - sizeWidthToHeightOfItem:",
+        "Size - sizeWidthAndHeightToWidthAndHeightOfItem:",
+        "Size - sizeHeightToWidthAspectRatio16by9:",
+        "Size - sizeWidthToHeightAspectRatio16by9:",
+
+        "Position - positionAboveItem_offset20:",
+        "Position - positionToTheRightOfItem_offset20:",
+        "Position - positionBelowItem_offset20:",
+        "Position - positionToTheLeftOfItem_offset20:",
+        "Position - positionViewsAbove_offset20:",
+        "Position - positionViewsToTheRight_offset20:",
+        "Position - positionViewsBelow_offset20:",
+        "Position - positionViewsToTheLeft_offset20:",
+
+        "Between - fitBetweenTopAndBottomItems:",
+        "Between - fitBetweenLeftAndRightItems:",
+
+        "Fill - fillHorizontally:",
+        "Fill - fillVertically:",
+
+        "Bound - boundHorizontally:",
+        "Bound - boundVertically:"
     ]
 
     override func viewDidLoad() {
@@ -53,7 +82,6 @@ class ReadmeViewController: UIViewController {
 
             if title != lastTitle {
                 print("### \(title)")
-                print("--")
                 lastTitle = title
             }
 
@@ -72,7 +100,33 @@ class ReadmeViewController: UIViewController {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToEdgesOfSuperview(offset: 20)
-        
+
+        let topSpringView = SpringView()
+        topSpringView.direction = .Vertical
+        parentView.addSubview(topSpringView)
+        topSpringView.pinToTopEdgeOfSuperview()
+        topSpringView.positionAboveItem(view)
+        topSpringView.centerHorizontallyInSuperview()
+
+        let rightSpringView = SpringView()
+        parentView.addSubview(rightSpringView)
+        rightSpringView.positionToTheRightOfItem(view)
+        rightSpringView.pinToRightEdgeOfSuperview()
+        rightSpringView.centerVerticallyInSuperview()
+
+        let bottomSpringView = SpringView()
+        bottomSpringView.direction = .Vertical
+        parentView.addSubview(bottomSpringView)
+        bottomSpringView.pinToBottomEdgeOfSuperview()
+        bottomSpringView.positionBelowItem(view)
+        bottomSpringView.centerHorizontallyInSuperview()
+
+        let leftSpringView = SpringView()
+        parentView.addSubview(leftSpringView)
+        leftSpringView.pinToLeftEdgeOfSuperview()
+        leftSpringView.positionToTheLeftOfItem(view)
+        leftSpringView.centerVerticallyInSuperview()
+
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
@@ -87,6 +141,13 @@ class ReadmeViewController: UIViewController {
         view.pinToTopEdgeOfSuperview(offset: 20)
         view.centerHorizontallyInSuperview()
         view.sizeToWidthAndHeight(160)
+
+        let topSpringView = SpringView()
+        topSpringView.direction = .Vertical
+        parentView.addSubview(topSpringView)
+        topSpringView.pinToTopEdgeOfSuperview()
+        topSpringView.positionAboveItem(view)
+        topSpringView.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
@@ -106,6 +167,12 @@ class ReadmeViewController: UIViewController {
         view.centerVerticallyInSuperview()
         view.sizeToWidthAndHeight(160)
 
+        let rightSpringView = SpringView()
+        parentView.addSubview(rightSpringView)
+        rightSpringView.positionToTheRightOfItem(view)
+        rightSpringView.pinToRightEdgeOfSuperview()
+        rightSpringView.centerVerticallyInSuperview()
+
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
@@ -123,6 +190,13 @@ class ReadmeViewController: UIViewController {
         view.pinToBottomEdgeOfSuperview(offset: 20)
         view.centerHorizontallyInSuperview()
         view.sizeToWidthAndHeight(160)
+
+        let bottomSpringView = SpringView()
+        bottomSpringView.direction = .Vertical
+        parentView.addSubview(bottomSpringView)
+        bottomSpringView.pinToBottomEdgeOfSuperview()
+        bottomSpringView.positionBelowItem(view)
+        bottomSpringView.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
@@ -142,6 +216,12 @@ class ReadmeViewController: UIViewController {
         view.centerVerticallyInSuperview()
         view.sizeToWidthAndHeight(160)
 
+        let leftSpringView = SpringView()
+        parentView.addSubview(leftSpringView)
+        leftSpringView.pinToLeftEdgeOfSuperview()
+        leftSpringView.positionToTheLeftOfItem(view)
+        leftSpringView.centerVerticallyInSuperview()
+
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
@@ -159,6 +239,18 @@ class ReadmeViewController: UIViewController {
         view.pinToSideEdgesOfSuperview(offset: 20)
         view.centerVerticallyInSuperview()
         view.sizeToHeight(100)
+
+        let rightSpringView = SpringView()
+        parentView.addSubview(rightSpringView)
+        rightSpringView.positionToTheRightOfItem(view)
+        rightSpringView.pinToRightEdgeOfSuperview()
+        rightSpringView.centerVerticallyInSuperview()
+
+        let leftSpringView = SpringView()
+        parentView.addSubview(leftSpringView)
+        leftSpringView.pinToLeftEdgeOfSuperview()
+        leftSpringView.positionToTheLeftOfItem(view)
+        leftSpringView.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
@@ -178,6 +270,20 @@ class ReadmeViewController: UIViewController {
         view.centerHorizontallyInSuperview()
         view.sizeToWidth(100)
 
+        let topSpringView = SpringView()
+        topSpringView.direction = .Vertical
+        parentView.addSubview(topSpringView)
+        topSpringView.pinToTopEdgeOfSuperview()
+        topSpringView.positionAboveItem(view)
+        topSpringView.centerHorizontallyInSuperview()
+
+        let bottomSpringView = SpringView()
+        bottomSpringView.direction = .Vertical
+        parentView.addSubview(bottomSpringView)
+        bottomSpringView.pinToBottomEdgeOfSuperview()
+        bottomSpringView.positionBelowItem(view)
+        bottomSpringView.centerHorizontallyInSuperview()
+
         parentView.saveSnapshot(__FUNCTION__,
             "let view = UIView()",
             "parentView.addSubview(view)",
@@ -192,24 +298,175 @@ class ReadmeViewController: UIViewController {
     // MARK: - Pin: Edges
 
     func pinTopEdgeToTopEdgeOfItem_offset20(parentView: SnapshotView) {
-        // TODO
+        let itemView = ItemView()
+        parentView.addSubview(itemView)
+        itemView.pinToLeftEdgeOfSuperview()
+        itemView.centerVerticallyInSuperview()
+        itemView.sizeToWidthAndHeight(60)
+
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.pinTopEdgeToTopEdgeOfItem(itemView, offset: 20)
+        view.centerHorizontallyInSuperview()
+        view.sizeToWidth(40)
+        view.sizeToHeight(80)
+
+        let springView = SpringView()
+        springView.direction = .Vertical
+        parentView.addSubview(springView)
+        springView.positionAboveItem(view)
+        springView.pinTopEdgeToTopEdgeOfItem(itemView)
+        springView.centerHorizontallyToItem(view)
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "let itemView = ItemView()",
+            "parentView.addSubview(itemView)",
+            "itemView.pinToLeftEdgeOfSuperview()",
+            "itemView.centerVerticallyInSuperview()",
+            "itemView.sizeToWidthAndHeight(60)",
+            "",
+            "let view = LayoutView()",
+            "parentView.addSubview(view)",
+            "",
+            "view.pinTopEdgeToTopEdgeOfItem(itemView, offset: 20)",
+            "",
+            "view.centerHorizontallyInSuperview()",
+            "view.sizeToWidth(40)",
+            "view.sizeToHeight(80)"
+        )
     }
 
     func pinRightEdgeToRightEdgeOfItem_offset20(parentView: SnapshotView) {
-        // TODO
+        let itemView = ItemView()
+        parentView.addSubview(itemView)
+        itemView.pinToTopEdgeOfSuperview()
+        itemView.centerHorizontallyInSuperview()
+        itemView.sizeToWidthAndHeight(60)
+
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.pinRightEdgeToRightEdgeOfItem(itemView, offset: 20)
+        view.centerVerticallyInSuperview()
+        view.sizeToWidth(80)
+        view.sizeToHeight(40)
+
+        let springView = SpringView()
+        parentView.addSubview(springView)
+        springView.positionToTheRightOfItem(view)
+        springView.pinRightEdgeToRightEdgeOfItem(itemView)
+        springView.centerVerticallyToItem(view)
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "let itemView = ItemView()",
+            "parentView.addSubview(itemView)",
+            "itemView.pinToTopEdgeOfSuperview()",
+            "itemView.centerHorizontallyInSuperview()",
+            "itemView.sizeToWidthAndHeight(60)",
+            "",
+            "let view = LayoutView()",
+            "parentView.addSubview(view)",
+            "",
+            "view.pinRightEdgeToRightEdgeOfItem(itemView, offset: 20)",
+            "",
+            "view.centerVerticallyInSuperview()",
+            "view.sizeToWidth(80)",
+            "view.sizeToHeight(40)"
+        )
     }
 
     func pinBottomEdgeToBottomEdgeOfItem_offset20(parentView: SnapshotView) {
-        // TODO
+        let itemView = ItemView()
+        parentView.addSubview(itemView)
+        itemView.pinToLeftEdgeOfSuperview()
+        itemView.centerVerticallyInSuperview()
+        itemView.sizeToWidthAndHeight(60)
+
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.pinBottomEdgeToBottomEdgeOfItem(itemView, offset: 20)
+        view.centerHorizontallyInSuperview()
+        view.sizeToWidth(40)
+        view.sizeToHeight(80)
+
+        let springView = SpringView()
+        springView.direction = .Vertical
+        parentView.addSubview(springView)
+        springView.positionBelowItem(view)
+        springView.pinBottomEdgeToBottomEdgeOfItem(itemView)
+        springView.centerHorizontallyToItem(view)
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "let itemView = ItemView()",
+            "parentView.addSubview(itemView)",
+            "itemView.pinToLeftEdgeOfSuperview()",
+            "itemView.centerVerticallyInSuperview()",
+            "itemView.sizeToWidthAndHeight(60)",
+            "",
+            "let view = LayoutView()",
+            "parentView.addSubview(view)",
+            "",
+            "view.pinBottomEdgeToBottomEdgeOfItem(itemView, offset: 20)",
+            "",
+            "view.centerHorizontallyInSuperview()",
+            "view.sizeToWidth(40)",
+            "view.sizeToHeight(80)"
+        )
     }
 
     func pinLeftEdgeToLeftEdgeOfItem_offset20(parentView: SnapshotView) {
-        // TODO
+        let itemView = ItemView()
+        parentView.addSubview(itemView)
+        itemView.pinToTopEdgeOfSuperview()
+        itemView.centerHorizontallyInSuperview()
+        itemView.sizeToWidthAndHeight(60)
+
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.pinLeftEdgeToLeftEdgeOfItem(itemView, offset: 20)
+        view.centerVerticallyInSuperview()
+        view.sizeToWidth(80)
+        view.sizeToHeight(40)
+
+        let springView = SpringView()
+        parentView.addSubview(springView)
+        springView.positionToTheLeftOfItem(view)
+        springView.pinLeftEdgeToLeftEdgeOfItem(itemView)
+        springView.centerVerticallyToItem(view)
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "let itemView = ItemView()",
+            "parentView.addSubview(itemView)",
+            "itemView.pinToTopEdgeOfSuperview()",
+            "itemView.centerHorizontallyInSuperview()",
+            "itemView.sizeToWidthAndHeight(60)",
+            "",
+            "let view = LayoutView()",
+            "parentView.addSubview(view)",
+            "",
+            "view.pinLeftEdgeToLeftEdgeOfItem(itemView, offset: 20)",
+            "",
+            "view.centerVerticallyInSuperview()",
+            "view.sizeToWidth(80)",
+            "view.sizeToHeight(40)"
+        )
     }
 
     // MARK: - Center
 
     func centerInSuperview(parentView: SnapshotView) {
+        let horizontalSpringView = SpringView()
+        horizontalSpringView.showEnds = false
+        parentView.addSubview(horizontalSpringView)
+        horizontalSpringView.pinToSideEdgesOfSuperview()
+        horizontalSpringView.centerVerticallyInSuperview()
+
+        let verticalSpringView = SpringView()
+        verticalSpringView.showEnds = false
+        verticalSpringView.direction = .Vertical
+        parentView.addSubview(verticalSpringView)
+        verticalSpringView.pinToTopAndBottomEdgesOfSuperview()
+        verticalSpringView.centerHorizontallyInSuperview()
+
         let view = LayoutView()
         parentView.addSubview(view)
         view.centerInSuperview()
@@ -226,6 +483,13 @@ class ReadmeViewController: UIViewController {
     }
 
     func centerHorizontallyInSuperview(parentView: SnapshotView) {
+        let verticalSpringView = SpringView()
+        verticalSpringView.showEnds = false
+        verticalSpringView.direction = .Vertical
+        parentView.addSubview(verticalSpringView)
+        verticalSpringView.pinToTopAndBottomEdgesOfSuperview()
+        verticalSpringView.centerHorizontallyInSuperview()
+
         let view = LayoutView()
         parentView.addSubview(view)
         view.centerHorizontallyInSuperview()
@@ -244,6 +508,12 @@ class ReadmeViewController: UIViewController {
     }
 
     func centerVerticallyInSuperview(parentView: SnapshotView) {
+        let horizontalSpringView = SpringView()
+        horizontalSpringView.showEnds = false
+        parentView.addSubview(horizontalSpringView)
+        horizontalSpringView.pinToSideEdgesOfSuperview()
+        horizontalSpringView.centerVerticallyInSuperview()
+
         let view = LayoutView()
         parentView.addSubview(view)
         view.centerVerticallyInSuperview()
@@ -262,6 +532,12 @@ class ReadmeViewController: UIViewController {
     }
 
     func centerViewsHorizontally(parentView: SnapshotView) {
+        let horizontalSpringView = SpringView()
+        horizontalSpringView.showEnds = false
+        parentView.addSubview(horizontalSpringView)
+        horizontalSpringView.pinToSideEdgesOfSuperview()
+        horizontalSpringView.centerVerticallyInSuperview()
+
         let view1 = LayoutView()
         parentView.addSubview(view1)
         view1.centerVerticallyInSuperview()
@@ -300,6 +576,13 @@ class ReadmeViewController: UIViewController {
     }
 
     func centerViewsVertically(parentView: SnapshotView) {
+        let verticalSpringView = SpringView()
+        verticalSpringView.showEnds = false
+        verticalSpringView.direction = .Vertical
+        parentView.addSubview(verticalSpringView)
+        verticalSpringView.pinToTopAndBottomEdgesOfSuperview()
+        verticalSpringView.centerHorizontallyInSuperview()
+
         let view1 = LayoutView()
         parentView.addSubview(view1)
         view1.centerHorizontallyInSuperview()
@@ -374,12 +657,147 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Size
 
+    func sizeToWidth80(parentView: SnapshotView) {
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToWidth(80)
+        view.sizeToHeight(100)
+        view.centerInSuperview()
+
+        let widthSpringView = SpringView()
+        view.addSubview(widthSpringView)
+        widthSpringView.pinToSideEdgesOfSuperview()
+        widthSpringView.centerVerticallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "let view = UIView()",
+            "parentView.addSubview(view)",
+            "",
+            "view.sizeToWidth(80)",
+            "",
+            "view.sizeToHeight(100)",
+            "view.centerInSuperview()"
+        )
+    }
+
+    func sizeToHeight80(parentView: SnapshotView) {
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToHeight(80)
+        view.sizeToWidth(100)
+        view.centerInSuperview()
+
+        let heightSpringView = SpringView()
+        heightSpringView.direction = .Vertical
+        view.addSubview(heightSpringView)
+        heightSpringView.pinToTopAndBottomEdgesOfSuperview()
+        heightSpringView.centerHorizontallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "let view = UIView()",
+            "parentView.addSubview(view)",
+            "",
+            "view.sizeToHeight(80)",
+            "",
+            "view.sizeToWidth(100)",
+            "view.centerInSuperview()"
+        )
+    }
+
+    func sizeToWidthAndHeight80(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeWidthToWidthOfItem(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeHeightToHeightOfItem(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeHeightToWidthOfItem(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeWidthToHeightOfItem(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeWidthAndHeightToWidthAndHeightOfItem(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeHeightToWidthAspectRatio16by9(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeWidthToHeightAspectRatio16by9(parentView: SnapshotView) {
+        // TODO
+    }
+
     // MARK: - Position
+
+    func positionAboveItem_offset20(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func positionToTheRightOfItem_offset20(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func positionBelowItem_offset20(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func positionToTheLeftOfItem_offset20(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func positionViewsAbove_offset20(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func positionViewsToTheRight_offset20(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func positionViewsBelow_offset20(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func positionViewsToTheLeft_offset20(parentView: SnapshotView) {
+        // TODO
+    }
 
     // MARK: - Between
 
+    func fitBetweenTopAndBottomItems(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func fitBetweenLeftAndRightItems(parentView: SnapshotView) {
+        // TODO
+    }
+
     // MARK: - Fill
 
+    func fillHorizontally(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func fillVertically(parentView: SnapshotView) {
+        // TODO
+    }
+
     // MARK: - Bound
+
+    func boundHorizontally(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func boundVertically(parentView: SnapshotView) {
+        // TODO
+    }
 
 }
