@@ -30,8 +30,8 @@ class ReadmeViewController: UIViewController {
         "Center - centerInSuperview:",
         "Center - centerHorizontallyInSuperview:",
         "Center - centerVerticallyInSuperview:",
-        "Center - centerViewsHorizontally:",
-        "Center - centerViewsVertically:",
+        "Center - centerViewsHorizontally_separation20:",
+        "Center - centerViewsVertically_separation20:",
         "Center - centerHorizontallyToItem:",
         "Center - centerVerticallyToItem:",
 
@@ -423,7 +423,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func centerViewsHorizontally(parentView: SnapshotView) {
+    func centerViewsHorizontally_separation20(parentView: SnapshotView) {
         let verticalSpringView = SpringView()
         verticalSpringView.showEnds = false
         verticalSpringView.direction = .Vertical
@@ -446,14 +446,26 @@ class ReadmeViewController: UIViewController {
         view3.centerVerticallyInSuperview()
         view3.sizeToWidthAndHeight(50)
 
-        parentView.centerViewsHorizontally([view1, view2, view3])
+        parentView.centerViewsHorizontally([view1, view2, view3], separation: 20)
+
+        let springView1 = SpringView()
+        parentView.addSubview(springView1)
+        springView1.positionToTheRightOfItem(view1)
+        springView1.positionToTheLeftOfItem(view2)
+        springView1.centerVerticallyInSuperview()
+
+        let springView2 = SpringView()
+        parentView.addSubview(springView2)
+        springView2.positionToTheRightOfItem(view2)
+        springView2.positionToTheLeftOfItem(view3)
+        springView2.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(__FUNCTION__,
-            "parentView.centerViewsHorizontally([view1, view2, view3])"
+            "parentView.centerViewsHorizontally([view1, view2, view3], separation: 20)"
         )
     }
 
-    func centerViewsVertically(parentView: SnapshotView) {
+    func centerViewsVertically_separation20(parentView: SnapshotView) {
         let horizontalSpringView = SpringView()
         horizontalSpringView.showEnds = false
         parentView.addSubview(horizontalSpringView)
@@ -475,10 +487,24 @@ class ReadmeViewController: UIViewController {
         view3.centerHorizontallyInSuperview()
         view3.sizeToWidthAndHeight(50)
 
-        parentView.centerViewsVertically([view1, view2, view3])
+        let springView1 = SpringView()
+        springView1.direction = .Vertical
+        parentView.addSubview(springView1)
+        springView1.positionBelowItem(view1)
+        springView1.positionAboveItem(view2)
+        springView1.centerHorizontallyInSuperview()
+
+        let springView2 = SpringView()
+        springView2.direction = .Vertical
+        parentView.addSubview(springView2)
+        springView2.positionBelowItem(view2)
+        springView2.positionAboveItem(view3)
+        springView2.centerHorizontallyInSuperview()
+
+        parentView.centerViewsVertically([view1, view2, view3], separation: 20)
 
         parentView.saveSnapshot(__FUNCTION__,
-            "parentView.centerViewsVertically([view1, view2, view3])"
+            "parentView.centerViewsVertically([view1, view2, view3], separation: 20)"
         )
     }
 

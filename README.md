@@ -140,16 +140,16 @@ view.centerVerticallyInSuperview()
 
 
 ``` Swift
-parentView.centerViewsHorizontally([view1, view2, view3])
+parentView.centerViewsHorizontally([view1, view2, view3], separation: 20)
 ```
-![centerViewsHorizontally](Example/Snapshots/centerViewsHorizontally.png)
+![centerViewsHorizontally_separation20](Example/Snapshots/centerViewsHorizontally_separation20.png)
 --
 
 
 ``` Swift
-parentView.centerViewsVertically([view1, view2, view3])
+parentView.centerViewsVertically([view1, view2, view3], separation: 20)
 ```
-![centerViewsVertically](Example/Snapshots/centerViewsVertically.png)
+![centerViewsVertically_separation20](Example/Snapshots/centerViewsVertically_separation20.png)
 --
 
 
