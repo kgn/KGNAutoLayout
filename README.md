@@ -150,6 +150,20 @@ parentView.centerViewsVertically([view1, view2, view3])
 ![centerViewsVertically](Example/Snapshots/centerViewsVertically.png)
 --
 
+
+``` Swift
+view.centerHorizontallyToItem(itemView)
+```
+![centerHorizontallyToItem](Example/Snapshots/centerHorizontallyToItem.png)
+--
+
+
+``` Swift
+view.centerVerticallyToItem(itemView)
+```
+![centerVerticallyToItem](Example/Snapshots/centerVerticallyToItem.png)
+--
+
 ### Size
 
 ``` Swift
@@ -174,6 +188,41 @@ view.sizeToWidthAndHeight(80)
 
 
 ``` Swift
+view.sizeWidthToWidthOfItem(itemView)
+```
+![sizeWidthToWidthOfItem](Example/Snapshots/sizeWidthToWidthOfItem.png)
+--
+
+
+``` Swift
+view.sizeHeightToHeightOfItem(itemView)
+```
+![sizeHeightToHeightOfItem](Example/Snapshots/sizeHeightToHeightOfItem.png)
+--
+
+
+``` Swift
+view.sizeHeightToWidthOfItem(itemView)
+```
+![sizeHeightToWidthOfItem](Example/Snapshots/sizeHeightToWidthOfItem.png)
+--
+
+
+``` Swift
+view.sizeWidthToHeightOfItem(itemView)
+```
+![sizeWidthToHeightOfItem](Example/Snapshots/sizeWidthToHeightOfItem.png)
+--
+
+
+``` Swift
+view.sizeWidthAndHeightToWidthAndHeightOfItem(itemView)
+```
+![sizeWidthAndHeightToWidthAndHeightOfItem](Example/Snapshots/sizeWidthAndHeightToWidthAndHeightOfItem.png)
+--
+
+
+``` Swift
 view.sizeHeightToWidthAspectRatio(16/9)
 ```
 ![sizeHeightToWidthAspectRatio16by9](Example/Snapshots/sizeHeightToWidthAspectRatio16by9.png)
@@ -187,6 +236,62 @@ view.sizeWidthToHeightAspectRatio(16/9)
 --
 
 ### Position
+
+``` Swift
+view.positionAboveItem(itemView, offset: 20)
+```
+![positionAboveItem_offset20](Example/Snapshots/positionAboveItem_offset20.png)
+--
+
+
+``` Swift
+view.positionToTheRightOfItem(itemView, offset: 20)
+```
+![positionToTheRightOfItem_offset20](Example/Snapshots/positionToTheRightOfItem_offset20.png)
+--
+
+
+``` Swift
+view.positionBelowItem(itemView, offset: 20)
+```
+![positionBelowItem_offset20](Example/Snapshots/positionBelowItem_offset20.png)
+--
+
+
+``` Swift
+view.positionToTheLeftOfItem(itemView, offset: 20)
+```
+![positionToTheLeftOfItem_offset20](Example/Snapshots/positionToTheLeftOfItem_offset20.png)
+--
+
+
+``` Swift
+itemView.positionViewsAbove([view1, view2, view3], offset: 20)
+```
+![positionViewsAbove_offset20](Example/Snapshots/positionViewsAbove_offset20.png)
+--
+
+
+``` Swift
+itemView.positionViewsToTheRight([view1, view2, view3], offset: 20)
+```
+![positionViewsToTheRight_offset20](Example/Snapshots/positionViewsToTheRight_offset20.png)
+--
+
+
+``` Swift
+itemView.positionViewsBelow([view1, view2, view3], offset: 20)
+```
+![positionViewsBelow_offset20](Example/Snapshots/positionViewsBelow_offset20.png)
+--
+
+
+``` Swift
+itemView.positionViewsToTheLeft([view1, view2, view3], offset: 20)
+```
+![positionViewsToTheLeft_offset20](Example/Snapshots/positionViewsToTheLeft_offset20.png)
+--
+
 ### Between
 
 ``` Swift
@@ -219,12 +324,24 @@ parentView.fillVertically([view1, view2, view3], separation: 20)
 
 ### Bound
 
-## TODO:
+``` Swift
+itemView.boundHorizontally([view1, view2, view3], separation: 20)
+```
+![boundHorizontally_separation20](Example/Snapshots/boundHorizontally_separation20.png)
+--
+
+
+``` Swift
+itemView.boundVertically([view1, view2, view3], separation: 20)
+```
+![boundVertically_separation20](Example/Snapshots/boundVertically_separation20.png)
+
+## Progress:
 - [X] Travis
 - [X] Badges
 - [X] Tests
 - [X] Carthage
-- [ ] CocoaPods (Just need to release)
-- [ ] Description (Give examples)
+- [X] CocoaPods
+- [X] Description
 - [X] Documentation
 - [X] Example App
