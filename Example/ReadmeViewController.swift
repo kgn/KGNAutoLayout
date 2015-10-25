@@ -424,11 +424,12 @@ class ReadmeViewController: UIViewController {
     }
 
     func centerViewsHorizontally(parentView: SnapshotView) {
-        let horizontalSpringView = SpringView()
-        horizontalSpringView.showEnds = false
-        parentView.addSubview(horizontalSpringView)
-        horizontalSpringView.pinToSideEdgesOfSuperview()
-        horizontalSpringView.centerVerticallyInSuperview()
+        let verticalSpringView = SpringView()
+        verticalSpringView.showEnds = false
+        verticalSpringView.direction = .Vertical
+        parentView.addSubview(verticalSpringView)
+        verticalSpringView.pinToTopAndBottomEdgesOfSuperview()
+        verticalSpringView.centerHorizontallyInSuperview()
 
         let view1 = LayoutView()
         parentView.addSubview(view1)
@@ -453,13 +454,12 @@ class ReadmeViewController: UIViewController {
     }
 
     func centerViewsVertically(parentView: SnapshotView) {
-        let verticalSpringView = SpringView()
-        verticalSpringView.showEnds = false
-        verticalSpringView.direction = .Vertical
-        parentView.addSubview(verticalSpringView)
-        verticalSpringView.pinToTopAndBottomEdgesOfSuperview()
-        verticalSpringView.centerHorizontallyInSuperview()
-
+        let horizontalSpringView = SpringView()
+        horizontalSpringView.showEnds = false
+        parentView.addSubview(horizontalSpringView)
+        horizontalSpringView.pinToSideEdgesOfSuperview()
+        horizontalSpringView.centerVerticallyInSuperview()
+        
         let view1 = LayoutView()
         parentView.addSubview(view1)
         view1.centerHorizontallyInSuperview()
