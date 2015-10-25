@@ -31,6 +31,11 @@ pod 'KGNAutoLayout'
 
 ## Examples
 
+### Example App
+
+Check out the example app in the project.
+![Example App](/KGNAutoLayoutExample.gif)
+
 ### Pin: Superview
 
 ![pinToEdgesOfSuperview_offset20](Example/Snapshots/pinToEdgesOfSuperview_offset20.png)
@@ -310,11 +315,6 @@ view.sizeToWidth(100)
 view.centerInSuperview()
 ```
 --
-
-### Example App
-
-Check out the example app in the project for more examples.
-![Example App](/KGNAutoLayoutExample.gif)
 
 ## TODO:
 - [X] Travis
