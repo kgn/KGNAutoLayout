@@ -33,7 +33,6 @@ pod 'KGNAutoLayout'
 
 ### Example App
 
-Check out the example app in the project.
 ![Example App](/KGNAutoLayoutExample.gif)
 
 ### Pin: Superview
