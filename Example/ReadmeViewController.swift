@@ -308,7 +308,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(view)
         view.pinTopEdgeToTopEdgeOfItem(itemView, offset: 20)
         view.centerHorizontallyInSuperview()
-        view.sizeToWidth(40)
+        view.sizeToWidth(60)
         view.sizeToHeight(80)
 
         let springView = SpringView()
@@ -348,7 +348,7 @@ class ReadmeViewController: UIViewController {
         view.pinRightEdgeToRightEdgeOfItem(itemView, offset: 20)
         view.centerVerticallyInSuperview()
         view.sizeToWidth(80)
-        view.sizeToHeight(40)
+        view.sizeToHeight(60)
 
         let springView = SpringView()
         parentView.addSubview(springView)
@@ -385,7 +385,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(view)
         view.pinBottomEdgeToBottomEdgeOfItem(itemView, offset: 20)
         view.centerHorizontallyInSuperview()
-        view.sizeToWidth(40)
+        view.sizeToWidth(60)
         view.sizeToHeight(80)
 
         let springView = SpringView()
@@ -425,7 +425,7 @@ class ReadmeViewController: UIViewController {
         view.pinLeftEdgeToLeftEdgeOfItem(itemView, offset: 20)
         view.centerVerticallyInSuperview()
         view.sizeToWidth(80)
-        view.sizeToHeight(40)
+        view.sizeToHeight(60)
 
         let springView = SpringView()
         parentView.addSubview(springView)
