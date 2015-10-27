@@ -23,4 +23,4 @@ env:
     - DESTINATION="OS=9.1,name=iPhone 6s Plus"    
 
 script: 
-  - xctool clean test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
+  - xcodebuild clean test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
