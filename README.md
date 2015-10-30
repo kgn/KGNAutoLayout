@@ -345,5 +345,5 @@ itemView.boundVertically([view1, view2, view3], separation: 20)
 - [X] Carthage
 - [X] CocoaPods
 - [X] Description
-- [X] Documentation
+- [ ] Documentation (Need to document the new min/max size functions)
 - [X] Example App

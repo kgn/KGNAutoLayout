@@ -1379,7 +1379,33 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, size.height))
     }
 
-    func testSizeHeight() {
+    func testSizeToMinWidth() {
+        let minWidth: CGFloat = 100
+        let size = CGSizeMake(50, 10)
+        let priority = UILayoutPriorityDefaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.sizeToMinWidth(minWidth, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, minWidth, size.height))
+    }
+
+    func testSizeToMaxWidth() {
+        let maxWidth: CGFloat = 20
+        let size = CGSizeMake(50, 10)
+        let priority = UILayoutPriorityRequired
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.sizeToMaxWidth(maxWidth, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, maxWidth, size.height))
+    }
+
+    func testSizeToHeight() {
         let size = CGSizeMake(10, 50)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
@@ -1388,6 +1414,32 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraint.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, size.height))
+    }
+
+    func testSizeToMinHeight() {
+        let minHeight: CGFloat = 100
+        let size = CGSizeMake(10, 50)
+        let priority = UILayoutPriorityDefaultHigh
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.sizeToMinHeight(minHeight, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, minHeight))
+    }
+
+    func testSizeToMaxHeight() {
+        let maxHeight: CGFloat = 20
+        let size = CGSizeMake(10, 50)
+        let priority = UILayoutPriorityRequired
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.sizeToMaxHeight(maxHeight, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, maxHeight))
     }
 
     func testSizeWidthAndHeight() {
@@ -1399,6 +1451,32 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.height.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size))
+    }
+
+    func testSizeMinWidthAndHeight() {
+        let minSize: CGFloat = 30
+        let priority = UILayoutPriorityRequired
+        let childViewFrame = self.compareViewFrame {
+            $0.width = 10
+            $0.height = 20
+            let constraints = $0.sizeToMinWidthAndHeight(minSize, priority: priority)
+            XCTAssertEqual(priority, constraints.width.priority)
+            XCTAssertEqual(priority, constraints.height.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, minSize, minSize))
+    }
+
+    func testSizeMaxWidthAndHeight() {
+        let maxSize: CGFloat = 30
+        let priority = UILayoutPriorityRequired
+        let childViewFrame = self.compareViewFrame {
+            $0.width = 100
+            $0.height = 40
+            let constraints = $0.sizeToMaxWidthAndHeight(maxSize, priority: priority)
+            XCTAssertEqual(priority, constraints.width.priority)
+            XCTAssertEqual(priority, constraints.height.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, maxSize, maxSize))
     }
 
     func testSizeWidthToWidthOfItem() {

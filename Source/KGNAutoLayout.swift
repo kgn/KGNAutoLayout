@@ -337,15 +337,63 @@ extension UIView {
     }
 
     /**
+     Constrain the minimum width of the view.
+
+     - Parameter width: The minimum width to constrain the view to.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
+    public func sizeToMinWidth(width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
+        return self.constrainSizeAttribute(.Width, size: width, relatedBy: .GreaterThanOrEqual, priority: priority)
+    }
+
+    /**
+     Constrain the maximum width of the view.
+
+     - Parameter width: The maximum width to constrain the view to.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
+    public func sizeToMaxWidth(width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
+        return self.constrainSizeAttribute(.Width, size: width, relatedBy: .LessThanOrEqual, priority: priority)
+    }
+
+    /**
      Constrain the height of the view.
 
-     - Parameter height: The width to constrain the view to.
+     - Parameter height: The height to constrain the view to.
      - Parameter priority: The priority of the constraint.
 
      - Returns: The constraint object.
      */
     public func sizeToHeight(height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
         return self.constrainSizeAttribute(.Height, size: height, priority: priority)
+    }
+
+    /**
+     Constrain the minimum height of the view.
+
+     - Parameter height: The minimum height to constrain the view to.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
+    public func sizeToMinHeight(height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
+        return self.constrainSizeAttribute(.Height, size: height, relatedBy: .GreaterThanOrEqual, priority: priority)
+    }
+
+    /**
+     Constrain the maximum height of the view.
+
+     - Parameter height: The maximum height to constrain the view to.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
+    public func sizeToMaxHeight(height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint{
+        return self.constrainSizeAttribute(.Height, size: height, relatedBy: .LessThanOrEqual, priority: priority)
     }
 
     /**
@@ -360,6 +408,36 @@ extension UIView {
         return (
             self.sizeToWidth(size, priority: priority),
             self.sizeToHeight(size, priority: priority)
+        )
+    }
+
+    /**
+     Constrain the minimum width and height of the view.
+
+     - Parameter size: The minumum width and height to constrain the view to.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
+    public func sizeToMinWidthAndHeight(size: CGFloat, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (
+            self.sizeToMinWidth(size, priority: priority),
+            self.sizeToMinHeight(size, priority: priority)
+        )
+    }
+
+    /**
+     Constrain the maximum width and height of the view.
+
+     - Parameter size: The maximum width and height to constrain the view to.
+     - Parameter priority: The priority of the constraint.
+
+     - Returns: The constraint object.
+     */
+    public func sizeToMaxWidthAndHeight(size: CGFloat, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint, height: NSLayoutConstraint) {
+        return (
+            self.sizeToMaxWidth(size, priority: priority),
+            self.sizeToMaxHeight(size, priority: priority)
         )
     }
 
@@ -730,9 +808,9 @@ extension UIView {
 
     // MARK: - Private
 
-    private func constrainSizeAttribute(sizeAttribute: NSLayoutAttribute, multiplier: CGFloat = 0, size: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    private func constrainSizeAttribute(sizeAttribute: NSLayoutAttribute, multiplier: CGFloat = 0, size: CGFloat = 0, relatedBy: NSLayoutRelation = .Equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         self.translatesAutoresizingMaskIntoConstraints = false
-        let constraint = NSLayoutConstraint(item: self, attribute: sizeAttribute, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: multiplier, constant: size)
+        let constraint = NSLayoutConstraint(item: self, attribute: sizeAttribute, relatedBy: relatedBy, toItem: nil, attribute: .NotAnAttribute, multiplier: multiplier, constant: size)
         if let p = priority {
             constraint.priority = p
         }

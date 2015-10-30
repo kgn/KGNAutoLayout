@@ -36,8 +36,14 @@ class ReadmeViewController: UIViewController {
         "Center - centerVerticallyToItem:",
 
         "Size - sizeToWidth80:",
+        "Size - sizeToMinWidth40:",
+        "Size - sizeToMaxWidth100:",
         "Size - sizeToHeight80:",
+        "Size - sizeToMinHeight40:",
+        "Size - sizeToMaxHeight100:",
         "Size - sizeToWidthAndHeight80:",
+        "Size - sizeToMinWidthAndHeight40:",
+        "Size - sizeToMaxWidthAndHeight100:",
         "Size - sizeWidthToWidthOfItem:",
         "Size - sizeHeightToHeightOfItem:",
         "Size - sizeHeightToWidthOfItem:",
@@ -580,6 +586,14 @@ class ReadmeViewController: UIViewController {
         )
     }
 
+    func sizeToMinWidth40(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeToMaxWidth100(parentView: SnapshotView) {
+        // TODO
+    }
+
     func sizeToHeight80(parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
@@ -596,6 +610,14 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "view.sizeToHeight(80)"
         )
+    }
+
+    func sizeToMinHeight40(parentView: SnapshotView) {
+        // TODO
+    }
+
+    func sizeToMaxHeight100(parentView: SnapshotView) {
+        // TODO
     }
 
     func sizeToWidthAndHeight80(parentView: SnapshotView) {
@@ -618,6 +640,14 @@ class ReadmeViewController: UIViewController {
         parentView.saveSnapshot(__FUNCTION__,
             "view.sizeToWidthAndHeight(80)"
         )
+    }
+
+    func sizeToMinWidthAndHeight40(parentView: SnapshotView) {
+        //TODO
+    }
+
+    func sizeToMaxWidthAndHeight100(parentView: SnapshotView) {
+        //TODO
     }
 
     func sizeWidthToWidthOfItem(parentView: SnapshotView) {
