@@ -1164,7 +1164,7 @@ class ReadmeViewController: UIViewController {
 
         let view = LayoutView()
         parentView.addSubview(view)
-        view.fitBetween(topView, bottomItem: bottomView, offset: 20)
+        view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)
         view.centerHorizontallyInSuperview()
         view.sizeToWidth(80)
 
@@ -1183,7 +1183,7 @@ class ReadmeViewController: UIViewController {
         bottomSpringView.centerHorizontallyToItem(view)
 
         parentView.saveSnapshot(__FUNCTION__,
-            "view.fitBetween(topView, bottomItem: bottomView, offset: 20)"
+            "view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)"
         )
     }
 
@@ -1202,7 +1202,7 @@ class ReadmeViewController: UIViewController {
 
         let view = LayoutView()
         parentView.addSubview(view)
-        view.fitBetween(leftView, rightItem: rightView, offset: 20)
+        view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)
         view.centerVerticallyInSuperview()
         view.sizeToHeight(80)
 
@@ -1219,7 +1219,7 @@ class ReadmeViewController: UIViewController {
         rightSpringView.centerVerticallyToItem(view)
 
         parentView.saveSnapshot(__FUNCTION__,
-            "view.fitBetween(leftView, rightItem: rightView, offset: 20)"
+            "view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)"
         )
     }
 

@@ -666,7 +666,7 @@ extension UIView {
 
     - Returns: The top and bottom constraint objects.
     */
-    public func fitBetween(topItem: AnyObject, bottomItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint){
+    public func fitBetween(topItem topItem: AnyObject, bottomItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint, bottom: NSLayoutConstraint){
         return (
             self.positionBelowItem(topItem, offset: offset, priority: priority),
             self.positionAboveItem(bottomItem, offset: offset, priority: priority)
@@ -683,7 +683,7 @@ extension UIView {
 
      - Returns: The left and right constraint objects.
      */
-    public func fitBetween(leftItem: AnyObject, rightItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint, right: NSLayoutConstraint){
+    public func fitBetween(leftItem leftItem: AnyObject, rightItem: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint, right: NSLayoutConstraint){
         return (
             self.positionToTheRightOfItem(leftItem, offset: offset, priority: priority),
             self.positionToTheLeftOfItem(rightItem, offset: offset, priority: priority)

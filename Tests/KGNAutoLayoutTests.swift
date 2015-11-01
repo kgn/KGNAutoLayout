@@ -2641,7 +2641,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             let bottomView = UIView(frame: bottomFrame)
             $0.superview!.addSubview(bottomView)
 
-            let constraints = $0.fitBetween(topView, bottomItem: bottomView, priority: priority)
+            let constraints = $0.fitBetween(topItem: topView, bottomItem: bottomView, priority: priority)
             XCTAssertEqual(priority, constraints.top.priority)
             XCTAssertEqual(priority, constraints.bottom.priority)
         }
@@ -2667,7 +2667,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             let bottomView = UIView(frame: bottomFrame)
             $0.superview!.addSubview(bottomView)
 
-            let constraints = $0.fitBetween(topView, bottomItem: bottomView, offset: offset, priority: priority)
+            let constraints = $0.fitBetween(topItem: topView, bottomItem: bottomView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraints.top.priority)
             XCTAssertEqual(priority, constraints.bottom.priority)
         }
@@ -2692,7 +2692,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             let rightView = UIView(frame: rightFrame)
             $0.superview!.addSubview(rightView)
 
-            let constraints = $0.fitBetween(leftView, rightItem: rightView, priority: priority)
+            let constraints = $0.fitBetween(leftItem: leftView, rightItem: rightView, priority: priority)
             XCTAssertEqual(priority, constraints.left.priority)
             XCTAssertEqual(priority, constraints.right.priority)
         }
@@ -2718,7 +2718,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             let rightView = UIView(frame: rightFrame)
             $0.superview!.addSubview(rightView)
 
-            let constraints = $0.fitBetween(leftView, rightItem: rightView, offset: offset, priority: priority)
+            let constraints = $0.fitBetween(leftItem: leftView, rightItem: rightView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraints.left.priority)
             XCTAssertEqual(priority, constraints.right.priority)
         }
