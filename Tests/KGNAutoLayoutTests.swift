@@ -44,10 +44,10 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.pinToEdgesOfSuperview(priority: priority)
-            XCTAssertEqual(priority, constraints.top.priority)
-            XCTAssertEqual(priority, constraints.right.priority)
-            XCTAssertEqual(priority, constraints.bottom.priority)
-            XCTAssertEqual(priority, constraints.left.priority)
+            XCTAssertEqual(priority, constraints.top?.priority)
+            XCTAssertEqual(priority, constraints.right?.priority)
+            XCTAssertEqual(priority, constraints.bottom?.priority)
+            XCTAssertEqual(priority, constraints.left?.priority)
         }
         XCTAssertEqual(childViewFrame, self.parentViewFrame)
     }
@@ -57,10 +57,10 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.pinToEdgesOfSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraints.top.priority)
-            XCTAssertEqual(priority, constraints.right.priority)
-            XCTAssertEqual(priority, constraints.bottom.priority)
-            XCTAssertEqual(priority, constraints.left.priority)
+            XCTAssertEqual(priority, constraints.top?.priority)
+            XCTAssertEqual(priority, constraints.right?.priority)
+            XCTAssertEqual(priority, constraints.bottom?.priority)
+            XCTAssertEqual(priority, constraints.left?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectInset(self.parentViewFrame, offset, offset))
     }
@@ -72,7 +72,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToTopEdgeOfSuperview(priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size))
     }
@@ -85,7 +85,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToTopEdgeOfSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, offset, size, size))
     }
@@ -97,7 +97,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToRightEdgeOfSuperview(priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         let right = CGRectGetMaxX(self.parentViewFrame)-size
         XCTAssertEqual(childViewFrame, CGRectMake(right, 0, size, size))
@@ -111,7 +111,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToRightEdgeOfSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         let right = CGRectGetMaxX(self.parentViewFrame)-size-offset
         XCTAssertEqual(childViewFrame, CGRectMake(right, 0, size, size))
@@ -124,7 +124,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToBottomEdgeOfSuperview()
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         let bottom = CGRectGetMaxY(self.parentViewFrame)-size
         XCTAssertEqual(childViewFrame, CGRectMake(0, bottom, size, size))
@@ -138,7 +138,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToBottomEdgeOfSuperview(offset: offset)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         let bottom = CGRectGetMaxY(self.parentViewFrame)-size-offset
         XCTAssertEqual(childViewFrame, CGRectMake(0, bottom, size, size))
@@ -151,7 +151,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToLeftEdgeOfSuperview(priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size))
     }
@@ -164,7 +164,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             $0.width = size
             $0.height = size
             let constraint = $0.pinToLeftEdgeOfSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(offset, 0, size, size))
     }
@@ -175,8 +175,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraints = $0.pinToSideEdgesOfSuperview(priority: priority)
-            XCTAssertEqual(priority, constraints.left.priority)
-            XCTAssertEqual(priority, constraints.right.priority)
+            XCTAssertEqual(priority, constraints.left?.priority)
+            XCTAssertEqual(priority, constraints.right?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame), size))
     }
@@ -188,8 +188,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraints = $0.pinToSideEdgesOfSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraints.left.priority)
-            XCTAssertEqual(priority, constraints.right.priority)
+            XCTAssertEqual(priority, constraints.left?.priority)
+            XCTAssertEqual(priority, constraints.right?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(offset, 0, CGRectGetWidth(self.parentViewFrame)-offset*2, size))
     }
@@ -200,8 +200,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraints = $0.pinToTopAndBottomEdgesOfSuperview(priority: priority)
-            XCTAssertEqual(priority, constraints.top.priority)
-            XCTAssertEqual(priority, constraints.bottom.priority)
+            XCTAssertEqual(priority, constraints.top?.priority)
+            XCTAssertEqual(priority, constraints.bottom?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
     }
@@ -213,8 +213,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraints = $0.pinToTopAndBottomEdgesOfSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraints.top.priority)
-            XCTAssertEqual(priority, constraints.bottom.priority)
+            XCTAssertEqual(priority, constraints.top?.priority)
+            XCTAssertEqual(priority, constraints.bottom?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, offset, size, CGRectGetHeight(self.parentViewFrame)-offset*2))
     }
@@ -235,7 +235,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinTopEdgeToTopEdgeOfItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -256,7 +256,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinTopEdgeToTopEdgeOfItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -276,7 +276,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinRightEdgeToRightEdgeOfItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -297,7 +297,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinRightEdgeToRightEdgeOfItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -317,7 +317,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinBottomEdgeToBottomEdgeOfItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -338,7 +338,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinBottomEdgeToBottomEdgeOfItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -358,7 +358,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinLeftEdgeToLeftEdgeOfItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -379,7 +379,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.pinLeftEdgeToLeftEdgeOfItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -399,8 +399,8 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.width = size.width
             $0.height = size.height
             let constraints = $0.centerInSuperview(priority: priority)
-            XCTAssertEqual(priority, constraints.horizontal.priority)
-            XCTAssertEqual(priority, constraints.vertical.priority)
+            XCTAssertEqual(priority, constraints.horizontal?.priority)
+            XCTAssertEqual(priority, constraints.vertical?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -417,8 +417,8 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.width = size.width
             $0.height = size.height
             let constraints = $0.centerInSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraints.horizontal.priority)
-            XCTAssertEqual(priority, constraints.vertical.priority)
+            XCTAssertEqual(priority, constraints.horizontal?.priority)
+            XCTAssertEqual(priority, constraints.vertical?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -434,7 +434,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.width = size.width
             $0.height = size.height
             let constraint = $0.centerHorizontallyInSuperview(priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -450,7 +450,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.width = size.width
             $0.height = size.height
             let constraint = $0.centerHorizontallyInSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -465,7 +465,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.width = size.width
             $0.height = size.height
             let constraint = $0.centerVerticallyInSuperview(priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -481,7 +481,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.width = size.width
             $0.height = size.height
             let constraint = $0.centerVerticallyInSuperview(offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1292,7 +1292,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.centerHorizontallyToItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1314,7 +1314,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.centerHorizontallyToItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1335,7 +1335,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.centerVerticallyToItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1356,7 +1356,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.centerVerticallyToItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1485,7 +1485,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToWidthOfItem($0.superview!, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame), size))
     }
@@ -1497,7 +1497,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToWidthOfItem($0.superview!, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame)-offset, size))
     }
@@ -1508,7 +1508,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToHeightOfItem($0.superview!, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
     }
@@ -1520,7 +1520,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToHeightOfItem($0.superview!, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)-offset))
     }
@@ -1531,7 +1531,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToWidthOfItem($0.superview!, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
     }
@@ -1543,7 +1543,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToWidthOfItem($0.superview!, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)-offset))
     }
@@ -1554,7 +1554,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToHeightOfItem($0.superview!, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetHeight(self.parentViewFrame), size))
     }
@@ -1566,7 +1566,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToHeightOfItem($0.superview!, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetHeight(self.parentViewFrame)-offset, size))
     }
@@ -1575,8 +1575,8 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.sizeWidthAndHeightToWidthAndHeightOfItem($0.superview!, priority: priority)
-            XCTAssertEqual(priority, constraints.width.priority)
-            XCTAssertEqual(priority, constraints.height.priority)
+            XCTAssertEqual(priority, constraints.width?.priority)
+            XCTAssertEqual(priority, constraints.height?.priority)
         }
         XCTAssertEqual(childViewFrame, self.parentViewFrame)
     }
@@ -1586,8 +1586,8 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.sizeWidthAndHeightToWidthAndHeightOfItem($0.superview!, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraints.width.priority)
-            XCTAssertEqual(priority, constraints.height.priority)
+            XCTAssertEqual(priority, constraints.width?.priority)
+            XCTAssertEqual(priority, constraints.height?.priority)
         }
         var frame = self.parentViewFrame
         frame.size.width -= offset
@@ -1602,7 +1602,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToWidthAspectRatio(aspectRatio, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size*aspectRatio))
     }
@@ -1614,7 +1614,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToHeightAspectRatio(aspectRatio, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size*aspectRatio, size))
     }
@@ -1635,7 +1635,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionAboveItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1656,7 +1656,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionAboveItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1676,7 +1676,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionToTheRightOfItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1697,7 +1697,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionToTheRightOfItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1717,7 +1717,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionBelowItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1738,7 +1738,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionBelowItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1758,7 +1758,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionToTheLeftOfItem(itemView, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -1779,7 +1779,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             $0.superview!.addSubview(itemView)
 
             let constraint = $0.positionToTheLeftOfItem(itemView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraint.priority)
+            XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRectZero
         frame.size = size
@@ -2642,8 +2642,8 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             $0.superview!.addSubview(bottomView)
 
             let constraints = $0.fitBetween(topItem: topView, bottomItem: bottomView, priority: priority)
-            XCTAssertEqual(priority, constraints.top.priority)
-            XCTAssertEqual(priority, constraints.bottom.priority)
+            XCTAssertEqual(priority, constraints.top?.priority)
+            XCTAssertEqual(priority, constraints.bottom?.priority)
         }
         var frame = CGRectZero
         frame.size.width = width
@@ -2668,8 +2668,8 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             $0.superview!.addSubview(bottomView)
 
             let constraints = $0.fitBetween(topItem: topView, bottomItem: bottomView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraints.top.priority)
-            XCTAssertEqual(priority, constraints.bottom.priority)
+            XCTAssertEqual(priority, constraints.top?.priority)
+            XCTAssertEqual(priority, constraints.bottom?.priority)
         }
         var frame = CGRectZero
         frame.size.width = width
@@ -2693,8 +2693,8 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             $0.superview!.addSubview(rightView)
 
             let constraints = $0.fitBetween(leftItem: leftView, rightItem: rightView, priority: priority)
-            XCTAssertEqual(priority, constraints.left.priority)
-            XCTAssertEqual(priority, constraints.right.priority)
+            XCTAssertEqual(priority, constraints.left?.priority)
+            XCTAssertEqual(priority, constraints.right?.priority)
         }
         var frame = CGRectZero
         frame.size.height = height
@@ -2719,8 +2719,8 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             $0.superview!.addSubview(rightView)
 
             let constraints = $0.fitBetween(leftItem: leftView, rightItem: rightView, offset: offset, priority: priority)
-            XCTAssertEqual(priority, constraints.left.priority)
-            XCTAssertEqual(priority, constraints.right.priority)
+            XCTAssertEqual(priority, constraints.left?.priority)
+            XCTAssertEqual(priority, constraints.right?.priority)
         }
         var frame = CGRectZero
         frame.size.height = height
