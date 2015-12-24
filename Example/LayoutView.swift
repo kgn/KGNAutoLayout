@@ -10,6 +10,9 @@ import UIKit
 
 class LayoutView: UIView {
 
+    var intrinsicContentWidth: CGFloat?
+    var intrinsicContentHeight: CGFloat?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.opaque = false
@@ -18,6 +21,20 @@ class LayoutView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.opaque = false
+    }
+
+    override func intrinsicContentSize() -> CGSize {
+        var intrinsicContentSize = super.intrinsicContentSize()
+
+        if let intrinsicContentWidth = self.intrinsicContentWidth {
+            intrinsicContentSize.width = intrinsicContentWidth
+        }
+
+        if let intrinsicContentHeight = self.intrinsicContentHeight {
+            intrinsicContentSize.height = intrinsicContentHeight
+        }
+
+        return intrinsicContentSize
     }
 
     override func drawRect(rect: CGRect) {

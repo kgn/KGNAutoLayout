@@ -175,6 +175,20 @@ view.sizeToWidth(80)
 
 
 ``` Swift
+view.sizeToMinWidth(40)
+```
+![sizeToMinWidth40](Example/Snapshots/sizeToMinWidth40.png)
+--
+
+
+``` Swift
+view.sizeToMaxWidth(100)
+```
+![sizeToMaxWidth100](Example/Snapshots/sizeToMaxWidth100.png)
+--
+
+
+``` Swift
 view.sizeToHeight(80)
 ```
 ![sizeToHeight80](Example/Snapshots/sizeToHeight80.png)
@@ -182,9 +196,37 @@ view.sizeToHeight(80)
 
 
 ``` Swift
+view.sizeToMinHeight(40)
+```
+![sizeToMinHeight40](Example/Snapshots/sizeToMinHeight40.png)
+--
+
+
+``` Swift
+view.sizeToMaxHeight(100)
+```
+![sizeToMaxHeight100](Example/Snapshots/sizeToMaxHeight100.png)
+--
+
+
+``` Swift
 view.sizeToWidthAndHeight(80)
 ```
 ![sizeToWidthAndHeight80](Example/Snapshots/sizeToWidthAndHeight80.png)
+--
+
+
+``` Swift
+view.sizeToMinWidthAndHeight(40)
+```
+![sizeToMinWidthAndHeight40](Example/Snapshots/sizeToMinWidthAndHeight40.png)
+--
+
+
+``` Swift
+view.sizeToMaxWidthAndHeight(100)
+```
+![sizeToMaxWidthAndHeight100](Example/Snapshots/sizeToMaxWidthAndHeight100.png)
 --
 
 
@@ -296,14 +338,14 @@ itemView.positionViewsToTheLeft([view1, view2, view3], offset: 20)
 ### Between
 
 ``` Swift
-view.fitBetween(topView, bottomItem: bottomView, offset: 20)
+view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)
 ```
 ![fitBetweenTopAndBottomItems_offset20](Example/Snapshots/fitBetweenTopAndBottomItems_offset20.png)
 --
 
 
 ``` Swift
-view.fitBetween(leftView, rightItem: rightView, offset: 20)
+view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)
 ```
 ![fitBetweenLeftAndRightItems_offset20](Example/Snapshots/fitBetweenLeftAndRightItems_offset20.png)
 --
@@ -344,5 +386,5 @@ itemView.boundVertically([view1, view2, view3], separation: 20)
 - [X] Carthage
 - [X] CocoaPods
 - [X] Description
-- [ ] Documentation (Need to document the new min/max size functions)
+- [X] Documentation
 - [X] Example App

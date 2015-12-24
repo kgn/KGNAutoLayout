@@ -587,11 +587,38 @@ class ReadmeViewController: UIViewController {
     }
 
     func sizeToMinWidth40(parentView: SnapshotView) {
-        // TODO
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToMinWidth(40)
+        view.sizeToHeight(100)
+        view.centerInSuperview()
+
+        let widthSpringView = SpringView()
+        view.addSubview(widthSpringView)
+        widthSpringView.pinToSideEdgesOfSuperview()
+        widthSpringView.centerVerticallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeToMinWidth(40)"
+        )
     }
 
     func sizeToMaxWidth100(parentView: SnapshotView) {
-        // TODO
+        let view = LayoutView()
+        view.intrinsicContentWidth = 200
+        parentView.addSubview(view)
+        view.sizeToMaxWidth(100)
+        view.sizeToHeight(100)
+        view.centerInSuperview()
+
+        let widthSpringView = SpringView()
+        view.addSubview(widthSpringView)
+        widthSpringView.pinToSideEdgesOfSuperview()
+        widthSpringView.centerVerticallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeToMaxWidth(100)"
+        )
     }
 
     func sizeToHeight80(parentView: SnapshotView) {
@@ -613,11 +640,40 @@ class ReadmeViewController: UIViewController {
     }
 
     func sizeToMinHeight40(parentView: SnapshotView) {
-        // TODO
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToMinHeight(40)
+        view.sizeToWidth(80)
+        view.centerInSuperview()
+
+        let heightSpringView = SpringView()
+        heightSpringView.direction = .Vertical
+        view.addSubview(heightSpringView)
+        heightSpringView.pinToTopAndBottomEdgesOfSuperview()
+        heightSpringView.centerHorizontallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeToMinHeight(40)"
+        )
     }
 
     func sizeToMaxHeight100(parentView: SnapshotView) {
-        // TODO
+        let view = LayoutView()
+        view.intrinsicContentHeight = 200
+        parentView.addSubview(view)
+        view.sizeToMaxHeight(100)
+        view.sizeToWidth(100)
+        view.centerInSuperview()
+
+        let heightSpringView = SpringView()
+        heightSpringView.direction = .Vertical
+        view.addSubview(heightSpringView)
+        heightSpringView.pinToTopAndBottomEdgesOfSuperview()
+        heightSpringView.centerHorizontallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeToMaxHeight(100)"
+        )
     }
 
     func sizeToWidthAndHeight80(parentView: SnapshotView) {
@@ -643,11 +699,49 @@ class ReadmeViewController: UIViewController {
     }
 
     func sizeToMinWidthAndHeight40(parentView: SnapshotView) {
-        //TODO
+        let view = LayoutView()
+        parentView.addSubview(view)
+        view.sizeToMinWidthAndHeight(40)
+        view.centerInSuperview()
+
+        let widthSpringView = SpringView()
+        view.addSubview(widthSpringView)
+        widthSpringView.pinToSideEdgesOfSuperview()
+        widthSpringView.centerVerticallyInSuperview()
+
+        let heightSpringView = SpringView()
+        heightSpringView.direction = .Vertical
+        view.addSubview(heightSpringView)
+        heightSpringView.pinToTopAndBottomEdgesOfSuperview()
+        heightSpringView.centerHorizontallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeToMinWidthAndHeight(40)"
+        )
     }
 
     func sizeToMaxWidthAndHeight100(parentView: SnapshotView) {
-        //TODO
+        let view = LayoutView()
+        view.intrinsicContentWidth = 200
+        view.intrinsicContentHeight = 200
+        parentView.addSubview(view)
+        view.sizeToMaxWidthAndHeight(100)
+        view.centerInSuperview()
+
+        let widthSpringView = SpringView()
+        view.addSubview(widthSpringView)
+        widthSpringView.pinToSideEdgesOfSuperview()
+        widthSpringView.centerVerticallyInSuperview()
+
+        let heightSpringView = SpringView()
+        heightSpringView.direction = .Vertical
+        view.addSubview(heightSpringView)
+        heightSpringView.pinToTopAndBottomEdgesOfSuperview()
+        heightSpringView.centerHorizontallyInSuperview()
+
+        parentView.saveSnapshot(__FUNCTION__,
+            "view.sizeToMaxWidthAndHeight(100)"
+        )
     }
 
     func sizeWidthToWidthOfItem(parentView: SnapshotView) {
