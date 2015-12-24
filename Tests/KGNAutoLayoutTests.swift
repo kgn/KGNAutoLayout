@@ -3091,38 +3091,28 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
 }
 
-@available(iOS 9, *)
 class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
-    // boundHorizontally and boundVertically only 
-    // work with the AutoLayout engine in iOS 9+
-    func canRun() -> Bool {
-        if NSProcessInfo.processInfo().operatingSystemVersion.majorVersion >= 9 {
-            return true
-        }
-        return false
-    }
-
     func testBoundHorizontally1() {
-        if !self.canRun() {
-            return
-        }
-
         let priority = UILayoutPriorityRequired
+
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
 
         let view1 = UIView()
         let view1Width: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToWidth(view1Width)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
+        boundView.boundHorizontally([view1], priority: priority)
 
-        parentView.boundHorizontally([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.width = view1Width
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.size.width = view1Width
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.size.width = view1Width
@@ -3130,27 +3120,28 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally1Seperation() {
-        if !self.canRun() {
-            return
-        }
-
         let number: CGFloat = 1
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriorityDefaultHigh
 
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
+        
         let view1 = UIView()
         let view1Width: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToWidth(view1Width)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
+        boundView.boundHorizontally([view1], separation: separation, priority: priority)
 
-        parentView.boundHorizontally([view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.width = view1Width+separation*(number+1)
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.origin.x = -separation
+        boundViewFrame.size.width = view1Width+separation*(number+1)
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.origin.x = separation
@@ -3159,30 +3150,30 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally2() {
-        if !self.canRun() {
-            return
-        }
+        let priority = UILayoutPriorityDefaultLow
 
-        let priority = UILayoutPriorityDefaultHigh
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
 
         let view1 = UIView()
         let view1Width: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToWidth(view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToWidth(view2Width)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
+        boundView.boundHorizontally([view1, view2], priority: priority)
 
-        parentView.boundHorizontally([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.width = view1Width+view2Width
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.size.width = view1Width+view2Width
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.size.width = view1Width
@@ -3195,32 +3186,33 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally2Seperation() {
-        if !self.canRun() {
-            return
-        }
-
         let number: CGFloat = 2
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
 
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
+
         let view1 = UIView()
         let view1Width: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToWidth(view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToWidth(view2Width)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
+        boundView.boundHorizontally([view1, view2], separation: separation, priority: priority)
 
-        parentView.boundHorizontally([view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.width = view1Width+view2Width+separation*(number+1)
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.origin.x = -separation
+        boundViewFrame.size.width = view1Width+view2Width+separation*(number+1)
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.origin.x = separation
@@ -3234,35 +3226,35 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally3() {
-        if !self.canRun() {
-            return
-        }
-
         let priority = UILayoutPriorityDefaultHigh
+
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
 
         let view1 = UIView()
         let view1Width: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToWidth(view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToWidth(view2Width)
 
         let view3 = UIView()
         let view3Width: CGFloat = 50
+        boundView.addSubview(view3)
         view3.sizeToWidth(view3Width)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
-        parentView.addSubview(view3)
+        boundView.boundHorizontally([view1, view2, view3], priority: priority)
 
-        parentView.boundHorizontally([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.width = view1Width+view2Width+view3Width
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.size.width = view1Width+view2Width+view3Width
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.size.width = view1Width
@@ -3280,37 +3272,38 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally3Seperation() {
-        if !self.canRun() {
-            return
-        }
-
         let number: CGFloat = 3
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
 
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
+
         let view1 = UIView()
         let view1Width: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToWidth(view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToWidth(view2Width)
 
         let view3 = UIView()
         let view3Width: CGFloat = 50
+        boundView.addSubview(view3)
         view3.sizeToWidth(view3Width)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
-        parentView.addSubview(view3)
+        boundView.boundHorizontally([view1, view2, view3], separation: separation, priority: priority)
 
-        parentView.boundHorizontally([view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.width = view1Width+view2Width+view3Width+separation*(number+1)
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.origin.x = -separation
+        boundViewFrame.size.width = view1Width+view2Width+view3Width+separation*(number+1)
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.origin.x = separation
@@ -3329,25 +3322,25 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically1() {
-        if !self.canRun() {
-            return
-        }
-
         let priority = UILayoutPriorityRequired
+
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
 
         let view1 = UIView()
         let view1Height: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToHeight(view1Height)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
+        boundView.boundVertically([view1], priority: priority)
 
-        parentView.boundVertically([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.height = view1Height
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.size.height = view1Height
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.size.height = view1Height
@@ -3355,27 +3348,28 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically1Seperation() {
-        if !self.canRun() {
-            return
-        }
-
         let number: CGFloat = 1
         let separation: CGFloat = 10
         let priority = UILayoutPriorityRequired
 
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
+
         let view1 = UIView()
         let view1Height: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToHeight(view1Height)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
+        boundView.boundVertically([view1], separation: separation, priority: priority)
 
-        parentView.boundVertically([view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.height = view1Height+separation*(number+1)
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.origin.y = -separation
+        boundViewFrame.size.height = view1Height+separation*(number+1)
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.origin.y = separation
@@ -3384,30 +3378,30 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically2() {
-        if !self.canRun() {
-            return
-        }
-
         let priority = UILayoutPriorityDefaultHigh
+
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
 
         let view1 = UIView()
         let view1Height: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToHeight(view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToHeight(view2Height)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
+        boundView.boundVertically([view1, view2], priority: priority)
 
-        parentView.boundVertically([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.height = view1Height+view2Height
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.size.height = view1Height+view2Height
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.size.height = view1Height
@@ -3420,32 +3414,33 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically2Seperation() {
-        if !self.canRun() {
-            return
-        }
-
         let number: CGFloat = 2
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
 
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
+        
         let view1 = UIView()
         let view1Height: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToHeight(view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToHeight(view2Height)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
+        boundView.boundVertically([view1, view2], separation: separation, priority: priority)
 
-        parentView.boundVertically([view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.height = view1Height+view2Height+separation*(number+1)
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.origin.y = -separation
+        boundViewFrame.size.height = view1Height+view2Height+separation*(number+1)
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.origin.y = separation
@@ -3459,35 +3454,35 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically3() {
-        if !self.canRun() {
-            return
-        }
-
         let priority = UILayoutPriorityDefaultHigh
+
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
 
         let view1 = UIView()
         let view1Height: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToHeight(view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToHeight(view2Height)
 
         let view3 = UIView()
         let view3Height: CGFloat = 50
+        boundView.addSubview(view3)
         view3.sizeToHeight(view3Height)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
-        parentView.addSubview(view3)
+        boundView.boundVertically([view1, view2, view3], priority: priority)
 
-        parentView.boundVertically([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var parentFrame = CGRectZero
-        parentFrame.size.height = view1Height+view2Height+view3Height
-        XCTAssertEqual(parentView.frame, parentFrame)
+        var boundViewFrame = CGRectZero
+        boundViewFrame.size.height = view1Height+view2Height+view3Height
+        XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRectZero
         frame1.size.height = view1Height
@@ -3505,43 +3500,44 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically3Seperation() {
-        if !self.canRun() {
-            return
-        }
-
         let number: CGFloat = 3
         let separation: CGFloat = 10
         let priority = UILayoutPriorityDefaultHigh
 
+        let parentView = UIView(frame: self.parentViewFrame)
+
+        let boundView = UIView()
+        parentView.addSubview(boundView)
+
         let view1 = UIView()
         let view1Height: CGFloat = 30
+        boundView.addSubview(view1)
         view1.sizeToHeight(view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
+        boundView.addSubview(view2)
         view2.sizeToHeight(view2Height)
 
         let view3 = UIView()
         let view3Height: CGFloat = 50
+        boundView.addSubview(view3)
         view3.sizeToHeight(view3Height)
 
-        let parentView = UIView()
-        parentView.addSubview(view1)
-        parentView.addSubview(view2)
-        parentView.addSubview(view3)
+        boundView.boundVertically([view1, view2, view3], separation: separation, priority: priority)
 
-        parentView.boundVertically([view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
-
-        var parentFrame = CGRectZero
-        parentFrame.size.height = view1Height+view2Height+view3Height+separation*(number+1)
-        XCTAssertEqual(parentView.frame, parentFrame)
-
+        
+        var boundViewFrame = CGRectZero
+        boundViewFrame.origin.y = -separation
+        boundViewFrame.size.height = view1Height+view2Height+view3Height+separation*(number+1)
+        XCTAssertEqual(boundView.frame, boundViewFrame)
+        
         var frame1 = CGRectZero
         frame1.origin.y = separation
         frame1.size.height = view1Height
         XCTAssertEqual(view1.frame, frame1)
-
+        
         var frame2 = CGRectZero
         frame2.origin.y = separation*2+view1Height
         frame2.size.height = view2Height

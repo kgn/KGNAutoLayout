@@ -761,7 +761,6 @@ extension UIView {
     - Parameter separation: The separation between the views.
     - Parameter priority: The priority of the constraints.
     */
-    @available(iOS 9, *)
     public func boundHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
@@ -788,7 +787,6 @@ extension UIView {
      - Parameter separation: The separation between the views.
      - Parameter priority: The priority of the constraints.
      */
-    @available(iOS 9, *)
     public func boundVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
