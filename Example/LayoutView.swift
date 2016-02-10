@@ -46,13 +46,13 @@ class LayoutView: UIView {
         let context = UIGraphicsGetCurrentContext()
 
         CGContextSetRGBFillColor(context, 1, 1, 1, 0.5)
-        CGContextFillRect(context, CGRectInset(rect, lineOffset, lineOffset))
+        CGContextFillRect(context, rect.insetBy(dx: lineOffset, dy: lineOffset))
 
         CGContextSetLineWidth(context, lineWidth)
         CGContextSetLineJoin(context, .Round)
         CGContextSetStrokeColorWithColor(context, lineColor.CGColor)
 
-        CGContextStrokeRect(context, CGRectInset(rect, lineOffset, lineOffset))
+        CGContextStrokeRect(context, rect.insetBy(dx: lineOffset, dy: lineOffset))
     }
 
 }

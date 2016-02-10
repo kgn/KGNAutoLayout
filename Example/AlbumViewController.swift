@@ -59,14 +59,14 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }()
 
     private lazy var tableView: UITableView = {
-        let screenWidth = CGRectGetWidth(UIScreen.mainScreen().bounds)
-        let statusBarHeight = CGRectGetHeight(UIApplication.sharedApplication().statusBarFrame)
-        let tableView = UITableView(frame: CGRectZero, style: .Plain)
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+        let tableView = UITableView(frame: CGRect.zero, style: .Plain)
         tableView.registerClass(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.identifier())
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(statusBarHeight+self.navbarHeight, 0, 0, 0)
         tableView.separatorColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
         tableView.backgroundColor = UIColor.clearColor()
-        tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, screenWidth+statusBarHeight+self.navbarHeight))
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: screenWidth+statusBarHeight+self.navbarHeight))
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
@@ -124,12 +124,12 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func statusBarFrameDidChange(notification: NSNotification) {
-        let screenWidth = CGRectGetWidth(UIScreen.mainScreen().bounds)
-        let statusBarHeight = CGRectGetHeight(UIApplication.sharedApplication().statusBarFrame)
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
         if let frame = notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? CGRect {
-            let height = CGRectGetHeight(frame)
+            let height = frame.height
             self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(height+self.navbarHeight, 0, 0, 0)
-            self.tableView.tableHeaderView = UIView(frame: CGRectMake(0, 0, 0, screenWidth+statusBarHeight+self.navbarHeight))
+            self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: screenWidth+statusBarHeight+self.navbarHeight))
         }
     }
 

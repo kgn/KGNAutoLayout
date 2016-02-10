@@ -13,12 +13,12 @@ class IntrinsicView: UIView {
     var width: CGFloat = UIViewNoIntrinsicMetric
     var height: CGFloat = UIViewNoIntrinsicMetric
     override func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(self.width, self.height)
+        return CGSize(width: self.width, height: self.height)
     }
 }
 
 class KGNAutoLayoutTests: XCTestCase {
-    let parentViewFrame = CGRectMake(0, 0, 300, 300)
+    let parentViewFrame = CGRect(x: 0, y: 0, width: 300, height: 300)
 
     func compareViewFrame(block: (view: IntrinsicView) -> Void) -> CGRect {
         let parentView = UIView(frame: self.parentViewFrame)
@@ -33,8 +33,8 @@ class KGNAutoLayoutTests: XCTestCase {
         let view = IntrinsicView()
         view.width = 10
         view.height = 20
-        XCTAssertEqual(view.intrinsicContentSize(), CGSizeMake(10, 20))
-        XCTAssertEqual(IntrinsicView().intrinsicContentSize(), CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric))
+        XCTAssertEqual(view.intrinsicContentSize(), CGSize(width: 10, height: 20))
+        XCTAssertEqual(IntrinsicView().intrinsicContentSize(), CGSize(width: UIViewNoIntrinsicMetric, height: UIViewNoIntrinsicMetric))
     }
 }
 
@@ -62,7 +62,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.bottom?.priority)
             XCTAssertEqual(priority, constraints.left?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectInset(self.parentViewFrame, offset, offset))
+        XCTAssertEqual(childViewFrame, self.parentViewFrame.insetBy(dx: offset, dy: offset))
     }
 
     func testPinToTopEdgeOfSuperview() {
@@ -74,7 +74,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToTopEdgeOfSuperview(priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: size))
     }
 
     func testPinToTopEdgeOfSuperviewOffset() {
@@ -87,7 +87,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToTopEdgeOfSuperview(offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, offset, size, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: offset, width: size, height: size))
     }
 
     func testPinToRightEdgeOfSuperview() {
@@ -99,8 +99,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToRightEdgeOfSuperview(priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        let right = CGRectGetMaxX(self.parentViewFrame)-size
-        XCTAssertEqual(childViewFrame, CGRectMake(right, 0, size, size))
+        let right = self.parentViewFrame.maxX-size
+        XCTAssertEqual(childViewFrame, CGRect(x: right, y: 0, width: size, height: size))
     }
 
     func testPinToRightEdgeOfSuperviewOffset() {
@@ -113,8 +113,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToRightEdgeOfSuperview(offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        let right = CGRectGetMaxX(self.parentViewFrame)-size-offset
-        XCTAssertEqual(childViewFrame, CGRectMake(right, 0, size, size))
+        let right = self.parentViewFrame.maxX-size-offset
+        XCTAssertEqual(childViewFrame, CGRect(x: right, y: 0, width: size, height: size))
     }
 
     func testPinToBottomEdgeOfSuperview() {
@@ -126,8 +126,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToBottomEdgeOfSuperview()
             XCTAssertEqual(priority, constraint?.priority)
         }
-        let bottom = CGRectGetMaxY(self.parentViewFrame)-size
-        XCTAssertEqual(childViewFrame, CGRectMake(0, bottom, size, size))
+        let bottom = self.parentViewFrame.maxY-size
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: bottom, width: size, height: size))
     }
 
     func testPinToBottomEdgeOfSuperviewOffset() {
@@ -140,8 +140,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToBottomEdgeOfSuperview(offset: offset)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        let bottom = CGRectGetMaxY(self.parentViewFrame)-size-offset
-        XCTAssertEqual(childViewFrame, CGRectMake(0, bottom, size, size))
+        let bottom = self.parentViewFrame.maxY-size-offset
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: bottom, width: size, height: size))
     }
 
     func testPinToLeftEdgeOfSuperview() {
@@ -153,7 +153,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToLeftEdgeOfSuperview(priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: size))
     }
 
     func testPinToLeftEdgeOfSuperviewOffset() {
@@ -166,7 +166,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             let constraint = $0.pinToLeftEdgeOfSuperview(offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(offset, 0, size, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: offset, y: 0, width: size, height: size))
     }
 
     func testPinToSideEdgesOfSuperview() {
@@ -178,7 +178,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.left?.priority)
             XCTAssertEqual(priority, constraints.right?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame), size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: self.parentViewFrame.width, height: size))
     }
 
     func testPinToSideEdgesOfSuperviewOffset() {
@@ -191,7 +191,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.left?.priority)
             XCTAssertEqual(priority, constraints.right?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(offset, 0, CGRectGetWidth(self.parentViewFrame)-offset*2, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: offset, y: 0, width: self.parentViewFrame.width-offset*2, height: size))
     }
 
     func testPinToTopAndBottomEdgesOfSuperview() {
@@ -203,7 +203,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.top?.priority)
             XCTAssertEqual(priority, constraints.bottom?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: self.parentViewFrame.height))
     }
 
     func testPinToTopAndBottomEdgesOfSuperviewOffset() {
@@ -216,7 +216,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.top?.priority)
             XCTAssertEqual(priority, constraints.bottom?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, offset, size, CGRectGetHeight(self.parentViewFrame)-offset*2))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: offset, width: size, height: self.parentViewFrame.height-offset*2))
     }
 
 }
@@ -224,8 +224,8 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
 
     func testPinTopEdgeToTopEdgeOfItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -237,16 +237,16 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinTopEdgeToTopEdgeOfItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMinY(itemFrame)
+        frame.origin.y = itemFrame.minY
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinTopEdgeToTopEdgeOfItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -258,15 +258,15 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinTopEdgeToTopEdgeOfItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMinY(itemFrame)+offset
+        frame.origin.y = itemFrame.minY+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinRightEdgeToRightEdgeOfItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -278,16 +278,16 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinRightEdgeToRightEdgeOfItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMaxX(itemFrame)-size.width
+        frame.origin.x = itemFrame.maxX-size.width
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinRightEdgeToRightEdgeOfItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -299,15 +299,15 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinRightEdgeToRightEdgeOfItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMaxX(itemFrame)-size.width-offset
+        frame.origin.x = itemFrame.maxX-size.width-offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinBottomEdgeToBottomEdgeOfItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -319,16 +319,16 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinBottomEdgeToBottomEdgeOfItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMaxY(itemFrame)-size.height
+        frame.origin.y = itemFrame.maxY-size.height
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinBottomEdgeToBottomEdgeOfItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -340,15 +340,15 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinBottomEdgeToBottomEdgeOfItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMaxY(itemFrame)-size.height-offset
+        frame.origin.y = itemFrame.maxY-size.height-offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinLeftEdgeToLeftEdgeOfItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -360,16 +360,16 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinLeftEdgeToLeftEdgeOfItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMinX(itemFrame)
+        frame.origin.x = itemFrame.minX
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPinLeftEdgeToLeftEdgeOfItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -381,9 +381,9 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let constraint = $0.pinLeftEdgeToLeftEdgeOfItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMinX(itemFrame)+offset
+        frame.origin.x = itemFrame.minX+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
@@ -393,7 +393,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
 class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterInSuperview() {
-        let size = CGSizeMake(40, 20)
+        let size = CGSize(width: 40, height: 20)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -402,16 +402,16 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.horizontal?.priority)
             XCTAssertEqual(priority, constraints.vertical?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)
-        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)
+        frame.origin.x = self.parentViewFrame.midX-frame.midX
+        frame.origin.y = self.parentViewFrame.midY-frame.midY
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterInSuperviewOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
+        let size = CGSize(width: 40, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -420,15 +420,15 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.horizontal?.priority)
             XCTAssertEqual(priority, constraints.vertical?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)+offset
-        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)+offset
+        frame.origin.x = self.parentViewFrame.midX-frame.midX+offset
+        frame.origin.y = self.parentViewFrame.midY-frame.midY+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterHorizontallyInSuperview() {
-        let size = CGSizeMake(40, 20)
+        let size = CGSize(width: 40, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -436,15 +436,15 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerHorizontallyInSuperview(priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)
+        frame.origin.x = self.parentViewFrame.midX-frame.midX
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterHorizontallyInSuperviewOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
+        let size = CGSize(width: 40, height: 20)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -452,14 +452,14 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerHorizontallyInSuperview(offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(self.parentViewFrame)-CGRectGetMidX(frame)+offset
+        frame.origin.x = self.parentViewFrame.midX-frame.midX+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyInSuperview() {
-        let size = CGSizeMake(40, 20)
+        let size = CGSize(width: 40, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -467,15 +467,15 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerVerticallyInSuperview(priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)
+        frame.origin.y = self.parentViewFrame.midY-frame.midY
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyInSuperviewOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
+        let size = CGSize(width: 40, height: 20)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -483,9 +483,9 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerVerticallyInSuperview(offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMidY(self.parentViewFrame)-CGRectGetMidY(frame)+offset
+        frame.origin.y = self.parentViewFrame.midY-frame.midY+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
@@ -502,9 +502,9 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame1)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-frame1.midX
         XCTAssertEqual(view1.frame, frame1)
     }
 
@@ -522,9 +522,9 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame1)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-frame1.midX
         XCTAssertEqual(view1.frame, frame1)
     }
 
@@ -546,14 +546,14 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-view1.width
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX
         XCTAssertEqual(view2.frame, frame2)
     }
 
@@ -576,14 +576,14 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-view1.width-(separation/2)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-view1.width-(separation/2)
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)+(separation/2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX+(separation/2)
         XCTAssertEqual(view2.frame, frame2)
     }
 
@@ -610,19 +610,19 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-(view2.width/2)-view1.width
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-(view2.width/2)-view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX-frame2.midX
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.x = CGRectGetMidX(parentView.frame)+(view2.width/2)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.x = parentView.frame.midX+(view2.width/2)
         XCTAssertEqual(view3.frame, frame3)
     }
 
@@ -650,19 +650,19 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-(view2.width/2)-view1.width-separation
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-(view2.width/2)-view1.width-separation
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX-frame2.midX
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.x = CGRectGetMidX(parentView.frame)+(view2.width/2)+separation
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.x = parentView.frame.midX+(view2.width/2)+separation
         XCTAssertEqual(view3.frame, frame3)
     }
 
@@ -694,24 +694,24 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2, view3, view4], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-view2.width-view1.width
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-view2.width-view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)-view2.width
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX-view2.width
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.x = CGRectGetMidX(parentView.frame)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.x = parentView.frame.midX
         XCTAssertEqual(view3.frame, frame3)
 
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.x = CGRectGetMidX(parentView.frame)+view3.width
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.x = parentView.frame.midX+view3.width
         XCTAssertEqual(view4.frame, frame4)
     }
 
@@ -744,24 +744,24 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2, view3, view4], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-view2.width-(separation*1.5)-view1.width
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-view2.width-(separation*1.5)-view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)-view2.width-(separation/2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX-view2.width-(separation/2)
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.x = CGRectGetMidX(parentView.frame)+(separation/2)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.x = parentView.frame.midX+(separation/2)
         XCTAssertEqual(view3.frame, frame3)
 
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.x = CGRectGetMidX(parentView.frame)+view3.width+(separation*1.5)
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.x = parentView.frame.midX+view3.width+(separation*1.5)
         XCTAssertEqual(view4.frame, frame4)
     }
 
@@ -798,29 +798,29 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2, view3, view4, view5], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-(view3.width/2)-view2.width-view1.width
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-(view3.width/2)-view2.width-view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)-(view3.width/2)-view2.width
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX-(view3.width/2)-view2.width
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame3)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.x = parentView.frame.midX-frame3.midX
         XCTAssertEqual(view3.frame, frame3)
 
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.x = CGRectGetMidX(parentView.frame)+(view3.width/2)
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.x = parentView.frame.midX+(view3.width/2)
         XCTAssertEqual(view4.frame, frame4)
 
-        var frame5 = CGRectZero
-        frame5.size = CGSizeMake(view5.width, view5.height)
-        frame5.origin.x = CGRectGetMidX(parentView.frame)+(view3.width/2)+view4.width
+        var frame5 = CGRect.zero
+        frame5.size = CGSize(width: view5.width, height: view5.height)
+        frame5.origin.x = parentView.frame.midX+(view3.width/2)+view4.width
         XCTAssertEqual(view5.frame, frame5)
     }
 
@@ -858,29 +858,29 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsHorizontally([view1, view2, view3, view4, view5], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.x = CGRectGetMidX(parentView.frame)-(view3.width/2)-view2.width-view1.width-(separation*2)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.x = parentView.frame.midX-(view3.width/2)-view2.width-view1.width-(separation*2)
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.x = CGRectGetMidX(parentView.frame)-(view3.width/2)-view2.width-separation
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.x = parentView.frame.midX-(view3.width/2)-view2.width-separation
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.x = CGRectGetMidX(parentView.frame)-CGRectGetMidX(frame3)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.x = parentView.frame.midX-frame3.midX
         XCTAssertEqual(view3.frame, frame3)
 
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.x = CGRectGetMidX(parentView.frame)+(view3.width/2)+separation
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.x = parentView.frame.midX+(view3.width/2)+separation
         XCTAssertEqual(view4.frame, frame4)
 
-        var frame5 = CGRectZero
-        frame5.size = CGSizeMake(view5.width, view5.height)
-        frame5.origin.x = CGRectGetMidX(parentView.frame)+(view3.width/2)+view4.width+(separation*2)
+        var frame5 = CGRect.zero
+        frame5.size = CGSize(width: view5.width, height: view5.height)
+        frame5.origin.x = parentView.frame.midX+(view3.width/2)+view4.width+(separation*2)
         XCTAssertEqual(view5.frame, frame5)
     }
 
@@ -897,9 +897,9 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-CGRectGetMidY(frame1)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-frame1.midY
         XCTAssertEqual(view1.frame, frame1)
     }
 
@@ -917,9 +917,9 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-CGRectGetMidY(frame1)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-frame1.midY
         XCTAssertEqual(view1.frame, frame1)
     }
 
@@ -941,14 +941,14 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-view1.height
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY
         XCTAssertEqual(view2.frame, frame2)
     }
 
@@ -971,14 +971,14 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-view1.height-(separation/2)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-view1.height-(separation/2)
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)+(separation/2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY+(separation/2)
         XCTAssertEqual(view2.frame, frame2)
     }
 
@@ -1005,19 +1005,19 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-(view2.height/2)-view1.height
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-(view2.height/2)-view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)-CGRectGetMidY(frame2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY-frame2.midY
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.y = CGRectGetMidY(parentView.frame)+(view2.height/2)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.y = parentView.frame.midY+(view2.height/2)
         XCTAssertEqual(view3.frame, frame3)
     }
 
@@ -1045,19 +1045,19 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-(view2.height/2)-view1.height-separation
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-(view2.height/2)-view1.height-separation
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)-CGRectGetMidY(frame2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY-frame2.midY
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.y = CGRectGetMidY(parentView.frame)+(view2.height/2)+separation
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.y = parentView.frame.midY+(view2.height/2)+separation
         XCTAssertEqual(view3.frame, frame3)
     }
 
@@ -1089,24 +1089,24 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2, view3, view4], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-view2.height-view1.height
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-view2.height-view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)-view2.height
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY-view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.y = CGRectGetMidY(parentView.frame)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.y = parentView.frame.midY
         XCTAssertEqual(view3.frame, frame3)
 
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.y = CGRectGetMidY(parentView.frame)+view3.height
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.y = parentView.frame.midY+view3.height
         XCTAssertEqual(view4.frame, frame4)
     }
 
@@ -1139,24 +1139,24 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2, view3, view4], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-view2.height-(separation*1.5)-view1.height
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-view2.height-(separation*1.5)-view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)-view2.height-(separation/2)
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY-view2.height-(separation/2)
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.y = CGRectGetMidY(parentView.frame)+(separation/2)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.y = parentView.frame.midY+(separation/2)
         XCTAssertEqual(view3.frame, frame3)
 
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.y = CGRectGetMidY(parentView.frame)+view3.height+(separation*1.5)
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.y = parentView.frame.midY+view3.height+(separation*1.5)
         XCTAssertEqual(view4.frame, frame4)
     }
 
@@ -1193,29 +1193,29 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2, view3, view4, view5], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-(view3.height/2)-view2.height-view1.height
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-(view3.height/2)-view2.height-view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)-(view3.height/2)-view2.height
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY-(view3.height/2)-view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.y = CGRectGetMidY(parentView.frame)-CGRectGetMidY(frame3)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.y = parentView.frame.midY-frame3.midY
         XCTAssertEqual(view3.frame, frame3)
 
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.y = CGRectGetMidY(parentView.frame)+(view3.height/2)
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.y = parentView.frame.midY+(view3.height/2)
         XCTAssertEqual(view4.frame, frame4)
 
-        var frame5 = CGRectZero
-        frame5.size = CGSizeMake(view5.width, view5.height)
-        frame5.origin.y = CGRectGetMidY(parentView.frame)+(view3.height/2)+view4.height
+        var frame5 = CGRect.zero
+        frame5.size = CGSize(width: view5.width, height: view5.height)
+        frame5.origin.y = parentView.frame.midY+(view3.height/2)+view4.height
         XCTAssertEqual(view5.frame, frame5)
     }
 
@@ -1253,35 +1253,35 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         parentView.centerViewsVertically([view1, view2, view3, view4, view5], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size = CGSizeMake(view1.width, view1.height)
-        frame1.origin.y = CGRectGetMidY(parentView.frame)-(view3.height/2)-view2.height-view1.height-(separation*2)
+        var frame1 = CGRect.zero
+        frame1.size = CGSize(width: view1.width, height: view1.height)
+        frame1.origin.y = parentView.frame.midY-(view3.height/2)-view2.height-view1.height-(separation*2)
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size = CGSizeMake(view2.width, view2.height)
-        frame2.origin.y = CGRectGetMidY(parentView.frame)-(view3.height/2)-view2.height-separation
+        var frame2 = CGRect.zero
+        frame2.size = CGSize(width: view2.width, height: view2.height)
+        frame2.origin.y = parentView.frame.midY-(view3.height/2)-view2.height-separation
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size = CGSizeMake(view3.width, view3.height)
-        frame3.origin.y = CGRectGetMidY(parentView.frame)-CGRectGetMidY(frame3)
+        var frame3 = CGRect.zero
+        frame3.size = CGSize(width: view3.width, height: view3.height)
+        frame3.origin.y = parentView.frame.midY-frame3.midY
         XCTAssertEqual(view3.frame, frame3)
         
-        var frame4 = CGRectZero
-        frame4.size = CGSizeMake(view4.width, view4.height)
-        frame4.origin.y = CGRectGetMidY(parentView.frame)+(view3.height/2)+separation
+        var frame4 = CGRect.zero
+        frame4.size = CGSize(width: view4.width, height: view4.height)
+        frame4.origin.y = parentView.frame.midY+(view3.height/2)+separation
         XCTAssertEqual(view4.frame, frame4)
         
-        var frame5 = CGRectZero
-        frame5.size = CGSizeMake(view5.width, view5.height)
-        frame5.origin.y = CGRectGetMidY(parentView.frame)+(view3.height/2)+view4.height+(separation*2)
+        var frame5 = CGRect.zero
+        frame5.size = CGSize(width: view5.width, height: view5.height)
+        frame5.origin.y = parentView.frame.midY+(view3.height/2)+view4.height+(separation*2)
         XCTAssertEqual(view5.frame, frame5)
     }
     
     func testCenterHorizontallyToItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(20, 30, 40, 50)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 20, y: 30, width: 40, height: 50)
         let priority = UILayoutPriorityRequired
 
         let childViewFrame = self.compareViewFrame {
@@ -1294,16 +1294,16 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerHorizontallyToItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(itemFrame)-size.width/2
+        frame.origin.x = itemFrame.midX-size.width/2
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterHorizontallyToItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(30, 20, 10, 80)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 30, y: 20, width: 10, height: 80)
         let priority = UILayoutPriorityDefaultLow
 
         let childViewFrame = self.compareViewFrame {
@@ -1316,15 +1316,15 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerHorizontallyToItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMidX(itemFrame)-size.width/2+offset
+        frame.origin.x = itemFrame.midX-size.width/2+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyToItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(100, 80, 60, 40)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 100, y: 80, width: 60, height: 40)
         let priority = UILayoutPriorityDefaultLow
 
         let childViewFrame = self.compareViewFrame {
@@ -1337,16 +1337,16 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerVerticallyToItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMidY(itemFrame)-size.height/2
+        frame.origin.y = itemFrame.midY-size.height/2
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testCenterVerticallyToItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1358,9 +1358,9 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
             let constraint = $0.centerVerticallyToItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMidY(itemFrame)-size.height/2+offset
+        frame.origin.y = itemFrame.midY-size.height/2+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
@@ -1369,19 +1369,19 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeToWidth() {
-        let size = CGSizeMake(50, 10)
+        let size = CGSize(width: 50, height: 10)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.height = size.height
             let constraint = $0.sizeToWidth(size.width, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, size.height))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size.width, height: size.height))
     }
 
     func testSizeToMinWidth() {
         let minWidth: CGFloat = 100
-        let size = CGSizeMake(50, 10)
+        let size = CGSize(width: 50, height: 10)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1389,12 +1389,12 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeToMinWidth(minWidth, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, minWidth, size.height))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: minWidth, height: size.height))
     }
 
     func testSizeToMaxWidth() {
         let maxWidth: CGFloat = 20
-        let size = CGSizeMake(50, 10)
+        let size = CGSize(width: 50, height: 10)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1402,23 +1402,23 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeToMaxWidth(maxWidth, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, maxWidth, size.height))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: maxWidth, height: size.height))
     }
 
     func testSizeToHeight() {
-        let size = CGSizeMake(10, 50)
+        let size = CGSize(width: 10, height: 50)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             let constraint = $0.sizeToHeight(size.height, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, size.height))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size.width, height: size.height))
     }
 
     func testSizeToMinHeight() {
         let minHeight: CGFloat = 100
-        let size = CGSizeMake(10, 50)
+        let size = CGSize(width: 10, height: 50)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1426,12 +1426,12 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeToMinHeight(minHeight, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, minHeight))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size.width, height: minHeight))
     }
 
     func testSizeToMaxHeight() {
         let maxHeight: CGFloat = 20
-        let size = CGSizeMake(10, 50)
+        let size = CGSize(width: 10, height: 50)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1439,7 +1439,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeToMaxHeight(maxHeight, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size.width, maxHeight))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size.width, height: maxHeight))
     }
 
     func testSizeWidthAndHeight() {
@@ -1450,7 +1450,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.width.priority)
             XCTAssertEqual(priority, constraints.height.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: size))
     }
 
     func testSizeMinWidthAndHeight() {
@@ -1463,7 +1463,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.width.priority)
             XCTAssertEqual(priority, constraints.height.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, minSize, minSize))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: minSize, height: minSize))
     }
 
     func testSizeMaxWidthAndHeight() {
@@ -1476,7 +1476,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.width.priority)
             XCTAssertEqual(priority, constraints.height.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, maxSize, maxSize))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: maxSize, height: maxSize))
     }
 
     func testSizeWidthToWidthOfItem() {
@@ -1487,7 +1487,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeWidthToWidthOfItem($0.superview!, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame), size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: self.parentViewFrame.width, height: size))
     }
 
     func testSizeWidthToWidthOfItemOffset() {
@@ -1499,7 +1499,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeWidthToWidthOfItem($0.superview!, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetWidth(self.parentViewFrame)-offset, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: self.parentViewFrame.width-offset, height: size))
     }
 
     func testSizeHeightToHeightOfItem() {
@@ -1510,7 +1510,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeHeightToHeightOfItem($0.superview!, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: self.parentViewFrame.height))
     }
 
     func testSizeHeightToHeightOfItemOffset() {
@@ -1522,7 +1522,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeHeightToHeightOfItem($0.superview!, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)-offset))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: self.parentViewFrame.height-offset))
     }
 
     func testSizeHeightToWidthOfItem() {
@@ -1533,7 +1533,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeHeightToWidthOfItem($0.superview!, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: self.parentViewFrame.height))
     }
 
     func testSizeHeightToWidthOfItemOffset() {
@@ -1545,7 +1545,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeHeightToWidthOfItem($0.superview!, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, CGRectGetHeight(self.parentViewFrame)-offset))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: self.parentViewFrame.height-offset))
     }
 
     func testSizeWidthToHeightOfItem() {
@@ -1556,7 +1556,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeWidthToHeightOfItem($0.superview!, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetHeight(self.parentViewFrame), size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: self.parentViewFrame.height, height: size))
     }
 
     func testSizeWidthToHeightOfItemOffset() {
@@ -1568,7 +1568,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeWidthToHeightOfItem($0.superview!, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, CGRectGetHeight(self.parentViewFrame)-offset, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: self.parentViewFrame.height-offset, height: size))
     }
 
     func testSizeToWidthAndHeightOfItem() {
@@ -1604,7 +1604,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeHeightToWidthAspectRatio(aspectRatio, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size, size*aspectRatio))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size, height: size*aspectRatio))
     }
 
     func testSizeWidthToHeightAspectRatio() {
@@ -1616,7 +1616,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.sizeWidthToHeightAspectRatio(aspectRatio, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRectMake(0, 0, size*aspectRatio, size))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size*aspectRatio, height: size))
     }
 
 }
@@ -1624,8 +1624,8 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
 
     func testPositionAboveItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1637,16 +1637,16 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionAboveItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMinY(itemFrame)-size.height
+        frame.origin.y = itemFrame.minY-size.height
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionAboveItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1658,15 +1658,15 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionAboveItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMinY(itemFrame)-size.height-offset
+        frame.origin.y = itemFrame.minY-size.height-offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheRightOfItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1678,16 +1678,16 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionToTheRightOfItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMaxX(itemFrame)
+        frame.origin.x = itemFrame.maxX
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheRightOfItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1699,15 +1699,15 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionToTheRightOfItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMaxX(itemFrame)+offset
+        frame.origin.x = itemFrame.maxX+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionBelowItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1719,16 +1719,16 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionBelowItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMaxY(itemFrame)
+        frame.origin.y = itemFrame.maxY
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionBelowItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1740,15 +1740,15 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionBelowItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.y = CGRectGetMaxY(itemFrame)+offset
+        frame.origin.y = itemFrame.maxY+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheLeftOfItem() {
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1760,16 +1760,16 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionToTheLeftOfItem(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMinX(itemFrame)-size.width
+        frame.origin.x = itemFrame.minX-size.width
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testPositionToTheLeftOfItemOffset() {
         let offset: CGFloat = 10
-        let size = CGSizeMake(40, 20)
-        let itemFrame = CGRectMake(120, 50, 60, 20)
+        let size = CGSize(width: 40, height: 20)
+        let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
         let priority = UILayoutPriorityRequired
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -1781,9 +1781,9 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let constraint = $0.positionToTheLeftOfItem(itemView, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size = size
-        frame.origin.x = CGRectGetMinX(itemFrame)-size.width-offset
+        frame.origin.x = itemFrame.minX-size.width-offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
@@ -1794,7 +1794,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -1803,8 +1803,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsAbove([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMinY(itemView.frame)-view1.height
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.minY-view1.height
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -1818,7 +1818,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -1827,8 +1827,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsAbove([view1], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMinY(itemView.frame)-view1.height-offset
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.minY-view1.height-offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -1845,7 +1845,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -1855,14 +1855,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsAbove([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMinY(itemView.frame)-view2.height-view1.height
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.minY-view2.height-view1.height
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMinY(itemView.frame)-view2.height
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.minY-view2.height
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -1881,7 +1881,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -1891,14 +1891,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsAbove([view1, view2], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMinY(itemView.frame)-view2.height-view1.height-(offset*number)
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.minY-view2.height-view1.height-(offset*number)
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMinY(itemView.frame)-view2.height-offset
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.minY-view2.height-offset
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -1919,7 +1919,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -1930,20 +1930,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsAbove([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height-view1.height
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.minY-view3.height-view2.height-view1.height
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.minY-view3.height-view2.height
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.origin.y = CGRectGetMinY(itemView.frame)-view3.height
+        var frame3 = CGRect.zero
+        frame3.origin.y = itemView.frame.minY-view3.height
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -1966,7 +1966,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -1977,20 +1977,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsAbove([view1, view2, view3], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height-view1.height-(offset*number)
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.minY-view3.height-view2.height-view1.height-(offset*number)
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMinY(itemView.frame)-view3.height-view2.height-(offset*2)
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.minY-view3.height-view2.height-(offset*2)
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.origin.y = CGRectGetMinY(itemView.frame)-view3.height-offset
+        var frame3 = CGRect.zero
+        frame3.origin.y = itemView.frame.minY-view3.height-offset
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2003,7 +2003,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2012,8 +2012,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheRight([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMaxX(itemView.frame)
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.maxX
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -2027,7 +2027,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2036,8 +2036,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheRight([view1], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMaxX(itemView.frame)+offset
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.maxX+offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -2054,7 +2054,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2064,14 +2064,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheRight([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMaxX(itemView.frame)
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.maxX
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.maxX+view1.width
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2090,7 +2090,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2100,14 +2100,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheRight([view1, view2], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMaxX(itemView.frame)+offset
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.maxX+offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+(offset*number)
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.maxX+view1.width+(offset*number)
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2128,7 +2128,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2139,20 +2139,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheRight([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMaxX(itemView.frame)
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.maxX
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.maxX+view1.width
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+view2.width
+        var frame3 = CGRect.zero
+        frame3.origin.x = itemView.frame.maxX+view1.width+view2.width
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2175,7 +2175,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2186,20 +2186,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheRight([view1, view2, view3], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMaxX(itemView.frame)+offset
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.maxX+offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+(offset*2)
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.maxX+view1.width+(offset*2)
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.origin.x = CGRectGetMaxX(itemView.frame)+view1.width+view2.width+(offset*number)
+        var frame3 = CGRect.zero
+        frame3.origin.x = itemView.frame.maxX+view1.width+view2.width+(offset*number)
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2212,7 +2212,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2221,8 +2221,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsBelow([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMaxY(itemView.frame)
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.maxY
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -2236,7 +2236,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2245,8 +2245,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsBelow([view1], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMaxY(itemView.frame)+offset
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.maxY+offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -2263,7 +2263,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2273,14 +2273,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsBelow([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMaxY(itemView.frame)
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.maxY
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.maxY+view1.height
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2299,7 +2299,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2309,14 +2309,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsBelow([view1, view2], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMaxY(itemView.frame)+offset
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.maxY+offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+(offset*number)
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.maxY+view1.height+(offset*number)
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2337,7 +2337,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2348,20 +2348,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsBelow([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMaxY(itemView.frame)
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.maxY
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.maxY+view1.height
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+view2.height
+        var frame3 = CGRect.zero
+        frame3.origin.y = itemView.frame.maxY+view1.height+view2.height
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2384,7 +2384,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2395,20 +2395,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsBelow([view1, view2, view3], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.y = CGRectGetMaxY(itemView.frame)+offset
+        var frame1 = CGRect.zero
+        frame1.origin.y = itemView.frame.maxY+offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+(offset*2)
+        var frame2 = CGRect.zero
+        frame2.origin.y = itemView.frame.maxY+view1.height+(offset*2)
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.origin.y = CGRectGetMaxY(itemView.frame)+view1.height+view2.height+(offset*number)
+        var frame3 = CGRect.zero
+        frame3.origin.y = itemView.frame.maxY+view1.height+view2.height+(offset*number)
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2421,7 +2421,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2430,8 +2430,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheLeft([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMinX(itemView.frame)-view1.width
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.minX-view1.width
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -2445,7 +2445,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view1.width = 30
         view1.height = 10
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2454,8 +2454,8 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheLeft([view1], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMinX(itemView.frame)-view1.width-offset
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.minX-view1.width-offset
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
@@ -2472,7 +2472,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2482,14 +2482,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheLeft([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMinX(itemView.frame)-view2.width-view1.width
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.minX-view2.width-view1.width
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMinX(itemView.frame)-view2.width
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.minX-view2.width
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2508,7 +2508,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view2.width = 10
         view2.height = 20
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2518,14 +2518,14 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheLeft([view1, view2], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMinX(itemView.frame)-view2.width-view1.width-(offset*number)
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.minX-view2.width-view1.width-(offset*number)
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMinX(itemView.frame)-view2.width-offset
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.minX-view2.width-offset
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2546,7 +2546,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
 
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
 
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2557,20 +2557,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheLeft([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width-view1.width
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.minX-view3.width-view2.width-view1.width
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.minX-view3.width-view2.width
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.origin.x = CGRectGetMinX(itemView.frame)-view3.width
+        var frame3 = CGRect.zero
+        frame3.origin.x = itemView.frame.minX-view3.width
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2593,7 +2593,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         view3.width = 40
         view3.height = 40
         
-        let itemView = UIView(frame: CGRectMake(50, 100, 10, 20))
+        let itemView = UIView(frame: CGRect(x: 50, y: 100, width: 10, height: 20))
         
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(itemView)
@@ -2604,20 +2604,20 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         itemView.positionViewsToTheLeft([view1, view2, view3], offset: offset, priority: priority)
         parentView.layoutIfNeeded()
         
-        var frame1 = CGRectZero
-        frame1.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width-view1.width-(offset*number)
+        var frame1 = CGRect.zero
+        frame1.origin.x = itemView.frame.minX-view3.width-view2.width-view1.width-(offset*number)
         frame1.size.width = view1.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
         
-        var frame2 = CGRectZero
-        frame2.origin.x = CGRectGetMinX(itemView.frame)-view3.width-view2.width-(offset*2)
+        var frame2 = CGRect.zero
+        frame2.origin.x = itemView.frame.minX-view3.width-view2.width-(offset*2)
         frame2.size.width = view2.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
         
-        var frame3 = CGRectZero
-        frame3.origin.x = CGRectGetMinX(itemView.frame)-view3.width-offset
+        var frame3 = CGRect.zero
+        frame3.origin.x = itemView.frame.minX-view3.width-offset
         frame3.size.width = view3.width
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2629,8 +2629,8 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
 
     func testFitBetweenTopItemAndBottomItem() {
         let width: CGFloat = 40
-        let topFrame = CGRectMake(10, 20, 30, 40)
-        let bottomFrame = CGRectMake(50, 120, 60, 20)
+        let topFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
+        let bottomFrame = CGRect(x: 50, y: 120, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = width
@@ -2645,18 +2645,18 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.top?.priority)
             XCTAssertEqual(priority, constraints.bottom?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size.width = width
-        frame.size.height = CGRectGetMinY(bottomFrame)-CGRectGetMaxY(topFrame)
-        frame.origin.y = CGRectGetMaxY(topFrame)
+        frame.size.height = bottomFrame.minY-topFrame.maxY
+        frame.origin.y = topFrame.maxY
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testFitBetweenTopItemAndBottomItemOffset() {
         let width: CGFloat = 40
         let offset: CGFloat = 10
-        let topFrame = CGRectMake(10, 20, 30, 40)
-        let bottomFrame = CGRectMake(50, 120, 60, 20)
+        let topFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
+        let bottomFrame = CGRect(x: 50, y: 120, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = width
@@ -2671,17 +2671,17 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.top?.priority)
             XCTAssertEqual(priority, constraints.bottom?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size.width = width
-        frame.size.height = CGRectGetMinY(bottomFrame)-CGRectGetMaxY(topFrame)-offset*2
-        frame.origin.y = CGRectGetMaxY(topFrame)+offset
+        frame.size.height = bottomFrame.minY-topFrame.maxY-offset*2
+        frame.origin.y = topFrame.maxY+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testFitBetweenLeftItemAndRightItem() {
         let height: CGFloat = 40
-        let leftFrame = CGRectMake(10, 20, 30, 40)
-        let rightFrame = CGRectMake(80, 40, 60, 20)
+        let leftFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
+        let rightFrame = CGRect(x: 80, y: 40, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = height
@@ -2696,18 +2696,18 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.left?.priority)
             XCTAssertEqual(priority, constraints.right?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size.height = height
-        frame.size.width = CGRectGetMinX(rightFrame)-CGRectGetMaxX(leftFrame)
-        frame.origin.x = CGRectGetMaxX(leftFrame)
+        frame.size.width = rightFrame.minX-leftFrame.maxX
+        frame.origin.x = leftFrame.maxX
         XCTAssertEqual(childViewFrame, frame)
     }
 
     func testFitBetweenLeftItemAndRightItemOffset() {
         let height: CGFloat = 40
         let offset: CGFloat = 10
-        let leftFrame = CGRectMake(10, 20, 30, 40)
-        let rightFrame = CGRectMake(80, 40, 60, 20)
+        let leftFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
+        let rightFrame = CGRect(x: 80, y: 40, width: 60, height: 20)
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = height
@@ -2722,10 +2722,10 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
             XCTAssertEqual(priority, constraints.left?.priority)
             XCTAssertEqual(priority, constraints.right?.priority)
         }
-        var frame = CGRectZero
+        var frame = CGRect.zero
         frame.size.height = height
-        frame.size.width = CGRectGetMinX(rightFrame)-CGRectGetMaxX(leftFrame)-offset*2
-        frame.origin.x = CGRectGetMaxX(leftFrame)+offset
+        frame.size.width = rightFrame.minX-leftFrame.maxX-offset*2
+        frame.origin.x = leftFrame.maxX+offset
         XCTAssertEqual(childViewFrame, frame)
     }
 
@@ -2745,8 +2745,8 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillHorizontally([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size.width = CGRectGetWidth(self.parentViewFrame)
+        var frame1 = CGRect.zero
+        frame1.size.width = self.parentViewFrame.width
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
     }
@@ -2764,9 +2764,9 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillHorizontally([view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.x = separation
-        frame1.size.width = CGRectGetWidth(self.parentViewFrame)-separation*2
+        frame1.size.width = self.parentViewFrame.width-separation*2
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
     }
@@ -2788,13 +2788,13 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillHorizontally([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size.width = CGRectGetWidth(self.parentViewFrame)/number
+        var frame1 = CGRect.zero
+        frame1.size.width = self.parentViewFrame.width/number
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.width = CGRectGetWidth(self.parentViewFrame)/number
+        var frame2 = CGRect.zero
+        frame2.size.width = self.parentViewFrame.width/number
         frame2.origin.x = frame2.size.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2818,14 +2818,14 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillHorizontally([view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.x = separation
-        frame1.size.width = (CGRectGetWidth(self.parentViewFrame)-(separation*(number+1)))/number
+        frame1.size.width = (self.parentViewFrame.width-(separation*(number+1)))/number
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.width = (CGRectGetWidth(self.parentViewFrame)-(separation*(number+1)))/number
+        var frame2 = CGRect.zero
+        frame2.size.width = (self.parentViewFrame.width-(separation*(number+1)))/number
         frame2.origin.x = frame2.size.width+(separation*number)
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
@@ -2852,19 +2852,19 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillHorizontally([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size.width = CGRectGetWidth(self.parentViewFrame)/number
+        var frame1 = CGRect.zero
+        frame1.size.width = self.parentViewFrame.width/number
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.width = CGRectGetWidth(self.parentViewFrame)/number
+        var frame2 = CGRect.zero
+        frame2.size.width = self.parentViewFrame.width/number
         frame2.origin.x = frame2.size.width
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size.width = CGRectGetWidth(self.parentViewFrame)/number
+        var frame3 = CGRect.zero
+        frame3.size.width = self.parentViewFrame.width/number
         frame3.origin.x = frame3.size.width*2
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2892,20 +2892,20 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillHorizontally([view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.x = separation
-        frame1.size.width = (CGRectGetWidth(self.parentViewFrame)-(separation*(number+1)))/number
+        frame1.size.width = (self.parentViewFrame.width-(separation*(number+1)))/number
         frame1.size.height = view1.height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.width = (CGRectGetWidth(self.parentViewFrame)-(separation*(number+1)))/number
+        var frame2 = CGRect.zero
+        frame2.size.width = (self.parentViewFrame.width-(separation*(number+1)))/number
         frame2.origin.x = frame2.size.width+(separation*2)
         frame2.size.height = view2.height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size.width = (CGRectGetWidth(self.parentViewFrame)-(separation*(number+1)))/number
+        var frame3 = CGRect.zero
+        frame3.size.width = (self.parentViewFrame.width-(separation*(number+1)))/number
         frame3.origin.x = (frame3.size.width*2)+(separation*number)
         frame3.size.height = view3.height
         XCTAssertEqual(view3.frame, frame3)
@@ -2923,8 +2923,8 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillVertically([view1], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size.height = CGRectGetHeight(self.parentViewFrame)
+        var frame1 = CGRect.zero
+        frame1.size.height = self.parentViewFrame.height
         frame1.size.width = view1.width
         XCTAssertEqual(view1.frame, frame1)
     }
@@ -2942,9 +2942,9 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillVertically([view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.y = separation
-        frame1.size.height = CGRectGetHeight(self.parentViewFrame)-separation*2
+        frame1.size.height = self.parentViewFrame.height-separation*2
         frame1.size.width = view1.width
         XCTAssertEqual(view1.frame, frame1)
     }
@@ -2966,13 +2966,13 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillVertically([view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size.height = CGRectGetHeight(self.parentViewFrame)/number
+        var frame1 = CGRect.zero
+        frame1.size.height = self.parentViewFrame.height/number
         frame1.size.width = view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.height = CGRectGetHeight(self.parentViewFrame)/number
+        var frame2 = CGRect.zero
+        frame2.size.height = self.parentViewFrame.height/number
         frame2.origin.y = frame2.size.height
         frame2.size.width = view2.width
         XCTAssertEqual(view2.frame, frame2)
@@ -2996,14 +2996,14 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillVertically([view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.y = separation
-        frame1.size.height = (CGRectGetHeight(self.parentViewFrame)-(separation*(number+1)))/number
+        frame1.size.height = (self.parentViewFrame.height-(separation*(number+1)))/number
         frame1.size.width = view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.height = (CGRectGetHeight(self.parentViewFrame)-(separation*(number+1)))/number
+        var frame2 = CGRect.zero
+        frame2.size.height = (self.parentViewFrame.height-(separation*(number+1)))/number
         frame2.origin.y = frame2.size.height+(separation*number)
         frame2.size.width = view2.width
         XCTAssertEqual(view2.frame, frame2)
@@ -3030,19 +3030,19 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillVertically([view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
-        frame1.size.height = CGRectGetHeight(self.parentViewFrame)/number
+        var frame1 = CGRect.zero
+        frame1.size.height = self.parentViewFrame.height/number
         frame1.size.width = view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.height = CGRectGetHeight(self.parentViewFrame)/number
+        var frame2 = CGRect.zero
+        frame2.size.height = self.parentViewFrame.height/number
         frame2.origin.y = frame2.size.height
         frame2.size.width = view2.width
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size.height = CGRectGetHeight(self.parentViewFrame)/number
+        var frame3 = CGRect.zero
+        frame3.size.height = self.parentViewFrame.height/number
         frame3.origin.y = (frame3.size.height*2)
         frame3.size.width = view3.width
         XCTAssertEqual(view3.frame, frame3)
@@ -3070,20 +3070,20 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.fillVertically([view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.y = separation
-        frame1.size.height = (CGRectGetHeight(self.parentViewFrame)-(separation*(number+1)))/number
+        frame1.size.height = (self.parentViewFrame.height-(separation*(number+1)))/number
         frame1.size.width = view1.width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
-        frame2.size.height = (CGRectGetHeight(self.parentViewFrame)-(separation*(number+1)))/number
+        var frame2 = CGRect.zero
+        frame2.size.height = (self.parentViewFrame.height-(separation*(number+1)))/number
         frame2.origin.y = frame2.size.height+(separation*2)
         frame2.size.width = view2.width
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
-        frame3.size.height = (CGRectGetHeight(self.parentViewFrame)-(separation*(number+1)))/number
+        var frame3 = CGRect.zero
+        frame3.size.height = (self.parentViewFrame.height-(separation*(number+1)))/number
         frame3.origin.y = (frame3.size.height*2)+(separation*number)
         frame3.size.width = view3.width
         XCTAssertEqual(view3.frame, frame3)
@@ -3110,11 +3110,11 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.size.width = view1Width
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.size.width = view1Width
         XCTAssertEqual(view1.frame, frame1)
     }
@@ -3138,12 +3138,12 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.origin.x = -separation
         boundViewFrame.size.width = view1Width+separation*(number+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.x = separation
         frame1.size.width = view1Width
         XCTAssertEqual(view1.frame, frame1)
@@ -3171,15 +3171,15 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.size.width = view1Width+view2Width
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.size.width = view1Width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.x = view1Width
         frame2.size.width = view2Width
         XCTAssertEqual(view2.frame, frame2)
@@ -3209,17 +3209,17 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.origin.x = -separation
         boundViewFrame.size.width = view1Width+view2Width+separation*(number+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.x = separation
         frame1.size.width = view1Width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.x = separation*number+view1Width
         frame2.size.width = view2Width
         XCTAssertEqual(view2.frame, frame2)
@@ -3252,20 +3252,20 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.size.width = view1Width+view2Width+view3Width
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.size.width = view1Width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.x = view1Width
         frame2.size.width = view2Width
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
+        var frame3 = CGRect.zero
         frame3.origin.x = view1Width+view2Width
         frame3.size.width = view3Width
         XCTAssertEqual(view3.frame, frame3)
@@ -3300,22 +3300,22 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.origin.x = -separation
         boundViewFrame.size.width = view1Width+view2Width+view3Width+separation*(number+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.x = separation
         frame1.size.width = view1Width
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.x = separation*2+view1Width
         frame2.size.width = view2Width
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
+        var frame3 = CGRect.zero
         frame3.origin.x = separation*number+view1Width+view2Width
         frame3.size.width = view3Width
         XCTAssertEqual(view3.frame, frame3)
@@ -3338,11 +3338,11 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.size.height = view1Height
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.size.height = view1Height
         XCTAssertEqual(view1.frame, frame1)
     }
@@ -3366,12 +3366,12 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.origin.y = -separation
         boundViewFrame.size.height = view1Height+separation*(number+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.y = separation
         frame1.size.height = view1Height
         XCTAssertEqual(view1.frame, frame1)
@@ -3399,15 +3399,15 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.size.height = view1Height+view2Height
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.size.height = view1Height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.y = view1Height
         frame2.size.height = view2Height
         XCTAssertEqual(view2.frame, frame2)
@@ -3437,17 +3437,17 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.origin.y = -separation
         boundViewFrame.size.height = view1Height+view2Height+separation*(number+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.y = separation
         frame1.size.height = view1Height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.y = separation*number+view1Height
         frame2.size.height = view2Height
         XCTAssertEqual(view2.frame, frame2)
@@ -3480,20 +3480,20 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
 
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.size.height = view1Height+view2Height+view3Height
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.size.height = view1Height
         XCTAssertEqual(view1.frame, frame1)
 
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.y = view1Height
         frame2.size.height = view2Height
         XCTAssertEqual(view2.frame, frame2)
 
-        var frame3 = CGRectZero
+        var frame3 = CGRect.zero
         frame3.origin.y = view1Height+view2Height
         frame3.size.height = view3Height
         XCTAssertEqual(view3.frame, frame3)
@@ -3528,22 +3528,22 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
         parentView.layoutIfNeeded()
         
-        var boundViewFrame = CGRectZero
+        var boundViewFrame = CGRect.zero
         boundViewFrame.origin.y = -separation
         boundViewFrame.size.height = view1Height+view2Height+view3Height+separation*(number+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
         
-        var frame1 = CGRectZero
+        var frame1 = CGRect.zero
         frame1.origin.y = separation
         frame1.size.height = view1Height
         XCTAssertEqual(view1.frame, frame1)
         
-        var frame2 = CGRectZero
+        var frame2 = CGRect.zero
         frame2.origin.y = separation*2+view1Height
         frame2.size.height = view2Height
         XCTAssertEqual(view2.frame, frame2)
         
-        var frame3 = CGRectZero
+        var frame3 = CGRect.zero
         frame3.origin.y = separation*number+view1Height+view2Height
         frame3.size.height = view3Height
         XCTAssertEqual(view3.frame, frame3)

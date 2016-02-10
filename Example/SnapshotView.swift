@@ -51,7 +51,7 @@ class SnapshotView: UIView {
     }
 
     override func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(280, 280)
+        return CGSize(width: 280, height: 280)
     }
 
     override func drawRect(rect: CGRect) {
@@ -71,32 +71,32 @@ class SnapshotView: UIView {
         CGContextSetLineDash(context, 0, [2, 2], 2)
 
         var x = spaceing
-        while x < CGRectGetMaxX(rect) {
+        while x < rect.maxX {
             var innerX = x
-            if x > CGRectGetMidX(rect) {
+            if x > rect.midX {
                 innerX += lineOffset
             } else {
                 innerX -= lineOffset
             }
             CGContextSaveGState(context);
-            CGContextMoveToPoint(context, innerX, CGRectGetMinY(rect));
-            CGContextAddLineToPoint(context, innerX, CGRectGetMaxY(rect));
+            CGContextMoveToPoint(context, innerX, rect.minY);
+            CGContextAddLineToPoint(context, innerX, rect.maxY);
             CGContextStrokePath(context);
             CGContextRestoreGState(context);
             x += spaceing
         }
 
         var y = spaceing
-        while y < CGRectGetMaxY(rect) {
+        while y < rect.maxY {
             var innerY = y
-            if y > CGRectGetMidX(rect) {
+            if y > rect.midX {
                 innerY += lineOffset
             } else {
                 innerY -= lineOffset
             }
             CGContextSaveGState(context);
-            CGContextMoveToPoint(context, CGRectGetMinX(rect), innerY);
-            CGContextAddLineToPoint(context, CGRectGetMaxX(rect), innerY);
+            CGContextMoveToPoint(context, rect.minX, innerY);
+            CGContextAddLineToPoint(context, rect.maxX, innerY);
             CGContextStrokePath(context);
             CGContextRestoreGState(context);
             y += spaceing

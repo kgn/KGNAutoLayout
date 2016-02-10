@@ -20,9 +20,9 @@ class SpringView: UIView {
 
     override func intrinsicContentSize() -> CGSize {
         if direction == .Horizontal {
-            return CGSizeMake(UIViewNoIntrinsicMetric, 20)
+            return CGSize(width: UIViewNoIntrinsicMetric, height: 20)
         } else {
-            return CGSizeMake(20, UIViewNoIntrinsicMetric)
+            return CGSize(width: 20, height: UIViewNoIntrinsicMetric)
         }
     }
 
@@ -51,42 +51,42 @@ class SpringView: UIView {
         if direction == .Horizontal {
             CGContextSaveGState(context)
             CGContextSetLineDash(context, 0, [2, 2], 2)
-            CGContextMoveToPoint(context, CGRectGetMinX(rect), CGRectGetMidY(rect)+lineOffset)
-            CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMidY(rect)+lineOffset)
+            CGContextMoveToPoint(context, rect.minX, rect.midY+lineOffset)
+            CGContextAddLineToPoint(context, rect.maxX, rect.midY+lineOffset)
             CGContextStrokePath(context)
             CGContextRestoreGState(context)
 
             if self.showEnds {
                 CGContextSaveGState(context)
-                CGContextMoveToPoint(context, lineOffset, CGRectGetMinY(rect))
-                CGContextAddLineToPoint(context, lineOffset, CGRectGetMaxY(rect))
+                CGContextMoveToPoint(context, lineOffset, rect.minY)
+                CGContextAddLineToPoint(context, lineOffset, rect.maxY)
                 CGContextStrokePath(context)
                 CGContextRestoreGState(context)
 
                 CGContextSaveGState(context)
-                CGContextMoveToPoint(context, CGRectGetMaxX(rect)-lineOffset, CGRectGetMinY(rect))
-                CGContextAddLineToPoint(context, CGRectGetMaxX(rect)-lineOffset, CGRectGetMaxY(rect))
+                CGContextMoveToPoint(context, rect.maxX-lineOffset, rect.minY)
+                CGContextAddLineToPoint(context, rect.maxX-lineOffset, rect.maxY)
                 CGContextStrokePath(context)
                 CGContextRestoreGState(context)
             }
         } else {
             CGContextSaveGState(context)
             CGContextSetLineDash(context, 0, [2, 2], 2)
-            CGContextMoveToPoint(context, CGRectGetMidX(rect)+lineOffset, CGRectGetMinY(rect))
-            CGContextAddLineToPoint(context, CGRectGetMidX(rect)+lineOffset, CGRectGetMaxY(rect))
+            CGContextMoveToPoint(context, rect.midX+lineOffset, rect.minY)
+            CGContextAddLineToPoint(context, rect.midX+lineOffset, rect.maxY)
             CGContextStrokePath(context)
             CGContextRestoreGState(context)
 
             if self.showEnds {
                 CGContextSaveGState(context)
-                CGContextMoveToPoint(context, CGRectGetMinX(rect), lineOffset)
-                CGContextAddLineToPoint(context, CGRectGetMaxX(rect), lineOffset)
+                CGContextMoveToPoint(context, rect.minX, lineOffset)
+                CGContextAddLineToPoint(context, rect.maxX, lineOffset)
                 CGContextStrokePath(context)
                 CGContextRestoreGState(context)
 
                 CGContextSaveGState(context)
-                CGContextMoveToPoint(context, CGRectGetMinX(rect), CGRectGetMaxY(rect)-lineOffset)
-                CGContextAddLineToPoint(context, CGRectGetMaxX(rect), CGRectGetMaxY(rect)-lineOffset)
+                CGContextMoveToPoint(context, rect.minX, rect.maxY-lineOffset)
+                CGContextAddLineToPoint(context, rect.maxX, rect.maxY-lineOffset)
                 CGContextStrokePath(context)
                 CGContextRestoreGState(context)
             }
