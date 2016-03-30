@@ -5,7 +5,7 @@
 [![iOS 8.0+](http://img.shields.io/badge/iOS-8.0%2B-blue.svg)]()
 [![Swift 2.0+](http://img.shields.io/badge/Swift-2.0-blue.svg)]()
 [![Release](https://img.shields.io/github/release/kgn/KGNAutoLayout.svg)](/releases)
-[![Build Status](http://img.shields.io/badge/License-MIT-lightgrey.svg)](/LICENSE)
+[![License](http://img.shields.io/badge/License-MIT-lightgrey.svg)](/LICENSE)
 
 [![Build Status](https://travis-ci.org/kgn/KGNAutoLayout.svg)](https://travis-ci.org/kgn/KGNAutoLayout)
 [![Test Coverage](http://img.shields.io/badge/Tests-98%25-green.svg)]()
@@ -388,5 +388,5 @@ itemView.boundVertically([view1, view2, view3], separation: 20)
 - [X] Documentation
 - [X] Example App
 - [ ] AppleTV
-- [ ] Prebuilt Frameworks
+- [X] Prebuilt Frameworks
 - [ ] Travis Test Matrix
