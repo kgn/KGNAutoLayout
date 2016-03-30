@@ -133,7 +133,7 @@ class ReadmeViewController: UIViewController {
         leftSpringView.positionToTheLeftOfItem(view)
         leftSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinToEdgesOfSuperview(offset: 20)"
         )
     }
@@ -152,7 +152,7 @@ class ReadmeViewController: UIViewController {
         topSpringView.positionAboveItem(view)
         topSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinToTopEdgeOfSuperview(offset: 20)"
         )
     }
@@ -170,7 +170,7 @@ class ReadmeViewController: UIViewController {
         rightSpringView.pinToRightEdgeOfSuperview()
         rightSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinToRightEdgeOfSuperview(offset: 20)"
         )
     }
@@ -189,7 +189,7 @@ class ReadmeViewController: UIViewController {
         bottomSpringView.positionBelowItem(view)
         bottomSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinToBottomEdgeOfSuperview(offset: 20)"
         )
     }
@@ -207,7 +207,7 @@ class ReadmeViewController: UIViewController {
         leftSpringView.positionToTheLeftOfItem(view)
         leftSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinToLeftEdgeOfSuperview(offset: 20)"
         )
     }
@@ -231,7 +231,7 @@ class ReadmeViewController: UIViewController {
         leftSpringView.positionToTheLeftOfItem(view)
         leftSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinToSideEdgesOfSuperview(offset: 20)"
         )
     }
@@ -257,7 +257,7 @@ class ReadmeViewController: UIViewController {
         bottomSpringView.positionBelowItem(view)
         bottomSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinToTopAndBottomEdgesOfSuperview(offset: 20)"
         )
     }
@@ -285,7 +285,7 @@ class ReadmeViewController: UIViewController {
         springView.pinTopEdgeToTopEdgeOfItem(itemView)
         springView.centerHorizontallyToItem(view)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinTopEdgeToTopEdgeOfItem(itemView, offset: 20)"
         )
     }
@@ -310,7 +310,7 @@ class ReadmeViewController: UIViewController {
         springView.pinRightEdgeToRightEdgeOfItem(itemView)
         springView.centerVerticallyToItem(view)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinRightEdgeToRightEdgeOfItem(itemView, offset: 20)"
         )
     }
@@ -336,7 +336,7 @@ class ReadmeViewController: UIViewController {
         springView.pinBottomEdgeToBottomEdgeOfItem(itemView)
         springView.centerHorizontallyToItem(view)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinBottomEdgeToBottomEdgeOfItem(itemView, offset: 20)"
         )
     }
@@ -361,7 +361,7 @@ class ReadmeViewController: UIViewController {
         springView.pinLeftEdgeToLeftEdgeOfItem(itemView)
         springView.centerVerticallyToItem(view)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.pinLeftEdgeToLeftEdgeOfItem(itemView, offset: 20)"
         )
     }
@@ -387,7 +387,7 @@ class ReadmeViewController: UIViewController {
         view.centerInSuperview()
         view.sizeToWidthAndHeight(160)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.centerInSuperview()"
         )
     }
@@ -406,7 +406,7 @@ class ReadmeViewController: UIViewController {
         view.pinToTopEdgeOfSuperview()
         view.sizeToWidthAndHeight(160)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.centerHorizontallyInSuperview()"
         )
     }
@@ -424,7 +424,7 @@ class ReadmeViewController: UIViewController {
         view.pinToLeftEdgeOfSuperview()
         view.sizeToWidthAndHeight(160)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.centerVerticallyInSuperview()"
         )
     }
@@ -466,7 +466,7 @@ class ReadmeViewController: UIViewController {
         springView2.positionToTheLeftOfItem(view3)
         springView2.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "parentView.centerViewsHorizontally([view1, view2, view3], separation: 20)"
         )
     }
@@ -509,7 +509,7 @@ class ReadmeViewController: UIViewController {
 
         parentView.centerViewsVertically([view1, view2, view3], separation: 20)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "parentView.centerViewsVertically([view1, view2, view3], separation: 20)"
         )
     }
@@ -536,7 +536,7 @@ class ReadmeViewController: UIViewController {
         view.sizeToWidth(60)
         view.sizeToHeight(80)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.centerHorizontallyToItem(itemView)"
         )
     }
@@ -562,7 +562,7 @@ class ReadmeViewController: UIViewController {
         view.sizeToWidth(60)
         view.sizeToHeight(80)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.centerVerticallyToItem(itemView)"
         )
     }
@@ -581,7 +581,7 @@ class ReadmeViewController: UIViewController {
         widthSpringView.pinToSideEdgesOfSuperview()
         widthSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToWidth(80)"
         )
     }
@@ -598,7 +598,7 @@ class ReadmeViewController: UIViewController {
         widthSpringView.pinToSideEdgesOfSuperview()
         widthSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToMinWidth(40)"
         )
     }
@@ -616,7 +616,7 @@ class ReadmeViewController: UIViewController {
         widthSpringView.pinToSideEdgesOfSuperview()
         widthSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToMaxWidth(100)"
         )
     }
@@ -634,7 +634,7 @@ class ReadmeViewController: UIViewController {
         heightSpringView.pinToTopAndBottomEdgesOfSuperview()
         heightSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToHeight(80)"
         )
     }
@@ -652,7 +652,7 @@ class ReadmeViewController: UIViewController {
         heightSpringView.pinToTopAndBottomEdgesOfSuperview()
         heightSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToMinHeight(40)"
         )
     }
@@ -671,7 +671,7 @@ class ReadmeViewController: UIViewController {
         heightSpringView.pinToTopAndBottomEdgesOfSuperview()
         heightSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToMaxHeight(100)"
         )
     }
@@ -693,7 +693,7 @@ class ReadmeViewController: UIViewController {
         heightSpringView.pinToTopAndBottomEdgesOfSuperview()
         heightSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToWidthAndHeight(80)"
         )
     }
@@ -715,7 +715,7 @@ class ReadmeViewController: UIViewController {
         heightSpringView.pinToTopAndBottomEdgesOfSuperview()
         heightSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToMinWidthAndHeight(40)"
         )
     }
@@ -739,7 +739,7 @@ class ReadmeViewController: UIViewController {
         heightSpringView.pinToTopAndBottomEdgesOfSuperview()
         heightSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeToMaxWidthAndHeight(100)"
         )
     }
@@ -768,7 +768,7 @@ class ReadmeViewController: UIViewController {
         horizontalSpringView2.pinToSideEdgesOfSuperview()
         horizontalSpringView2.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeWidthToWidthOfItem(itemView)"
         )
     }
@@ -799,7 +799,7 @@ class ReadmeViewController: UIViewController {
         verticalSpringView2.pinToTopAndBottomEdgesOfSuperview()
         verticalSpringView2.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeHeightToHeightOfItem(itemView)"
         )
     }
@@ -829,7 +829,7 @@ class ReadmeViewController: UIViewController {
         viewHorizontalSpringView.pinToTopAndBottomEdgesOfSuperview()
         viewHorizontalSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeHeightToWidthOfItem(itemView)"
         )
     }
@@ -859,7 +859,7 @@ class ReadmeViewController: UIViewController {
         viewHorizontalSpringView.pinToSideEdgesOfSuperview()
         viewHorizontalSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeWidthToHeightOfItem(itemView)"
         )
     }
@@ -899,7 +899,7 @@ class ReadmeViewController: UIViewController {
         viewHorizontalSpringView2.pinToSideEdgesOfSuperview()
         viewHorizontalSpringView2.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeWidthAndHeightToWidthAndHeightOfItem(itemView)"
         )
     }
@@ -917,7 +917,7 @@ class ReadmeViewController: UIViewController {
         heightSpringView.pinToTopAndBottomEdgesOfSuperview()
         heightSpringView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeHeightToWidthAspectRatio(16/9)"
         )
     }
@@ -934,7 +934,7 @@ class ReadmeViewController: UIViewController {
         widthSpringView.pinToSideEdgesOfSuperview()
         widthSpringView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.sizeWidthToHeightAspectRatio(16/9)"
         )
     }
@@ -960,7 +960,7 @@ class ReadmeViewController: UIViewController {
         springView.positionAboveItem(itemView)
         springView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.positionAboveItem(itemView, offset: 20)"
         )
     }
@@ -983,7 +983,7 @@ class ReadmeViewController: UIViewController {
         springView.positionToTheLeftOfItem(view)
         springView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.positionToTheRightOfItem(itemView, offset: 20)"
         )
     }
@@ -1007,7 +1007,7 @@ class ReadmeViewController: UIViewController {
         springView.positionBelowItem(itemView)
         springView.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.positionBelowItem(itemView, offset: 20)"
         )
     }
@@ -1030,7 +1030,7 @@ class ReadmeViewController: UIViewController {
         springView.positionToTheRightOfItem(view)
         springView.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.positionToTheLeftOfItem(itemView, offset: 20)"
         )
     }
@@ -1083,7 +1083,7 @@ class ReadmeViewController: UIViewController {
         springView3.positionAboveItem(itemView)
         springView3.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "itemView.positionViewsAbove([view1, view2, view3], offset: 20)"
         )
     }
@@ -1133,7 +1133,7 @@ class ReadmeViewController: UIViewController {
         springView3.positionToTheLeftOfItem(view3)
         springView3.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "itemView.positionViewsToTheRight([view1, view2, view3], offset: 20)"
         )
     }
@@ -1186,7 +1186,7 @@ class ReadmeViewController: UIViewController {
         springView3.positionAboveItem(view3)
         springView3.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "itemView.positionViewsBelow([view1, view2, view3], offset: 20)"
         )
     }
@@ -1236,7 +1236,7 @@ class ReadmeViewController: UIViewController {
         springView3.positionToTheRightOfItem(view1)
         springView3.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "itemView.positionViewsToTheLeft([view1, view2, view3], offset: 20)"
         )
     }
@@ -1276,7 +1276,7 @@ class ReadmeViewController: UIViewController {
         bottomSpringView.positionAboveItem(bottomView)
         bottomSpringView.centerHorizontallyToItem(view)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)"
         )
     }
@@ -1312,7 +1312,7 @@ class ReadmeViewController: UIViewController {
         rightSpringView.positionToTheLeftOfItem(rightView)
         rightSpringView.centerVerticallyToItem(view)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)"
         )
     }
@@ -1361,7 +1361,7 @@ class ReadmeViewController: UIViewController {
 
         parentView.fillHorizontally([view1, view2, view3], separation: 20)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "parentView.fillHorizontally([view1, view2, view3], separation: 20)"
         )
     }
@@ -1412,7 +1412,7 @@ class ReadmeViewController: UIViewController {
 
         parentView.fillVertically([view1, view2, view3], separation: 20)
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "parentView.fillVertically([view1, view2, view3], separation: 20)"
         )
     }
@@ -1466,7 +1466,7 @@ class ReadmeViewController: UIViewController {
         springView4.pinRightEdgeToRightEdgeOfItem(itemView)
         springView4.centerVerticallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "itemView.boundHorizontally([view1, view2, view3], separation: 20)"
         )
     }
@@ -1522,7 +1522,7 @@ class ReadmeViewController: UIViewController {
         springView4.pinBottomEdgeToBottomEdgeOfItem(itemView)
         springView4.centerHorizontallyInSuperview()
 
-        parentView.saveSnapshot(__FUNCTION__,
+        parentView.saveSnapshot(#function,
             "itemView.boundVertically([view1, view2, view3], separation: 20)"
         )
     }

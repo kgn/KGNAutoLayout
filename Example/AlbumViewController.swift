@@ -9,6 +9,10 @@
 import UIKit
 import KGNAutoLayout
 
+private extension Selector {
+    static let statusBarFrameDidChange = #selector(AlbumViewController.statusBarFrameDidChange(_:))
+}
+
 class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var album: [String: AnyObject]? {
@@ -116,7 +120,11 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.pinToEdgesOfSuperview()
 
         // Becuase we're making a totally custom "nav bar" handle the status bar frame change
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "statusBarFrameDidChange:", name: UIApplicationDidChangeStatusBarFrameNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(
+            self, selector: .statusBarFrameDidChange,
+            name: UIApplicationDidChangeStatusBarFrameNotification,
+            object: nil
+        )
     }
 
     deinit {
