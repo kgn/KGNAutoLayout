@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64D31D1E1D2B0A57009B93CA /* KGNAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 83720E241BCB973700C8A14D /* KGNAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64D31D2B1D2B0B04009B93CA /* KGNAutoLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */; };
+		64D31D311D2B0B68009B93CA /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D31D161D2B0A0D009B93CA /* KGNAutoLayout.framework */; };
+		64D31D321D2B0BD7009B93CA /* KGNAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */; };
 		8352DE901BDB7D7500131077 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DBD37E1BDB7B7200F017E4 /* ItemView.swift */; };
 		83720E251BCB973700C8A14D /* KGNAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 83720E241BCB973700C8A14D /* KGNAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83720E2C1BCB973700C8A14D /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */; };
@@ -30,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		64D31D2F1D2B0B60009B93CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83720E181BCB973700C8A14D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64D31D151D2B0A0D009B93CA;
+			remoteInfo = "KGNAutoLayout-tvOS";
+		};
 		83720E2D1BCB973700C8A14D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83720E181BCB973700C8A14D /* Project object */;
@@ -62,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		64A3DB921D2B042A006B8B16 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		64D31D161D2B0A0D009B93CA /* KGNAutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNAutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64D31D231D2B0A72009B93CA /* KGNAutoLayoutTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KGNAutoLayoutTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83720E211BCB973700C8A14D /* KGNAutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNAutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83720E241BCB973700C8A14D /* KGNAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KGNAutoLayout.h; sourceTree = "<group>"; };
 		83720E261BCB973700C8A14D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +101,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		64D31D121D2B0A0D009B93CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64D31D201D2B0A72009B93CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D31D311D2B0B68009B93CA /* KGNAutoLayout.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83720E1D1BCB973700C8A14D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +170,8 @@
 				83720E211BCB973700C8A14D /* KGNAutoLayout.framework */,
 				83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests-iOS.xctest */,
 				8376BBFE1BD6AA290084754D /* KGNAutoLayoutExample.app */,
+				64D31D161D2B0A0D009B93CA /* KGNAutoLayout.framework */,
+				64D31D231D2B0A72009B93CA /* KGNAutoLayoutTests-tvOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +225,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		64D31D131D2B0A0D009B93CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D31D1E1D2B0A57009B93CA /* KGNAutoLayout.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83720E1E1BCB973700C8A14D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -206,6 +244,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		64D31D151D2B0A0D009B93CA /* KGNAutoLayout-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64D31D1B1D2B0A0D009B93CA /* Build configuration list for PBXNativeTarget "KGNAutoLayout-tvOS" */;
+			buildPhases = (
+				64D31D111D2B0A0D009B93CA /* Sources */,
+				64D31D121D2B0A0D009B93CA /* Frameworks */,
+				64D31D131D2B0A0D009B93CA /* Headers */,
+				64D31D141D2B0A0D009B93CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KGNAutoLayout-tvOS";
+			productName = KGNAutoLayout;
+			productReference = 64D31D161D2B0A0D009B93CA /* KGNAutoLayout.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		64D31D221D2B0A72009B93CA /* KGNAutoLayoutTests-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64D31D281D2B0A72009B93CA /* Build configuration list for PBXNativeTarget "KGNAutoLayoutTests-tvOS" */;
+			buildPhases = (
+				64D31D1F1D2B0A72009B93CA /* Sources */,
+				64D31D201D2B0A72009B93CA /* Frameworks */,
+				64D31D211D2B0A72009B93CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64D31D301D2B0B60009B93CA /* PBXTargetDependency */,
+			);
+			name = "KGNAutoLayoutTests-tvOS";
+			productName = "KGNAutoLayoutTests-tvOS";
+			productReference = 64D31D231D2B0A72009B93CA /* KGNAutoLayoutTests-tvOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		83720E201BCB973700C8A14D /* KGNAutoLayout-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83720E351BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayout-iOS" */;
@@ -267,10 +341,16 @@
 		83720E181BCB973700C8A14D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "David Keegan";
 				TargetAttributes = {
+					64D31D151D2B0A0D009B93CA = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					64D31D221D2B0A72009B93CA = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					83720E201BCB973700C8A14D = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -298,11 +378,27 @@
 				83720E201BCB973700C8A14D /* KGNAutoLayout-iOS */,
 				83720E2A1BCB973700C8A14D /* KGNAutoLayoutTests-iOS */,
 				8376BBFD1BD6AA290084754D /* KGNAutoLayoutExample */,
+				64D31D151D2B0A0D009B93CA /* KGNAutoLayout-tvOS */,
+				64D31D221D2B0A72009B93CA /* KGNAutoLayoutTests-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		64D31D141D2B0A0D009B93CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64D31D211D2B0A72009B93CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83720E1F1BCB973700C8A14D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,6 +428,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		64D31D111D2B0A0D009B93CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D31D321D2B0BD7009B93CA /* KGNAutoLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64D31D1F1D2B0A72009B93CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64D31D2B1D2B0B04009B93CA /* KGNAutoLayoutTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		83720E1C1BCB973700C8A14D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +479,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		64D31D301D2B0B60009B93CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64D31D151D2B0A0D009B93CA /* KGNAutoLayout-tvOS */;
+			targetProxy = 64D31D2F1D2B0B60009B93CA /* PBXContainerItemProxy */;
+		};
 		83720E2E1BCB973700C8A14D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 83720E201BCB973700C8A14D /* KGNAutoLayout-iOS */;
@@ -391,6 +508,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		64D31D1C1D2B0A0D009B93CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayout;
+				PRODUCT_NAME = KGNAutoLayout;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		64D31D1D1D2B0A0D009B93CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayout;
+				PRODUCT_NAME = KGNAutoLayout;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		64D31D291D2B0A72009B93CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.davidkeegan.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		64D31D2A1D2B0A72009B93CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.davidkeegan.$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
 		83720E331BCB973700C8A14D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -523,7 +706,7 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.davidkeegan.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -534,7 +717,7 @@
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutTests;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.davidkeegan.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -568,6 +751,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		64D31D1B1D2B0A0D009B93CA /* Build configuration list for PBXNativeTarget "KGNAutoLayout-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64D31D1C1D2B0A0D009B93CA /* Debug */,
+				64D31D1D1D2B0A0D009B93CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		64D31D281D2B0A72009B93CA /* Build configuration list for PBXNativeTarget "KGNAutoLayoutTests-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64D31D291D2B0A72009B93CA /* Debug */,
+				64D31D2A1D2B0A72009B93CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
