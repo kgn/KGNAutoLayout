@@ -17,7 +17,7 @@
                BlueprintIdentifier = "83720E201BCB973700C8A14D"
                BuildableName = "KGNAutoLayout-iOS.framework"
                BlueprintName = "KGNAutoLayout-iOS"
-               ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+               ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "83720E2A1BCB973700C8A14D"
                BuildableName = "KGNAutoLayoutTests-iOS.xctest"
                BlueprintName = "KGNAutoLayoutTests-iOS"
-               ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+               ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "83720E201BCB973700C8A14D"
             BuildableName = "KGNAutoLayout-iOS.framework"
             BlueprintName = "KGNAutoLayout-iOS"
-            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,7 +67,7 @@
             BlueprintIdentifier = "83720E201BCB973700C8A14D"
             BuildableName = "KGNAutoLayout-iOS.framework"
             BlueprintName = "KGNAutoLayout-iOS"
-            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -85,7 +85,7 @@
             BlueprintIdentifier = "83720E201BCB973700C8A14D"
             BuildableName = "KGNAutoLayout-iOS.framework"
             BlueprintName = "KGNAutoLayout-iOS"
-            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

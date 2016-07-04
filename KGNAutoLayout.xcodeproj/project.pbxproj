@@ -282,7 +282,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout-iOS" */;
+			buildConfigurationList = 83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -568,7 +568,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout-iOS" */ = {
+		83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83720E331BCB973700C8A14D /* Debug */,

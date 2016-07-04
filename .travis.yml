@@ -5,16 +5,10 @@ env:
   global:
     - PROJECT=KGNAutoLayout
   matrix:
-    - DESTINATION="OS=9.3,name=iPhone 6s Plus" SCHEME=KGNAutoLayout-iOS
+    - DESTINATION="OS=9.3,name=iPhone 6s Plus" SCHEME=$PROJECT-iOS SDK=iphonesimulator TEST=test
 
 script:
-  - xcodebuild test -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk iphonesimulator -destination "$DESTINATION"
-
-before_install:
-  - brew update
-
-# before_script:
-#   - carthage bootstrap
+  - xcodebuild $TEST -project "$PROJECT.xcodeproj" -scheme "$SCHEME" -sdk $SDK -destination "$DESTINATION"
 
 before_deploy:
   - carthage build --no-skip-current
@@ -24,7 +18,7 @@ deploy:
   provider: releases
   api_key:
     secure: G1IwkA8mayfZyLXKy4SJPSAolhiYKSrFKZiDzDdrQazH/5+aClhKrCOAoTSp8LyJct4C1wu6FR4mxGaoFDmMw4F3Nx1oHRtx5b/EuODGXQmtq8Jdcc7HdWsmY+P0+tiXyNF6AuNCq/7oRl40ppkuJqwkgUt5wj6t2u7UXKuBvzYM89ZeVCDpN4wvY3SE6+LUD/CnYecGmsetpyopK2qgtHHR6W/kZQpL/32fIqYanGKrp3OzcvdJWJQfzQBroC6fE7kE9RRfDAmeo5OEyrKHww0SHW5Z0v5Vd8t8HYr1lT5OhMBvKhREDikW3XZKHKhju/OalawbWQosExIW1c6KD/u0p/ldcjJ737nN1Ny9GrAqpRtw+4LAqx+18jk11XXNQj77yrDEvYNo/zq4FWCeA+cc8eLlmtouAfPfnMSQ8go4w09g8PUQtimCC6qFSHZ5FTtqvoEzbzFo6bos8It/FXTgizgSu97Idl5detbIfOsiSYpZ7K7rJuVaGKBeBRDpCH0l2vaAtppYYEKONhEiCTC6rJGjZB6RAYiv74ZtcB4+aMAHgTwCCrbAyEPZp6wqr7bbEQbA5Qn1nOS7W87XnOuvCDc5UBZC8FJdAxERmNkYbP1jiFJ4Pj/87+xQGLb2Hp3BpJa7KM6bRhp6RWtcFNOn/NGqB4l5dwvaGVL2UVc=
-  file: $PROJECT.framework.zip
+  file: $SCHEME.framework.zip
   skip_cleanup: true
   on:
     repo: kgn/$PROJECT

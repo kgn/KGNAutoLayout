@@ -17,7 +17,7 @@
                BlueprintIdentifier = "8376BBFD1BD6AA290084754D"
                BuildableName = "KGNAutoLayoutExample.app"
                BlueprintName = "KGNAutoLayoutExample"
-               ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+               ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "8376BBFD1BD6AA290084754D"
             BuildableName = "KGNAutoLayoutExample.app"
             BlueprintName = "KGNAutoLayoutExample"
-            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "8376BBFD1BD6AA290084754D"
             BuildableName = "KGNAutoLayoutExample.app"
             BlueprintName = "KGNAutoLayoutExample"
-            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "8376BBFD1BD6AA290084754D"
             BuildableName = "KGNAutoLayoutExample.app"
             BlueprintName = "KGNAutoLayoutExample"
-            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
+            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
