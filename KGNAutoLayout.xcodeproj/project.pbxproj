@@ -61,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		64A3DB921D2B042A006B8B16 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		83720E211BCB973700C8A14D /* KGNAutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNAutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83720E241BCB973700C8A14D /* KGNAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KGNAutoLayout.h; sourceTree = "<group>"; };
 		83720E261BCB973700C8A14D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,6 +128,7 @@
 		83720E171BCB973700C8A14D = {
 			isa = PBXGroup;
 			children = (
+				64A3DB921D2B042A006B8B16 /* .travis.yml */,
 				8376BBFF1BD6AA290084754D /* Example */,
 				83720E231BCB973700C8A14D /* Source */,
 				83720E2F1BCB973700C8A14D /* Tests */,
