@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "83720E201BCB973700C8A14D"
-               BuildableName = "KGNAutoLayout.framework"
-               BlueprintName = "KGNAutoLayout"
-               ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
+               BuildableName = "KGNAutoLayout-iOS.framework"
+               BlueprintName = "KGNAutoLayout-iOS"
+               ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "83720E2A1BCB973700C8A14D"
-               BuildableName = "KGNAutoLayoutTests.xctest"
-               BlueprintName = "KGNAutoLayoutTests"
-               ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
+               BuildableName = "KGNAutoLayoutTests-iOS.xctest"
+               BlueprintName = "KGNAutoLayoutTests-iOS"
+               ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "83720E201BCB973700C8A14D"
-            BuildableName = "KGNAutoLayout.framework"
-            BlueprintName = "KGNAutoLayout"
-            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
+            BuildableName = "KGNAutoLayout-iOS.framework"
+            BlueprintName = "KGNAutoLayout-iOS"
+            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "83720E201BCB973700C8A14D"
-            BuildableName = "KGNAutoLayout.framework"
-            BlueprintName = "KGNAutoLayout"
-            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
+            BuildableName = "KGNAutoLayout-iOS.framework"
+            BlueprintName = "KGNAutoLayout-iOS"
+            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "83720E201BCB973700C8A14D"
-            BuildableName = "KGNAutoLayout.framework"
-            BlueprintName = "KGNAutoLayout"
-            ReferencedContainer = "container:KGNAutoLayout.xcodeproj">
+            BuildableName = "KGNAutoLayout-iOS.framework"
+            BlueprintName = "KGNAutoLayout-iOS"
+            ReferencedContainer = "container:KGNAutoLayout-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

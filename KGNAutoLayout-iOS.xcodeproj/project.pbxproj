@@ -65,7 +65,7 @@
 		83720E211BCB973700C8A14D /* KGNAutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNAutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83720E241BCB973700C8A14D /* KGNAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KGNAutoLayout.h; sourceTree = "<group>"; };
 		83720E261BCB973700C8A14D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KGNAutoLayoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KGNAutoLayoutTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTests.swift; sourceTree = "<group>"; };
 		83720E321BCB973700C8A14D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8376BBFE1BD6AA290084754D /* KGNAutoLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KGNAutoLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				83720E211BCB973700C8A14D /* KGNAutoLayout.framework */,
-				83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests.xctest */,
+				83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests-iOS.xctest */,
 				8376BBFE1BD6AA290084754D /* KGNAutoLayoutExample.app */,
 			);
 			name = Products;
@@ -206,9 +206,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		83720E201BCB973700C8A14D /* KGNAutoLayout */ = {
+		83720E201BCB973700C8A14D /* KGNAutoLayout-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83720E351BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayout" */;
+			buildConfigurationList = 83720E351BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayout-iOS" */;
 			buildPhases = (
 				83720E1C1BCB973700C8A14D /* Sources */,
 				83720E1D1BCB973700C8A14D /* Frameworks */,
@@ -219,14 +219,14 @@
 			);
 			dependencies = (
 			);
-			name = KGNAutoLayout;
+			name = "KGNAutoLayout-iOS";
 			productName = KGNAutoLayout;
 			productReference = 83720E211BCB973700C8A14D /* KGNAutoLayout.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		83720E2A1BCB973700C8A14D /* KGNAutoLayoutTests */ = {
+		83720E2A1BCB973700C8A14D /* KGNAutoLayoutTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83720E381BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayoutTests" */;
+			buildConfigurationList = 83720E381BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayoutTests-iOS" */;
 			buildPhases = (
 				83720E271BCB973700C8A14D /* Sources */,
 				83720E281BCB973700C8A14D /* Frameworks */,
@@ -237,9 +237,9 @@
 			dependencies = (
 				83720E2E1BCB973700C8A14D /* PBXTargetDependency */,
 			);
-			name = KGNAutoLayoutTests;
+			name = "KGNAutoLayoutTests-iOS";
 			productName = KGNAutoLayoutTests;
-			productReference = 83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests.xctest */;
+			productReference = 83720E2B1BCB973700C8A14D /* KGNAutoLayoutTests-iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8376BBFD1BD6AA290084754D /* KGNAutoLayoutExample */ = {
@@ -282,7 +282,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */;
+			buildConfigurationList = 83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout-iOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -295,8 +295,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				83720E201BCB973700C8A14D /* KGNAutoLayout */,
-				83720E2A1BCB973700C8A14D /* KGNAutoLayoutTests */,
+				83720E201BCB973700C8A14D /* KGNAutoLayout-iOS */,
+				83720E2A1BCB973700C8A14D /* KGNAutoLayoutTests-iOS */,
 				8376BBFD1BD6AA290084754D /* KGNAutoLayoutExample */,
 			);
 		};
@@ -369,12 +369,12 @@
 /* Begin PBXTargetDependency section */
 		83720E2E1BCB973700C8A14D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 83720E201BCB973700C8A14D /* KGNAutoLayout */;
+			target = 83720E201BCB973700C8A14D /* KGNAutoLayout-iOS */;
 			targetProxy = 83720E2D1BCB973700C8A14D /* PBXContainerItemProxy */;
 		};
 		83D2AA561BDA05A6004A6F07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 83720E201BCB973700C8A14D /* KGNAutoLayout */;
+			target = 83720E201BCB973700C8A14D /* KGNAutoLayout-iOS */;
 			targetProxy = 83D2AA551BDA05A6004A6F07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -493,7 +493,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayout;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = KGNAutoLayout;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -512,7 +512,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayout;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = KGNAutoLayout;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -568,7 +568,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */ = {
+		83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83720E331BCB973700C8A14D /* Debug */,
@@ -577,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83720E351BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayout" */ = {
+		83720E351BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayout-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83720E361BCB973700C8A14D /* Debug */,
@@ -586,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83720E381BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayoutTests" */ = {
+		83720E381BCB973700C8A14D /* Build configuration list for PBXNativeTarget "KGNAutoLayoutTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83720E391BCB973700C8A14D /* Debug */,
