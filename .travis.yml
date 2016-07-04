@@ -13,7 +13,7 @@ script:
 
 before_deploy:
   - carthage build --no-skip-current
-  - carthage archive $SCHEME
+  - carthage archive $PROJECT
 
 deploy:
   provider: releases
