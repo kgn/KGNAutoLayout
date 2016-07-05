@@ -179,9 +179,9 @@
 		83720E231BCB973700C8A14D /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */,
-				83720E241BCB973700C8A14D /* KGNAutoLayout.h */,
 				83720E261BCB973700C8A14D /* Info.plist */,
+				83720E241BCB973700C8A14D /* KGNAutoLayout.h */,
+				83B95AA41BCB978C000FA7C9 /* KGNAutoLayout.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -762,6 +762,7 @@
 				64D31D1D1D2B0A0D009B93CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		64D31D281D2B0A72009B93CA /* Build configuration list for PBXNativeTarget "KGNAutoLayoutTests-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -770,6 +771,7 @@
 				64D31D2A1D2B0A72009B93CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */ = {
 			isa = XCConfigurationList;
