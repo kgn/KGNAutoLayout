@@ -387,6 +387,6 @@ itemView.boundVertically([view1, view2, view3], separation: 20)
 - [X] Description
 - [X] Documentation
 - [X] Example App
-- [ ] AppleTV
+- [X] AppleTV
 - [X] Prebuilt Frameworks
 - [ ] Travis Test Matrix
