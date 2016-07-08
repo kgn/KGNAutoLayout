@@ -1574,7 +1574,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeToWidthAndHeightOfItem() {
         let priority = UILayoutPriorityDefaultLow
         let childViewFrame = self.compareViewFrame {
-            let constraints = $0.sizeWidthAndHeightToWidthAndHeight(ofItem: $0.superview!, priority: priority)
+            let constraints = $0.sizeWidthAndHeight(toWidthAndHeight:ofItem: $0.superview!, priority: priority)
             XCTAssertEqual(priority, constraints.width?.priority)
             XCTAssertEqual(priority, constraints.height?.priority)
         }
@@ -1585,7 +1585,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         let offset: CGFloat = 20
         let priority = UILayoutPriorityDefaultHigh
         let childViewFrame = self.compareViewFrame {
-            let constraints = $0.sizeWidthAndHeightToWidthAndHeight(ofItem: $0.superview!, offset: offset, priority: priority)
+            let constraints = $0.sizeWidthAndHeight(toWidthAndHeight:ofItem: $0.superview!, offset: offset, priority: priority)
             XCTAssertEqual(priority, constraints.width?.priority)
             XCTAssertEqual(priority, constraints.height?.priority)
         }
@@ -3104,7 +3104,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Width: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toWidth: view1Width)
+        view1.size(toWidth: view1Width)
 
         boundView.boundHorizontally(views: [view1], priority: priority)
 
@@ -3132,7 +3132,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Width: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toWidth: view1Width)
+        view1.size(toWidth: view1Width)
 
         boundView.boundHorizontally(views: [view1], separation: separation, priority: priority)
 
@@ -3160,12 +3160,12 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Width: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toWidth: view1Width)
+        view1.size(toWidth: view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toWidth: view2Width)
+        view2.size(toWidth: view2Width)
 
         boundView.boundHorizontally(views: [view1, view2], priority: priority)
 
@@ -3198,12 +3198,12 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Width: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toWidth: view1Width)
+        view1.size(toWidth: view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toWidth: view2Width)
+        view2.size(toWidth: view2Width)
 
         boundView.boundHorizontally(views: [view1, view2], separation: separation, priority: priority)
 
@@ -3236,17 +3236,17 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Width: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toWidth: view1Width)
+        view1.size(toWidth: view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toWidth: view2Width)
+        view2.size(toWidth: view2Width)
 
         let view3 = UIView()
         let view3Width: CGFloat = 50
         boundView.addSubview(view3)
-        _ = view3.size(toWidth: view3Width)
+        view3.size(toWidth: view3Width)
 
         boundView.boundHorizontally(views: [view1, view2, view3], priority: priority)
 
@@ -3284,17 +3284,17 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Width: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toWidth: view1Width)
+        view1.size(toWidth: view1Width)
 
         let view2 = UIView()
         let view2Width: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toWidth: view2Width)
+        view2.size(toWidth: view2Width)
 
         let view3 = UIView()
         let view3Width: CGFloat = 50
         boundView.addSubview(view3)
-        _ = view3.size(toWidth: view3Width)
+        view3.size(toWidth: view3Width)
 
         boundView.boundHorizontally(views: [view1, view2, view3], separation: separation, priority: priority)
 
@@ -3332,7 +3332,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Height: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toHeight: view1Height)
+        view1.size(toHeight: view1Height)
 
         boundView.boundVertically(views: [view1], priority: priority)
 
@@ -3360,7 +3360,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Height: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toHeight: view1Height)
+        view1.size(toHeight: view1Height)
 
         boundView.boundVertically(views: [view1], separation: separation, priority: priority)
 
@@ -3388,12 +3388,12 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Height: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toHeight: view1Height)
+        view1.size(toHeight: view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toHeight: view2Height)
+        view2.size(toHeight: view2Height)
 
         boundView.boundVertically(views: [view1, view2], priority: priority)
 
@@ -3426,12 +3426,12 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Height: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toHeight: view1Height)
+        view1.size(toHeight: view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toHeight: view2Height)
+        view2.size(toHeight: view2Height)
 
         boundView.boundVertically(views: [view1, view2], separation: separation, priority: priority)
 
@@ -3464,17 +3464,17 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Height: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toHeight: view1Height)
+        view1.size(toHeight: view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toHeight: view2Height)
+        view2.size(toHeight: view2Height)
 
         let view3 = UIView()
         let view3Height: CGFloat = 50
         boundView.addSubview(view3)
-        _ = view3.size(toHeight: view3Height)
+        view3.size(toHeight: view3Height)
 
         boundView.boundVertically(views: [view1, view2, view3], priority: priority)
 
@@ -3512,17 +3512,17 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         let view1 = UIView()
         let view1Height: CGFloat = 30
         boundView.addSubview(view1)
-        _ = view1.size(toHeight: view1Height)
+        view1.size(toHeight: view1Height)
 
         let view2 = UIView()
         let view2Height: CGFloat = 20
         boundView.addSubview(view2)
-        _ = view2.size(toHeight: view2Height)
+        view2.size(toHeight: view2Height)
 
         let view3 = UIView()
         let view3Height: CGFloat = 50
         boundView.addSubview(view3)
-        _ = view3.size(toHeight: view3Height)
+        view3.size(toHeight: view3Height)
 
         boundView.boundVertically(views: [view1, view2, view3], separation: separation, priority: priority)
 
