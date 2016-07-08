@@ -231,8 +231,8 @@ extension UIView {
             let rightIndex = views.count/2
             let leftIndex = rightIndex-1
 
-            views[leftIndex].constrainAttribute(attribute: .right, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
-            views[rightIndex].constrainAttribute(attribute: .left, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
+            _ = views[leftIndex].constrainAttribute(attribute: .right, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
+            _ = views[rightIndex].constrainAttribute(attribute: .left, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
 
             if views.count > 2 {
                 let rightViews = Array(views[rightIndex+1...views.count-1])
@@ -277,8 +277,8 @@ extension UIView {
             let belowIndex = views.count/2
             let aboveIndex = belowIndex-1
 
-            views[aboveIndex].constrainAttribute(attribute: .bottom, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
-            views[belowIndex].constrainAttribute(attribute: .top, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
+            _ = views[aboveIndex].constrainAttribute(attribute: .bottom, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
+            _ = views[belowIndex].constrainAttribute(attribute: .top, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
 
             if views.count > 2 {
                 let belowViews = Array(views[belowIndex+1...views.count-1])
@@ -530,7 +530,7 @@ extension UIView {
      - Returns: The `width` and `height` constraint objects or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func sizeWidthAndHeight(toWidthAndHeight:ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint?, height: NSLayoutConstraint?) {
+    public func sizeWidthAndHeightToWidthAndHeight(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint?, height: NSLayoutConstraint?) {
         return (
             self.sizeWidthToWidth(ofItem: item, offset: offset, priority: priority),
             self.sizeHeightToHeight(ofItem: item, offset: offset, priority: priority)
@@ -756,7 +756,7 @@ extension UIView {
             lastView = view
         }
 
-        lastView?.pinToRightEdgeOfSuperview(offset: separation, priority: priority)
+        _ = lastView?.pinToRightEdgeOfSuperview(offset: separation, priority: priority)
     }
 
     /**
@@ -785,7 +785,7 @@ extension UIView {
             lastView = view
         }
 
-        lastView?.pinToBottomEdgeOfSuperview(offset: separation, priority: priority)
+        _ = lastView?.pinToBottomEdgeOfSuperview(offset: separation, priority: priority)
     }
 
     // MARK: - Bound

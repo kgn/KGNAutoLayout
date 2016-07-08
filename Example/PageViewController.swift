@@ -31,7 +31,7 @@ class PageViewController: UIViewController {
             let pageView = UIView()
             pageScrollView.addSubview(pageView)
             pageView.clipsToBounds = true
-            pageView.sizeWidthAndHeight(toWidthAndHeight:ofItem: pageScrollView)
+            pageView.sizeWidthAndHeightToWidthAndHeight(ofItem: pageScrollView)
             pageViews.append(pageView)
 
             let albumViewController = AlbumViewController()
