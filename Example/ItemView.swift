@@ -12,21 +12,21 @@ class ItemView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.opaque = false
+        self.isOpaque = false
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.opaque = false
+        self.isOpaque = false
     }
 
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
 
         let context = UIGraphicsGetCurrentContext()
 
-        CGContextSetRGBFillColor(context, 0.2627, 1, 0.1059, 0.3)
-        CGContextFillRect(context, rect)
+        context?.setFillColor(red: 0.2627, green: 1, blue: 0.1059, alpha: 0.3)
+        context?.fill(rect)
     }
 
 }

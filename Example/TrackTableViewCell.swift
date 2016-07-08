@@ -17,9 +17,9 @@ class TrackTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = .clear()
 
-        self.textLabel?.textColor = UIColor.whiteColor()
+        self.textLabel?.textColor = .white()
 
         self.selectedBackgroundView = UIView()
         self.selectedBackgroundView?.backgroundColor = UIColor(red: 0.1843, green: 0.5098, blue: 1, alpha: 1)

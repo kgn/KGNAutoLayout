@@ -15,12 +15,12 @@ class PageViewController: UIViewController {
         super.viewDidLoad()
 
         // Read the data from disk
-        let filePath = NSBundle.mainBundle().pathForResource("Albums", ofType: "plist")
+        let filePath = Bundle.main().pathForResource("Albums", ofType: "plist")
         let albums = NSArray(contentsOfFile: filePath!)
 
         // Setup the paging scroll view
         let pageScrollView = UIScrollView()
-        pageScrollView.pagingEnabled = true
+        pageScrollView.isPagingEnabled = true
         pageScrollView.showsHorizontalScrollIndicator = false
         self.view.addSubview(pageScrollView)
         pageScrollView.pinToEdgesOfSuperview()
@@ -31,7 +31,7 @@ class PageViewController: UIViewController {
             let pageView = UIView()
             pageScrollView.addSubview(pageView)
             pageView.clipsToBounds = true
-            pageView.sizeWidthAndHeightToWidthAndHeightOfItem(pageScrollView)
+            pageView.sizeWidthAndHeight(toWidthAndHeight:ofItem: pageScrollView)
             pageViews.append(pageView)
 
             let albumViewController = AlbumViewController()
@@ -39,25 +39,25 @@ class PageViewController: UIViewController {
             self.addSubViewController(albumViewController, toView: pageView)
 
         }
-        pageScrollView.boundHorizontally(pageViews)
+        pageScrollView.boundHorizontally(views: pageViews)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+        return .lightContent
     }
 
-    func addSubViewController(viewController: UIViewController, toView: UIView? = nil, belowSubview: UIView? = nil) {
+    func addSubViewController(_ viewController: UIViewController, toView: UIView? = nil, belowSubview: UIView? = nil) {
         self.addChildViewController(viewController)
         var parentView = self.view
         if let view = toView {
             parentView = view
         }
         if let subview = belowSubview {
-            parentView.insertSubview(viewController.view, belowSubview: subview)
+            parentView?.insertSubview(viewController.view, belowSubview: subview)
         } else {
-            parentView.addSubview(viewController.view)
+            parentView?.addSubview(viewController.view)
         }
-        viewController.didMoveToParentViewController(self)
+        viewController.didMove(toParentViewController: self)
         viewController.view.pinToEdgesOfSuperview()
     }
 

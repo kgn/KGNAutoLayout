@@ -37,39 +37,39 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     private var albumArtHeightConstraint: NSLayoutConstraint!
     private lazy var albumArtImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
 
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
 
     private lazy var artistLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
-        label.textColor = UIColor.whiteColor()
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleBody)
+        label.textColor = .white()
         return label
     }()
 
     private lazy var albumLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        label.textColor = UIColor.whiteColor()
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleCaption1)
+        label.textColor = .white()
         return label
     }()
 
     private lazy var tableView: UITableView = {
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
-        let tableView = UITableView(frame: CGRect.zero, style: .Plain)
-        tableView.registerClass(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.identifier())
+        let screenWidth = UIScreen.main().bounds.width
+        let statusBarHeight = UIApplication.shared().statusBarFrame.height
+        let tableView = UITableView(frame: CGRect.zero, style: .plain)
+        tableView.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.identifier())
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(statusBarHeight+self.navbarHeight, 0, 0, 0)
-        tableView.separatorColor = UIColor.whiteColor().colorWithAlphaComponent(0.1)
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.separatorColor = UIColor.white().withAlphaComponent(0.1)
+        tableView.backgroundColor = .clear()
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: screenWidth+statusBarHeight+self.navbarHeight))
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
@@ -84,7 +84,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.view.addSubview(self.backgroundImageView)
         self.backgroundImageView.pinToEdgesOfSuperview()
 
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         self.view.addSubview(blurView)
         blurView.pinToEdgesOfSuperview()
 
@@ -92,8 +92,8 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let titleView = UIView()
         self.view.addSubview(titleView)
         titleView.pinToSideEdgesOfSuperview()
-        titleView.sizeToHeight(self.navbarHeight)
-        titleView.positionBelowItem(self.topLayoutGuide)
+        titleView.size(toHeight: self.navbarHeight)
+        titleView.positionBelow(item: self.topLayoutGuide)
 
         self.view.addSubview(self.artistLabel)
         self.artistLabel.centerHorizontallyInSuperview()
@@ -101,18 +101,18 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.view.addSubview(self.albumLabel)
         self.albumLabel.centerHorizontallyInSuperview()
 
-        titleView.centerViewsVertically([self.artistLabel, self.albumLabel])
+        titleView.centerVertically(views: [self.artistLabel, self.albumLabel])
 
-        let navbarBlurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+        let navbarBlurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         self.view.insertSubview(navbarBlurView, belowSubview: titleView)
         navbarBlurView.pinToTopEdgeOfSuperview()
         navbarBlurView.pinToSideEdgesOfSuperview()
-        navbarBlurView.pinBottomEdgeToBottomEdgeOfItem(titleView)
+        navbarBlurView.pinBottomEdgeToBottomEdge(ofItem: titleView)
 
         // Setup the album artwork image view
         self.view.insertSubview(self.albumArtImageView, belowSubview: navbarBlurView)
-        self.albumArtTopConstraint = self.albumArtImageView.positionBelowItem(navbarBlurView)
-        self.albumArtHeightConstraint = self.albumArtImageView.sizeHeightToWidthOfItem(self.view)
+        self.albumArtTopConstraint = self.albumArtImageView.positionBelow(item: navbarBlurView)
+        self.albumArtHeightConstraint = self.albumArtImageView.sizeHeightToWidth(ofItem: self.view)
         self.albumArtImageView.pinToSideEdgesOfSuperview()
 
         // Setup the table view
@@ -120,21 +120,21 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.pinToEdgesOfSuperview()
 
         // Becuase we're making a totally custom "nav bar" handle the status bar frame change
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default().addObserver(
             self, selector: .statusBarFrameDidChange,
-            name: UIApplicationDidChangeStatusBarFrameNotification,
+            name: NSNotification.Name.UIApplicationDidChangeStatusBarFrame,
             object: nil
         )
     }
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default().removeObserver(self)
     }
 
-    func statusBarFrameDidChange(notification: NSNotification) {
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
-        if let frame = notification.userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? CGRect {
+    func statusBarFrameDidChange(_ notification: Notification) {
+        let screenWidth = UIScreen.main().bounds.width
+        let statusBarHeight = UIApplication.shared().statusBarFrame.height
+        if let frame = (notification as NSNotification).userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? CGRect {
             let height = frame.height
             self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(height+self.navbarHeight, 0, 0, 0)
             self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: screenWidth+statusBarHeight+self.navbarHeight))
@@ -143,26 +143,26 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     // MARK: - UITableViewDataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let tracks = self.album?["tracks"] as! [String]
         return tracks.count ?? 0
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TrackTableViewCell.identifier(), forIndexPath: indexPath) as! TrackTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.identifier(), for: indexPath) as! TrackTableViewCell
         let tracks = self.album?["tracks"] as! [String]
-        cell.textLabel?.text = tracks[indexPath.row]
+        cell.textLabel?.text = tracks[(indexPath as NSIndexPath).row]
         return cell
     }
 
     // MARK: - UITableViewDelegate
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     // Custom stretch scroll effect
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > 0 {
             self.albumArtTopConstraint.constant = -scrollView.contentOffset.y
             self.albumArtHeightConstraint.constant = 0

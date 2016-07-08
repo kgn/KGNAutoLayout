@@ -15,12 +15,12 @@ class LayoutView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.opaque = false
+        self.isOpaque = false
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.opaque = false
+        self.isOpaque = false
     }
 
     override func intrinsicContentSize() -> CGSize {
@@ -37,22 +37,22 @@ class LayoutView: UIView {
         return intrinsicContentSize
     }
 
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
 
         let lineWidth: CGFloat = 1
         let lineOffset: CGFloat = 0.5
-        let lineColor = UIColor.whiteColor()
+        let lineColor = UIColor.white()
         let context = UIGraphicsGetCurrentContext()
 
-        CGContextSetRGBFillColor(context, 1, 1, 1, 0.5)
-        CGContextFillRect(context, rect.insetBy(dx: lineOffset, dy: lineOffset))
+        context?.setFillColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        context?.fill(rect.insetBy(dx: lineOffset, dy: lineOffset))
 
-        CGContextSetLineWidth(context, lineWidth)
-        CGContextSetLineJoin(context, .Round)
-        CGContextSetStrokeColorWithColor(context, lineColor.CGColor)
+        context?.setLineWidth(lineWidth)
+        context?.setLineJoin(.round)
+        context?.setStrokeColor(lineColor.cgColor)
 
-        CGContextStrokeRect(context, rect.insetBy(dx: lineOffset, dy: lineOffset))
+        context?.stroke(rect.insetBy(dx: lineOffset, dy: lineOffset))
     }
 
 }

@@ -8,21 +8,21 @@
 
 import UIKit
 
-public enum CacheError: ErrorType {
-    case NoCacheDirectory
+public enum CacheError: ErrorProtocol {
+    case noCacheDirectory
 }
 
 class SnapshotView: UIView {
 
     class func cacheDirectory() -> String {
-        return NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true).first!
+        return NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first!
     }
 
-    func saveSnapshot(imageName: String, _ code: String...) {
+    func saveSnapshot(_ imageName: String, _ code: String...) {
         self.layoutIfNeeded()
 
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, true, 0)
-        if !self.drawViewHierarchyInRect(self.bounds, afterScreenUpdates: true) {
+        if !self.drawHierarchy(in: self.bounds, afterScreenUpdates: true) {
             assert(true, "Screenshot failed")
             return
         }
@@ -34,7 +34,7 @@ class SnapshotView: UIView {
 
         let cachePath = "\(SnapshotView.cacheDirectory())/\(imageName).png"
         let imageData = UIImagePNGRepresentation(image)
-        imageData?.writeToFile(cachePath, atomically: true)
+        _ = try? imageData?.write(to: URL(fileURLWithPath: cachePath), options: [.dataWritingAtomic])
 
         print("")
 
@@ -54,21 +54,21 @@ class SnapshotView: UIView {
         return CGSize(width: 280, height: 280)
     }
 
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
 
         let spaceing: CGFloat = 40
         let lineOffset: CGFloat = 0.5
         let lineColor = UIColor(white: 1, alpha: 0.2)
         let context = UIGraphicsGetCurrentContext()
 
-        CGContextSetRGBFillColor(context, 0.1373, 0.5412, 0.9412, 1)
-        CGContextFillRect(context, rect)
+        context?.setFillColor(red: 0.1373, green: 0.5412, blue: 0.9412, alpha: 1)
+        context?.fill(rect)
 
-        CGContextSetLineWidth(context, 1)
-        CGContextSetLineCap(context, .Round)
-        CGContextSetStrokeColorWithColor(context, lineColor.CGColor)
-        CGContextSetLineDash(context, 0, [2, 2], 2)
+        context?.setLineWidth(1)
+        context?.setLineCap(.round)
+        context?.setStrokeColor(lineColor.cgColor)
+        context?.setLineDash(phase: 0, lengths: [2, 2], count: 2)
 
         var x = spaceing
         while x < rect.maxX {
@@ -78,11 +78,11 @@ class SnapshotView: UIView {
             } else {
                 innerX -= lineOffset
             }
-            CGContextSaveGState(context);
-            CGContextMoveToPoint(context, innerX, rect.minY);
-            CGContextAddLineToPoint(context, innerX, rect.maxY);
-            CGContextStrokePath(context);
-            CGContextRestoreGState(context);
+            context?.saveGState();
+            context?.moveTo(x: innerX, y: rect.minY);
+            context?.addLineTo(x: innerX, y: rect.maxY);
+            context?.strokePath();
+            context?.restoreGState();
             x += spaceing
         }
 
@@ -94,11 +94,11 @@ class SnapshotView: UIView {
             } else {
                 innerY -= lineOffset
             }
-            CGContextSaveGState(context);
-            CGContextMoveToPoint(context, rect.minX, innerY);
-            CGContextAddLineToPoint(context, rect.maxX, innerY);
-            CGContextStrokePath(context);
-            CGContextRestoreGState(context);
+            context?.saveGState();
+            context?.moveTo(x: rect.minX, y: innerY);
+            context?.addLineTo(x: rect.maxX, y: innerY);
+            context?.strokePath();
+            context?.restoreGState();
             y += spaceing
         }
     }
