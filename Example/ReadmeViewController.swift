@@ -900,7 +900,7 @@ class ReadmeViewController: UIViewController {
         viewHorizontalSpringView2.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.sizeWidthAndHeight(toWidthAndHeight:ofItem: itemView)"
+            "view.sizeWidthAndHeightToWidthAndHeight(ofItem: itemView)"
         )
     }
 
@@ -1362,7 +1362,7 @@ class ReadmeViewController: UIViewController {
         parentView.fillHorizontally(views: [view1, view2, view3], separation: 20)
 
         parentView.saveSnapshot(#function,
-            "parentView.fillHorizontally([view1, view2, view3], separation: 20)"
+            "parentView.fillHorizontally(views: [view1, view2, view3], separation: 20)"
         )
     }
 
@@ -1413,7 +1413,7 @@ class ReadmeViewController: UIViewController {
         parentView.fillVertically(views: [view1, view2, view3], separation: 20)
 
         parentView.saveSnapshot(#function,
-            "parentView.fillVertically([view1, view2, view3], separation: 20)"
+            "parentView.fillVertically(views: [view1, view2, view3], separation: 20)"
         )
     }
 
@@ -1467,7 +1467,7 @@ class ReadmeViewController: UIViewController {
         springView4.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "itemView.boundHorizontally([view1, view2, view3], separation: 20)"
+            "itemView.boundHorizontally(views: [view1, view2, view3], separation: 20)"
         )
     }
 
@@ -1523,7 +1523,7 @@ class ReadmeViewController: UIViewController {
         springView4.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "itemView.boundVertically([view1, view2, view3], separation: 20)"
+            "itemView.boundVertically(views: [view1, view2, view3], separation: 20)"
         )
     }
 
