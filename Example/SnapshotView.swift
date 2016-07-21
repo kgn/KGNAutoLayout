@@ -34,7 +34,7 @@ class SnapshotView: UIView {
 
         let cachePath = "\(SnapshotView.cacheDirectory())/\(imageName).png"
         let imageData = UIImagePNGRepresentation(image)
-        _ = try? imageData?.write(to: URL(fileURLWithPath: cachePath), options: [.dataWritingAtomic])
+        _ = try? imageData?.write(to: URL(fileURLWithPath: cachePath), options: [])
 
         print("")
 
