@@ -120,15 +120,15 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.pinToEdgesOfSuperview()
 
         // Becuase we're making a totally custom "nav bar" handle the status bar frame change
-        NotificationCenter.default().addObserver(
+        NotificationCenter.default.addObserver(
             self, selector: .statusBarFrameDidChange,
-            name: NSNotification.Name.UIApplicationDidChangeStatusBarFrame,
+            name: .UIApplicationDidChangeStatusBarFrame,
             object: nil
         )
     }
 
     deinit {
-        NotificationCenter.default().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
     func statusBarFrameDidChange(_ notification: Notification) {

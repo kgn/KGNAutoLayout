@@ -15,7 +15,7 @@ class PageViewController: UIViewController {
         super.viewDidLoad()
 
         // Read the data from disk
-        let filePath = Bundle.main().pathForResource("Albums", ofType: "plist")
+        let filePath = Bundle.main.pathForResource("Albums", ofType: "plist")
         let albums = NSArray(contentsOfFile: filePath!)
 
         // Setup the paging scroll view
