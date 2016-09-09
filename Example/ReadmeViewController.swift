@@ -74,7 +74,7 @@ class ReadmeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.white()
+        self.view.backgroundColor = UIColor.white
     }
 
     override func viewDidAppear(_ animated: Bool) {

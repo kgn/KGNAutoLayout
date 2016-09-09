@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum CacheError: ErrorProtocol {
+public enum CacheError: Error {
     case noCacheDirectory
 }
 
@@ -50,7 +50,7 @@ class SnapshotView: UIView {
         print("")
     }
 
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize: CGSize {
         return CGSize(width: 280, height: 280)
     }
 

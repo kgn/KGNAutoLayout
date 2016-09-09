@@ -23,8 +23,8 @@ class LayoutView: UIView {
         self.isOpaque = false
     }
 
-    override func intrinsicContentSize() -> CGSize {
-        var intrinsicContentSize = super.intrinsicContentSize()
+    override var intrinsicContentSize: CGSize {
+        var intrinsicContentSize = super.intrinsicContentSize
 
         if let intrinsicContentWidth = self.intrinsicContentWidth {
             intrinsicContentSize.width = intrinsicContentWidth
@@ -42,7 +42,7 @@ class LayoutView: UIView {
 
         let lineWidth: CGFloat = 1
         let lineOffset: CGFloat = 0.5
-        let lineColor = UIColor.white()
+        let lineColor = UIColor.white
         let context = UIGraphicsGetCurrentContext()
 
         context?.setFillColor(red: 1, green: 1, blue: 1, alpha: 0.5)

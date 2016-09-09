@@ -50,26 +50,26 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     private lazy var artistLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleBody)
-        label.textColor = .white()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .white
         return label
     }()
 
     private lazy var albumLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyleCaption1)
-        label.textColor = .white()
+        label.font = UIFont.preferredFont(forTextStyle: .caption1)
+        label.textColor = .white
         return label
     }()
 
     private lazy var tableView: UITableView = {
-        let screenWidth = UIScreen.main().bounds.width
-        let statusBarHeight = UIApplication.shared().statusBarFrame.height
+        let screenWidth = UIScreen.main.bounds.width
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.identifier())
         tableView.scrollIndicatorInsets = UIEdgeInsetsMake(statusBarHeight+self.navbarHeight, 0, 0, 0)
-        tableView.separatorColor = UIColor.white().withAlphaComponent(0.1)
-        tableView.backgroundColor = .clear()
+        tableView.separatorColor = UIColor.white.withAlphaComponent(0.1)
+        tableView.backgroundColor = .clear
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: screenWidth+statusBarHeight+self.navbarHeight))
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
@@ -132,8 +132,8 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func statusBarFrameDidChange(_ notification: Notification) {
-        let screenWidth = UIScreen.main().bounds.width
-        let statusBarHeight = UIApplication.shared().statusBarFrame.height
+        let screenWidth = UIScreen.main.bounds.width
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
         if let frame = (notification as NSNotification).userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? CGRect {
             let height = frame.height
             self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(height+self.navbarHeight, 0, 0, 0)
@@ -144,14 +144,14 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let tracks = self.album?["tracks"] as! [String]
-        return tracks.count ?? 0
+        let tracks = self.album?["tracks"] as? [String]
+        return tracks?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TrackTableViewCell.identifier(), for: indexPath) as! TrackTableViewCell
-        let tracks = self.album?["tracks"] as! [String]
-        cell.textLabel?.text = tracks[(indexPath as NSIndexPath).row]
+        let tracks = self.album?["tracks"] as? [String]
+        cell.textLabel?.text = tracks?[(indexPath as NSIndexPath).row]
         return cell
     }
 

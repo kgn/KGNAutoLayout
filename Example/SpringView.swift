@@ -18,7 +18,7 @@ class SpringView: UIView {
     var showEnds: Bool = true
     var direction: SpringViewDirection = .horizontal
 
-    override func intrinsicContentSize() -> CGSize {
+    override var intrinsicContentSize: CGSize {
         if direction == .horizontal {
             return CGSize(width: UIViewNoIntrinsicMetric, height: 20)
         } else {

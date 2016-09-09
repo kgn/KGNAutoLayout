@@ -8,10 +8,9 @@
 
 import UIKit
 
+// MARK: - Pin: Superview
 extension UIView {
-
-    // MARK: - Pin: Superview
-
+    
     /**
     Pin a view to all four edges of it's super view, with an offset(inset from the edges).
 
@@ -40,7 +39,7 @@ extension UIView {
      */
     @discardableResult
     public func pinToTopEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainEdgeAttribute(edgeAttribute: .top, offset: offset, priority: priority)
+        return self.constrain(edgeAttribute: .top, offset: offset, priority: priority)
     }
 
     /**
@@ -53,7 +52,7 @@ extension UIView {
      */
     @discardableResult
     public func pinToRightEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainEdgeAttribute(edgeAttribute: .right, offset: -offset, priority: priority)
+        return self.constrain(edgeAttribute: .right, offset: -offset, priority: priority)
     }
 
 
@@ -67,7 +66,7 @@ extension UIView {
      */
     @discardableResult
     public func pinToBottomEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainEdgeAttribute(edgeAttribute: .bottom, offset: -offset, priority: priority)
+        return self.constrain(edgeAttribute: .bottom, offset: -offset, priority: priority)
     }
 
     /**
@@ -80,7 +79,7 @@ extension UIView {
      */
     @discardableResult
     public func pinToLeftEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainEdgeAttribute(edgeAttribute: .left, offset: offset, priority: priority)
+        return self.constrain(edgeAttribute: .left, offset: offset, priority: priority)
     }
 
     /**
@@ -115,7 +114,10 @@ extension UIView {
         )
     }
 
-    // MARK: - Pin: Edges
+}
+
+// MARK: - Pin: Edges
+extension UIView {
 
     /**
     Pin the top edge of the view to the top edge of another item.
@@ -128,7 +130,7 @@ extension UIView {
     */
     @discardableResult
     public func pinTopEdgeToTopEdge(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .top, toAttribute: .top, ofItem: item, offset: offset, priority: priority)
+        return self.constrain(attribute: .top, toAttribute: .top, ofItem: item, offset: offset, priority: priority)
     }
 
     /**
@@ -142,7 +144,7 @@ extension UIView {
      */
     @discardableResult
     public func pinRightEdgeToRightEdge(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .right, toAttribute: .right, ofItem: item, offset: -offset, priority: priority)
+        return self.constrain(attribute: .right, toAttribute: .right, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
@@ -156,7 +158,7 @@ extension UIView {
      */
     @discardableResult
     public func pinBottomEdgeToBottomEdge(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .bottom, toAttribute: .bottom, ofItem: item, offset: -offset, priority: priority)
+        return self.constrain(attribute: .bottom, toAttribute: .bottom, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
@@ -170,10 +172,13 @@ extension UIView {
      */
     @discardableResult
     public func pinLeftEdgeToLeftEdge(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .left, toAttribute: .left, ofItem: item, offset: offset, priority: priority)
+        return self.constrain(attribute: .left, toAttribute: .left, ofItem: item, offset: offset, priority: priority)
     }
+    
+}
 
-    // MARK: - Center
+// MARK: - Center
+extension UIView {
 
     /**
     Center the view horizontally and vertically within it's superview.
@@ -201,7 +206,7 @@ extension UIView {
      */
     @discardableResult
     public func centerHorizontallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainEdgeAttribute(edgeAttribute: .centerX, offset: offset, priority: priority)
+        return self.constrain(edgeAttribute: .centerX, offset: offset, priority: priority)
     }
 
     /**
@@ -214,7 +219,7 @@ extension UIView {
      */
     @discardableResult
     public func centerVerticallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainEdgeAttribute(edgeAttribute: .centerY, offset: offset, priority: priority)
+        return self.constrain(edgeAttribute: .centerY, offset: offset, priority: priority)
     }
 
     /**
@@ -231,8 +236,8 @@ extension UIView {
             let rightIndex = views.count/2
             let leftIndex = rightIndex-1
 
-            _ = views[leftIndex].constrainAttribute(attribute: .right, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
-            _ = views[rightIndex].constrainAttribute(attribute: .left, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
+            _ = views[leftIndex].constrain(attribute: .right, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
+            _ = views[rightIndex].constrain(attribute: .left, toAttribute: .centerX, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
 
             if views.count > 2 {
                 let rightViews = Array(views[rightIndex+1...views.count-1])
@@ -277,8 +282,8 @@ extension UIView {
             let belowIndex = views.count/2
             let aboveIndex = belowIndex-1
 
-            _ = views[aboveIndex].constrainAttribute(attribute: .bottom, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
-            _ = views[belowIndex].constrainAttribute(attribute: .top, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
+            _ = views[aboveIndex].constrain(attribute: .bottom, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:-separation/2, priority: priority)
+            _ = views[belowIndex].constrain(attribute: .top, toAttribute: .centerY, ofItem: self, relatedBy: .lessThanOrEqual, offset:separation/2, priority: priority)
 
             if views.count > 2 {
                 let belowViews = Array(views[belowIndex+1...views.count-1])
@@ -320,7 +325,7 @@ extension UIView {
      */
     @discardableResult
     public func centerHorizontally(toItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .centerX, toAttribute: .centerX, ofItem: item, offset: offset, priority: priority)
+        return self.constrain(attribute: .centerX, toAttribute: .centerX, ofItem: item, offset: offset, priority: priority)
     }
 
     /**
@@ -334,12 +339,14 @@ extension UIView {
      */
     @discardableResult
     public func centerVertically(toItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .centerY, toAttribute: .centerY, ofItem: item, offset: offset, priority: priority)
+        return self.constrain(attribute: .centerY, toAttribute: .centerY, ofItem: item, offset: offset, priority: priority)
     }
 
+}
 
-    // MARK: - Size
-
+// MARK: - Size
+extension UIView {
+    
     /**
     Constrain the width of the view.
 
@@ -350,7 +357,7 @@ extension UIView {
     */
     @discardableResult
     public func size(toWidth width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainSizeAttribute(sizeAttribute: .width, size: width, priority: priority)
+        return self.constrain(sizeAttribute: .width, size: width, priority: priority)
     }
 
     /**
@@ -363,7 +370,7 @@ extension UIView {
      */
     @discardableResult
     public func size(toMinWidth width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainSizeAttribute(sizeAttribute: .width, size: width, relatedBy: .greaterThanOrEqual, priority: priority)
+        return self.constrain(sizeAttribute: .width, size: width, relatedBy: .greaterThanOrEqual, priority: priority)
     }
 
     /**
@@ -376,7 +383,7 @@ extension UIView {
      */
     @discardableResult
     public func size(toMaxWidth width: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainSizeAttribute(sizeAttribute: .width, size: width, relatedBy: .lessThanOrEqual, priority: priority)
+        return self.constrain(sizeAttribute: .width, size: width, relatedBy: .lessThanOrEqual, priority: priority)
     }
 
     /**
@@ -389,7 +396,7 @@ extension UIView {
      */
     @discardableResult
     public func size(toHeight height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainSizeAttribute(sizeAttribute: .height, size: height, priority: priority)
+        return self.constrain(sizeAttribute: .height, size: height, priority: priority)
     }
 
     /**
@@ -402,7 +409,7 @@ extension UIView {
      */
     @discardableResult
     public func size(toMinHeight height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainSizeAttribute(sizeAttribute: .height, size: height, relatedBy: .greaterThanOrEqual, priority: priority)
+        return self.constrain(sizeAttribute: .height, size: height, relatedBy: .greaterThanOrEqual, priority: priority)
     }
 
     /**
@@ -415,7 +422,7 @@ extension UIView {
      */
     @discardableResult
     public func size(toMaxHeight height: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
-        return self.constrainSizeAttribute(sizeAttribute: .height, size: height, relatedBy: .lessThanOrEqual, priority: priority)
+        return self.constrain(sizeAttribute: .height, size: height, relatedBy: .lessThanOrEqual, priority: priority)
     }
 
     /**
@@ -477,7 +484,7 @@ extension UIView {
      */
     @discardableResult
     public func sizeWidthToWidth(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .width, toAttribute: .width, ofItem: item, offset: -offset, priority: priority)
+        return self.constrain(attribute: .width, toAttribute: .width, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
@@ -491,7 +498,7 @@ extension UIView {
      */
     @discardableResult
     public func sizeHeightToHeight(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .height, toAttribute: .height, ofItem: item, offset: -offset, priority: priority)
+        return self.constrain(attribute: .height, toAttribute: .height, ofItem: item, offset: -offset, priority: priority)
     }
 
     /**
@@ -505,7 +512,7 @@ extension UIView {
      */
     @discardableResult
     public func sizeHeightToWidth(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .height, toAttribute: .width, ofItem:item, offset: -offset, priority: priority)
+        return self.constrain(attribute: .height, toAttribute: .width, ofItem:item, offset: -offset, priority: priority)
     }
 
     /**
@@ -518,7 +525,7 @@ extension UIView {
      */
     @discardableResult
     public func sizeWidthToHeight(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .width, toAttribute: .height, ofItem:item, offset: -offset, priority: priority)
+        return self.constrain(attribute: .width, toAttribute: .height, ofItem:item, offset: -offset, priority: priority)
     }
 
     /**
@@ -547,7 +554,7 @@ extension UIView {
      */
     @discardableResult
     public func sizeHeightToWidth(withAspectRatio aspectRatio: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .height, toAttribute: .width, ofItem: self, multiplier: aspectRatio, priority: priority)
+        return self.constrain(attribute: .height, toAttribute: .width, ofItem: self, multiplier: aspectRatio, priority: priority)
     }
 
     /**
@@ -560,11 +567,14 @@ extension UIView {
      */
     @discardableResult
     public func sizeWidthToHeight(withAspectRatio aspectRatio: CGFloat, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .width, toAttribute: .height, ofItem: self, multiplier: aspectRatio, priority: priority)
+        return self.constrain(attribute: .width, toAttribute: .height, ofItem: self, multiplier: aspectRatio, priority: priority)
     }
 
-    // MARK: - Position
+}
 
+// MARK: - Position
+extension UIView {
+    
     /**
     Position the view above an item.
 
@@ -576,7 +586,7 @@ extension UIView {
     */
     @discardableResult
     public func positionAbove(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .bottom, toAttribute:.top, ofItem:item, offset:-offset, priority: priority)
+        return self.constrain(attribute: .bottom, toAttribute:.top, ofItem:item, offset:-offset, priority: priority)
     }
 
     /**
@@ -590,7 +600,7 @@ extension UIView {
      */
     @discardableResult
     public func positionToTheRight(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .left, toAttribute:.right, ofItem:item, offset:offset, priority: priority)
+        return self.constrain(attribute: .left, toAttribute:.right, ofItem:item, offset:offset, priority: priority)
     }
 
     /**
@@ -604,7 +614,7 @@ extension UIView {
      */
     @discardableResult
     public func positionBelow(item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .top, toAttribute:.bottom, ofItem:item, offset:offset, priority: priority)
+        return self.constrain(attribute: .top, toAttribute:.bottom, ofItem:item, offset:offset, priority: priority)
     }
 
 
@@ -619,7 +629,7 @@ extension UIView {
      */
     @discardableResult
     public func positionToTheLeft(ofItem item: AnyObject, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
-        return self.constrainAttribute(attribute: .right, toAttribute:.left, ofItem:item, offset:-offset, priority: priority)
+        return self.constrain(attribute: .right, toAttribute:.left, ofItem:item, offset:-offset, priority: priority)
     }
 
     /**
@@ -690,8 +700,11 @@ extension UIView {
         }
     }
 
-    // MARK: - Between
+}
 
+// MARK: - Between
+extension UIView {
+    
     /**
     Fit the view between the top and bottom items.
 
@@ -727,9 +740,12 @@ extension UIView {
             self.positionToTheLeft(ofItem: rightItem, offset: offset, priority: priority)
         )
     }
+    
+}
 
-    // MARK: - Fill
-
+// MARK: - Fill
+extension UIView {
+    
     /**
     Horizontally layout and fill the view with views.
 
@@ -788,8 +804,11 @@ extension UIView {
         _ = lastView?.pinToBottomEdgeOfSuperview(offset: separation, priority: priority)
     }
 
-    // MARK: - Bound
+}
 
+// MARK: - Bound
+extension UIView {
+    
     /**
     Horizontally layout views and then bound the left and right edges of the view to the left and right edges of the first and last views.
     This method is useful for filling scroll views with views becuase the passed views will be laid out,
@@ -842,7 +861,10 @@ extension UIView {
         self.pinBottomEdgeToBottomEdge(ofItem: views.last!, offset: -separation, priority: priority)
     }
 
-    // MARK: - General
+}
+
+// MARK: - General
+extension UIView {
 
     /**
     Wrapper for the standard `NSLayoutConstraint` with some default values added for ease of use.
@@ -876,14 +898,16 @@ extension UIView {
         self.addConstraint(constraint)
         return constraint
     }
+}
 
-    // MARK: - Private
+// MARK: - Private
+extension UIView {
 
-    private func constrainSizeAttribute(sizeAttribute: NSLayoutAttribute, size: CGFloat = 0, relatedBy: NSLayoutRelation = .equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    fileprivate func constrain(sizeAttribute: NSLayoutAttribute, size: CGFloat = 0, relatedBy: NSLayoutRelation = .equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrain(item: self, attribute: sizeAttribute, relatedBy: relatedBy, multiplier: 0, offset: size, priority: priority)
     }
 
-    private func constrainEdgeAttribute(edgeAttribute: NSLayoutAttribute, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    fileprivate func constrain(edgeAttribute: NSLayoutAttribute, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         assert(self.superview != nil, "Can't create constraints without a super view")
         guard let superview = self.superview else {
             return nil
@@ -892,7 +916,7 @@ extension UIView {
         return superview.constrain(item: self, attribute: edgeAttribute, toItem: superview, attribute: edgeAttribute, offset: offset, priority: priority)
     }
 
-    private func constrainAttribute(attribute: NSLayoutAttribute, toAttribute itemAttribute: NSLayoutAttribute, ofItem item: AnyObject, relatedBy: NSLayoutRelation = .equal, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    fileprivate func constrain(attribute: NSLayoutAttribute, toAttribute itemAttribute: NSLayoutAttribute, ofItem item: AnyObject, relatedBy: NSLayoutRelation = .equal, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         let commonSuperview: UIView? = {
             if item is UIView == false {
                 return self.superview

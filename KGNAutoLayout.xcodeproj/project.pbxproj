@@ -433,6 +433,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = T3DCX7XWL8;
 						DevelopmentTeamName = "David Keegan";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					83720E201BCB973700C8A14D = {
@@ -441,6 +442,7 @@
 					};
 					83720E2A1BCB973700C8A14D = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0800;
 					};
 					8376BBFD1BD6AA290084754D = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -867,6 +869,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.davidkeegan.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -879,6 +882,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.davidkeegan.$(TARGET_NAME)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -939,6 +943,7 @@
 				64EF096B1D3043D400274984 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		83720E1B1BCB973700C8A14D /* Build configuration list for PBXProject "KGNAutoLayout" */ = {
 			isa = XCConfigurationList;
