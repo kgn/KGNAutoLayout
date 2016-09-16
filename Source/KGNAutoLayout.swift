@@ -483,7 +483,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func sizeWidthToWidth(ofItem item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func sizeWidthToWidth(of item: Any, withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(attribute: .width, toAttribute: .width, ofItem: item, offset: -offset, priority: priority)
     }
 
@@ -497,7 +497,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func sizeHeightToHeight(ofItem item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func sizeHeightToHeight(of item: Any, withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(attribute: .height, toAttribute: .height, ofItem: item, offset: -offset, priority: priority)
     }
 
@@ -511,7 +511,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func sizeHeightToWidth(ofItem item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func sizeHeightToWidth(of item: Any, withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(attribute: .height, toAttribute: .width, ofItem:item, offset: -offset, priority: priority)
     }
 
@@ -524,7 +524,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func sizeWidthToHeight(ofItem item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func sizeWidthToHeight(of item: Any, withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(attribute: .width, toAttribute: .height, ofItem:item, offset: -offset, priority: priority)
     }
 
@@ -537,10 +537,10 @@ extension UIView {
      - Returns: The `width` and `height` constraint objects or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func sizeWidthAndHeightToWidthAndHeight(ofItem item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint?, height: NSLayoutConstraint?) {
+    public func sizeWidthAndHeightToWidthAndHeight(of item: Any, withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (width: NSLayoutConstraint?, height: NSLayoutConstraint?) {
         return (
-            self.sizeWidthToWidth(ofItem: item, offset: offset, priority: priority),
-            self.sizeHeightToHeight(ofItem: item, offset: offset, priority: priority)
+            self.sizeWidthToWidth(of: item, withOffset: offset, priority: priority),
+            self.sizeHeightToHeight(of: item, withOffset: offset, priority: priority)
         )
     }
 
@@ -764,7 +764,7 @@ extension UIView {
         var lastView: UIView!
         for view in views {
             if lastView != nil{
-                lastView.sizeWidthToWidth(ofItem: view)
+                lastView.sizeWidthToWidth(of: view)
                 view.positionToTheRight(ofItem: lastView, offset: separation, priority: priority)
             } else {
                 view.pinToLeftEdgeOfSuperview(withOffset: separation, priority: priority)
@@ -793,7 +793,7 @@ extension UIView {
         var lastView: UIView!
         for view in views {
             if lastView != nil{
-                lastView.sizeHeightToHeight(ofItem: view)
+                lastView.sizeHeightToHeight(of: view)
                 view.positionBelow(item: lastView, offset: separation, priority: priority)
             } else {
                 view.pinToTopEdgeOfSuperview(withOffset: separation, priority: priority)

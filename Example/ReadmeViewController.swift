@@ -756,7 +756,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(view)
         view.centerInSuperview()
         view.size(toHeight: 80)
-        view.sizeWidthToWidth(ofItem: itemView)
+        view.sizeWidthToWidth(of: itemView)
 
         let horizontalSpringView1 = SpringView()
         view.addSubview(horizontalSpringView1)
@@ -769,7 +769,7 @@ class ReadmeViewController: UIViewController {
         horizontalSpringView2.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.sizeWidthToWidth(ofItem: itemView)"
+            "view.sizeWidthToWidth(of: itemView)"
         )
     }
 
@@ -785,7 +785,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(view)
         view.centerInSuperview()
         view.size(toWidth: 80)
-        view.sizeHeightToHeight(ofItem: itemView)
+        view.sizeHeightToHeight(of: itemView)
 
         let verticalSpringView1 = SpringView()
         verticalSpringView1.direction = .vertical
@@ -800,7 +800,7 @@ class ReadmeViewController: UIViewController {
         verticalSpringView2.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.sizeHeightToHeight(ofItem: itemView)"
+            "view.sizeHeightToHeight(of: itemView)"
         )
     }
 
@@ -816,7 +816,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(view)
         view.centerInSuperview()
         view.size(toWidth: 80)
-        view.sizeHeightToWidth(ofItem: itemView)
+        view.sizeHeightToWidth(of: itemView)
 
         let itemViewHorizontalSpringView = SpringView()
         itemView.addSubview(itemViewHorizontalSpringView)
@@ -830,7 +830,7 @@ class ReadmeViewController: UIViewController {
         viewHorizontalSpringView.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.sizeHeightToWidth(ofItem: itemView)"
+            "view.sizeHeightToWidth(of: itemView)"
         )
     }
 
@@ -846,7 +846,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(view)
         view.centerInSuperview()
         view.size(toHeight: 80)
-        view.sizeWidthToHeight(ofItem: itemView)
+        view.sizeWidthToHeight(of: itemView)
 
         let itemViewHorizontalSpringView = SpringView()
         itemViewHorizontalSpringView.direction = .vertical
@@ -860,7 +860,7 @@ class ReadmeViewController: UIViewController {
         viewHorizontalSpringView.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.sizeWidthToHeight(ofItem: itemView)"
+            "view.sizeWidthToHeight(of: itemView)"
         )
     }
 
@@ -875,7 +875,7 @@ class ReadmeViewController: UIViewController {
         let view = LayoutView()
         parentView.addSubview(view)
         view.centerInSuperview()
-        view.sizeWidthAndHeightToWidthAndHeight(ofItem: itemView)
+        view.sizeWidthAndHeightToWidthAndHeight(of: itemView)
 
         let itemViewHorizontalSpringView1 = SpringView()
         itemViewHorizontalSpringView1.direction = .vertical
@@ -900,7 +900,7 @@ class ReadmeViewController: UIViewController {
         viewHorizontalSpringView2.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.sizeWidthAndHeightToWidthAndHeight(ofItem: itemView)"
+            "view.sizeWidthAndHeightToWidthAndHeight(of: itemView)"
         )
     }
 

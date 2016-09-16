@@ -112,7 +112,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Setup the album artwork image view
         self.view.insertSubview(self.albumArtImageView, belowSubview: navbarBlurView)
         self.albumArtTopConstraint = self.albumArtImageView.positionBelow(item: navbarBlurView)
-        self.albumArtHeightConstraint = self.albumArtImageView.sizeHeightToWidth(ofItem: self.view)
+        self.albumArtHeightConstraint = self.albumArtImageView.sizeHeightToWidth(of: self.view)
         self.albumArtImageView.pinToSideEdgesOfSuperview()
 
         // Setup the table view
