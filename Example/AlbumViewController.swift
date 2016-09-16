@@ -107,7 +107,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.view.insertSubview(navbarBlurView, belowSubview: titleView)
         navbarBlurView.pinToTopEdgeOfSuperview()
         navbarBlurView.pinToSideEdgesOfSuperview()
-        navbarBlurView.pinBottomEdgeToBottomEdge(ofItem: titleView)
+        navbarBlurView.pinBottomEdgeToBottomEdge(of: titleView)
 
         // Setup the album artwork image view
         self.view.insertSubview(self.albumArtImageView, belowSubview: navbarBlurView)

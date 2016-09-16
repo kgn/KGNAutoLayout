@@ -68,7 +68,7 @@ class SnapshotView: UIView {
         context?.setLineWidth(1)
         context?.setLineCap(.round)
         context?.setStrokeColor(lineColor.cgColor)
-        context?.setLineDash(phase: 0, lengths: [2, 2], count: 2)
+        context?.setLineDash(phase: 0, lengths: [2, 2])
 
         var x = spaceing
         while x < rect.maxX {
@@ -78,11 +78,11 @@ class SnapshotView: UIView {
             } else {
                 innerX -= lineOffset
             }
-            context?.saveGState();
-            context?.moveTo(x: innerX, y: rect.minY);
-            context?.addLineTo(x: innerX, y: rect.maxY);
-            context?.strokePath();
-            context?.restoreGState();
+            context?.saveGState()
+            context?.move(to: CGPoint(x: innerX, y: rect.minY))
+            context?.addLine(to: CGPoint(x: innerX, y: rect.maxY))
+            context?.strokePath()
+            context?.restoreGState()
             x += spaceing
         }
 
@@ -94,11 +94,11 @@ class SnapshotView: UIView {
             } else {
                 innerY -= lineOffset
             }
-            context?.saveGState();
-            context?.moveTo(x: rect.minX, y: innerY);
-            context?.addLineTo(x: rect.maxX, y: innerY);
-            context?.strokePath();
-            context?.restoreGState();
+            context?.saveGState()
+            context?.move(to: CGPoint(x: rect.minX, y: innerY))
+            context?.addLine(to: CGPoint(x: rect.maxX, y: innerY))
+            context?.strokePath()
+            context?.restoreGState()
             y += spaceing
         }
     }

@@ -11,11 +11,9 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // BUG: 8.0 beta (8S128d) can't be `lazy`
-    // https://bugs.swift.org/browse/SR-1825
     var window: UIWindow? = {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.tintColor = .white()
+        window.tintColor = .white
         return window
     }()
     

@@ -22,7 +22,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinTopEdgeToTopEdge(ofItem: itemView, priority: priority)
+            let constraint = $0.pinTopEdgeToTopEdge(of: itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -43,7 +43,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinTopEdgeToTopEdge(ofItem: itemView, offset: offset, priority: priority)
+            let constraint = $0.pinTopEdgeToTopEdge(of: itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -63,7 +63,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinRightEdgeToRightEdge(ofItem: itemView, priority: priority)
+            let constraint = $0.pinRightEdgeToRightEdge(of: itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -84,7 +84,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinRightEdgeToRightEdge(ofItem: itemView, offset: offset, priority: priority)
+            let constraint = $0.pinRightEdgeToRightEdge(of: itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -104,7 +104,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinBottomEdgeToBottomEdge(ofItem: itemView, priority: priority)
+            let constraint = $0.pinBottomEdgeToBottomEdge(of: itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -125,7 +125,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinBottomEdgeToBottomEdge(ofItem: itemView, offset: offset, priority: priority)
+            let constraint = $0.pinBottomEdgeToBottomEdge(of: itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -145,7 +145,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinLeftEdgeToLeftEdge(ofItem: itemView, priority: priority)
+            let constraint = $0.pinLeftEdgeToLeftEdge(of: itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -166,7 +166,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.pinLeftEdgeToLeftEdge(ofItem: itemView, offset: offset, priority: priority)
+            let constraint = $0.pinLeftEdgeToLeftEdge(of: itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero

@@ -50,43 +50,43 @@ class SpringView: UIView {
 
         if direction == .horizontal {
             context?.saveGState()
-            context?.setLineDash(phase: 0, lengths: [2, 2], count: 2)
-            context?.moveTo(x: rect.minX, y: rect.midY+lineOffset)
-            context?.addLineTo(x: rect.maxX, y: rect.midY+lineOffset)
+            context?.setLineDash(phase: 0, lengths: [2, 2])
+            context?.move(to: CGPoint(x: rect.minX, y: rect.midY+lineOffset))
+            context?.addLine(to: CGPoint(x: rect.maxX, y: rect.midY+lineOffset))
             context?.strokePath()
             context?.restoreGState()
 
             if self.showEnds {
                 context?.saveGState()
-                context?.moveTo(x: lineOffset, y: rect.minY)
-                context?.addLineTo(x: lineOffset, y: rect.maxY)
+                context?.move(to: CGPoint(x: lineOffset, y: rect.minY))
+                context?.addLine(to: CGPoint(x: lineOffset, y: rect.maxY))
                 context?.strokePath()
                 context?.restoreGState()
 
                 context?.saveGState()
-                context?.moveTo(x: rect.maxX-lineOffset, y: rect.minY)
-                context?.addLineTo(x: rect.maxX-lineOffset, y: rect.maxY)
+                context?.move(to: CGPoint(x: rect.maxX-lineOffset, y: rect.minY))
+                context?.addLine(to: CGPoint(x: rect.maxX-lineOffset, y: rect.maxY))
                 context?.strokePath()
                 context?.restoreGState()
             }
         } else {
             context?.saveGState()
-            context?.setLineDash(phase: 0, lengths: [2, 2], count: 2)
-            context?.moveTo(x: rect.midX+lineOffset, y: rect.minY)
-            context?.addLineTo(x: rect.midX+lineOffset, y: rect.maxY)
+            context?.setLineDash(phase: 0, lengths: [2, 2])
+            context?.move(to: CGPoint(x: rect.midX+lineOffset, y: rect.minY))
+            context?.addLine(to: CGPoint(x: rect.midX+lineOffset, y: rect.maxY))
             context?.strokePath()
             context?.restoreGState()
 
             if self.showEnds {
                 context?.saveGState()
-                context?.moveTo(x: rect.minX, y: lineOffset)
-                context?.addLineTo(x: rect.maxX, y: lineOffset)
+                context?.move(to: CGPoint(x: rect.minX, y: lineOffset))
+                context?.addLine(to: CGPoint(x: rect.maxX, y: lineOffset))
                 context?.strokePath()
                 context?.restoreGState()
 
                 context?.saveGState()
-                context?.moveTo(x: rect.minX, y: rect.maxY-lineOffset)
-                context?.addLineTo(x: rect.maxX, y: rect.maxY-lineOffset)
+                context?.move(to: CGPoint(x: rect.minX, y: rect.maxY-lineOffset))
+                context?.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY-lineOffset))
                 context?.strokePath()
                 context?.restoreGState()
             }
