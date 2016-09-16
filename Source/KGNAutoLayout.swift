@@ -20,12 +20,12 @@ extension UIView {
     - Returns: The `top`, `right`, `bottom`, and `left` constraint objects or `nil` if the constraint could not be made because the view does not have a super view.
     */
     @discardableResult
-    public func pinToEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, right: NSLayoutConstraint?, bottom: NSLayoutConstraint?, left: NSLayoutConstraint?) {
+    public func pinToEdgesOfSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, right: NSLayoutConstraint?, bottom: NSLayoutConstraint?, left: NSLayoutConstraint?) {
         return (
-            self.pinToTopEdgeOfSuperview(offset: offset, priority: priority),
-            self.pinToRightEdgeOfSuperview(offset: offset, priority: priority),
-            self.pinToBottomEdgeOfSuperview(offset: offset, priority: priority),
-            self.pinToLeftEdgeOfSuperview(offset: offset, priority: priority)
+            self.pinToTopEdgeOfSuperview(withOffset: offset, priority: priority),
+            self.pinToRightEdgeOfSuperview(withOffset: offset, priority: priority),
+            self.pinToBottomEdgeOfSuperview(withOffset: offset, priority: priority),
+            self.pinToLeftEdgeOfSuperview(withOffset: offset, priority: priority)
         )
     }
 
@@ -38,7 +38,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func pinToTopEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func pinToTopEdgeOfSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(edgeAttribute: .top, offset: offset, priority: priority)
     }
 
@@ -51,7 +51,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func pinToRightEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func pinToRightEdgeOfSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(edgeAttribute: .right, offset: -offset, priority: priority)
     }
 
@@ -65,7 +65,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func pinToBottomEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func pinToBottomEdgeOfSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(edgeAttribute: .bottom, offset: -offset, priority: priority)
     }
 
@@ -78,7 +78,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func pinToLeftEdgeOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func pinToLeftEdgeOfSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(edgeAttribute: .left, offset: offset, priority: priority)
     }
 
@@ -91,10 +91,10 @@ extension UIView {
      - Returns: The `left` and `right` constraint objects or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func pinToSideEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint?, right: NSLayoutConstraint?) {
+    public func pinToSideEdgesOfSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint?, right: NSLayoutConstraint?) {
         return (
-            self.pinToLeftEdgeOfSuperview(offset: offset, priority: priority),
-            self.pinToRightEdgeOfSuperview(offset: offset, priority: priority)
+            self.pinToLeftEdgeOfSuperview(withOffset: offset, priority: priority),
+            self.pinToRightEdgeOfSuperview(withOffset: offset, priority: priority)
         )
     }
 
@@ -107,10 +107,10 @@ extension UIView {
      - Returns: The `top` and `bottom` constraint objects or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func pinToTopAndBottomEdgesOfSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, bottom: NSLayoutConstraint?) {
+    public func pinToTopAndBottomEdgesOfSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, bottom: NSLayoutConstraint?) {
         return (
-            self.pinToTopEdgeOfSuperview(offset: offset, priority: priority),
-            self.pinToBottomEdgeOfSuperview(offset: offset, priority: priority)
+            self.pinToTopEdgeOfSuperview(withOffset: offset, priority: priority),
+            self.pinToBottomEdgeOfSuperview(withOffset: offset, priority: priority)
         )
     }
 
@@ -757,7 +757,7 @@ extension UIView {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count == 1 {
-            views.first?.pinToSideEdgesOfSuperview(offset: separation, priority: priority)
+            views.first?.pinToSideEdgesOfSuperview(withOffset: separation, priority: priority)
             return
         }
 
@@ -767,12 +767,12 @@ extension UIView {
                 lastView.sizeWidthToWidth(ofItem: view)
                 view.positionToTheRight(ofItem: lastView, offset: separation, priority: priority)
             } else {
-                view.pinToLeftEdgeOfSuperview(offset: separation, priority: priority)
+                view.pinToLeftEdgeOfSuperview(withOffset: separation, priority: priority)
             }
             lastView = view
         }
 
-        _ = lastView?.pinToRightEdgeOfSuperview(offset: separation, priority: priority)
+        _ = lastView?.pinToRightEdgeOfSuperview(withOffset: separation, priority: priority)
     }
 
     /**
@@ -786,7 +786,7 @@ extension UIView {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count == 1 {
-            views.first?.pinToTopAndBottomEdgesOfSuperview(offset: separation, priority: priority)
+            views.first?.pinToTopAndBottomEdgesOfSuperview(withOffset: separation, priority: priority)
             return
         }
 
@@ -796,12 +796,12 @@ extension UIView {
                 lastView.sizeHeightToHeight(ofItem: view)
                 view.positionBelow(item: lastView, offset: separation, priority: priority)
             } else {
-                view.pinToTopEdgeOfSuperview(offset: separation, priority: priority)
+                view.pinToTopEdgeOfSuperview(withOffset: separation, priority: priority)
             }
             lastView = view
         }
 
-        _ = lastView?.pinToBottomEdgeOfSuperview(offset: separation, priority: priority)
+        _ = lastView?.pinToBottomEdgeOfSuperview(withOffset: separation, priority: priority)
     }
 
 }

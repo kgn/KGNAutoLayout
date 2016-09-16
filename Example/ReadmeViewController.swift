@@ -105,7 +105,7 @@ class ReadmeViewController: UIViewController {
     func pinToEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToEdgesOfSuperview(offset: 20)
+        view.pinToEdgesOfSuperview(withOffset: 20)
 
         let topSpringView = SpringView()
         topSpringView.direction = .vertical
@@ -134,14 +134,14 @@ class ReadmeViewController: UIViewController {
         leftSpringView.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.pinToEdgesOfSuperview(offset: 20)"
+            "view.pinToEdgesOfSuperview(withOffset: 20)"
         )
     }
 
     func pinToTopEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToTopEdgeOfSuperview(offset: 20)
+        view.pinToTopEdgeOfSuperview(withOffset: 20)
         view.centerHorizontallyInSuperview()
         view.size(toWidthAndHeight: 160)
 
@@ -153,14 +153,14 @@ class ReadmeViewController: UIViewController {
         topSpringView.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.pinToTopEdgeOfSuperview(offset: 20)"
+            "view.pinToTopEdgeOfSuperview(withOffset: 20)"
         )
     }
 
     func pinToRightEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToRightEdgeOfSuperview(offset: 20)
+        view.pinToRightEdgeOfSuperview(withOffset: 20)
         view.centerVerticallyInSuperview()
         view.size(toWidthAndHeight: 160)
 
@@ -171,14 +171,14 @@ class ReadmeViewController: UIViewController {
         rightSpringView.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.pinToRightEdgeOfSuperview(offset: 20)"
+            "view.pinToRightEdgeOfSuperview(withOffset: 20)"
         )
     }
 
     func pinToBottomEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToBottomEdgeOfSuperview(offset: 20)
+        view.pinToBottomEdgeOfSuperview(withOffset: 20)
         view.centerHorizontallyInSuperview()
         view.size(toWidthAndHeight: 160)
 
@@ -190,14 +190,14 @@ class ReadmeViewController: UIViewController {
         bottomSpringView.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.pinToBottomEdgeOfSuperview(offset: 20)"
+            "view.pinToBottomEdgeOfSuperview(withOffset: 20)"
         )
     }
 
     func pinToLeftEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToLeftEdgeOfSuperview(offset: 20)
+        view.pinToLeftEdgeOfSuperview(withOffset: 20)
         view.centerVerticallyInSuperview()
         view.size(toWidthAndHeight: 160)
 
@@ -208,14 +208,14 @@ class ReadmeViewController: UIViewController {
         leftSpringView.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.pinToLeftEdgeOfSuperview(offset: 20)"
+            "view.pinToLeftEdgeOfSuperview(withOffset: 20)"
         )
     }
 
     func pinToSideEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToSideEdgesOfSuperview(offset: 20)
+        view.pinToSideEdgesOfSuperview(withOffset: 20)
         view.centerVerticallyInSuperview()
         view.size(toHeight: 100)
 
@@ -232,14 +232,14 @@ class ReadmeViewController: UIViewController {
         leftSpringView.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.pinToSideEdgesOfSuperview(offset: 20)"
+            "view.pinToSideEdgesOfSuperview(withOffset: 20)"
         )
     }
 
     func pinToTopAndBottomEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToTopAndBottomEdgesOfSuperview(offset: 20)
+        view.pinToTopAndBottomEdgesOfSuperview(withOffset: 20)
         view.centerHorizontallyInSuperview()
         view.size(toWidth: 100)
 
@@ -258,7 +258,7 @@ class ReadmeViewController: UIViewController {
         bottomSpringView.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "view.pinToTopAndBottomEdgesOfSuperview(offset: 20)"
+            "view.pinToTopAndBottomEdgesOfSuperview(withOffset: 20)"
         )
     }
 
@@ -531,7 +531,7 @@ class ReadmeViewController: UIViewController {
 
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToTopEdgeOfSuperview(offset: 20)
+        view.pinToTopEdgeOfSuperview(withOffset: 20)
         view.centerHorizontally(toItem: itemView)
         view.size(toWidth: 60)
         view.size(toHeight: 80)
@@ -557,7 +557,7 @@ class ReadmeViewController: UIViewController {
 
         let view = LayoutView()
         parentView.addSubview(view)
-        view.pinToRightEdgeOfSuperview(offset: 30)
+        view.pinToRightEdgeOfSuperview(withOffset: 30)
         view.centerVertically(toItem: itemView)
         view.size(toWidth: 60)
         view.size(toHeight: 80)
