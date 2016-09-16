@@ -22,7 +22,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionAbove(item: itemView, priority: priority)
+            let constraint = $0.positionAbove(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -43,7 +43,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionAbove(item: itemView, offset: offset, priority: priority)
+            let constraint = $0.positionAbove(itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -63,7 +63,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionToTheRight(ofItem: itemView, priority: priority)
+            let constraint = $0.positionToTheRight(of: itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -84,7 +84,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionToTheRight(ofItem: itemView, offset: offset, priority: priority)
+            let constraint = $0.positionToTheRight(of: itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -104,7 +104,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionBelow(item: itemView, priority: priority)
+            let constraint = $0.positionBelow(itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -125,7 +125,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionBelow(item: itemView, offset: offset, priority: priority)
+            let constraint = $0.positionBelow(itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -145,7 +145,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionToTheLeft(ofItem: itemView, priority: priority)
+            let constraint = $0.positionToTheLeft(of: itemView, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -166,7 +166,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
             let itemView = UIView(frame: itemFrame)
             $0.superview!.addSubview(itemView)
 
-            let constraint = $0.positionToTheLeft(ofItem: itemView, offset: offset, priority: priority)
+            let constraint = $0.positionToTheLeft(of: itemView, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraint?.priority)
         }
         var frame = CGRect.zero
@@ -188,7 +188,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionAbove(views: [view1], priority: priority)
+        [view1].positionAbove(itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -212,7 +212,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionAbove(views: [view1], offset: offset, priority: priority)
+        [view1].positionAbove(itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -240,7 +240,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionAbove(views: [view1, view2], priority: priority)
+        [view1, view2].positionAbove(itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -276,7 +276,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionAbove(views: [view1, view2], offset: offset, priority: priority)
+        [view1, view2].positionAbove(itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -315,7 +315,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        itemView.positionAbove(views: [view1, view2, view3], priority: priority)
+        [view1, view2, view3].positionAbove(itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -362,7 +362,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        itemView.positionAbove(views: [view1, view2, view3], offset: offset, priority: priority)
+        [view1, view2, view3].positionAbove(itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -397,7 +397,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionToTheRight(views: [view1], priority: priority)
+        [view1].positionToTheRight(of: itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -421,7 +421,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionToTheRight(views: [view1], offset: offset, priority: priority)
+        [view1].positionToTheRight(of: itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -449,7 +449,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionToTheRight(views: [view1, view2], priority: priority)
+        [view1, view2].positionToTheRight(of: itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -485,7 +485,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionToTheRight(views: [view1, view2], offset: offset, priority: priority)
+        [view1, view2].positionToTheRight(of: itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -524,7 +524,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        itemView.positionToTheRight(views: [view1, view2, view3], priority: priority)
+        [view1, view2, view3].positionToTheRight(of: itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -571,7 +571,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        itemView.positionToTheRight(views: [view1, view2, view3], offset: offset, priority: priority)
+        [view1, view2, view3].positionToTheRight(of: itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -606,7 +606,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionBelow(views: [view1], priority: priority)
+        [view1].positionBelow(itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -630,7 +630,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionBelow(views: [view1], offset: offset, priority: priority)
+        [view1].positionBelow(itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -658,7 +658,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionBelow(views: [view1, view2], priority: priority)
+        [view1, view2].positionBelow(itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -694,7 +694,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionBelow(views: [view1, view2], offset: offset, priority: priority)
+        [view1, view2].positionBelow(itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -733,7 +733,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        itemView.positionBelow(views: [view1, view2, view3], priority: priority)
+        [view1, view2, view3].positionBelow(itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -780,7 +780,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        itemView.positionBelow(views: [view1, view2, view3], offset: offset, priority: priority)
+        [view1, view2, view3].positionBelow(itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -815,7 +815,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionToTheLeft(views: [view1], priority: priority)
+        [view1].positionToTheLeft(of: itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -839,7 +839,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(itemView)
         parentView.addSubview(view1)
 
-        itemView.positionToTheLeft(views: [view1], offset: offset, priority: priority)
+        [view1].positionToTheLeft(of: itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -867,7 +867,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionToTheLeft(views: [view1, view2], priority: priority)
+        [view1, view2].positionToTheLeft(of: itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -903,7 +903,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        itemView.positionToTheLeft(views: [view1, view2], offset: offset, priority: priority)
+        [view1, view2].positionToTheLeft(of: itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -942,7 +942,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        itemView.positionToTheLeft(views: [view1, view2, view3], priority: priority)
+        [view1, view2, view3].positionToTheLeft(of: itemView, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -989,7 +989,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
         
-        itemView.positionToTheLeft(views: [view1, view2, view3], offset: offset, priority: priority)
+        [view1, view2, view3].positionToTheLeft(of: itemView, withOffset: offset, priority: priority)
         parentView.layoutIfNeeded()
         
         var frame1 = CGRect.zero
