@@ -283,7 +283,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(springView)
         springView.positionAbove(item: view)
         springView.pinTopEdgeToTopEdge(of: itemView)
-        springView.centerHorizontally(toItem: view)
+        springView.centerHorizontally(to: view)
 
         parentView.saveSnapshot(#function,
             "view.pinTopEdgeToTopEdge(of: itemView, withOffset: 20)"
@@ -308,7 +308,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(springView)
         springView.positionToTheRight(ofItem: view)
         springView.pinRightEdgeToRightEdge(of: itemView)
-        springView.centerVertically(toItem: view)
+        springView.centerVertically(to: view)
 
         parentView.saveSnapshot(#function,
             "view.pinRightEdgeToRightEdge(of: itemView, withOffset: 20)"
@@ -334,7 +334,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(springView)
         springView.positionBelow(item: view)
         springView.pinBottomEdgeToBottomEdge(of: itemView)
-        springView.centerHorizontally(toItem: view)
+        springView.centerHorizontally(to: view)
 
         parentView.saveSnapshot(#function,
             "view.pinBottomEdgeToBottomEdge(of: itemView, withOffset: 20)"
@@ -359,7 +359,7 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(springView)
         springView.positionToTheLeft(ofItem: view)
         springView.pinLeftEdgeToLeftEdge(of: itemView)
-        springView.centerVertically(toItem: view)
+        springView.centerVertically(to: view)
 
         parentView.saveSnapshot(#function,
             "view.pinLeftEdgeToLeftEdge(of: itemView, withOffset: 20)"
@@ -452,7 +452,7 @@ class ReadmeViewController: UIViewController {
         view3.centerVerticallyInSuperview()
         view3.size(toWidthAndHeight: 50)
 
-        parentView.centerHorizontally(views: [view1, view2, view3], separation: 20)
+        parentView.centerHorizontally([view1, view2, view3], withSeparation: 20)
 
         let springView1 = SpringView()
         parentView.addSubview(springView1)
@@ -467,7 +467,7 @@ class ReadmeViewController: UIViewController {
         springView2.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "parentView.centerHorizontally(views: [view1, view2, view3], separation: 20)"
+            "parentView.centerHorizontally([view1, view2, view3], separation: 20)"
         )
     }
 
@@ -507,10 +507,10 @@ class ReadmeViewController: UIViewController {
         springView2.positionAbove(item: view3)
         springView2.centerHorizontallyInSuperview()
 
-        parentView.centerVertically(views: [view1, view2, view3], separation: 20)
+        parentView.centerVertically([view1, view2, view3], withSeparation: 20)
 
         parentView.saveSnapshot(#function,
-            "parentView.centerVertically(views: [view1, view2, view3], separation: 20)"
+            "parentView.centerVertically([view1, view2, view3], separation: 20)"
         )
     }
 
@@ -523,21 +523,21 @@ class ReadmeViewController: UIViewController {
 
         let itemView = ItemView()
         parentView.addSubview(itemView)
-        itemView.centerHorizontallyInSuperview(offset: 40)
+        itemView.centerHorizontallyInSuperview(withOffset: 40)
         itemView.size(toWidthAndHeight: 30)
         itemView.pinToBottomEdgeOfSuperview()
 
-        verticalSpringView.centerHorizontally(toItem: itemView)
+        verticalSpringView.centerHorizontally(to: itemView)
 
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToTopEdgeOfSuperview(withOffset: 20)
-        view.centerHorizontally(toItem: itemView)
+        view.centerHorizontally(to: itemView)
         view.size(toWidth: 60)
         view.size(toHeight: 80)
 
         parentView.saveSnapshot(#function,
-            "view.centerHorizontally(toItem: itemView)"
+            "view.centerHorizontally(to: itemView)"
         )
     }
 
@@ -549,21 +549,21 @@ class ReadmeViewController: UIViewController {
 
         let itemView = ItemView()
         parentView.addSubview(itemView)
-        itemView.centerVerticallyInSuperview(offset: 40)
+        itemView.centerVerticallyInSuperview(withOffset: 40)
         itemView.size(toWidthAndHeight: 30)
         itemView.pinToLeftEdgeOfSuperview()
 
-        horizontalSpringView.centerVertically(toItem: itemView)
+        horizontalSpringView.centerVertically(to: itemView)
 
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToRightEdgeOfSuperview(withOffset: 30)
-        view.centerVertically(toItem: itemView)
+        view.centerVertically(to: itemView)
         view.size(toWidth: 60)
         view.size(toHeight: 80)
 
         parentView.saveSnapshot(#function,
-            "view.centerVertically(toItem: itemView)"
+            "view.centerVertically(to: itemView)"
         )
     }
 
@@ -1267,14 +1267,14 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(topSpringView)
         topSpringView.positionBelow(item: topView)
         topSpringView.positionAbove(item: view)
-        topSpringView.centerHorizontally(toItem: view)
+        topSpringView.centerHorizontally(to: view)
 
         let bottomSpringView = SpringView()
         bottomSpringView.direction = .vertical
         parentView.addSubview(bottomSpringView)
         bottomSpringView.positionBelow(item: view)
         bottomSpringView.positionAbove(item: bottomView)
-        bottomSpringView.centerHorizontally(toItem: view)
+        bottomSpringView.centerHorizontally(to: view)
 
         parentView.saveSnapshot(#function,
             "view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)"
@@ -1304,13 +1304,13 @@ class ReadmeViewController: UIViewController {
         parentView.addSubview(leftSpringView)
         leftSpringView.positionToTheRight(ofItem: leftView)
         leftSpringView.positionToTheLeft(ofItem: view)
-        leftSpringView.centerVertically(toItem: view)
+        leftSpringView.centerVertically(to: view)
 
         let rightSpringView = SpringView()
         parentView.addSubview(rightSpringView)
         rightSpringView.positionToTheRight(ofItem: view)
         rightSpringView.positionToTheLeft(ofItem: rightView)
-        rightSpringView.centerVertically(toItem: view)
+        rightSpringView.centerVertically(to: view)
 
         parentView.saveSnapshot(#function,
             "view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)"

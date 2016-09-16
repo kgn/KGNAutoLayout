@@ -101,7 +101,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.view.addSubview(self.albumLabel)
         self.albumLabel.centerHorizontallyInSuperview()
 
-        titleView.centerVertically(views: [self.artistLabel, self.albumLabel])
+        titleView.centerVertically([self.artistLabel, self.albumLabel])
 
         let navbarBlurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         self.view.insertSubview(navbarBlurView, belowSubview: titleView)

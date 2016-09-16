@@ -189,10 +189,10 @@ extension UIView {
     - Returns: The `horizontal` and `vertical` constraint objects or `nil` if the constraint could not be made because the view does not have a super view.
     */
     @discardableResult
-    public func centerInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (horizontal: NSLayoutConstraint?, vertical: NSLayoutConstraint?){
+    public func centerInSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (horizontal: NSLayoutConstraint?, vertical: NSLayoutConstraint?){
         return (
-            self.centerHorizontallyInSuperview(offset: offset, priority: priority),
-            self.centerVerticallyInSuperview(offset: offset, priority: priority)
+            self.centerHorizontallyInSuperview(withOffset: offset, priority: priority),
+            self.centerVerticallyInSuperview(withOffset: offset, priority: priority)
         )
     }
 
@@ -205,7 +205,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func centerHorizontallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func centerHorizontallyInSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(edgeAttribute: .centerX, offset: offset, priority: priority)
     }
 
@@ -218,7 +218,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the view does not have a super view.
      */
     @discardableResult
-    public func centerVerticallyInSuperview(offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func centerVerticallyInSuperview(withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(edgeAttribute: .centerY, offset: offset, priority: priority)
     }
 
@@ -229,10 +229,10 @@ extension UIView {
      - Parameter separation: The separation between the views.
      - Parameter priority: The priority of the constraints.
      */
-    public func centerHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
+    public func centerHorizontally(_ views: [UIView], withSeparation separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
-        if views.count % 2  == 0 { // even
+        if views.count % 2 == 0 { // even
             let rightIndex = views.count/2
             let leftIndex = rightIndex-1
 
@@ -275,10 +275,10 @@ extension UIView {
      - Parameter separation: The separation between the views.
      - Parameter priority: The priority of the constraints.
      */
-    public func centerVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
+    public func centerVertically(_ views: [UIView], withSeparation separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
-        if views.count % 2  == 0 { // even
+        if views.count % 2 == 0 { // even
             let belowIndex = views.count/2
             let aboveIndex = belowIndex-1
 
@@ -324,7 +324,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func centerHorizontally(toItem item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func centerHorizontally(to item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(attribute: .centerX, toAttribute: .centerX, ofItem: item, offset: offset, priority: priority)
     }
 
@@ -338,7 +338,7 @@ extension UIView {
      - Returns: The constraint object or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func centerVertically(toItem item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    public func centerVertically(to item: Any, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         return self.constrain(attribute: .centerY, toAttribute: .centerY, ofItem: item, offset: offset, priority: priority)
     }
 
