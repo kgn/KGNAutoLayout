@@ -24,7 +24,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view1)
         view1.size(toWidth: view1Width)
 
-        boundView.boundHorizontally(views: [view1], priority: priority)
+        boundView.boundHorizontally(withViews: [view1], priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -52,7 +52,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view1)
         view1.size(toWidth: view1Width)
 
-        boundView.boundHorizontally(views: [view1], separation: separation, priority: priority)
+        boundView.boundHorizontally(withViews: [view1], separation: separation, priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -85,7 +85,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view2)
         view2.size(toWidth: view2Width)
 
-        boundView.boundHorizontally(views: [view1, view2], priority: priority)
+        boundView.boundHorizontally(withViews: [view1, view2], priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -123,7 +123,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view2)
         view2.size(toWidth: view2Width)
 
-        boundView.boundHorizontally(views: [view1, view2], separation: separation, priority: priority)
+        boundView.boundHorizontally(withViews: [view1, view2], separation: separation, priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -166,7 +166,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view3)
         view3.size(toWidth: view3Width)
 
-        boundView.boundHorizontally(views: [view1, view2, view3], priority: priority)
+        boundView.boundHorizontally(withViews: [view1, view2, view3], priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -214,7 +214,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view3)
         view3.size(toWidth: view3Width)
 
-        boundView.boundHorizontally(views: [view1, view2, view3], separation: separation, priority: priority)
+        boundView.boundHorizontally(withViews: [view1, view2, view3], separation: separation, priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -252,7 +252,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view1)
         view1.size(toHeight: view1Height)
 
-        boundView.boundVertically(views: [view1], priority: priority)
+        boundView.boundVertically(withViews: [view1], priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -280,7 +280,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view1)
         view1.size(toHeight: view1Height)
 
-        boundView.boundVertically(views: [view1], separation: separation, priority: priority)
+        boundView.boundVertically(withViews: [view1], separation: separation, priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -313,7 +313,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view2)
         view2.size(toHeight: view2Height)
 
-        boundView.boundVertically(views: [view1, view2], priority: priority)
+        boundView.boundVertically(withViews: [view1, view2], priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -351,7 +351,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view2)
         view2.size(toHeight: view2Height)
 
-        boundView.boundVertically(views: [view1, view2], separation: separation, priority: priority)
+        boundView.boundVertically(withViews: [view1, view2], separation: separation, priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -394,7 +394,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view3)
         view3.size(toHeight: view3Height)
 
-        boundView.boundVertically(views: [view1, view2, view3], priority: priority)
+        boundView.boundVertically(withViews: [view1, view2, view3], priority: priority)
 
         parentView.layoutIfNeeded()
 
@@ -442,7 +442,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         boundView.addSubview(view3)
         view3.size(toHeight: view3Height)
 
-        boundView.boundVertically(views: [view1, view2, view3], separation: separation, priority: priority)
+        boundView.boundVertically(withViews: [view1, view2, view3], separation: separation, priority: priority)
 
         parentView.layoutIfNeeded()
         

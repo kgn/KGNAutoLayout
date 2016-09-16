@@ -1258,7 +1258,7 @@ class ReadmeViewController: UIViewController {
 
         let view = LayoutView()
         parentView.addSubview(view)
-        view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)
+        view.fitBetween(top: topView, andBottom: bottomView, withOffset: 20)
         view.centerHorizontallyInSuperview()
         view.size(toWidth: 80)
 
@@ -1277,7 +1277,7 @@ class ReadmeViewController: UIViewController {
         bottomSpringView.centerHorizontally(to: view)
 
         parentView.saveSnapshot(#function,
-            "view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)"
+            "view.fitBetween(top: topView, andBottom: bottomView, withOffset: 20)"
         )
     }
 
@@ -1296,7 +1296,7 @@ class ReadmeViewController: UIViewController {
 
         let view = LayoutView()
         parentView.addSubview(view)
-        view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)
+        view.fitBetween(left: leftView, andRight: rightView, withOffset: 20)
         view.centerVerticallyInSuperview()
         view.size(toHeight: 80)
 
@@ -1313,7 +1313,7 @@ class ReadmeViewController: UIViewController {
         rightSpringView.centerVertically(to: view)
 
         parentView.saveSnapshot(#function,
-            "view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)"
+            "view.fitBetween(left: leftView, andRight: rightView, withOffset: 20)"
         )
     }
 
@@ -1359,10 +1359,10 @@ class ReadmeViewController: UIViewController {
         springView4.pinToRightEdgeOfSuperview()
         springView4.centerVerticallyInSuperview()
 
-        parentView.fillHorizontally(views: [view1, view2, view3], separation: 20)
+        parentView.fillHorizontally(withViews: [view1, view2, view3], separation: 20)
 
         parentView.saveSnapshot(#function,
-            "parentView.fillHorizontally(views: [view1, view2, view3], separation: 20)"
+            "parentView.fillHorizontally(withViews: [view1, view2, view3], separation: 20)"
         )
     }
 
@@ -1410,10 +1410,10 @@ class ReadmeViewController: UIViewController {
         springView4.pinToBottomEdgeOfSuperview()
         springView4.centerHorizontallyInSuperview()
 
-        parentView.fillVertically(views: [view1, view2, view3], separation: 20)
+        parentView.fillVertically(withViews: [view1, view2, view3], separation: 20)
 
         parentView.saveSnapshot(#function,
-            "parentView.fillVertically(views: [view1, view2, view3], separation: 20)"
+            "parentView.fillVertically(withViews: [view1, view2, view3], separation: 20)"
         )
     }
 
@@ -1440,7 +1440,7 @@ class ReadmeViewController: UIViewController {
         view3.centerVerticallyInSuperview()
         view3.size(toWidthAndHeight: 80)
 
-        itemView.boundHorizontally(views: [view1, view2, view3], separation: 20)
+        itemView.boundHorizontally(withViews: [view1, view2, view3], separation: 20)
 
         let springView1 = SpringView()
         parentView.addSubview(springView1)
@@ -1467,7 +1467,7 @@ class ReadmeViewController: UIViewController {
         springView4.centerVerticallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "itemView.boundHorizontally(views: [view1, view2, view3], separation: 20)"
+            "itemView.boundHorizontally(withViews: [view1, view2, view3], separation: 20)"
         )
     }
 
@@ -1492,7 +1492,7 @@ class ReadmeViewController: UIViewController {
         view3.centerHorizontallyInSuperview()
         view3.size(toWidthAndHeight: 80)
 
-        itemView.boundVertically(views: [view1, view2, view3], separation: 20)
+        itemView.boundVertically(withViews: [view1, view2, view3], separation: 20)
 
         let springView1 = SpringView()
         springView1.direction = .vertical
@@ -1523,7 +1523,7 @@ class ReadmeViewController: UIViewController {
         springView4.centerHorizontallyInSuperview()
 
         parentView.saveSnapshot(#function,
-            "itemView.boundVertically(views: [view1, view2, view3], separation: 20)"
+            "itemView.boundVertically(withViews: [view1, view2, view3], separation: 20)"
         )
     }
 

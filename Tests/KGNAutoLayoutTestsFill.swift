@@ -20,7 +20,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(view1)
 
-        parentView.fillHorizontally(views: [view1], priority: priority)
+        parentView.fillHorizontally(withViews: [view1], priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -39,7 +39,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(view1)
 
-        parentView.fillHorizontally(views: [view1], separation: separation, priority: priority)
+        parentView.fillHorizontally(withViews: [view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -63,7 +63,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        parentView.fillHorizontally(views: [view1, view2], priority: priority)
+        parentView.fillHorizontally(withViews: [view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -93,7 +93,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        parentView.fillHorizontally(views: [view1, view2], separation: separation, priority: priority)
+        parentView.fillHorizontally(withViews: [view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -127,7 +127,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        parentView.fillHorizontally(views: [view1, view2, view3], priority: priority)
+        parentView.fillHorizontally(withViews: [view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -167,7 +167,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        parentView.fillHorizontally(views: [view1, view2, view3], separation: separation, priority: priority)
+        parentView.fillHorizontally(withViews: [view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -198,7 +198,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(view1)
 
-        parentView.fillVertically(views: [view1], priority: priority)
+        parentView.fillVertically(withViews: [view1], priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -217,7 +217,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         let parentView = UIView(frame: self.parentViewFrame)
         parentView.addSubview(view1)
 
-        parentView.fillVertically(views: [view1], separation: separation, priority: priority)
+        parentView.fillVertically(withViews: [view1], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -241,7 +241,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        parentView.fillVertically(views: [view1, view2], priority: priority)
+        parentView.fillVertically(withViews: [view1, view2], priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -271,7 +271,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view1)
         parentView.addSubview(view2)
 
-        parentView.fillVertically(views: [view1, view2], separation: separation, priority: priority)
+        parentView.fillVertically(withViews: [view1, view2], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -305,7 +305,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        parentView.fillVertically(views: [view1, view2, view3], priority: priority)
+        parentView.fillVertically(withViews: [view1, view2, view3], priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero
@@ -345,7 +345,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
         parentView.addSubview(view2)
         parentView.addSubview(view3)
 
-        parentView.fillVertically(views: [view1, view2, view3], separation: separation, priority: priority)
+        parentView.fillVertically(withViews: [view1, view2, view3], separation: separation, priority: priority)
         parentView.layoutIfNeeded()
 
         var frame1 = CGRect.zero

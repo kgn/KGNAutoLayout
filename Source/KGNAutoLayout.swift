@@ -554,15 +554,15 @@ extension UIView {
     /**
     Fit the view between the top and bottom items.
 
-    - Parameter topItem: The top item to fit below.
-    - Parameter bottomItem: The bottom item to fit below.
+    - Parameter top: The top item to fit below.
+    - Parameter andBottom: The bottom item to fit below.
     - Parameter withOffset: How far to offset(seperate) the view from the top and bottom items.
     - Parameter priority: The priority of the constraints.
 
     - Returns: The top and bottom constraint objects or `nil` if the constraint could not be made because the views do not share a common super view.
     */
     @discardableResult
-    public func fitBetween(topItem: LayoutItem, bottomItem: LayoutItem, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, bottom: NSLayoutConstraint?){
+    public func fitBetween(top topItem: LayoutItem, andBottom bottomItem: LayoutItem, withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (top: NSLayoutConstraint?, bottom: NSLayoutConstraint?){
         return (
             self.positionBelow(topItem, withOffset: offset, priority: priority),
             self.positionAbove( bottomItem, withOffset: offset, priority: priority)
@@ -572,15 +572,15 @@ extension UIView {
     /**
      Fit the view between the left and right items.
 
-     - Parameter leftItem: The left item to fit below.
-     - Parameter rightItem: The right item to fit below.
+     - Parameter left: The left item to fit below.
+     - Parameter andRight: The right item to fit below.
      - Parameter withOffset: How far to offset(seperate) the view from the top and bottom items.
      - Parameter priority: The priority of the constraints.
 
      - Returns: The left and right constraint objects or `nil` if the constraint could not be made because the views do not share a common super view.
      */
     @discardableResult
-    public func fitBetween(leftItem: LayoutItem, rightItem: LayoutItem, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint?, right: NSLayoutConstraint?){
+    public func fitBetween(left leftItem: LayoutItem, andRight rightItem: LayoutItem, withOffset offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> (left: NSLayoutConstraint?, right: NSLayoutConstraint?){
         return (
             self.positionToTheRight(of: leftItem, withOffset: offset, priority: priority),
             self.positionToTheLeft(of: rightItem, withOffset: offset, priority: priority)
@@ -595,11 +595,11 @@ extension UIView {
     /**
     Horizontally layout and fill the view with views.
 
-    - Parameter views: An array of views to horizontally layout and fill the view with.
+    - Parameter withViews: An array of views to horizontally layout and fill the view with.
     - Parameter separation: The separation between the views.
     - Parameter priority: The priority of the constraints.
     */
-    public func fillHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
+    public func fillHorizontally(withViews views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count == 1 {
@@ -624,11 +624,11 @@ extension UIView {
     /**
      Vertically layout and fill the view with views.
 
-     - Parameter views: An array of views to vertically layout and fill the view with.
+     - Parameter withViews: An array of views to vertically layout and fill the view with.
      - Parameter separation: The separation between the views.
      - Parameter priority: The priority of the constraints.
      */
-    public func fillVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
+    public func fillVertically(withViews views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count == 1 {
@@ -664,7 +664,7 @@ extension UIView {
     - Parameter separation: The separation between the views.
     - Parameter priority: The priority of the constraints.
     */
-    public func boundHorizontally(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
+    public func boundHorizontally(withViews views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count > 1 {
@@ -690,7 +690,7 @@ extension UIView {
      - Parameter separation: The separation between the views.
      - Parameter priority: The priority of the constraints.
      */
-    public func boundVertically(views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
+    public func boundVertically(withViews views: [UIView], separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
         assert(views.count > 0, "Can only distribute 1 or more views")
 
         if views.count > 1 {
@@ -757,9 +757,7 @@ extension Array where Element: UIView {
      - Parameter priority: The priority of the constraints.
      */
     public func centerHorizontally(to item: LayoutItem, withSeparation separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
-        guard self.count > 0 else {
-            return
-        }
+        assert(self.count > 0, "Can only center 1 or more views")
         
         if self.count % 2 == 0 { // even
             let rightIndex = self.count/2
@@ -805,9 +803,7 @@ extension Array where Element: UIView {
      - Parameter priority: The priority of the constraints.
      */
     public func centerVertically(to item: LayoutItem, withSeparation separation: CGFloat = 0, priority: UILayoutPriority? = nil) {
-        guard self.count > 0 else {
-            return
-        }
+        assert(self.count > 0, "Can only center 1 or more views")
         
         if self.count % 2 == 0 { // even
             let belowIndex = self.count/2
