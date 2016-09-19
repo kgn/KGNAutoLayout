@@ -31,7 +31,7 @@ class PageViewController: UIViewController {
             let pageView = UIView()
             pageScrollView.addSubview(pageView)
             pageView.clipsToBounds = true
-            pageView.sizeWidthAndHeightToWidthAndHeight(ofItem: pageScrollView)
+            pageView.sizeWidthAndHeightToWidthAndHeight(of: pageScrollView)
             pageViews.append(pageView)
 
             let albumViewController = AlbumViewController()
@@ -39,7 +39,7 @@ class PageViewController: UIViewController {
             self.addSubViewController(albumViewController, toView: pageView)
 
         }
-        pageScrollView.boundHorizontally(views: pageViews)
+        pageScrollView.boundHorizontally(withViews: pageViews)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

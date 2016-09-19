@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		643F960F1D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F96071D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift */; };
+		643F96101D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F96071D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift */; };
+		643F96111D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F96081D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift */; };
+		643F96121D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F96081D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift */; };
+		643F96131D8BCF0200EDBBBB /* KGNAutoLayoutTestsCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F96091D8BCF0100EDBBBB /* KGNAutoLayoutTestsCenter.swift */; };
+		643F96141D8BCF0200EDBBBB /* KGNAutoLayoutTestsCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F96091D8BCF0100EDBBBB /* KGNAutoLayoutTestsCenter.swift */; };
+		643F96151D8BCF0200EDBBBB /* KGNAutoLayoutTestsFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960A1D8BCF0100EDBBBB /* KGNAutoLayoutTestsFill.swift */; };
+		643F96161D8BCF0200EDBBBB /* KGNAutoLayoutTestsFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960A1D8BCF0100EDBBBB /* KGNAutoLayoutTestsFill.swift */; };
+		643F96171D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960B1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinEdges.swift */; };
+		643F96181D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960B1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinEdges.swift */; };
+		643F96191D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960C1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift */; };
+		643F961A1D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960C1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift */; };
+		643F961B1D8BCF0200EDBBBB /* KGNAutoLayoutTestsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960D1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPosition.swift */; };
+		643F961C1D8BCF0200EDBBBB /* KGNAutoLayoutTestsPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960D1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPosition.swift */; };
+		643F961D1D8BCF0200EDBBBB /* KGNAutoLayoutTestsSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960E1D8BCF0100EDBBBB /* KGNAutoLayoutTestsSize.swift */; };
+		643F961E1D8BCF0200EDBBBB /* KGNAutoLayoutTestsSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F960E1D8BCF0100EDBBBB /* KGNAutoLayoutTestsSize.swift */; };
 		64D31D1E1D2B0A57009B93CA /* KGNAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 83720E241BCB973700C8A14D /* KGNAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64D31D2B1D2B0B04009B93CA /* KGNAutoLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */; };
 		64D31D311D2B0B68009B93CA /* KGNAutoLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D31D161D2B0A0D009B93CA /* KGNAutoLayout.framework */; };
@@ -94,6 +110,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		643F96071D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsBetween.swift; sourceTree = "<group>"; };
+		643F96081D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsBound.swift; sourceTree = "<group>"; };
+		643F96091D8BCF0100EDBBBB /* KGNAutoLayoutTestsCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsCenter.swift; sourceTree = "<group>"; };
+		643F960A1D8BCF0100EDBBBB /* KGNAutoLayoutTestsFill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsFill.swift; sourceTree = "<group>"; };
+		643F960B1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinEdges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsPinEdges.swift; sourceTree = "<group>"; };
+		643F960C1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsPinSuperview.swift; sourceTree = "<group>"; };
+		643F960D1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsPosition.swift; sourceTree = "<group>"; };
+		643F960E1D8BCF0100EDBBBB /* KGNAutoLayoutTestsSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsSize.swift; sourceTree = "<group>"; };
 		64A3DB921D2B042A006B8B16 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		64D31D161D2B0A0D009B93CA /* KGNAutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNAutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D31D231D2B0A72009B93CA /* KGNAutoLayoutTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KGNAutoLayoutTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,8 +269,16 @@
 		83720E2F1BCB973700C8A14D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */,
 				83720E321BCB973700C8A14D /* Info.plist */,
+				83720E301BCB973700C8A14D /* KGNAutoLayoutTests.swift */,
+				643F96071D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift */,
+				643F96081D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift */,
+				643F96091D8BCF0100EDBBBB /* KGNAutoLayoutTestsCenter.swift */,
+				643F960A1D8BCF0100EDBBBB /* KGNAutoLayoutTestsFill.swift */,
+				643F960B1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinEdges.swift */,
+				643F960C1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift */,
+				643F960D1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPosition.swift */,
+				643F960E1D8BCF0100EDBBBB /* KGNAutoLayoutTestsSize.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -537,7 +569,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				643F96141D8BCF0200EDBBBB /* KGNAutoLayoutTestsCenter.swift in Sources */,
+				643F96121D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift in Sources */,
+				643F96181D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinEdges.swift in Sources */,
+				643F96161D8BCF0200EDBBBB /* KGNAutoLayoutTestsFill.swift in Sources */,
+				643F961C1D8BCF0200EDBBBB /* KGNAutoLayoutTestsPosition.swift in Sources */,
+				643F96101D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift in Sources */,
 				64D31D2B1D2B0B04009B93CA /* KGNAutoLayoutTests.swift in Sources */,
+				643F961A1D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift in Sources */,
+				643F961E1D8BCF0200EDBBBB /* KGNAutoLayoutTestsSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,7 +606,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				643F96131D8BCF0200EDBBBB /* KGNAutoLayoutTestsCenter.swift in Sources */,
+				643F96111D8BCF0100EDBBBB /* KGNAutoLayoutTestsBound.swift in Sources */,
+				643F96171D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinEdges.swift in Sources */,
+				643F96151D8BCF0200EDBBBB /* KGNAutoLayoutTestsFill.swift in Sources */,
+				643F961B1D8BCF0200EDBBBB /* KGNAutoLayoutTestsPosition.swift in Sources */,
+				643F960F1D8BCF0100EDBBBB /* KGNAutoLayoutTestsBetween.swift in Sources */,
 				83720E311BCB973700C8A14D /* KGNAutoLayoutTests.swift in Sources */,
+				643F96191D8BCF0200EDBBBB /* KGNAutoLayoutTestsPinSuperview.swift in Sources */,
+				643F961D1D8BCF0200EDBBBB /* KGNAutoLayoutTestsSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

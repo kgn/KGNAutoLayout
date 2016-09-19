@@ -37,49 +37,49 @@ pod 'KGNAutoLayout'
 ### Pin: Superview
 
 ``` Swift
-view.pinToEdgesOfSuperview(offset: 20)
+view.pinToEdgesOfSuperview(withOffset: 20)
 ```
 ![pinToEdgesOfSuperview_offset20](Example/Snapshots/pinToEdgesOfSuperview_offset20.png)
 --
 
 
 ``` Swift
-view.pinToTopEdgeOfSuperview(offset: 20)
+view.pinToTopEdgeOfSuperview(withOffset: 20)
 ```
 ![pinToTopEdgeOfSuperview_offset20](Example/Snapshots/pinToTopEdgeOfSuperview_offset20.png)
 --
 
 
 ``` Swift
-view.pinToRightEdgeOfSuperview(offset: 20)
+view.pinToRightEdgeOfSuperview(withOffset: 20)
 ```
 ![pinToRightEdgeOfSuperview_offset20](Example/Snapshots/pinToRightEdgeOfSuperview_offset20.png)
 --
 
 
 ``` Swift
-view.pinToBottomEdgeOfSuperview(offset: 20)
+view.pinToBottomEdgeOfSuperview(withOffset: 20)
 ```
 ![pinToBottomEdgeOfSuperview_offset20](Example/Snapshots/pinToBottomEdgeOfSuperview_offset20.png)
 --
 
 
 ``` Swift
-view.pinToLeftEdgeOfSuperview(offset: 20)
+view.pinToLeftEdgeOfSuperview(withOffset: 20)
 ```
 ![pinToLeftEdgeOfSuperview_offset20](Example/Snapshots/pinToLeftEdgeOfSuperview_offset20.png)
 --
 
 
 ``` Swift
-view.pinToSideEdgesOfSuperview(offset: 20)
+view.pinToSideEdgesOfSuperview(withOffset: 20)
 ```
 ![pinToSideEdgesOfSuperview_offset20](Example/Snapshots/pinToSideEdgesOfSuperview_offset20.png)
 --
 
 
 ``` Swift
-view.pinToTopAndBottomEdgesOfSuperview(offset: 20)
+view.pinToTopAndBottomEdgesOfSuperview(withOffset: 20)
 ```
 ![pinToTopAndBottomEdgesOfSuperview_offset20](Example/Snapshots/pinToTopAndBottomEdgesOfSuperview_offset20.png)
 --
@@ -87,28 +87,28 @@ view.pinToTopAndBottomEdgesOfSuperview(offset: 20)
 ### Pin: Edges
 
 ``` Swift
-view.pinTopEdgeToTopEdge(ofItem: itemView, offset: 20)
+view.pinTopEdgeToTopEdge(of: itemView, withOffset: 20)
 ```
 ![pinTopEdgeToTopEdgeOfItem_offset20](Example/Snapshots/pinTopEdgeToTopEdgeOfItem_offset20.png)
 --
 
 
 ``` Swift
-view.pinRightEdgeToRightEdge(ofItem: itemView, offset: 20)
+view.pinRightEdgeToRightEdge(of: itemView, withOffset: 20)
 ```
 ![pinRightEdgeToRightEdgeOfItem_offset20](Example/Snapshots/pinRightEdgeToRightEdgeOfItem_offset20.png)
 --
 
 
 ``` Swift
-view.pinBottomEdgeToBottomEdge(ofItem: itemView, offset: 20)
+view.pinBottomEdgeToBottomEdge(of: itemView, withOffset: 20)
 ```
 ![pinBottomEdgeToBottomEdgeOfItem_offset20](Example/Snapshots/pinBottomEdgeToBottomEdgeOfItem_offset20.png)
 --
 
 
 ``` Swift
-view.pinLeftEdgeToLeftEdge(ofItem: itemView, offset: 20)
+view.pinLeftEdgeToLeftEdge(of: itemView, withOffset: 20)
 ```
 ![pinLeftEdgeToLeftEdgeOfItem_offset20](Example/Snapshots/pinLeftEdgeToLeftEdgeOfItem_offset20.png)
 --
@@ -137,28 +137,28 @@ view.centerVerticallyInSuperview()
 
 
 ``` Swift
-parentView.centerHorizontally(views: [view1, view2, view3], separation: 20)
+[view1, view2, view3].centerHorizontally(to: parentView, withSeparation: 20)
 ```
 ![centerViewsHorizontally_separation20](Example/Snapshots/centerViewsHorizontally_separation20.png)
 --
 
 
 ``` Swift
-parentView.centerVertically(views: [view1, view2, view3], separation: 20)
+[view1, view2, view3].centerVertically(to: parentView, withSeparation: 20)
 ```
 ![centerViewsVertically_separation20](Example/Snapshots/centerViewsVertically_separation20.png)
 --
 
 
 ``` Swift
-view.centerHorizontally(toItem: itemView)
+view.centerHorizontally(to: itemView)
 ```
 ![centerHorizontallyToItem](Example/Snapshots/centerHorizontallyToItem.png)
 --
 
 
 ``` Swift
-view.centerVertically(toItem: itemView)
+view.centerVertically(to: itemView)
 ```
 ![centerVerticallyToItem](Example/Snapshots/centerVerticallyToItem.png)
 --
@@ -229,35 +229,35 @@ view.size(toMaxWidthAndHeight: 100)
 
 
 ``` Swift
-view.sizeWidthToWidth(ofItem: itemView)
+view.sizeWidthToWidth(of: itemView)
 ```
 ![sizeWidthToWidthOfItem](Example/Snapshots/sizeWidthToWidthOfItem.png)
 --
 
 
 ``` Swift
-view.sizeHeightToHeight(ofItem: itemView)
+view.sizeHeightToHeight(of: itemView)
 ```
 ![sizeHeightToHeightOfItem](Example/Snapshots/sizeHeightToHeightOfItem.png)
 --
 
 
 ``` Swift
-view.sizeHeightToWidth(ofItem: itemView)
+view.sizeHeightToWidth(of: itemView)
 ```
 ![sizeHeightToWidthOfItem](Example/Snapshots/sizeHeightToWidthOfItem.png)
 --
 
 
 ``` Swift
-view.sizeWidthToHeight(ofItem: itemView)
+view.sizeWidthToHeight(of: itemView)
 ```
 ![sizeWidthToHeightOfItem](Example/Snapshots/sizeWidthToHeightOfItem.png)
 --
 
 
 ``` Swift
-view.sizeWidthAndHeightToWidthAndHeight(ofItem: itemView)
+view.sizeWidthAndHeightToWidthAndHeight(of: itemView)
 ```
 ![sizeWidthAndHeightToWidthAndHeightOfItem](Example/Snapshots/sizeWidthAndHeightToWidthAndHeightOfItem.png)
 --
@@ -279,56 +279,56 @@ view.sizeWidthToHeight(withAspectRatio: 16/9)
 ### Position
 
 ``` Swift
-view.positionAbove(item: itemView, offset: 20)
+view.positionAbove(itemView, withOffset: 20)
 ```
 ![positionAboveItem_offset20](Example/Snapshots/positionAboveItem_offset20.png)
 --
 
 
 ``` Swift
-view.positionToTheRight(ofItem: itemView, offset: 20)
+view.positionToTheRight(of: itemView, withOffset: 20)
 ```
 ![positionToTheRightOfItem_offset20](Example/Snapshots/positionToTheRightOfItem_offset20.png)
 --
 
 
 ``` Swift
-view.positionBelow(item: itemView, offset: 20)
+view.positionBelow(itemView, withOffset: 20)
 ```
 ![positionBelowItem_offset20](Example/Snapshots/positionBelowItem_offset20.png)
 --
 
 
 ``` Swift
-view.positionToTheLeft(ofItem: itemView, offset: 20)
+view.positionToTheLeft(of: itemView, withOffset: 20)
 ```
 ![positionToTheLeftOfItem_offset20](Example/Snapshots/positionToTheLeftOfItem_offset20.png)
 --
 
 
 ``` Swift
-itemView.positionAbove(views: [view1, view2, view3], offset: 20)
+[view1, view2, view3].positionAbove(itemView, withOffset: 20)
 ```
 ![positionViewsAbove_offset20](Example/Snapshots/positionViewsAbove_offset20.png)
 --
 
 
 ``` Swift
-itemView.positionToTheRight(views: [view1, view2, view3], offset: 20)
+[view1, view2, view3].positionToTheRight(of: itemView, withOffset: 20)
 ```
 ![positionViewsToTheRight_offset20](Example/Snapshots/positionViewsToTheRight_offset20.png)
 --
 
 
 ``` Swift
-itemView.positionBelow(views: [view1, view2, view3], offset: 20)
+[view1, view2, view3].positionBelow(itemView, withOffset: 20)
 ```
 ![positionViewsBelow_offset20](Example/Snapshots/positionViewsBelow_offset20.png)
 --
 
 
 ``` Swift
-itemView.positionToTheLeft(views: [view1, view2, view3], offset: 20)
+[view1, view2, view3].positionToTheLeft(of: itemView, withOffset: 20)
 ```
 ![positionViewsToTheLeft_offset20](Example/Snapshots/positionViewsToTheLeft_offset20.png)
 --
@@ -336,14 +336,14 @@ itemView.positionToTheLeft(views: [view1, view2, view3], offset: 20)
 ### Between
 
 ``` Swift
-view.fitBetween(topItem: topView, bottomItem: bottomView, offset: 20)
+view.fitBetween(top: topView, andBottom: bottomView, withOffset: 20)
 ```
 ![fitBetweenTopAndBottomItems_offset20](Example/Snapshots/fitBetweenTopAndBottomItems_offset20.png)
 --
 
 
 ``` Swift
-view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)
+view.fitBetween(left: leftView, andRight: rightView, withOffset: 20)
 ```
 ![fitBetweenLeftAndRightItems_offset20](Example/Snapshots/fitBetweenLeftAndRightItems_offset20.png)
 --
@@ -351,14 +351,14 @@ view.fitBetween(leftItem: leftView, rightItem: rightView, offset: 20)
 ### Fill
 
 ``` Swift
-parentView.fillHorizontally(views: [view1, view2, view3], separation: 20)
+parentView.fillHorizontally(withViews: [view1, view2, view3], separation: 20)
 ```
 ![fillHorizontally_separation20](Example/Snapshots/fillHorizontally_separation20.png)
 --
 
 
 ``` Swift
-parentView.fillVertically(views: [view1, view2, view3], separation: 20)
+parentView.fillVertically(withViews: [view1, view2, view3], separation: 20)
 ```
 ![fillVertically_separation20](Example/Snapshots/fillVertically_separation20.png)
 --
@@ -366,14 +366,14 @@ parentView.fillVertically(views: [view1, view2, view3], separation: 20)
 ### Bound
 
 ``` Swift
-itemView.boundHorizontally(views: [view1, view2, view3], separation: 20)
+itemView.boundHorizontally(withViews: [view1, view2, view3], separation: 20)
 ```
 ![boundHorizontally_separation20](Example/Snapshots/boundHorizontally_separation20.png)
 --
 
 
 ``` Swift
-itemView.boundVertically(views: [view1, view2, view3], separation: 20)
+itemView.boundVertically(withViews: [view1, view2, view3], separation: 20)
 ```
 ![boundVertically_separation20](Example/Snapshots/boundVertically_separation20.png)
 

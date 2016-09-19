@@ -93,7 +93,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.view.addSubview(titleView)
         titleView.pinToSideEdgesOfSuperview()
         titleView.size(toHeight: self.navbarHeight)
-        titleView.positionBelow(item: self.topLayoutGuide)
+        titleView.positionBelow(self.topLayoutGuide as! LayoutItem)
 
         self.view.addSubview(self.artistLabel)
         self.artistLabel.centerHorizontallyInSuperview()
@@ -101,18 +101,18 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.view.addSubview(self.albumLabel)
         self.albumLabel.centerHorizontallyInSuperview()
 
-        titleView.centerVertically(views: [self.artistLabel, self.albumLabel])
+        [self.artistLabel, self.albumLabel].centerVertically(to: titleView)
 
         let navbarBlurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         self.view.insertSubview(navbarBlurView, belowSubview: titleView)
         navbarBlurView.pinToTopEdgeOfSuperview()
         navbarBlurView.pinToSideEdgesOfSuperview()
-        navbarBlurView.pinBottomEdgeToBottomEdge(ofItem: titleView)
+        navbarBlurView.pinBottomEdgeToBottomEdge(of: titleView)
 
         // Setup the album artwork image view
         self.view.insertSubview(self.albumArtImageView, belowSubview: navbarBlurView)
-        self.albumArtTopConstraint = self.albumArtImageView.positionBelow(item: navbarBlurView)
-        self.albumArtHeightConstraint = self.albumArtImageView.sizeHeightToWidth(ofItem: self.view)
+        self.albumArtTopConstraint = self.albumArtImageView.positionBelow(navbarBlurView)
+        self.albumArtHeightConstraint = self.albumArtImageView.sizeHeightToWidth(of: self.view)
         self.albumArtImageView.pinToSideEdgesOfSuperview()
 
         // Setup the table view
