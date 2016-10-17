@@ -119,6 +119,7 @@
 		643F960D1D8BCF0100EDBBBB /* KGNAutoLayoutTestsPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsPosition.swift; sourceTree = "<group>"; };
 		643F960E1D8BCF0100EDBBBB /* KGNAutoLayoutTestsSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KGNAutoLayoutTestsSize.swift; sourceTree = "<group>"; };
 		64A3DB921D2B042A006B8B16 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		64ADECEC1DB4A09300FDFD32 /* KGNAutoLayout.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = KGNAutoLayout.podspec; sourceTree = "<group>"; };
 		64D31D161D2B0A0D009B93CA /* KGNAutoLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KGNAutoLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D31D231D2B0A72009B93CA /* KGNAutoLayoutTests-tvOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KGNAutoLayoutTests-tvOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64EF095E1D3043D400274984 /* KGNAutoLayoutReadme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KGNAutoLayoutReadme.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				64A3DB921D2B042A006B8B16 /* .travis.yml */,
+				64ADECEC1DB4A09300FDFD32 /* KGNAutoLayout.podspec */,
 				64EF09721D30445A00274984 /* Examples */,
 				83720E231BCB973700C8A14D /* Source */,
 				83720E2F1BCB973700C8A14D /* Tests */,
