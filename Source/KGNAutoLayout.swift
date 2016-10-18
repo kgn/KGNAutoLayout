@@ -11,7 +11,7 @@ import UIKit
 // TODO: support UILayoutSupport
 public protocol LayoutItem {}
 extension UIView: LayoutItem {}
-@available(iOSApplicationExtension 9.0, *)
+@available(iOS 9.0, *)
 extension UILayoutGuide: LayoutItem {}
 
 // MARK: - Pin: Superview

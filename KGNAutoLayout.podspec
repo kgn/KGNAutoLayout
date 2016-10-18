@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = 'KGNAutoLayout'
-  spec.version = '1.5.1'
+  spec.version = '1.5.2'
   spec.authors = {'David Keegan' => 'me@davidkeegan.com'}
   spec.homepage = 'https://github.com/kgn/KGNAutoLayout'
   spec.summary = 'KGNAutoLayout makes AutoLayout easy!'
