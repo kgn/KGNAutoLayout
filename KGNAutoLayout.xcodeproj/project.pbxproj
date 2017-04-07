@@ -465,7 +465,6 @@
 					};
 					64EF095D1D3043D400274984 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = T3DCX7XWL8;
 						DevelopmentTeamName = "David Keegan";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
@@ -751,6 +750,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReadmeExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutReadme;
@@ -770,6 +770,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ReadmeExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.davidkeegan.KGNAutoLayoutReadme;
