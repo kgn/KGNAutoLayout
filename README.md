@@ -376,6 +376,13 @@ itemView.boundHorizontally(withViews: [view1, view2, view3], separation: 20)
 itemView.boundVertically(withViews: [view1, view2, view3], separation: 20)
 ```
 ![boundVertically_separation20](Example/Snapshots/boundVertically_separation20.png)
+--
+
+
+``` Swift
+itemView.boundVertically(withViews: [view1, view2, view3], separation: 20)
+```
+![boundVertically_separation20](Example/Snapshots/boundVertically_separation20.png)
 
 ## Progress:
 - [X] Travis
