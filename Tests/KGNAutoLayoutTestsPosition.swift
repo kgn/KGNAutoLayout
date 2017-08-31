@@ -14,7 +14,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionAboveItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -35,7 +35,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -55,7 +55,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionToTheRightOfItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -76,7 +76,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -96,7 +96,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionBelowItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -117,7 +117,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -137,7 +137,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionToTheLeftOfItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -158,7 +158,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -176,7 +176,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsAbove1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -200,7 +200,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
 
     func testPositionViewsAbove1Offset() {
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -223,7 +223,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsAbove2() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -259,7 +259,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsAbove2Offset() {
         let number: CGFloat = 2
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -293,7 +293,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsAbove3() {
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -340,7 +340,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsAbove3Offset() {
         let number: CGFloat = 3
         let offset: CGFloat = 5
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -385,7 +385,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsToTheRight1() {
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -409,7 +409,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
 
     func testPositionViewsToTheRight1Offset() {
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -432,7 +432,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsToTheRight2() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -468,7 +468,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsToTheRight2Offset() {
         let number: CGFloat = 2
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -502,7 +502,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsToTheRight3() {
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -549,7 +549,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsToTheRight3Offset() {
         let number: CGFloat = 3
         let offset: CGFloat = 5
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -594,7 +594,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsBelow1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -618,7 +618,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
 
     func testPositionViewsBelow1Offset() {
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -641,7 +641,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsBelow2() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -677,7 +677,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsBelow2Offset() {
         let number: CGFloat = 2
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -711,7 +711,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsBelow3() {
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -758,7 +758,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsBelow3Offset() {
         let number: CGFloat = 3
         let offset: CGFloat = 5
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -803,7 +803,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsToTheLeft1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -827,7 +827,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
 
     func testPositionViewsToTheLeft1Offset() {
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -850,7 +850,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsToTheLeft2() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -886,7 +886,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsToTheLeft2Offset() {
         let number: CGFloat = 2
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -920,7 +920,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     }
 
     func testPositionViewsToTheLeft3() {
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -967,7 +967,7 @@ class KGNAutoLayoutTestsPosition: KGNAutoLayoutTests {
     func testPositionViewsToTheLeft3Offset() {
         let number: CGFloat = 3
         let offset: CGFloat = 5
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30

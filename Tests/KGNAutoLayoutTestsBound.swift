@@ -12,7 +12,7 @@ import XCTest
 class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
 
     func testBoundHorizontally1() {
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -40,7 +40,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     func testBoundHorizontally1Seperation() {
         let number: CGFloat = 1
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -68,7 +68,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally2() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -106,7 +106,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     func testBoundHorizontally2Seperation() {
         let number: CGFloat = 2
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -144,7 +144,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally3() {
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -192,7 +192,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     func testBoundHorizontally3Seperation() {
         let number: CGFloat = 3
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -240,7 +240,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically1() {
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -268,7 +268,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     func testBoundVertically1Seperation() {
         let number: CGFloat = 1
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -296,7 +296,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically2() {
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -334,7 +334,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     func testBoundVertically2Seperation() {
         let number: CGFloat = 2
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -372,7 +372,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically3() {
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 
@@ -420,7 +420,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     func testBoundVertically3Seperation() {
         let number: CGFloat = 3
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let parentView = UIView(frame: self.parentViewFrame)
 

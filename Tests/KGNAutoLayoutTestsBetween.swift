@@ -15,7 +15,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
         let width: CGFloat = 40
         let topFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
         let bottomFrame = CGRect(x: 50, y: 120, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = width
 
@@ -41,7 +41,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let topFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
         let bottomFrame = CGRect(x: 50, y: 120, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = width
 
@@ -66,7 +66,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
         let height: CGFloat = 40
         let leftFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
         let rightFrame = CGRect(x: 80, y: 40, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = height
 
@@ -92,7 +92,7 @@ class KGNAutoLayoutTestsBetween: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let leftFrame = CGRect(x: 10, y: 20, width: 30, height: 40)
         let rightFrame = CGRect(x: 80, y: 40, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = height
 

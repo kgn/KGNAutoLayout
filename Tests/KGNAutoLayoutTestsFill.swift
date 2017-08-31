@@ -12,7 +12,7 @@ import XCTest
 class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillHorizontally1() {
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.height = 30
@@ -31,7 +31,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillHorizontally1Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.height = 30
@@ -51,7 +51,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillHorizontally2() {
         let number: CGFloat = 2
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.height = 30
@@ -81,7 +81,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
     func testFillHorizontally2Seperation() {
         let number: CGFloat = 2
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.height = 30
@@ -111,7 +111,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillHorizontally3() {
         let number: CGFloat = 3
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.height = 30
@@ -151,7 +151,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
     func testFillHorizontally3Seperation() {
         let number: CGFloat = 3
         let separation: CGFloat = 27
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.height = 30
@@ -190,7 +190,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
     }
 
     func testFillVertically1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -209,7 +209,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillVertically1Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -229,7 +229,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillVertically2() {
         let number: CGFloat = 2
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -259,7 +259,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
     func testFillVertically2Seperation() {
         let number: CGFloat = 2
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -289,7 +289,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
 
     func testFillVertically3() {
         let number: CGFloat = 3
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30
@@ -329,7 +329,7 @@ class KGNAutoLayoutTestsFill: KGNAutoLayoutTests {
     func testFillVertically3Seperation() {
         let number: CGFloat = 3
         let separation: CGFloat = 27
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
 
         let view1 = IntrinsicView()
         view1.width = 30

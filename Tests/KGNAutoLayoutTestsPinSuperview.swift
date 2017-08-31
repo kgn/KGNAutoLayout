@@ -12,7 +12,7 @@ import XCTest
 class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToEdgesOfSuperview() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.pinToEdgesOfSuperview(priority: priority)
             XCTAssertEqual(priority, constraints.top?.priority)
@@ -25,7 +25,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToEdgesOfSuperviewOffset() {
         let offset: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.pinToEdgesOfSuperview(withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraints.top?.priority)
@@ -38,7 +38,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToTopEdgeOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -51,7 +51,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
     func testPinToTopEdgeOfSuperviewOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -63,7 +63,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToRightEdgeOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -77,7 +77,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
     func testPinToRightEdgeOfSuperviewOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -90,7 +90,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToBottomEdgeOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -104,7 +104,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
     func testPinToBottomEdgeOfSuperviewOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -117,7 +117,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToLeftEdgeOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -130,7 +130,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
     func testPinToLeftEdgeOfSuperviewOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             $0.height = size
@@ -142,7 +142,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToSideEdgesOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraints = $0.pinToSideEdgesOfSuperview(priority: priority)
@@ -155,7 +155,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
     func testPinToSideEdgesOfSuperviewOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraints = $0.pinToSideEdgesOfSuperview(withOffset: offset, priority: priority)
@@ -167,7 +167,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
 
     func testPinToTopAndBottomEdgesOfSuperview() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraints = $0.pinToTopAndBottomEdgesOfSuperview(priority: priority)
@@ -180,7 +180,7 @@ class KGNAutoLayoutTestsPinSuperview: KGNAutoLayoutTests {
     func testPinToTopAndBottomEdgesOfSuperviewOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraints = $0.pinToTopAndBottomEdgesOfSuperview(withOffset: offset, priority: priority)

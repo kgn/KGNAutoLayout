@@ -14,7 +14,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
     func testPinTopEdgeToTopEdgeOfItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -35,7 +35,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -55,7 +55,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
     func testPinRightEdgeToRightEdgeOfItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -76,7 +76,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -96,7 +96,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
     func testPinBottomEdgeToBottomEdgeOfItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -117,7 +117,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -137,7 +137,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
     func testPinLeftEdgeToLeftEdge() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -158,7 +158,7 @@ class KGNAutoLayoutTestsPinEdges: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height

@@ -13,7 +13,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeToWidth() {
         let size = CGSize(width: 50, height: 10)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.height = size.height
             let constraint = $0.size(toWidth: size.width, priority: priority)
@@ -22,10 +22,23 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
         XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size.width, height: size.height))
     }
 
-    func testSizeToMinWidth() {
+    func testSizeToMinWidthLow() {
         let minWidth: CGFloat = 100
         let size = CGSize(width: 50, height: 10)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
+        let childViewFrame = self.compareViewFrame {
+            $0.width = size.width
+            $0.height = size.height
+            let constraint = $0.size(toMinWidth: minWidth, priority: priority)
+            XCTAssertEqual(priority, constraint.priority)
+        }
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size.width, height: size.height))
+    }
+    
+    func testSizeToMinWidthRequied() {
+        let minWidth: CGFloat = 100
+        let size = CGSize(width: 50, height: 10)
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -38,7 +51,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeToMaxWidth() {
         let maxWidth: CGFloat = 20
         let size = CGSize(width: 50, height: 10)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -50,7 +63,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeToHeight() {
         let size = CGSize(width: 10, height: 50)
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             let constraint = $0.size(toHeight: size.height, priority: priority)
@@ -62,7 +75,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeToMinHeight() {
         let minHeight: CGFloat = 100
         let size = CGSize(width: 10, height: 50)
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -75,7 +88,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeToMaxHeight() {
         let maxHeight: CGFloat = 20
         let size = CGSize(width: 10, height: 50)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -87,7 +100,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeWidthAndHeight() {
         let size:CGFloat = 30
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.size(toWidthAndHeight: size, priority: priority)
             XCTAssertEqual(priority, constraints.width.priority)
@@ -98,7 +111,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeMinWidthAndHeight() {
         let minSize: CGFloat = 30
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = 10
             $0.height = 20
@@ -111,7 +124,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeMaxWidthAndHeight() {
         let maxSize: CGFloat = 30
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = 100
             $0.height = 40
@@ -124,7 +137,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeWidthToWidthOfItem() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToWidth(of: $0.superview!, priority: priority)
@@ -136,7 +149,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeWidthToWidthOfItemOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToWidth(of: $0.superview!, withOffset: offset, priority: priority)
@@ -147,7 +160,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeHeightToHeightOfItem() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToHeight(of: $0.superview!, priority: priority)
@@ -159,7 +172,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeHeightToHeightOfItemOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToHeight(of: $0.superview!, withOffset: offset, priority: priority)
@@ -170,7 +183,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeHeightToWidthOfItem() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToWidth(of: $0.superview!, priority: priority)
@@ -182,7 +195,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeHeightToWidthOfItemOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToWidth(of: $0.superview!, withOffset: offset, priority: priority)
@@ -193,7 +206,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeWidthToHeightOfItem() {
         let size: CGFloat = 10
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToHeight(of: $0.superview!, priority: priority)
@@ -205,7 +218,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeWidthToHeightOfItemOffset() {
         let size: CGFloat = 10
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToHeight(of: $0.superview!, withOffset: offset, priority: priority)
@@ -215,7 +228,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     }
 
     func testSizeToWidthAndHeightOfItem() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.sizeWidthAndHeightToWidthAndHeight(of: $0.superview!, priority: priority)
             XCTAssertEqual(priority, constraints.width?.priority)
@@ -226,7 +239,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
 
     func testSizeToWidthAndHeightOfItemOffset() {
         let offset: CGFloat = 20
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             let constraints = $0.sizeWidthAndHeightToWidthAndHeight(of: $0.superview!, withOffset: offset, priority: priority)
             XCTAssertEqual(priority, constraints.width?.priority)
@@ -241,7 +254,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeHeightToWidthAspectRatio() {
         let size: CGFloat = 20
         let aspectRatio: CGFloat = 2
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size
             let constraint = $0.sizeHeightToWidth(withAspectRatio: aspectRatio, priority: priority)
@@ -253,7 +266,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
     func testSizeWidthToHeightAspectRatio() {
         let size: CGFloat = 20
         let aspectRatio: CGFloat = 2
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.height = size
             let constraint = $0.sizeWidthToHeight(withAspectRatio: aspectRatio, priority: priority)

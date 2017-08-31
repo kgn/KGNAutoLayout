@@ -13,7 +13,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterInSuperview() {
         let size = CGSize(width: 40, height: 20)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -31,7 +31,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterInSuperviewOffset() {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -48,7 +48,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterHorizontallyInSuperview() {
         let size = CGSize(width: 40, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -64,7 +64,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterHorizontallyInSuperviewOffset() {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -79,7 +79,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterVerticallyInSuperview() {
         let size = CGSize(width: 40, height: 20)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -95,7 +95,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterVerticallyInSuperviewOffset() {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
@@ -109,7 +109,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsHorizontally1() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -129,7 +129,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsHorizontally1Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -148,7 +148,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsHorizontally2() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -178,7 +178,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsHorizontally2Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -207,7 +207,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsHorizontally3() {
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -247,7 +247,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsHorizontally3Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -286,7 +286,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsHorizontally4() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -336,7 +336,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsHorizontally4Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -385,7 +385,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsHorizontally5() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -445,7 +445,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsHorizontally5Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -504,7 +504,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsVertically1() {
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -524,7 +524,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsVertically1Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -543,7 +543,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsVertically2() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -573,7 +573,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsVertically2Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -602,7 +602,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsVertically3() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -642,7 +642,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsVertically3Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -681,7 +681,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsVertically4() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -731,7 +731,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsVertically4Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -780,7 +780,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     }
 
     func testCenterViewsVertically5() {
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -840,7 +840,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
 
     func testCenterViewsVertically5Seperation() {
         let separation: CGFloat = 10
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let view1 = IntrinsicView()
         view1.width = 20
@@ -901,7 +901,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterHorizontallyToItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 20, y: 30, width: 40, height: 50)
-        let priority = UILayoutPriorityRequired
+        let priority = UILayoutPriority.required
 
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -923,7 +923,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 30, y: 20, width: 10, height: 80)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -944,7 +944,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
     func testCenterVerticallyToItem() {
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 100, y: 80, width: 60, height: 40)
-        let priority = UILayoutPriorityDefaultLow
+        let priority = UILayoutPriority.defaultLow
 
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
@@ -966,7 +966,7 @@ class KGNAutoLayoutTestsCenter: KGNAutoLayoutTests {
         let offset: CGFloat = 10
         let size = CGSize(width: 40, height: 20)
         let itemFrame = CGRect(x: 120, y: 50, width: 60, height: 20)
-        let priority = UILayoutPriorityDefaultHigh
+        let priority = UILayoutPriority.defaultHigh
         let childViewFrame = self.compareViewFrame {
             $0.width = size.width
             $0.height = size.height
