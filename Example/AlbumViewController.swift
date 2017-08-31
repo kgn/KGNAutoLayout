@@ -131,7 +131,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         NotificationCenter.default.removeObserver(self)
     }
 
-    func statusBarFrameDidChange(_ notification: Notification) {
+    @objc func statusBarFrameDidChange(_ notification: Notification) {
         let screenWidth = UIScreen.main.bounds.width
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         if let frame = (notification as NSNotification).userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? CGRect {

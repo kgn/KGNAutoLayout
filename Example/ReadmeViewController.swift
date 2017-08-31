@@ -102,7 +102,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Pin: Superview
 
-    func pinToEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
+    @objc func pinToEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToEdgesOfSuperview(withOffset: 20)
@@ -138,7 +138,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinToTopEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
+    @objc func pinToTopEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToTopEdgeOfSuperview(withOffset: 20)
@@ -157,7 +157,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinToRightEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
+    @objc func pinToRightEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToRightEdgeOfSuperview(withOffset: 20)
@@ -175,7 +175,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinToBottomEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
+    @objc func pinToBottomEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToBottomEdgeOfSuperview(withOffset: 20)
@@ -194,7 +194,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinToLeftEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
+    @objc func pinToLeftEdgeOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToLeftEdgeOfSuperview(withOffset: 20)
@@ -212,7 +212,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinToSideEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
+    @objc func pinToSideEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToSideEdgesOfSuperview(withOffset: 20)
@@ -236,7 +236,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinToTopAndBottomEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
+    @objc func pinToTopAndBottomEdgesOfSuperview_offset20(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.pinToTopAndBottomEdgesOfSuperview(withOffset: 20)
@@ -264,7 +264,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Pin: Edges
 
-    func pinTopEdgeToTopEdgeOfItem_offset20(_ parentView: SnapshotView) {
+    @objc func pinTopEdgeToTopEdgeOfItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.pinToLeftEdgeOfSuperview()
@@ -290,7 +290,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinRightEdgeToRightEdgeOfItem_offset20(_ parentView: SnapshotView) {
+    @objc func pinRightEdgeToRightEdgeOfItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.pinToTopEdgeOfSuperview()
@@ -315,7 +315,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinBottomEdgeToBottomEdgeOfItem_offset20(_ parentView: SnapshotView) {
+    @objc func pinBottomEdgeToBottomEdgeOfItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.pinToLeftEdgeOfSuperview()
@@ -341,7 +341,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func pinLeftEdgeToLeftEdgeOfItem_offset20(_ parentView: SnapshotView) {
+    @objc func pinLeftEdgeToLeftEdgeOfItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.pinToTopEdgeOfSuperview()
@@ -368,7 +368,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Center
 
-    func centerInSuperview(_ parentView: SnapshotView) {
+    @objc func centerInSuperview(_ parentView: SnapshotView) {
         let horizontalSpringView = SpringView()
         horizontalSpringView.showEnds = false
         parentView.addSubview(horizontalSpringView)
@@ -392,7 +392,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func centerHorizontallyInSuperview(_ parentView: SnapshotView) {
+    @objc func centerHorizontallyInSuperview(_ parentView: SnapshotView) {
         let verticalSpringView = SpringView()
         verticalSpringView.showEnds = false
         verticalSpringView.direction = .vertical
@@ -411,7 +411,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func centerVerticallyInSuperview(_ parentView: SnapshotView) {
+    @objc func centerVerticallyInSuperview(_ parentView: SnapshotView) {
         let horizontalSpringView = SpringView()
         horizontalSpringView.showEnds = false
         parentView.addSubview(horizontalSpringView)
@@ -429,7 +429,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func centerViewsHorizontally_separation20(_ parentView: SnapshotView) {
+    @objc func centerViewsHorizontally_separation20(_ parentView: SnapshotView) {
         let verticalSpringView = SpringView()
         verticalSpringView.showEnds = false
         verticalSpringView.direction = .vertical
@@ -471,7 +471,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func centerViewsVertically_separation20(_ parentView: SnapshotView) {
+    @objc func centerViewsVertically_separation20(_ parentView: SnapshotView) {
         let horizontalSpringView = SpringView()
         horizontalSpringView.showEnds = false
         parentView.addSubview(horizontalSpringView)
@@ -514,7 +514,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func centerHorizontallyToItem(_ parentView: SnapshotView) {
+    @objc func centerHorizontallyToItem(_ parentView: SnapshotView) {
         let verticalSpringView = SpringView()
         verticalSpringView.showEnds = false
         verticalSpringView.direction = .vertical
@@ -541,7 +541,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func centerVerticallyToItem(_ parentView: SnapshotView) {
+    @objc func centerVerticallyToItem(_ parentView: SnapshotView) {
         let horizontalSpringView = SpringView()
         horizontalSpringView.showEnds = false
         parentView.addSubview(horizontalSpringView)
@@ -569,7 +569,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Size
 
-    func sizeToWidth80(_ parentView: SnapshotView) {
+    @objc func sizeToWidth80(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toWidth: 80)
@@ -586,7 +586,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToMinWidth40(_ parentView: SnapshotView) {
+    @objc func sizeToMinWidth40(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toMinWidth: 40)
@@ -603,7 +603,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToMaxWidth100(_ parentView: SnapshotView) {
+    @objc func sizeToMaxWidth100(_ parentView: SnapshotView) {
         let view = LayoutView()
         view.intrinsicContentWidth = 200
         parentView.addSubview(view)
@@ -621,7 +621,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToHeight80(_ parentView: SnapshotView) {
+    @objc func sizeToHeight80(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toHeight: 80)
@@ -639,7 +639,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToMinHeight40(_ parentView: SnapshotView) {
+    @objc func sizeToMinHeight40(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toMinHeight: 40)
@@ -657,7 +657,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToMaxHeight100(_ parentView: SnapshotView) {
+    @objc func sizeToMaxHeight100(_ parentView: SnapshotView) {
         let view = LayoutView()
         view.intrinsicContentHeight = 200
         parentView.addSubview(view)
@@ -676,7 +676,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToWidthAndHeight80(_ parentView: SnapshotView) {
+    @objc func sizeToWidthAndHeight80(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toWidthAndHeight: 80)
@@ -698,7 +698,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToMinWidthAndHeight40(_ parentView: SnapshotView) {
+    @objc func sizeToMinWidthAndHeight40(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toMinWidthAndHeight: 40)
@@ -720,7 +720,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeToMaxWidthAndHeight100(_ parentView: SnapshotView) {
+    @objc func sizeToMaxWidthAndHeight100(_ parentView: SnapshotView) {
         let view = LayoutView()
         view.intrinsicContentWidth = 200
         view.intrinsicContentHeight = 200
@@ -744,7 +744,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeWidthToWidthOfItem(_ parentView: SnapshotView) {
+    @objc func sizeWidthToWidthOfItem(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 100)
@@ -773,7 +773,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeHeightToHeightOfItem(_ parentView: SnapshotView) {
+    @objc func sizeHeightToHeightOfItem(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 60)
@@ -804,7 +804,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeHeightToWidthOfItem(_ parentView: SnapshotView) {
+    @objc func sizeHeightToWidthOfItem(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 100)
@@ -834,7 +834,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeWidthToHeightOfItem(_ parentView: SnapshotView) {
+    @objc func sizeWidthToHeightOfItem(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 60)
@@ -864,7 +864,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeWidthAndHeightToWidthAndHeightOfItem(_ parentView: SnapshotView) {
+    @objc func sizeWidthAndHeightToWidthAndHeightOfItem(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 60)
@@ -904,7 +904,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeHeightToWidthAspectRatio16by9(_ parentView: SnapshotView) {
+    @objc func sizeHeightToWidthAspectRatio16by9(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toWidth: 100)
@@ -922,7 +922,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func sizeWidthToHeightAspectRatio16by9(_ parentView: SnapshotView) {
+    @objc func sizeWidthToHeightAspectRatio16by9(_ parentView: SnapshotView) {
         let view = LayoutView()
         parentView.addSubview(view)
         view.size(toHeight: 100)
@@ -941,7 +941,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Position
 
-    func positionAboveItem_offset20(_ parentView: SnapshotView) {
+    @objc func positionAboveItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidthAndHeight: 60)
@@ -965,7 +965,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func positionToTheRightOfItem_offset20(_ parentView: SnapshotView) {
+    @objc func positionToTheRightOfItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidthAndHeight: 60)
@@ -988,7 +988,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func positionBelowItem_offset20(_ parentView: SnapshotView) {
+    @objc func positionBelowItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidthAndHeight: 60)
@@ -1012,7 +1012,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func positionToTheLeftOfItem_offset20(_ parentView: SnapshotView) {
+    @objc func positionToTheLeftOfItem_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidthAndHeight: 60)
@@ -1035,7 +1035,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func positionViewsAbove_offset20(_ parentView: SnapshotView) {
+    @objc func positionViewsAbove_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 60)
@@ -1088,7 +1088,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func positionViewsToTheRight_offset20(_ parentView: SnapshotView) {
+    @objc func positionViewsToTheRight_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 20)
@@ -1138,7 +1138,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func positionViewsBelow_offset20(_ parentView: SnapshotView) {
+    @objc func positionViewsBelow_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 60)
@@ -1191,7 +1191,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func positionViewsToTheLeft_offset20(_ parentView: SnapshotView) {
+    @objc func positionViewsToTheLeft_offset20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.size(toWidth: 20)
@@ -1243,7 +1243,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Between
 
-    func fitBetweenTopAndBottomItems_offset20(_ parentView: SnapshotView) {
+    @objc func fitBetweenTopAndBottomItems_offset20(_ parentView: SnapshotView) {
         let topView = ItemView()
         parentView.addSubview(topView)
         topView.pinToTopEdgeOfSuperview()
@@ -1281,7 +1281,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func fitBetweenLeftAndRightItems_offset20(_ parentView: SnapshotView) {
+    @objc func fitBetweenLeftAndRightItems_offset20(_ parentView: SnapshotView) {
         let leftView = ItemView()
         parentView.addSubview(leftView)
         leftView.pinToLeftEdgeOfSuperview()
@@ -1319,7 +1319,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Fill
 
-    func fillHorizontally_separation20(_ parentView: SnapshotView) {
+    @objc func fillHorizontally_separation20(_ parentView: SnapshotView) {
         let view1 = LayoutView()
         parentView.addSubview(view1)
         view1.centerVerticallyInSuperview()
@@ -1366,7 +1366,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func fillVertically_separation20(_ parentView: SnapshotView) {
+    @objc func fillVertically_separation20(_ parentView: SnapshotView) {
         let view1 = LayoutView()
         parentView.addSubview(view1)
         view1.centerHorizontallyInSuperview()
@@ -1419,7 +1419,7 @@ class ReadmeViewController: UIViewController {
 
     // MARK: - Bound
 
-    func boundHorizontally_separation20(_ parentView: SnapshotView) {
+    @objc func boundHorizontally_separation20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.centerInSuperview()
@@ -1471,7 +1471,7 @@ class ReadmeViewController: UIViewController {
         )
     }
 
-    func boundVertically_separation20(_ parentView: SnapshotView) {
+    @objc func boundVertically_separation20(_ parentView: SnapshotView) {
         let itemView = ItemView()
         parentView.addSubview(itemView)
         itemView.centerInSuperview()
