@@ -728,7 +728,7 @@ extension UIView {
     - Returns: The constraint object.
     */
     @discardableResult
-    public func constrain(item: LayoutItem, attribute itemAttribute: NSLayoutAttribute, toItem: LayoutItem? = nil, attribute toAttribute: NSLayoutAttribute = .notAnAttribute, relatedBy: NSLayoutRelation = .equal, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    public func constrain(item: LayoutItem, attribute itemAttribute: NSLayoutConstraint.Attribute, toItem: LayoutItem? = nil, attribute toAttribute: NSLayoutConstraint.Attribute = .notAnAttribute, relatedBy: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         if let view = item as? UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -906,11 +906,11 @@ extension Array where Element: UIView {
 // MARK: - Private
 extension UIView {
 
-    fileprivate func constrain(sizeAttribute: NSLayoutAttribute, size: CGFloat = 0, relatedBy: NSLayoutRelation = .equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
+    fileprivate func constrain(sizeAttribute: NSLayoutConstraint.Attribute, size: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil) -> NSLayoutConstraint {
         return self.constrain(item: self, attribute: sizeAttribute, relatedBy: relatedBy, multiplier: 0, offset: size, priority: priority)
     }
 
-    fileprivate func constrain(edgeAttribute: NSLayoutAttribute, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    fileprivate func constrain(edgeAttribute: NSLayoutConstraint.Attribute, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         assert(self.superview != nil, "Can't create constraints without a super view")
         guard let superview = self.superview else {
             return nil
@@ -919,7 +919,7 @@ extension UIView {
         return superview.constrain(item: self, attribute: edgeAttribute, toItem: superview, attribute: edgeAttribute, offset: offset, priority: priority)
     }
 
-    fileprivate func constrain(attribute: NSLayoutAttribute, toAttribute itemAttribute: NSLayoutAttribute, ofItem item: LayoutItem, relatedBy: NSLayoutRelation = .equal, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
+    fileprivate func constrain(attribute: NSLayoutConstraint.Attribute, toAttribute itemAttribute: NSLayoutConstraint.Attribute, ofItem item: LayoutItem, relatedBy: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1, offset: CGFloat = 0, priority: UILayoutPriority? = nil) -> NSLayoutConstraint? {
         let commonSuperview: UIView? = {
             guard let view = item as? UIView else {
                 return self.superview

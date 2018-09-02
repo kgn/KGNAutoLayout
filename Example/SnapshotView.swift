@@ -33,7 +33,7 @@ class SnapshotView: UIView {
         UIGraphicsEndImageContext()
 
         let cachePath = "\(SnapshotView.cacheDirectory())/\(imageName).png"
-        let imageData = UIImagePNGRepresentation(image)
+        let imageData = image.pngData()
         _ = try? imageData?.write(to: URL(fileURLWithPath: cachePath), options: [])
 
         print("")
