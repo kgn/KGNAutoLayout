@@ -32,7 +32,7 @@ class KGNAutoLayoutTestsSize: KGNAutoLayoutTests {
             let constraint = $0.size(toMinWidth: minWidth, priority: priority)
             XCTAssertEqual(priority, constraint.priority)
         }
-        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        XCTAssertEqual(childViewFrame, CGRect(x: 0, y: 0, width: minWidth, height: size.height))
     }
     
     func testSizeToMinWidthRequied() {

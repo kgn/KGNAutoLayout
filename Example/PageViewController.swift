@@ -47,7 +47,7 @@ class PageViewController: UIViewController {
     }
 
     func addSubViewController(_ viewController: UIViewController, toView: UIView? = nil, belowSubview: UIView? = nil) {
-        self.addChildViewController(viewController)
+        self.addChild(viewController)
         var parentView = self.view
         if let view = toView {
             parentView = view
@@ -57,7 +57,7 @@ class PageViewController: UIViewController {
         } else {
             parentView?.addSubview(viewController.view)
         }
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
         viewController.view.pinToEdgesOfSuperview()
     }
 

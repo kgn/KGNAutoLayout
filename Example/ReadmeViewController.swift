@@ -82,7 +82,7 @@ class ReadmeViewController: UIViewController {
 
         var lastTitle: String!
         for snapshot in self.snapshots {
-            let values = snapshot.characters.split{$0 == "-"}.map(String.init)
+            let values = snapshot.split{$0 == "-"}.map(String.init)
             let title = values.first!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             let selector = values.last!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 

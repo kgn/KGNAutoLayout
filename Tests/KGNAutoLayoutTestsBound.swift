@@ -38,7 +38,6 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally1Seperation() {
-        let number: CGFloat = 1
         let separation: CGFloat = 10
         let priority = UILayoutPriority.defaultHigh
 
@@ -57,8 +56,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         parentView.layoutIfNeeded()
 
         var boundViewFrame = CGRect.zero
-        boundViewFrame.origin.x = -separation
-        boundViewFrame.size.width = view1Width+separation*(number+1)
+        boundViewFrame.size.width = view1Width+separation*CGFloat(boundView.subviews.count+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRect.zero
@@ -104,7 +102,6 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally2Seperation() {
-        let number: CGFloat = 2
         let separation: CGFloat = 10
         let priority = UILayoutPriority.defaultHigh
 
@@ -128,8 +125,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         parentView.layoutIfNeeded()
 
         var boundViewFrame = CGRect.zero
-        boundViewFrame.origin.x = -separation
-        boundViewFrame.size.width = view1Width+view2Width+separation*(number+1)
+        boundViewFrame.size.width = view1Width+view2Width+separation*CGFloat(boundView.subviews.count+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRect.zero
@@ -138,7 +134,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         XCTAssertEqual(view1.frame, frame1)
 
         var frame2 = CGRect.zero
-        frame2.origin.x = separation*number+view1Width
+        frame2.origin.x = separation*CGFloat(boundView.subviews.count)+view1Width
         frame2.size.width = view2Width
         XCTAssertEqual(view2.frame, frame2)
     }
@@ -190,7 +186,6 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundHorizontally3Seperation() {
-        let number: CGFloat = 3
         let separation: CGFloat = 10
         let priority = UILayoutPriority.defaultHigh
 
@@ -219,8 +214,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         parentView.layoutIfNeeded()
 
         var boundViewFrame = CGRect.zero
-        boundViewFrame.origin.x = -separation
-        boundViewFrame.size.width = view1Width+view2Width+view3Width+separation*(number+1)
+        boundViewFrame.size.width = view1Width+view2Width+view3Width+separation*CGFloat(boundView.subviews.count+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRect.zero
@@ -234,7 +228,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         XCTAssertEqual(view2.frame, frame2)
 
         var frame3 = CGRect.zero
-        frame3.origin.x = separation*number+view1Width+view2Width
+        frame3.origin.x = separation*CGFloat(boundView.subviews.count)+view1Width+view2Width
         frame3.size.width = view3Width
         XCTAssertEqual(view3.frame, frame3)
     }
@@ -266,7 +260,6 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically1Seperation() {
-        let number: CGFloat = 1
         let separation: CGFloat = 10
         let priority = UILayoutPriority.required
 
@@ -285,8 +278,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         parentView.layoutIfNeeded()
 
         var boundViewFrame = CGRect.zero
-        boundViewFrame.origin.y = -separation
-        boundViewFrame.size.height = view1Height+separation*(number+1)
+        boundViewFrame.size.height = view1Height+separation*CGFloat(boundView.subviews.count+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRect.zero
@@ -332,7 +324,6 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically2Seperation() {
-        let number: CGFloat = 2
         let separation: CGFloat = 10
         let priority = UILayoutPriority.defaultHigh
 
@@ -356,8 +347,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         parentView.layoutIfNeeded()
 
         var boundViewFrame = CGRect.zero
-        boundViewFrame.origin.y = -separation
-        boundViewFrame.size.height = view1Height+view2Height+separation*(number+1)
+        boundViewFrame.size.height = view1Height+view2Height+separation*CGFloat(boundView.subviews.count+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
 
         var frame1 = CGRect.zero
@@ -366,7 +356,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         XCTAssertEqual(view1.frame, frame1)
 
         var frame2 = CGRect.zero
-        frame2.origin.y = separation*number+view1Height
+        frame2.origin.y = separation*CGFloat(boundView.subviews.count)+view1Height
         frame2.size.height = view2Height
         XCTAssertEqual(view2.frame, frame2)
     }
@@ -418,7 +408,6 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
     }
 
     func testBoundVertically3Seperation() {
-        let number: CGFloat = 3
         let separation: CGFloat = 10
         let priority = UILayoutPriority.defaultHigh
 
@@ -447,8 +436,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         parentView.layoutIfNeeded()
         
         var boundViewFrame = CGRect.zero
-        boundViewFrame.origin.y = -separation
-        boundViewFrame.size.height = view1Height+view2Height+view3Height+separation*(number+1)
+        boundViewFrame.size.height = view1Height+view2Height+view3Height+separation*CGFloat(boundView.subviews.count+1)
         XCTAssertEqual(boundView.frame, boundViewFrame)
         
         var frame1 = CGRect.zero
@@ -462,7 +450,7 @@ class KGNAutoLayoutTestsBound: KGNAutoLayoutTests {
         XCTAssertEqual(view2.frame, frame2)
         
         var frame3 = CGRect.zero
-        frame3.origin.y = separation*number+view1Height+view2Height
+        frame3.origin.y = separation*CGFloat(boundView.subviews.count)+view1Height+view2Height
         frame3.size.height = view3Height
         XCTAssertEqual(view3.frame, frame3)
     }

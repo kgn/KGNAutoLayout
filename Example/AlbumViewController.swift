@@ -67,7 +67,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.identifier())
-        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(statusBarHeight+self.navbarHeight, 0, 0, 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: statusBarHeight+self.navbarHeight, left: 0, bottom: 0, right: 0)
         tableView.separatorColor = UIColor.white.withAlphaComponent(0.1)
         tableView.backgroundColor = .clear
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: screenWidth+statusBarHeight+self.navbarHeight))
@@ -122,7 +122,7 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
         // Becuase we're making a totally custom "nav bar" handle the status bar frame change
         NotificationCenter.default.addObserver(
             self, selector: .statusBarFrameDidChange,
-            name: .UIApplicationDidChangeStatusBarFrame,
+            name: UIApplication.didChangeStatusBarFrameNotification,
             object: nil
         )
     }
@@ -134,9 +134,9 @@ class AlbumViewController: UIViewController, UITableViewDataSource, UITableViewD
     @objc func statusBarFrameDidChange(_ notification: Notification) {
         let screenWidth = UIScreen.main.bounds.width
         let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        if let frame = (notification as NSNotification).userInfo?[UIApplicationStatusBarFrameUserInfoKey] as? CGRect {
+        if let frame = (notification as NSNotification).userInfo?[UIApplication.statusBarFrameUserInfoKey] as? CGRect {
             let height = frame.height
-            self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(height+self.navbarHeight, 0, 0, 0)
+            self.tableView.scrollIndicatorInsets = UIEdgeInsets.init(top: height+self.navbarHeight, left: 0, bottom: 0, right: 0)
             self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: screenWidth+statusBarHeight+self.navbarHeight))
         }
     }

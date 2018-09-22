@@ -20,9 +20,9 @@ class SpringView: UIView {
 
     override var intrinsicContentSize: CGSize {
         if direction == .horizontal {
-            return CGSize(width: UIViewNoIntrinsicMetric, height: 20)
+            return CGSize(width: UIView.noIntrinsicMetric, height: 20)
         } else {
-            return CGSize(width: 20, height: UIViewNoIntrinsicMetric)
+            return CGSize(width: 20, height: UIView.noIntrinsicMetric)
         }
     }
 
