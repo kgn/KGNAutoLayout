@@ -1,12 +1,12 @@
 language: objective-c
-osx_image: xcode10
+osx_image: xcode11
 
 env:
   global:
     - PROJECT=KGNAutoLayout
   matrix:
-    - DESTINATION="OS=12.0,name=iPhone 6s Plus" SCHEME=$PROJECT-iOS SDK=iphonesimulator TEST=test
-    - DESTINATION="OS=12.0,name=Apple TV 1080p" SCHEME=$PROJECT-tvOS SDK=appletvsimulator TEST=test
+    - DESTINATION="OS=13.0,name=iPhone 8" SCHEME=$PROJECT-iOS SDK=iphonesimulator TEST=test
+    - DESTINATION="OS=13.0,name=Apple TV 1080p" SCHEME=$PROJECT-tvOS SDK=appletvsimulator TEST=test
 
 script:
   - xcodebuild $TEST -project $PROJECT.xcodeproj -scheme $SCHEME -sdk $SDK -destination "$DESTINATION"

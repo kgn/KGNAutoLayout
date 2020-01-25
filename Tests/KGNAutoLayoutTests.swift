@@ -10,8 +10,8 @@ import XCTest
 @testable import KGNAutoLayout
 
 class IntrinsicView: UIView {
-    var width: CGFloat = UIViewNoIntrinsicMetric
-    var height: CGFloat = UIViewNoIntrinsicMetric
+    var width: CGFloat = UIView.noIntrinsicMetric
+    var height: CGFloat = UIView.noIntrinsicMetric
     override var intrinsicContentSize: CGSize {
         return CGSize(width: self.width, height: self.height)
     }
@@ -34,6 +34,6 @@ class KGNAutoLayoutTests: XCTestCase {
         view.width = 10
         view.height = 20
         XCTAssertEqual(view.intrinsicContentSize, CGSize(width: 10, height: 20))
-        XCTAssertEqual(IntrinsicView().intrinsicContentSize, CGSize(width: UIViewNoIntrinsicMetric, height: UIViewNoIntrinsicMetric))
+        XCTAssertEqual(IntrinsicView().intrinsicContentSize, CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric))
     }
 }
